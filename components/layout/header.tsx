@@ -49,17 +49,16 @@ const menuItems = [
   {
     label: "Investigación",
     featured: {
-        title: "Biblioteca e Investigación",
-        desc: "Accede a nuestra biblioteca virtual, producción científica y sustentaciones.",
-        link: "/biblioteca-virtual",
-        image: "/images/logo-posgrado-educacion.webp"
+      title: "Biblioteca e Investigación",
+      desc: "Accede a nuestra biblioteca virtual, producción científica y sustentaciones.",
+      link: "/biblioteca-virtual",
+      image: "/images/logo-posgrado-educacion.webp"
     },
     cols: [
       {
         title: "Recursos y Normativa",
         links: [
-          { label: "Biblioteca Virtual", href: "/biblioteca-virtual" },
-          { label: "Normativa de Grados", href: "/documentos-normativos" }
+          { label: "Biblioteca Virtual", href: "/biblioteca-virtual" }
         ]
       },
       {
@@ -67,22 +66,20 @@ const menuItems = [
         links: [
           { label: "Memoria Visual y Sustentaciones", href: "/galeria-fotos" }
         ]
-      },
-      {
-        title: "Comunidad Académica",
-        links: [
-          { label: "Plana Docente", href: "/posgrado/plana-docente" }
-        ]
       }
     ]
-  },
+  }
+
+  // Noticias queda comentado temporalmente.
+  // Luego se trabajará la lógica de avisos/noticias sin perder las rutas ni el admin.
+  /*
   {
     label: "Actualidad",
     featured: {
-        title: "Noticias y Eventos",
-        desc: "Entérate de las últimas novedades, comunicados y eventos de la facultad.",
-        link: "/noticias",
-        image: "/images/logo-posgrado-educacion.webp"
+      title: "Noticias y Eventos",
+      desc: "Entérate de las últimas novedades, comunicados y eventos de la facultad.",
+      link: "/noticias",
+      image: "/images/logo-posgrado-educacion.webp"
     },
     cols: [
       {
@@ -99,23 +96,12 @@ const menuItems = [
       }
     ]
   },
-  {
-    label: "Transparencia",
-    featured: {
-        title: "Documentos y Normativas",
-        desc: "Acceso a la información pública, directivas y normativa institucional.",
-        link: "/documentos-normativos",
-        image: "/images/logo-posgrado-educacion.webp"
-    },
-    cols: [
-      {
-        title: "Gestión",
-        links: [
-          { label: "Documentos Normativos", href: "/documentos-normativos" }
-        ]
-      }
-    ]
-  }
+  */
+];
+
+const mainLinks = [
+  { label: "Plana Docente", href: "/posgrado/plana-docente" },
+  { label: "Trámites", href: "/documentos-normativos" }
 ];
 
 export default function Header() {
@@ -214,18 +200,6 @@ export default function Header() {
 
           {/* DESKTOP NAVIGATION */}
           <nav className="hidden lg:flex h-full items-center gap-1">
-            
-            <Link 
-              href="/noticias" 
-              className={cn(
-                "relative flex items-center gap-1.5 px-4 py-2 text-sm font-bold transition-all rounded-lg",
-                pathname === "/noticias" ? "text-brand-600 bg-brand-50" : "text-muted-foreground hover:text-brand-600 hover:bg-brand-50"
-              )}
-            >
-              Noticias
-              {pathname === "/noticias" && <motion.div layoutId="activeNav" className="absolute bottom-0 left-4 right-4 h-0.5 bg-uncp-gold rounded-full" />}
-            </Link>
-
             {menuItems.map((item) => {
               const isActive = item.cols.some(col => col.links.some(link => pathname === link.href));
               
@@ -299,6 +273,34 @@ export default function Header() {
                 </div>
               );
             })}
+
+            {mainLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={cn(
+                  "relative flex items-center gap-1.5 px-4 py-2 text-sm font-bold transition-all rounded-lg",
+                  pathname === link.href ? "text-brand-600 bg-brand-50" : "text-muted-foreground hover:text-brand-600 hover:bg-brand-50"
+                )}
+              >
+                {link.label}
+                {pathname === link.href && <motion.div layoutId="activeNav" className="absolute bottom-0 left-4 right-4 h-0.5 bg-uncp-gold rounded-full" />}
+              </Link>
+            ))}
+
+            {/* Noticias queda comentado temporalmente del menú principal */}
+            {/*
+            <Link
+              href="/noticias"
+              className={cn(
+                "relative flex items-center gap-1.5 px-4 py-2 text-sm font-bold transition-all rounded-lg",
+                pathname === "/noticias" ? "text-brand-600 bg-brand-50" : "text-muted-foreground hover:text-brand-600 hover:bg-brand-50"
+              )}
+            >
+              Noticias
+              {pathname === "/noticias" && <motion.div layoutId="activeNav" className="absolute bottom-0 left-4 right-4 h-0.5 bg-uncp-gold rounded-full" />}
+            </Link>
+            */}
           </nav>
 
           {/* ACTIONS & MOBILE TOGGLE */}
@@ -339,13 +341,6 @@ export default function Header() {
             )}
           >
             <div className="flex-1 space-y-6 mt-6">
-              <Link 
-                href="/noticias" 
-                className="flex items-center justify-between text-lg font-bold text-brand-950 py-3 border-b border-border"
-              >
-                Noticias <ChevronRight className="h-5 w-5 text-brand-300" />
-              </Link>
-
               {menuItems.map((item) => (
                 <div key={item.label} className="border-b border-border pb-2">
                   <button 
@@ -405,6 +400,26 @@ export default function Header() {
                   </div>
                 </div>
               ))}
+
+              {mainLinks.map((link) => (
+                <Link 
+                  key={link.href}
+                  href={link.href}
+                  className="flex items-center justify-between text-lg font-bold text-brand-950 py-3 border-b border-border"
+                >
+                  {link.label} <ChevronRight className="h-5 w-5 text-brand-300" />
+                </Link>
+              ))}
+
+              {/* Noticias queda comentado temporalmente del menú móvil */}
+              {/*
+              <Link 
+                href="/noticias" 
+                className="flex items-center justify-between text-lg font-bold text-brand-950 py-3 border-b border-border"
+              >
+                Noticias <ChevronRight className="h-5 w-5 text-brand-300" />
+              </Link>
+              */}
             </div>
 
             {/* Mobile Footer Actions */}
