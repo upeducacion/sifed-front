@@ -9,30 +9,12 @@ import FAQSection from "@/components/home/faq-section";
 import QuickAccessSection from "@/components/home/quick-access-section";
 import SocialHubSection from "@/components/home/social-hub-section";
 import NewsPopupModal from "@/components/home/news-popup-modal";
-import { NoticiaService } from "@/lib/services/noticia-service";
-import { Noticia } from "@/types/noticia";
 import { MOCK_NOTICIAS } from "@/data/mock-noticias";
 
 export default async function Home() {
-  let popupNoticias: Noticia[] = [];
-
-  try {
-    const response = await NoticiaService.getAllPublic(1);
-    const noticias = Array.isArray(response) ? response : (response?.data || []);
-
-    const noticiasDestacadas = noticias.filter(
-      (noticia) => noticia.estado === "publicado" && noticia.destacada
-    );
-
-    popupNoticias = [...noticiasDestacadas, ...MOCK_NOTICIAS];
-  } catch (error) {
-    console.error("Failed to fetch popup news on home:", error);
-    popupNoticias = MOCK_NOTICIAS;
-  }
-
   return (
     <>
-      <NewsPopupModal noticias={popupNoticias} />
+      <NewsPopupModal noticias={MOCK_NOTICIAS} />
 
       <HeroSection />
 
