@@ -24,7 +24,7 @@ export default async function Home() {
       (noticia) => noticia.estado === "publicado" && noticia.destacada
     );
 
-    popupNoticias = [...noticiasDestacadas, ...MOCK_NOTICIAS];
+    popupNoticias = [...MOCK_NOTICIAS, ...noticiasDestacadas];
   } catch (error) {
     console.error("Failed to fetch popup news on home:", error);
 
