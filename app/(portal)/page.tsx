@@ -33,10 +33,16 @@ export default async function Home() {
 
   return (
     <>
+    
       <NewsPopupModal noticias={popupNoticias} />
 
       <HeroSection />
 
+      
+      
+      {/* SECCION NOTICIAS */}
+      <NewsCollage />
+      
       {/* VITRINA INSTITUCIONAL */}
       <InstitutionalShowcase />
 
@@ -46,7 +52,7 @@ export default async function Home() {
       {/* COMUNIDAD Y REDES */}
       <SocialHubSection />
       <FAQSection />
-      <NewsCollage />
+      
       <EcosistemaSection />
       <ProgramSelectorSection />
       <QuickAccessSection />
