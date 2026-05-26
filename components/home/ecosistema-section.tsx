@@ -6,12 +6,14 @@ import { Newspaper, MonitorPlay, ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 import { EXTERNAL_LINKS } from "@/lib/constants";
 
+const EASE: [number, number, number, number] = [0.16, 1, 0.3, 1];
+
 const cardVariants = {
   hidden: { opacity: 0, y: 50 },
   visible: (i: number) => ({
     opacity: 1,
     y: 0,
-    transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: i * 0.15 },
+    transition: { duration: 0.7, ease: EASE, delay: i * 0.15 },
   }),
 };
 
@@ -25,7 +27,7 @@ export default function EcosistemaSection() {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 0.6, ease: EASE }}
         >
           <span className="text-[10px] font-black uppercase tracking-[0.3em] text-uncp-gold mb-2 block">Ecosistema Digital</span>
           <h2 className="text-3xl md:text-4xl font-serif font-black text-brand-950 leading-tight">Plataformas Académicas</h2>
@@ -41,7 +43,7 @@ export default function EcosistemaSection() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-60px" }}
-            whileHover={{ y: -12, scale: 1.02, transition: { duration: 0.35, ease: [0.16, 1, 0.3, 1] } }}
+            whileHover={{ y: -12, scale: 1.02, transition: { duration: 0.35, ease: EASE } }}
             className="group relative flex flex-col rounded-[2rem] border-2 border-transparent bg-background p-8 shadow-sm cursor-pointer overflow-hidden
               transition-all duration-500
               hover:shadow-[0_20px_60px_rgba(59,130,246,0.25)]"
@@ -102,7 +104,7 @@ export default function EcosistemaSection() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-60px" }}
-            whileHover={{ y: -12, scale: 1.02, transition: { duration: 0.35, ease: [0.16, 1, 0.3, 1] } }}
+            whileHover={{ y: -12, scale: 1.02, transition: { duration: 0.35, ease: EASE } }}
             className="group relative flex flex-col rounded-[2rem] p-8 text-white cursor-pointer overflow-hidden
               transition-shadow duration-500
               hover:shadow-[0_28px_70px_rgba(30,49,82,0.7),0_0_0_1px_rgba(180,145,60,0.4)]"
