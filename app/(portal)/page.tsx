@@ -38,8 +38,6 @@ export default async function Home() {
 
       <HeroSection />
 
-      
-      
       {/* SECCION NOTICIAS */}
       <NewsCollage />
       
