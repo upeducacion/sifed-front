@@ -1,0 +1,82 @@
+@import "tailwindcss";
+
+@theme {
+  /* Configuración de Fuentes (vinculadas a Next/Font) */
+  --font-sans: var(--font-sans);
+  --font-serif: var(--font-serif);
+
+  /* --- PALETA DE COLORES SIFED --- */
+  
+  /* Azules Institucionales (Brand) */
+  --color-brand-50: #dee8f1;
+  --color-brand-300: #97cadb;
+  --color-brand-600: #018abe;
+  --color-brand-800: #004481;
+  --color-brand-950: #001b48;
+
+  /* Identidad UNCP */
+  --color-uncp-green: #006838;
+  --color-uncp-gold: #F5A623;
+
+  /* --- COLORES SEMÁNTICOS (Roles) --- */
+  
+  /* Base */
+  --color-background: #ffffff;
+  --color-foreground: var(--color-brand-950);
+
+  /* Componentes UI */
+  --color-card: #ffffff;
+  --color-card-foreground: var(--color-brand-950);
+  
+  --color-popover: #ffffff;
+  --color-popover-foreground: var(--color-brand-950);
+
+  /* Acciones Principales */
+  --color-primary: var(--color-brand-600);
+  --color-primary-foreground: #ffffff;
+
+  /* Acciones Secundarias */
+  --color-secondary: var(--color-brand-50);
+  --color-secondary-foreground: var(--color-brand-800);
+
+  /* Estados y Elementos Pasivos */
+  --color-muted: #f1f5f9;
+  --color-muted-foreground: #64748b;
+  
+  --color-accent: var(--color-brand-50);
+  --color-accent-foreground: var(--color-brand-600);
+
+  --color-destructive: #ef4444;
+  --color-destructive-foreground: #ffffff;
+
+  /* Bordes e Inputs */
+  --color-border: #e2e8f0;
+  --color-input: #e2e8f0;
+  --color-ring: var(--color-brand-600);
+
+  /* Radios de borde */
+  --radius: 0.75rem;
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
+}
+
+/* Estilos Base */
+@layer base {
+  *, ::after, ::before {
+    border-color: var(--color-border);
+  }
+  
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-serif);
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    color: var(--color-brand-950);
+  }
+}
