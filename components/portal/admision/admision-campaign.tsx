@@ -20,22 +20,24 @@ import {
  *  - el botón flotante y el modal comparten el mismo estado y el mismo componente.
  *
  * Mapa de apilamiento vigente en el portal (revisado antes de fijar estos valores):
- *   header sticky ............... z-50
- *   menú móvil / velo del mega menú .. z-40 / z-30
+ *   secciones de contenido .......... hasta z-30
+ *   sub-navs sticky de programa ..... z-40
+ *   header sticky ................... z-50 (crea contexto; su mega menú y su
+ *                                     menú móvil van en z-40 dentro de él)
  *   FloatingActions (contacto) ...... z-[100]
  *   NewsPopupModal (avisos) ......... z-[9999]
- * La campaña debe quedar por encima del popup de noticias sin modificarlo, y su
- * botón por encima de las acciones flotantes pero por debajo de cualquier modal.
+ * El modal debe quedar por encima del popup de noticias sin modificarlo.
+ * El botón vive en la esquina superior derecha, así que se mantiene por DEBAJO
+ * del header: de lo contrario flotaría sobre el mega menú desplegado y sobre el
+ * menú móvil a pantalla completa. z-40 lo deja sobre todo el contenido y, al
+ * renderizarse después en el DOM, también sobre los sub-navs sticky.
  */
-const Z_BOTON_FLOTANTE = "z-[101]";
+const Z_BOTON_FLOTANTE = "z-40";
 const Z_MODAL = "z-[10000]";
 
-/**
- * El botón se ancla arriba de la pila de FloatingActions (`bottom-8`/`lg:bottom-10`,
- * hasta 120px/128px de alto cuando aparece "volver arriba"), dejando ~16px de aire.
- */
+/** Justo debajo del header, que mide 80px fijos en todos los breakpoints. */
 const POSICION_BOTON =
-  "bottom-[calc(10.5rem_+_env(safe-area-inset-bottom))] lg:bottom-[calc(11.5rem_+_env(safe-area-inset-bottom))]";
+  "top-[calc(6rem_+_env(safe-area-inset-top))] right-4 sm:right-6 lg:right-10";
 
 const SELECTOR_FOCUSABLES =
   'button:not([disabled]), a[href], [tabindex]:not([tabindex="-1"])';
@@ -160,27 +162,78 @@ export default function AdmisionCampaign() {
       </noscript>
 
       {/* ── BOTÓN FLOTANTE GLOBAL ─────────────────────────────── */}
-      <button
-        ref={triggerRef}
-        type="button"
-        onClick={abrir}
-        aria-haspopup="dialog"
-        aria-expanded={isOpen}
-        className={cn(
-          "fixed right-6 lg:right-10",
-          POSICION_BOTON,
-          Z_BOTON_FLOTANTE,
-          "flex items-center gap-2.5 rounded-2xl bg-brand-950 py-3 pl-3.5 pr-4",
-          "shadow-[0_20px_50px_rgba(0,0,0,0.3)] transition-all duration-500",
-          "hover:-translate-y-1 hover:brightness-125 active:scale-95",
-          "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-uncp-gold"
-        )}
-      >
-        <GraduationCap aria-hidden="true" className="h-5 w-5 shrink-0 text-uncp-gold" />
-        <span className="whitespace-nowrap text-[11px] font-black tracking-wide text-white lg:text-xs">
-          {ADMISION_2026_II.etiqueta}
-        </span>
-      </button>
+      {/* Envoltorio fijo: el halo y el anillo viven fuera del botón para no
+          recortarse con su overflow-hidden (necesario para el destello). */}
+      <div className={cn("fixed", POSICION_BOTON, Z_BOTON_FLOTANTE)}>
+        {/* Halo dorado latiendo */}
+        <motion.span
+          aria-hidden="true"
+          className="pointer-events-none absolute -inset-3 rounded-[2.25rem] bg-uncp-gold/40 blur-xl"
+          animate={{ opacity: [0.3, 0.7, 0.3], scale: [0.94, 1.06, 0.94] }}
+          transition={{ duration: 2.8, repeat: Infinity, ease: "easeInOut" }}
+        />
+        {/* Anillo expansivo */}
+        <motion.span
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 rounded-[1.5rem] border-2 border-uncp-gold"
+          animate={{ opacity: [0.55, 0, 0.55], scale: [1, 1.16, 1] }}
+          transition={{ duration: 2.8, repeat: Infinity, ease: "easeOut" }}
+        />
+
+        <button
+          ref={triggerRef}
+          type="button"
+          onClick={abrir}
+          aria-haspopup="dialog"
+          aria-expanded={isOpen}
+          // El nombre accesible se fija al texto exacto de la campaña; el
+          // subtítulo es un refuerzo visual y se oculta a lectores de pantalla.
+          aria-label={ADMISION_2026_II.etiqueta}
+          className={cn(
+            "group relative flex items-center gap-3 overflow-hidden rounded-[1.5rem]",
+            "py-2.5 pl-2.5 pr-4 lg:py-3 lg:pl-3 lg:pr-5",
+            "bg-gradient-to-br from-[#ffc861] via-uncp-gold to-[#e0900f]",
+            "shadow-[0_18px_45px_-8px_rgba(245,166,35,0.55),0_10px_25px_rgba(0,0,0,0.25)]",
+            "ring-1 ring-white/30 transition-all duration-300",
+            "hover:-translate-y-1 hover:shadow-[0_24px_60px_-6px_rgba(245,166,35,0.7),0_12px_30px_rgba(0,0,0,0.3)]",
+            "active:scale-95",
+            "focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-uncp-gold"
+          )}
+        >
+          {/* Destello que barre el botón */}
+          <motion.span
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-y-0 left-0 w-1/3 -skew-x-12 bg-white/40 blur-[6px]"
+            animate={{ x: ["-200%", "500%"] }}
+            transition={{
+              duration: 1.5,
+              repeat: Infinity,
+              repeatDelay: 2.6,
+              ease: "easeInOut",
+            }}
+          />
+
+          {/* Birrete en disco oscuro para máximo contraste */}
+          <span className="relative flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-brand-950 shadow-inner lg:h-12 lg:w-12">
+            <GraduationCap
+              aria-hidden="true"
+              className="h-5 w-5 text-uncp-gold transition-transform duration-300 group-hover:scale-110 lg:h-6 lg:w-6"
+            />
+          </span>
+
+          <span className="relative flex flex-col items-start leading-none">
+            <span className="whitespace-nowrap text-[13px] font-black tracking-tight text-brand-950 lg:text-[15px]">
+              {ADMISION_2026_II.etiqueta}
+            </span>
+            <span
+              aria-hidden="true"
+              className="mt-1 whitespace-nowrap text-[8px] font-black uppercase tracking-[0.16em] text-brand-950/70 lg:text-[9px]"
+            >
+              Descarga el brochure
+            </span>
+          </span>
+        </button>
+      </div>
 
       {/* ── MODAL DE CAMPAÑA ──────────────────────────────────── */}
       <AnimatePresence>
