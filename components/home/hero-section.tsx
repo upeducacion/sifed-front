@@ -6,7 +6,7 @@ import HeroCarousel from "./hero-carousel";
 const staticSlides = [
   {
     id: 1,
-    src: "/banner/maestria01.jpg",
+    src: "/banner/hero-gestion.webp",
     alt: "Estudiantes de la Maestría en Gestión Educativa",
     badge: "Maestría",
     preTitle: "MAESTRÍA EN MENCIÓN EN",
@@ -24,7 +24,7 @@ const staticSlides = [
   },
   {
     id: 2,
-    src: "/banner/maestria02.jpg",
+    src: "/banner/hero-superior.webp",
     alt: "Estudiantes de la Maestría en Educación Superior",
     badge: "Maestría",
     preTitle: "MAESTRÍA EN MENCIÓN EN",
@@ -42,7 +42,7 @@ const staticSlides = [
   },
   {
     id: 3,
-    src: "/banner/maestria03.jpg",
+    src: "/banner/hero-psicologia.webp",
     alt: "Estudiantes de la Maestría en Psicología Educativa",
     badge: "Maestría",
     preTitle: "MAESTRÍA EN MENCIÓN EN",
@@ -60,7 +60,7 @@ const staticSlides = [
   },
   {
     id: 4,
-    src: "/banner/maestria04.jpg",
+    src: "/banner/hero-ensenanza.webp",
     alt: "Estudiantes de la Maestría en Enseñanza Estratégica",
     badge: "Maestría",
     preTitle: "MAESTRÍA EN MENCIÓN EN",
@@ -78,7 +78,7 @@ const staticSlides = [
   },
   {
     id: 5,
-    src: "/banner/doctorado01.jpg",
+    src: "/banner/hero-doctorado.webp",
     alt: "Doctorado en Ciencias de la Educación",
     badge: "Doctorado",
     preTitle: "Doctorado · UNCP",
