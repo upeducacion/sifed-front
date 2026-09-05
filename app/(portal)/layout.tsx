@@ -2,7 +2,6 @@ import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
 import SdlFooter from "@/components/layout/sdl-footer";
 import FloatingActions from "@/components/ui/floating-actions";
-import AdmisionCampaign from "@/components/portal/admision/admision-campaign";
 import { unidadPosgradoApi } from "@/lib/api/unidad-posgrado";
 
 export default async function PortalLayout({
@@ -35,9 +34,6 @@ export default async function PortalLayout({
       
       {/* ACCIONES FLOTANTES (CONTACTO Y SCROLL) */}
       <FloatingActions whatsappNumber={whatsappNumber} />
-
-      {/* CAMPAÑA ADMISIÓN 2026-II (modal prioritario + botón flotante) */}
-      <AdmisionCampaign />
     </div>
   );
 }
