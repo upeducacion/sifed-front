@@ -46,7 +46,7 @@ export default function EcosistemaSection() {
             whileHover={{ y: -4, transition: { duration: 0.24, ease: EASE } }}
             className="group relative flex flex-col rounded-lg border-2 border-transparent bg-background p-8 shadow-sm cursor-pointer overflow-hidden
               transition-shadow duration-300
-              hover:shadow-[0_20px_60px_rgba(59,130,246,0.25)]"
+              hover:shadow-float"
             style={{ border: "2px solid transparent", backgroundClip: "padding-box" }}
           >
             {/* Borde degradado al hover */}
@@ -107,7 +107,7 @@ export default function EcosistemaSection() {
             whileHover={{ y: -4, transition: { duration: 0.24, ease: EASE } }}
             className="group relative flex flex-col rounded-lg p-8 text-white cursor-pointer overflow-hidden
               transition-shadow duration-300
-              hover:shadow-[0_28px_70px_rgba(30,49,82,0.7),0_0_0_1px_rgba(180,145,60,0.4)]"
+              hover:shadow-float"
             style={{ background: "linear-gradient(135deg, #1e3152 0%, #0d1623 60%, #050810 100%)" }}
           >
             {/* Glow base */}

@@ -75,8 +75,8 @@ export default function DocenteContent({ initialData }: DocenteContentProps) {
   return (
     <section className="w-full py-16 px-4 md:px-8 bg-background">
       <div className="max-w-7xl mx-auto">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-4 mb-10 p-4 bg-white border border-border rounded-lg shadow-sm">
-          <div className="flex-1 relative w-full md:w-auto">
+        <div className="container-query-name cq-toolbar flex flex-col md:flex-row items-center justify-between gap-4 mb-10 p-4 bg-white border border-border rounded-lg shadow-sm">
+          <div className="cq-toolbar-control flex-1 relative w-full md:w-auto">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
             <input
               type="text"
@@ -87,7 +87,7 @@ export default function DocenteContent({ initialData }: DocenteContentProps) {
             />
           </div>
 
-          <div className="flex items-center gap-4 w-full md:w-auto">
+          <div className="cq-toolbar-controls flex items-center gap-4 w-full md:w-auto">
             <div className="flex items-center gap-2 text-muted-foreground">
               <LayoutGrid className="w-5 h-5 text-brand-500" />
               <span className="text-sm font-medium">

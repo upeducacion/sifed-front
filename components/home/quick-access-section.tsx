@@ -82,12 +82,12 @@ export default function QuickAccessSection() {
 
   return (
     <section className="py-16 bg-slate-50/50 border-b border-border overflow-hidden" aria-label="Enlaces de acceso rápido">
-      <div className="container mx-auto px-6 lg:px-12 max-w-7xl">
+      <div className="container-query-name container mx-auto max-w-7xl px-4 sm:px-6 lg:px-12">
         
-        <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-10">
+        <div className="mb-8 flex flex-col gap-5 sm:mb-10 md:flex-row md:items-center md:justify-between">
           <div>
             <span className="text-[10px] font-black uppercase tracking-[0.3em] text-amber-700 mb-2 block">Gestión Académica</span>
-            <h2 className="text-3xl md:text-4xl font-serif font-black text-brand-950 leading-tight">
+            <h2 className="font-serif text-3xl font-black leading-tight text-brand-950 md:text-4xl">
               Accesos Directos
             </h2>
           </div>
@@ -119,7 +119,7 @@ export default function QuickAccessSection() {
                   target={item.external ? "_blank" : undefined}
                   rel={item.external ? "noopener noreferrer" : undefined}
                   aria-label={`Acceder a ${item.title}`}
-                  className="group relative p-6 rounded-lg border-2 border-slate-200 bg-white hover:border-brand-600 hover:ring-4 hover:ring-brand-600/5 hover:shadow-[0_18px_42px_-14px_rgba(0,0,0,0.12)] hover:-translate-y-1 transition-all duration-200 flex flex-col justify-between h-full min-h-[220px]"
+                  className="group relative p-6 rounded-lg border-2 border-slate-200 bg-white hover:border-brand-600 hover:ring-4 hover:ring-brand-600/5 hover:shadow-float hover:-translate-y-1 transition-all duration-200 flex flex-col justify-between h-full min-h-[220px]"
                 >
                   <div className="relative z-10">
                     <div className={cn(

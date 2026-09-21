@@ -36,7 +36,7 @@ export default function ServiceCard({
       className={cn(
         "group relative flex min-h-[200px] h-full flex-col rounded-lg p-6 transition-all duration-300",
         "bg-white border border-brand-100/60",
-        "shadow-[0_12px_32px_-18px_rgba(0,27,72,0.22)] hover:shadow-[0_20px_44px_-24px_rgba(0,27,72,0.25)]",
+        "shadow-soft hover:shadow-float",
         "hover:border-brand-200",
         variant === "special" && "bg-brand-50/30 border-dashed border-brand-200",
         isLocked && "cursor-default opacity-90",

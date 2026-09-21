@@ -30,13 +30,13 @@ export default function CategorySection({
 
   return (
     <section className={cn(
-      "min-h-screen w-full flex flex-col lg:flex-row relative border-b",
+      "relative flex min-h-screen w-full flex-col border-b lg:flex-row",
       colorScheme.bg,
       colorScheme.border
     )}>
       {/* COLUMNA DE IDENTIDAD (STICKY) */}
       <div className={cn(
-        "w-full lg:w-[35%] xl:w-[30%] lg:h-screen lg:sticky lg:top-0 p-8 lg:p-16 flex flex-col justify-between overflow-hidden",
+        "flex w-full flex-col justify-between overflow-hidden p-6 sm:p-8 lg:sticky lg:top-0 lg:h-screen lg:w-[35%] lg:p-16 xl:w-[30%]",
         isReversed ? "lg:order-last border-l" : "border-r",
         colorScheme.border
       )}>
@@ -50,7 +50,7 @@ export default function CategorySection({
             <span className={cn("text-[10px] font-black uppercase tracking-[0.4em]", colorScheme.accent)}>
               Sección Editorial
             </span>
-            <h2 className="text-5xl xl:text-7xl font-serif font-black text-brand-950 leading-none tracking-tighter">
+            <h2 className="font-serif text-4xl font-black leading-none tracking-tighter text-brand-950 sm:text-5xl xl:text-7xl">
               {titulo}
             </h2>
           </div>
@@ -69,7 +69,7 @@ export default function CategorySection({
       </div>
 
       {/* COLUMNA DE CONTENIDO (SCROLLABLE CON SNAP) */}
-      <div className="flex-1 snap-y snap-mandatory overflow-y-auto">
+      <div className="min-w-0 flex-1 snap-y snap-mandatory overflow-y-auto">
         <div className="flex flex-col">
           {noticias.map((noticia) => (
             <div key={noticia.id} className="snap-start snap-always">

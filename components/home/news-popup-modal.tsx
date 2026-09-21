@@ -110,11 +110,11 @@ export default function NewsPopupModal({ noticias }: NewsPopupModalProps) {
         onClick={handleClose}
       >
         <motion.div
-          className="relative w-full max-w-[620px] rounded-lg shadow-[0_40px_100px_rgba(0,0,0,0.7)]"
+          className="relative w-full max-w-[620px] rounded-lg shadow-float"
           style={{
             background: "linear-gradient(160deg, #0d1623 0%, #0a1018 100%)",
             border: "1px solid rgba(180,145,60,0.25)",
-            boxShadow: "0 40px 100px rgba(0,0,0,0.7), 0 0 0 1px rgba(180,145,60,0.12), inset 0 1px 0 rgba(180,145,60,0.08)",
+            boxShadow: "var(--shadow-float)",
           }}
           initial={{ opacity: 0, y: 52, scale: 0.92 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}

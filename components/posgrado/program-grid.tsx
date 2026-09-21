@@ -33,21 +33,21 @@ export default function ProgramGrid({ programs, type }: ProgramGridProps) {
 
   return (
     <section className="py-24 bg-white">
-      <div className="container mx-auto px-6 lg:px-12 max-w-7xl">
+      <div className="container-query-name mx-auto max-w-7xl px-4 sm:px-6 lg:px-12">
 
         {/* Título de Sección */}
-        <div className="text-center mb-16">
+        <div className="mb-10 text-center sm:mb-16">
           <span className="text-xs font-black uppercase tracking-[0.3em] text-brand-600 mb-4 block">Nuestros Programas</span>
-          <h2 className="text-4xl md:text-5xl font-serif font-black text-brand-950 mb-6 uppercase">
+          <h2 className="mb-4 font-serif text-3xl font-black uppercase text-brand-950 sm:mb-6 sm:text-4xl md:text-5xl">
             ELIGE TU {getTitle()}
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="mx-auto max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
             {getDescription()}
           </p>
         </div>
 
         {/* Grid de Tarjetas */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 gap-5 sm:gap-6 md:grid-cols-2 lg:grid-cols-3">
           {programs.map((program) => (
             <ProgramCard key={program.slug} program={program} />
           ))}

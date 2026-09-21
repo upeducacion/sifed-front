@@ -388,7 +388,7 @@ export default function TramitesAdminPage() {
           </div>
         </header>
 
-        <section className={cn("grid min-h-[620px] overflow-hidden rounded-lg border bg-white shadow-[0_18px_50px_rgba(15,35,65,0.08)] transition-all duration-300 lg:grid-cols-[280px_minmax(0,1fr)]", draggedDocumentId ? "border-uncp-gold ring-4 ring-uncp-gold/10" : "border-slate-200")}>
+        <section className={cn("grid min-h-[620px] overflow-hidden rounded-lg border bg-white shadow-float transition-all duration-300 lg:grid-cols-[280px_minmax(0,1fr)]", draggedDocumentId ? "border-uncp-gold ring-4 ring-uncp-gold/10" : "border-slate-200")}>
           <aside className={cn("border-b border-slate-200 p-4 transition-colors duration-300 lg:border-b-0 lg:border-r", draggedDocumentId ? "bg-brand-50/80" : "bg-[#fbfcfe]")}>
             <div className="mb-5 flex items-center justify-between px-2"><span className="text-[10px] font-black uppercase tracking-[0.2em] text-muted-foreground">Ubicaciones</span><button type="button" onClick={() => setModal("folder")} className="rounded-lg p-1.5 text-brand-500 hover:bg-brand-50" title="Nueva carpeta"><FolderPlus className="h-4 w-4" /></button></div>
             {draggedDocumentId !== null && <div className="mb-3 rounded-xl border border-dashed border-uncp-gold bg-uncp-gold/10 px-3 py-2 text-xs font-bold text-brand-900">Arrastra sobre una carpeta para mover el documento</div>}

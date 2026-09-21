@@ -60,8 +60,8 @@ export default function BibliotecaContent({ initialData }: BibliotecaContentProp
 
       {/* Barra de filtros */}
       <section className="max-w-7xl mx-auto px-6 -mt-10 relative z-30">
-        <div className="bg-white/90 backdrop-blur-xl shadow-2xl rounded-lg border border-brand-100 p-2 flex flex-col lg:flex-row items-center gap-4">
-          <div className="flex items-center gap-1 p-1 bg-brand-50 rounded-lg overflow-x-auto no-scrollbar max-w-full">
+        <div className="container-query-name cq-toolbar bg-white/90 backdrop-blur-xl shadow-2xl rounded-lg border border-brand-100 p-2 flex flex-col lg:flex-row items-center gap-4">
+          <div className="cq-toolbar-tabs flex items-center gap-1 p-1 bg-brand-50 rounded-lg overflow-x-auto no-scrollbar max-w-full">
             <button
               onClick={() => setCategoriaActiva(null)}
               className={cn(
@@ -85,7 +85,7 @@ export default function BibliotecaContent({ initialData }: BibliotecaContentProp
             ))}
           </div>
 
-          <div className="flex flex-1 items-center gap-4 w-full lg:w-auto px-4 border-l border-brand-50">
+          <div className="cq-toolbar-controls flex flex-1 items-center gap-4 w-full lg:w-auto px-4 border-l border-brand-50">
             <div className="relative flex-1 group">
               <Search className="absolute left-0 top-1/2 -translate-y-1/2 w-4 h-4 text-brand-200 group-focus-within:text-brand-600" />
               <input

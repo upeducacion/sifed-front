@@ -24,11 +24,11 @@ export async function NewsCollage() {
   const listNews = news.slice(1, 4);
 
   return (
-    <section className="w-full bg-white py-20 px-4 md:px-8">
+    <section className="container-query-name w-full bg-white px-4 py-14 sm:py-20 md:px-8">
       <div className="max-w-7xl mx-auto">
         
         {/* Header de Sección */}
-        <div className="flex items-end justify-between mb-10 pb-6">
+        <div className="mb-8 flex items-end justify-between border-b border-border pb-5 sm:mb-10 sm:pb-6">
           <div>
             <span className="text-[10px] font-black uppercase tracking-[0.3em] text-uncp-gold mb-2 block">
               Actualidad Institucional
@@ -46,10 +46,10 @@ export async function NewsCollage() {
           </Link>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
+        <div className="grid grid-cols-1 gap-8 lg:grid-cols-12 lg:gap-12">
           
           {/* 1. HERO PRINCIPAL (Columna Izquierda - 7/12) */}
-          <div className="lg:col-span-7 h-[500px] lg:h-[600px]">
+          <div className="h-[min(112vw,32rem)] min-h-[24rem] lg:col-span-7 lg:h-[600px]">
             <NewsCard 
               noticia={heroNews} 
               featured={true} 
@@ -64,10 +64,10 @@ export async function NewsCollage() {
                 <Link 
                   key={item.id} 
                   href={`/noticias/${item.slug}`}
-                  className="group flex gap-5 items-start p-4 rounded-lg hover:bg-gray-50 transition-colors border border-transparent hover:border-gray-100"
+                  className="group flex items-start gap-3 rounded-lg border border-transparent p-3 transition-colors hover:border-gray-100 hover:bg-gray-50 sm:gap-5 sm:p-4"
                 >
                   {/* Thumbnail */}
-                  <div className="shrink-0 w-24 h-24 md:w-32 md:h-32 relative rounded-xl overflow-hidden shadow-sm">
+                  <div className="relative h-20 w-20 shrink-0 overflow-hidden rounded-xl shadow-sm sm:h-24 sm:w-24 md:h-32 md:w-32">
                     {item.imagen_url ? (
                       <UnoptImage
                         src={getStorageUrl(item.imagen_url)}

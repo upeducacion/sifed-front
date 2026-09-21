@@ -66,8 +66,8 @@ export default function PortalesContent() {
 
       {/* Barra de filtros flotante */}
       <section className="max-w-7xl mx-auto px-6 -mt-10 relative z-30">
-        <div className="rounded-xl border border-brand-100 bg-white/90 p-2 shadow-2xl backdrop-blur-xl">
-          <div className="flex items-center gap-1 overflow-x-auto rounded-md bg-brand-50 p-1 no-scrollbar">
+        <div className="container-query-name cq-toolbar flex flex-col items-center gap-4 rounded-xl border border-brand-100 bg-white/90 p-2 shadow-2xl backdrop-blur-xl lg:flex-row">
+          <div className="cq-toolbar-tabs flex items-center gap-1 overflow-x-auto rounded-md bg-brand-50 p-1 no-scrollbar">
             <button
               onClick={() => setFiltroActivo("Todos")}
               className={cn(

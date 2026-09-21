@@ -119,8 +119,8 @@ export default function GalleryContent({ initialData }: GalleryContentProps) {
       />
 
       <section className="max-w-7xl mx-auto px-6 -mt-12 relative z-30">
-        <div className="bg-white shadow-[0_30px_60px_rgba(0,0,0,0.12)] rounded-lg border border-brand-100 p-2 flex flex-col lg:flex-row items-center gap-4">
-          <div className="flex items-center gap-1 p-1 bg-brand-50 rounded-lg overflow-x-auto no-scrollbar max-w-full">
+        <div className="container-query-name cq-toolbar bg-white shadow-float rounded-lg border border-brand-100 p-2 flex flex-col lg:flex-row items-center gap-4">
+          <div className="cq-toolbar-tabs flex items-center gap-1 p-1 bg-brand-50 rounded-lg overflow-x-auto no-scrollbar max-w-full">
             {categorias.map((cat) => (
               <button
                 key={cat.id}
@@ -135,7 +135,7 @@ export default function GalleryContent({ initialData }: GalleryContentProps) {
             ))}
           </div>
 
-          <div className="flex flex-1 items-center gap-4 w-full lg:w-auto px-4">
+          <div className="cq-toolbar-controls flex flex-1 items-center gap-4 w-full lg:w-auto px-4">
             <div className="relative flex-1 group">
               <Search className="absolute left-0 top-1/2 -translate-y-1/2 w-4 h-4 text-brand-300" />
               <input 

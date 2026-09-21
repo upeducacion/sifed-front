@@ -28,10 +28,10 @@ export default function ProgramCard({ program }: ProgramCardProps) {
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      className="group bg-white rounded-lg border border-border overflow-hidden hover:border-brand-200 hover:shadow-2xl transition-all duration-500 flex flex-col h-full"
+      className="group container-query-name flex h-full flex-col overflow-hidden rounded-lg border border-border bg-white transition-[border-color,box-shadow] duration-500 hover:border-brand-200 hover:shadow-2xl"
     >
       {/* Portada */}
-      <div className="relative h-64 overflow-hidden bg-muted/20 flex items-center justify-center">
+      <div className="cq-card-image relative max-h-64 overflow-hidden bg-muted/20 flex items-center justify-center">
         {program.imagenPortada && !imgError ? (
           <UnoptImage
             src={getStorageUrl(program.imagenPortada)}
@@ -59,19 +59,19 @@ export default function ProgramCard({ program }: ProgramCardProps) {
       </div>
 
       {/* Contenido */}
-      <div className="p-8 flex flex-col flex-1">
-        <h3 className="font-serif text-2xl font-black text-brand-950 mb-4 group-hover:text-brand-600 transition-colors leading-tight">
+      <div className="cq-card-content flex flex-1 flex-col">
+        <h3 className="cq-card-title mb-3 font-serif font-black leading-tight text-brand-950 transition-colors group-hover:text-brand-600">
           {program.titulo}
         </h3>
         
-        <p className="text-muted-foreground text-sm leading-relaxed mb-8 line-clamp-2">
+        <p className="mb-6 line-clamp-3 text-sm leading-relaxed text-muted-foreground @[28rem]:mb-8">
           {program.descripcionCorta}
         </p>
 
         {/* Mini Stats */}
-        <div className="grid grid-cols-2 gap-4 mb-8 pt-6 border-t border-brand-50">
+        <div className="cq-card-stats grid grid-cols-1 border-t border-brand-50">
           <div className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded-lg bg-brand-50 flex items-center justify-center text-brand-600">
+            <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-brand-50 text-brand-600">
               <Clock className="w-4 h-4" />
             </div>
             <div className="text-[10px] font-bold text-muted-foreground uppercase leading-tight">
@@ -79,7 +79,7 @@ export default function ProgramCard({ program }: ProgramCardProps) {
             </div>
           </div>
           <div className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded-lg bg-brand-50 flex items-center justify-center text-brand-600">
+            <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-brand-50 text-brand-600">
               <GraduationCap className="w-4 h-4" />
             </div>
             <div className="text-[10px] font-bold text-muted-foreground uppercase leading-tight truncate">
@@ -91,7 +91,7 @@ export default function ProgramCard({ program }: ProgramCardProps) {
         {/* Link Final */}
         <Link 
           href={detailHref}
-          className="mt-auto inline-flex items-center justify-center gap-2 w-full py-4 bg-brand-50 text-brand-950 rounded-lg font-black text-xs uppercase tracking-widest group-hover:bg-brand-950 group-hover:text-white transition-all duration-300"
+          className="mt-auto inline-flex w-full items-center justify-center gap-2 rounded-lg bg-brand-950 py-4 text-xs font-black uppercase tracking-widest text-white transition-colors duration-[var(--motion-duration-standard)] ease-[var(--motion-ease)] hover:bg-brand-800 active:bg-brand-900"
         >
           Explorar Programa <ArrowRight className="w-4 h-4" />
         </Link>
