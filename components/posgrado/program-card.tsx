@@ -37,7 +37,7 @@ export default function ProgramCard({ program }: ProgramCardProps) {
             src={getStorageUrl(program.imagenPortada)}
             alt={program.titulo}
             fill
-            className="object-cover transition-transform duration-300 group-hover:scale-[1.03]"
+            className="object-cover object-center transition-transform duration-300 group-hover:scale-[1.03]"
             onError={() => setImgError(true)}
           />
         ) : (

@@ -192,14 +192,14 @@ export default function GalleryContent({ initialData }: GalleryContentProps) {
                         onClick={() => setPhotoIndex(filteredPhotos.findIndex(p => p.id === foto.id))}
                         className="group relative cursor-zoom-in rounded-lg overflow-hidden border border-border bg-brand-50 break-inside-avoid shadow-sm hover:shadow-2xl transition-all duration-500"
                       >
-                        <div className="relative w-full h-auto min-h-[200px]">
+                        <div className="relative w-full overflow-hidden bg-brand-50">
                           <UnoptImage 
                             src={getStorageUrl(foto.archivo_url)} 
                             alt={foto.galeriaTitulo || "Gallery Image"} 
                             width={500}
                             height={500}
                             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1280px) 33vw, 25vw"
-                            className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105" 
+                            className="block h-auto w-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
                           />
                         </div>
                         <div className="absolute inset-0 bg-gradient-to-t from-brand-950/90 via-brand-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">

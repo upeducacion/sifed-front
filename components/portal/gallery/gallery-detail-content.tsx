@@ -101,14 +101,14 @@ export default function GalleryDetailContent({ galeria }: GalleryDetailContentPr
               onClick={() => setPhotoIndex(index)}
               className="relative group cursor-zoom-in rounded-lg overflow-hidden border border-border bg-brand-50 break-inside-avoid"
             >
-              <div className="relative w-full h-auto min-h-[200px]">
+              <div className="relative w-full overflow-hidden bg-brand-50">
                 <UnoptImage 
                   src={getStorageUrl(foto.archivo_url)} 
                   alt={foto.titulo_foto || galeria.titulo} 
                   width={800}
                   height={600}
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                  className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
+                  className="block h-auto w-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
                 />
               </div>
               <div className="absolute inset-0 bg-brand-950/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
