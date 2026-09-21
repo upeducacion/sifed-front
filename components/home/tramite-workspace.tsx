@@ -67,6 +67,7 @@ export default function TramiteWorkspace({
     setSelectedDocId(documentos[(nextPage - 1) * pageSize]?.id ?? null);
   };
 
+
   return (
     <main className="min-h-full flex-1 bg-[#f7f5f0] text-brand-950">
       <section className="relative overflow-hidden bg-brand-950 text-white">
@@ -158,7 +159,7 @@ export default function TramiteWorkspace({
                   <h2 className="mt-2 font-serif text-2xl font-black md:text-3xl">Documentos para {selectedProcedure.title.toLowerCase()}</h2>
                   <p className="mt-2 text-sm text-muted-foreground">{documentos.length} recursos oficiales en {categorias.length} categorías</p>
                 </div>
-                <div className="w-full md:max-w-xs"><DocumentosSearch initialQuery={searchQuery} /></div>
+                <div className="w-full md:max-w-xs"><DocumentosSearch key={searchQuery} initialQuery={searchQuery} label={`Filtrar documentos de ${selectedProcedure.title}`} /></div>
               </div>
 
               <div className="grid gap-5 xl:grid-cols-[minmax(0,1fr)_minmax(20rem,0.9fr)] xl:gap-6">
