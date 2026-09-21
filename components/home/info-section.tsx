@@ -61,19 +61,19 @@ export default function InfoSection() {
                       <FileText className="h-6 w-6 md:h-7 md:w-7" />
                       Trámites
                   </h3>
-                  <ul className="space-y-3 md:space-y-4">
-                      {['Constancia de Egresado', 'Record Académico', 'Reserva de Matrícula', 'Mesa de Partes'].map(link => (
+                    <ul className="space-y-3 md:space-y-4">
+                       {['Constancia de Egresado', 'Record Académico', 'Reserva de Matrícula', 'Mesa de Partes'].map(link => (
                           <li key={link}>
-                              <div className="w-full text-left py-3 md:py-3.5 px-4 md:px-5 rounded-2xl bg-white/5 border border-white/5 transition-all text-xs md:text-sm font-bold tracking-tight">
-                                  {link}
-                              </div>
+                             <div className="w-full text-left py-3 md:py-3.5 px-4 md:px-5 rounded-2xl bg-white/5 border border-white/5 transition-all text-xs md:text-sm font-bold tracking-tight">
+                                {link}
+                             </div>
                           </li>
-                      ))}
-                  </ul>
+                       ))}
+                    </ul>
                </div>
                <div className="relative z-10 mt-8 md:mt-10 pt-8 border-t border-white/10 text-center">
-                  <Link href="/documentos-normativos" className="text-xs md:text-sm font-black text-uncp-gold hover:text-uncp-gold/80 flex items-center justify-center gap-2 w-full uppercase tracking-widest">
-                    Ver todos <ArrowRight className="h-4 w-4 md:h-5 md:w-5" />
+                           <Link href="/tramites" className="text-xs md:text-sm font-black text-uncp-gold hover:text-uncp-gold/80 flex items-center justify-center gap-2 w-full uppercase tracking-widest">
+                              Ver todos <ArrowRight className="h-4 w-4 md:h-5 md:w-5" />
                   </Link>
                </div>
             </div>

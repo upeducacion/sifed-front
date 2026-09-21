@@ -63,10 +63,10 @@ export default function PortalManagementPage() {
       color: "text-pink-600 bg-pink-50"
     },
     {
-      title: "Trámites",
+      title: "Documentos y formatos",
       description: "Guías de procedimientos, requisitos y formularios.",
       icon: FileText,
-      href: "/admin/portal/tramites",
+      href: "/admin/portal/documentos-normativos",
       color: "text-yellow-600 bg-yellow-50"
     },
   ];

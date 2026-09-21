@@ -4,7 +4,7 @@ import { useState } from "react";
 import { AuthService } from "@/lib/services/auth-service";
 import { cn } from "@/lib/utils";
 import { Loader2, AlertCircle, Eye, EyeOff } from "lucide-react";
-import { User } from "@/hooks/use-auth";
+import type { User } from "@/hooks/use-auth";
 
 interface LoginFormProps {
   onLoginSuccess: (userData: User) => void;
@@ -86,7 +86,7 @@ export default function LoginForm({ onLoginSuccess }: LoginFormProps) {
             Contraseña
           </label>
           <a
-            href="#"
+            href="mailto:UPGEDUCACION@UNCP.EDU.PE?subject=Recuperar%20clave%20de%20acceso"
             className="text-[9px] font-black text-brand-600 hover:text-brand-800 transition-colors uppercase tracking-wider"
           >
             ¿Olvidaste tu clave?
@@ -140,7 +140,7 @@ export default function LoginForm({ onLoginSuccess }: LoginFormProps) {
         <p className="text-[10px] text-muted-foreground font-medium">
           ¿No tienes acceso?{" "}
           <a
-            href="#"
+            href="mailto:UPGEDUCACION@UNCP.EDU.PE?subject=Solicitar%20registro%20en%20la%20plataforma"
             className="font-black text-brand-600 hover:text-brand-950 transition-colors uppercase tracking-tighter"
           >
             Solicita tu registro aquí

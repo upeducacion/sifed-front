@@ -83,9 +83,9 @@ export default function AdmisionHubPage() {
             <h3 className="text-xl font-bold text-brand-950 mb-8 text-center">Recursos y Ayuda</h3>
             <div className="grid sm:grid-cols-3 gap-6">
               {[
-                { icon: Download, label: "Prospecto de Admisión", href: "#", desc: "Descargar PDF" },
-                { icon: CreditCard, label: "Tasas Educativas", href: "#", desc: "Ver tarifario" },
-                { icon: HelpCircle, label: "Preguntas Frecuentes", href: "#", desc: "Centro de ayuda" },
+                { icon: Download, label: "Guías de Admisión", href: "/posgrado/admision", desc: "Ver documentos por programa" },
+                { icon: CreditCard, label: "Tasas Educativas", href: "/documentos-normativos?search=tasas", desc: "Buscar tarifarios oficiales" },
+                { icon: HelpCircle, label: "Preguntas Frecuentes", href: "/#preguntas-frecuentes", desc: "Centro de ayuda" },
               ].map((item, idx) => (
                 <Link key={idx} href={item.href} className="flex items-center gap-4 p-4 rounded-xl hover:bg-gray-50 transition-colors group">
                   <div className="w-10 h-10 bg-brand-50 rounded-full flex items-center justify-center text-brand-600 group-hover:scale-110 transition-transform">

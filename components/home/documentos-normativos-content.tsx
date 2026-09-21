@@ -1,10 +1,9 @@
 "use client";
 
-import PageHero from "@/components/ui/page-hero";
-import { DocumentoNormativo, DocumentoCategoria } from "@/types/documento-normativo";
+import type { DocumentoNormativo, DocumentoCategoria } from "@/types/documento-normativo";
 import { getStorageUrl, cn } from "@/lib/utils";
 import Link from "next/link";
-import { FileText, Hash, ExternalLink, Scale, FileSpreadsheet, FileSignature, Shield, BookOpen, ClipboardList, Expand, Eye } from "lucide-react";
+import { ArrowRight, BookOpen, FileText, GraduationCap, Hash, ExternalLink, Scale, FileSpreadsheet, FileSignature, Shield, ClipboardList, Expand, Eye } from "lucide-react";
 import DocumentosSearch from "./documentos-search";
 import { useState } from "react";
 
@@ -13,6 +12,7 @@ interface DocumentosNormativosContentProps {
   categorias: DocumentoCategoria[];
   currentCategoria: string;
   searchQuery: string;
+  currentType: string;
 }
 
 const getIconForCategoria = (slug: string) => {
@@ -27,9 +27,13 @@ export default function DocumentosNormativosContent({
   documentos, 
   categorias, 
   currentCategoria, 
-  searchQuery 
+  searchQuery,
+  currentType
 }: DocumentosNormativosContentProps) {
   const [selectedDoc, setSelectedDoc] = useState<DocumentoNormativo | null>(null);
+  const resultsTitle = searchQuery ? `Documentos relacionados con “${searchQuery}”` : "Explorar todos los documentos";
+  const categoryTitle = categorias.find((categoria) => categoria.slug === currentCategoria)?.nombre;
+  const resultsHeading = searchQuery ? resultsTitle : categoryTitle || "Explorar Documentos";
 
   const handleSelectDoc = (e: React.MouseEvent, doc: DocumentoNormativo) => {
     // Si la pantalla es menor a 1024px (Mobile/Tablet), dejamos que el Link abra la nueva pestaña naturalmente.
@@ -44,18 +48,68 @@ export default function DocumentosNormativosContent({
 
   return (
     <main className="flex-1 w-full bg-neutral-50/30">
-      <PageHero
-        title="DOCUMENTOS NORMATIVOS"
-        subtitle="UNIDAD DE POSGRADO"
-        description="Accede de forma instantánea a toda la normativa nacional, formatos oficiales, diagramas de flujos y manuales requeridos para tus trámites académicos."
-        imageSrc="/images/fondouncp1920x1080.webp"
-        size="compact"
-        align="center"
-        breadcrumbs={[
-          { label: "Posgrado", href: "/posgrado" },
-          { label: "Documentos" }
-        ]}
-      />
+      <section className="relative overflow-hidden bg-brand-950 text-white">
+        <div className="absolute inset-y-0 right-0 hidden w-1/2 bg-[url('/images/fondouncp1920x1080.webp')] bg-cover bg-center opacity-20 lg:block" />
+        <div className="absolute inset-0 bg-gradient-to-r from-brand-950 via-brand-950/95 to-brand-950/60" />
+        <div className="relative container mx-auto max-w-7xl px-6 pb-12 pt-8 lg:px-12 lg:pb-14">
+          <nav aria-label="Breadcrumb" className="mb-10 flex items-center gap-2 text-xs font-bold uppercase tracking-[0.16em] text-brand-200">
+            <Link href="/" className="transition hover:text-uncp-gold">Inicio</Link>
+            <span className="text-brand-500">/</span>
+            <Link href="/posgrado" className="transition hover:text-uncp-gold">Posgrado</Link>
+            <span className="text-brand-500">/</span>
+            <span className="text-uncp-gold">Documentos</span>
+          </nav>
+          <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_22rem] lg:items-end">
+            <div className="max-w-3xl">
+              <span className="mb-4 block text-xs font-black uppercase tracking-[0.28em] text-uncp-gold">Recursos para tus trámites</span>
+              <h1 className="max-w-2xl font-serif text-4xl font-black leading-[0.98] tracking-tight text-white md:text-6xl">Documentos y formatos</h1>
+              <p className="mt-5 max-w-2xl text-base leading-relaxed text-brand-100 md:text-lg">Dinos qué estás tratando de hacer y te mostraremos los documentos que necesitas para continuar.</p>
+            </div>
+            <div className="border-l border-white/20 pl-6 lg:pb-1">
+              <div className="grid grid-cols-2 gap-5">
+                <div><strong className="block font-serif text-3xl text-uncp-gold">{documentos.length}</strong><span className="text-xs font-bold uppercase tracking-wide text-brand-200">recursos disponibles</span></div>
+                <div><strong className="block font-serif text-3xl text-uncp-gold">{categorias.length}</strong><span className="text-xs font-bold uppercase tracking-wide text-brand-200">categorías</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="relative z-10 border-b border-border bg-white py-10 md:py-14">
+        <div className="container mx-auto max-w-7xl px-6 lg:px-12">
+          <div className="mb-7 flex flex-col justify-between gap-5 lg:flex-row lg:items-end">
+            <div className="max-w-2xl">
+            <span className="mb-2 block text-xs font-black uppercase tracking-[0.2em] text-amber-700">Paso 1 de 2</span>
+            <h2 className="font-serif text-2xl font-black text-brand-950 md:text-3xl">¿Qué estás tratando de hacer?</h2>
+            <p className="mt-2 text-sm leading-relaxed text-muted-foreground">No necesitas conocer el nombre del archivo. Elige tu objetivo.</p>
+            </div>
+            <div className="w-full lg:max-w-sm">
+              <DocumentosSearch initialQuery={searchQuery} />
+            </div>
+          </div>
+
+          <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+            {[
+              { href: "/documentos-normativos?search=grado", icon: GraduationCap, title: "Obtener mi grado académico", description: "Requisitos, reglamento y solicitud de grado." },
+              { href: "/documentos-normativos?search=tesis", icon: FileSpreadsheet, title: "Preparar mi tesis", description: "Esquema y modelo para desarrollar tu tesis." },
+              { href: "/documentos-normativos?search=matr", icon: BookOpen, title: "Matricularme", description: "Guía para realizar tu matrícula online." },
+              { href: "/documentos-normativos?search=solicitud", icon: FileSignature, title: "Presentar una solicitud", description: "Encuentra el formato oficial que necesitas." },
+            ].map((item) => {
+              const Icon = item.icon;
+              return (
+                <Link key={item.title} href={item.href} scroll={false} className="group flex min-h-32 items-start gap-4 rounded-2xl border border-border bg-neutral-50 p-5 transition hover:-translate-y-0.5 hover:border-brand-300 hover:bg-white hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 md:p-6">
+                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-white text-brand-700 shadow-sm transition group-hover:bg-brand-950 group-hover:text-white"><Icon className="h-5 w-5" aria-hidden="true" /></span>
+                  <span className="flex flex-1 flex-col">
+                    <span className="block font-bold text-brand-950">{item.title}</span>
+                    <span className="mt-1 block text-sm leading-relaxed text-muted-foreground">{item.description}</span>
+                    <span className="mt-auto pt-4 text-xs font-black uppercase tracking-wide text-brand-700">Ver documentos <ArrowRight className="ml-1 inline h-3.5 w-3.5 transition group-hover:translate-x-1" aria-hidden="true" /></span>
+                  </span>
+                </Link>
+              );
+            })}
+          </div>
+        </div>
+      </section>
 
       <section className="py-12 md:py-20 relative">
         <div className="container mx-auto px-6 lg:px-12 max-w-[1500px]">
@@ -102,12 +156,6 @@ export default function DocumentosNormativosContent({
                     );
                   })}
                 </nav>
-              </div>
-
-              {/* Buscador */}
-              <div className="bg-white p-6 rounded-[2rem] border border-border shadow-sm">
-                <h3 className="font-black text-brand-950 uppercase tracking-widest text-[10px] opacity-60 mb-4">Filtrar Resultados</h3>
-                <DocumentosSearch initialQuery={searchQuery} />
               </div>
 
               {/* Banner Promocional / Ayuda */}
@@ -165,9 +213,12 @@ export default function DocumentosNormativosContent({
             {/* Columna Central: Feed de Documentos (5 Columnas o ~40%) */}
             <section className="lg:col-span-5 space-y-4">
               <div className="flex items-center justify-between mb-2 px-2">
-                 <h2 className="font-serif text-2xl font-bold text-brand-950">
-                    {currentCategoria ? categorias.find(c => c.slug === currentCategoria)?.nombre : 'Explorar Documentos'}
-                 </h2>
+                  <div>
+                   {(searchQuery || currentType) && <span className="mb-1 block text-xs font-black uppercase tracking-[0.16em] text-amber-700">Paso 2 de 2</span>}
+                   <h2 className="font-serif text-2xl font-bold text-brand-950">
+                      {resultsHeading}
+                   </h2>
+                  </div>
                  <span className="text-xs font-bold text-muted-foreground bg-neutral-100 px-3 py-1 rounded-full">
                     {documentos.length} result.
                  </span>

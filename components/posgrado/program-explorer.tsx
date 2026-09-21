@@ -93,11 +93,11 @@ export default function ProgramExplorer() {
           
           <div className="shrink-0">
             <a 
-              href="/documents/admision/plan-estudios-completo.pdf" 
+              href="/posgrado/planes-estudio"
               className="flex items-center gap-2 px-6 py-3 bg-brand-600 hover:bg-brand-700 text-white rounded-2xl font-bold transition-all shadow-lg shadow-brand-600/20 active:scale-95"
             >
               <Download className="w-5 h-5" />
-              Descargar Malla
+              Ver planes de estudio
             </a>
           </div>
         </div>

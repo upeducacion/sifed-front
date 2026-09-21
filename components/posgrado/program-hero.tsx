@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { ChevronRight, Home, Clock, Hash, GraduationCap, MessageCircle } from "lucide-react";
-import { ProgramData } from "@/types/programa";
+import type { ProgramData } from "@/types/programa";
 import { cn } from "@/lib/utils";
 
 interface ProgramHeroProps {
@@ -11,9 +11,17 @@ interface ProgramHeroProps {
 }
 
 export default function ProgramHero({ program }: ProgramHeroProps) {
+  const typePath = {
+    maestria: "maestrias",
+    doctorado: "doctorados",
+    diplomado: "diplomados",
+    curso: "cursos",
+    taller: "talleres",
+  }[program.tipo];
+
   const breadcrumbs = [
     { label: "Posgrado", href: "/posgrado" },
-    { label: `${program.tipo.charAt(0).toUpperCase()}${program.tipo.slice(1)}s`, href: `/posgrado/${program.tipo}s` },
+    { label: `${program.tipo.charAt(0).toUpperCase()}${program.tipo.slice(1)}s`, href: `/posgrado/${typePath}` },
     { label: program.titulo }
   ];
 

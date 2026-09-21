@@ -101,7 +101,7 @@ const menuItems = [
 
 const mainLinks = [
   { label: "Plana Docente", href: "/posgrado/plana-docente" },
-  { label: "Trámites", href: "/documentos-normativos" },
+  { label: "Trámites", href: "/tramites" },
   { label: "Portales", href: "/portales-institucionales" },
 ];
 

@@ -60,16 +60,11 @@ import {
         icon: ImageIcon,
       },
       {
-        title: "Trámites",
-        href: "/admin/portal/tramites",
+        title: "Documentos y formatos",
+        href: "/admin/portal/documentos-normativos",
         icon: FileText,
       },
     ]
-  },
-  {
-    title: "Usuarios y Roles",
-    href: "/admin/usuarios",
-    icon: Users,
   },
   {
     title: "Configuración",

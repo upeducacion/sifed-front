@@ -47,7 +47,7 @@ export default function FAQSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section className="pt-20 pb-0 bg-brand-50 border-b border-border overflow-hidden relative">
+    <section id="preguntas-frecuentes" className="pt-20 pb-0 bg-brand-50 border-b border-border overflow-hidden relative">
       <div className="container mx-auto px-6 lg:px-12 max-w-6xl">
         
         <div className="grid lg:grid-cols-12 gap-12 items-end">

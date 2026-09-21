@@ -2,11 +2,7 @@
 
 import DashboardShell from "@/components/dashboard/shell";
 import { 
-  LayoutDashboard, 
-  BookOpen, 
-  Calendar, 
-  FileText,
-  User
+  LayoutDashboard
 } from "lucide-react";
 
 const estudianteNavItems = [
@@ -14,26 +10,6 @@ const estudianteNavItems = [
     title: "Mi Aula",
     href: "/estudiante/dashboard",
     icon: LayoutDashboard,
-  },
-  {
-    title: "Mis Cursos",
-    href: "/estudiante/cursos",
-    icon: BookOpen,
-  },
-  {
-    title: "Calendario",
-    href: "/estudiante/calendario",
-    icon: Calendar,
-  },
-  {
-    title: "Notas",
-    href: "/estudiante/notas",
-    icon: FileText,
-  },
-  {
-    title: "Mi Perfil",
-    href: "/estudiante/perfil",
-    icon: User,
   },
 ];
 

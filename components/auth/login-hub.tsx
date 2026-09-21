@@ -56,7 +56,7 @@ export default function LoginHub() {
     {
       title: "Documentos y Trámites",
       subtitle: "Normativas y Formatos",
-      href: "/documentos-normativos",
+      href: "/tramites",
       requiresAuth: false,
       imageSrc: UNCP_LOGO
     },
@@ -231,9 +231,8 @@ export default function LoginHub() {
           <div className="mt-24 pt-12 border-t border-brand-50 flex flex-col md:flex-row justify-between items-center gap-6 text-[10px] font-black uppercase tracking-widest text-brand-950/20">
             <p>Acceso restringido para personal autorizado</p>
             <div className="flex gap-8">
-              <a href="#" className="hover:text-brand-600 transition-colors">Privacidad</a>
-              <a href="#" className="hover:text-brand-600 transition-colors">Términos de Uso</a>
-              <a href="#" className="hover:text-brand-600 transition-colors">Contacto</a>
+              <span>Privacidad y términos</span>
+              <a href="mailto:UPGEDUCACION@UNCP.EDU.PE" className="hover:text-brand-600 transition-colors">Contacto</a>
             </div>
           </div>
         </div>
