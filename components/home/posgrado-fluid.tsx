@@ -33,7 +33,7 @@ function VisualProgramCard({ programa }: { programa: ProgramaResumen }) {
         src={programa.imagen}
         alt={programa.titulo}
         fill
-        className="object-cover transition-transform duration-700 group-hover:scale-110 opacity-70 group-hover:opacity-100"
+        className="object-cover transition-transform duration-300 group-hover:scale-[1.03] opacity-70 group-hover:opacity-100"
       />
       <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent z-10" />
       <div className="absolute inset-x-0 bottom-0 z-20 p-4">

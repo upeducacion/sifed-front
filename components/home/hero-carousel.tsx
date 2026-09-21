@@ -43,29 +43,29 @@ interface HeroCarouselProps {
 // Variantes
 
 const fadeUp: Variants = {
-  hidden: { opacity: 0, y: 20, filter: "blur(6px)" },
+  hidden: { opacity: 0, y: 10, filter: "blur(3px)" },
   visible: (delay = 0) => ({
     opacity: 1, y: 0, filter: "blur(0px)",
     transition: {
       delay: delay * 0.7,
-      duration: 0.4,
+      duration: 0.32,
       ease: [0.22, 1, 0.36, 1] as const
     },
   }),
-  exit: { opacity: 0, y: -12, filter: "blur(4px)", transition: { duration: 0.2 } },
+  exit: { opacity: 0, y: -6, filter: "blur(2px)", transition: { duration: 0.18 } },
 };
 
 const statsCard: Variants = {
-  hidden: { opacity: 0, x: 40, filter: "blur(6px)" },
+  hidden: { opacity: 0, x: 16, filter: "blur(3px)" },
   visible: (delay = 0) => ({
     opacity: 1, x: 0, filter: "blur(0px)",
     transition: {
       delay: delay * 0.7,
-      duration: 0.4,
+      duration: 0.32,
       ease: [0.22, 1, 0.36, 1] as const
     },
   }),
-  exit: { opacity: 0, x: 30, filter: "blur(4px)", transition: { duration: 0.15 } },
+  exit: { opacity: 0, x: 10, filter: "blur(2px)", transition: { duration: 0.16 } },
 };
 
 export default function HeroCarousel({ slides }: HeroCarouselProps) {
@@ -169,12 +169,11 @@ export default function HeroCarousel({ slides }: HeroCarouselProps) {
                 {slide.title.split(" ").map((word, i) => (
                   <motion.span
                     key={`${selectedIndex}-w${i}`}
-                    initial={{ opacity: 0, y: 32, rotateX: -20 }}
+                    initial={{ opacity: 0, y: 16 }}
                     animate={{ opacity: 1, y: 0, rotateX: 0 }}
                     exit={{ opacity: 0, y: -16 }}
-                    transition={{ delay: 0.2 + i * 0.09, duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
+                    transition={{ delay: 0.12 + i * 0.04, duration: 0.34, ease: [0.22, 1, 0.36, 1] }}
                     className="inline-block mr-[0.28em] last:mr-0"
-                    style={{ perspective: 500 }}
                   >
                     {word}
                   </motion.span>

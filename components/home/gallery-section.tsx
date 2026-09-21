@@ -36,7 +36,7 @@ export default function GallerySection() {
                 alt={`Galería ${index + 1}`}
                 width={500}
                 height={400}
-                className="h-[260px] w-full object-cover transition-transform duration-500 group-hover:scale-110"
+                className="h-[260px] w-full object-cover transition-transform duration-300 group-hover:scale-[1.03]"
               />
 
               {/* Overlay */}

@@ -69,10 +69,10 @@ export default function ProgramSelectorSection() {
               key={cat.title} 
               href={cat.href}
               aria-label={`Ver información sobre ${cat.title}`}
-              className={`group p-8 rounded-lg border-2 transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 flex flex-col justify-between min-h-[320px] ${cat.color}`}
+              className={`group p-8 rounded-lg border-2 transition-all duration-200 hover:shadow-xl hover:-translate-y-1 flex flex-col justify-between min-h-[320px] ${cat.color}`}
             >
               <div>
-                <div className={`w-14 h-14 rounded-lg flex items-center justify-center mb-8 transition-transform duration-500 group-hover:scale-110 ${cat.title === 'Doctorados' ? 'bg-white/10' : 'bg-brand-50'}`}>
+                <div className={`w-14 h-14 rounded-lg flex items-center justify-center mb-8 transition-transform duration-200 group-hover:scale-[1.03] ${cat.title === 'Doctorados' ? 'bg-white/10' : 'bg-brand-50'}`}>
                   {cat.icon}
                 </div>
                 <h3 className={`text-2xl font-black mb-3 tracking-tighter ${cat.title === 'Doctorados' ? 'text-white' : 'text-brand-950'}`}>{cat.title}</h3>

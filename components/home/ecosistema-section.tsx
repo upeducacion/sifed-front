@@ -9,11 +9,11 @@ import { EXTERNAL_LINKS } from "@/lib/constants";
 const EASE: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
 const cardVariants = {
-  hidden: { opacity: 0, y: 50 },
+  hidden: { opacity: 0, y: 24 },
   visible: (i: number) => ({
     opacity: 1,
     y: 0,
-    transition: { duration: 0.7, ease: EASE, delay: i * 0.15 },
+    transition: { duration: 0.46, ease: EASE, delay: i * 0.08 },
   }),
 };
 
@@ -27,7 +27,7 @@ export default function EcosistemaSection() {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.6, ease: EASE }}
+          transition={{ duration: 0.42, ease: EASE }}
         >
           <span className="text-[10px] font-black uppercase tracking-[0.3em] text-uncp-gold mb-2 block">Ecosistema Digital</span>
           <h2 className="text-3xl md:text-4xl font-serif font-black text-brand-950 leading-tight">Plataformas Académicas</h2>
@@ -43,9 +43,9 @@ export default function EcosistemaSection() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-60px" }}
-            whileHover={{ y: -12, scale: 1.02, transition: { duration: 0.35, ease: EASE } }}
+            whileHover={{ y: -4, transition: { duration: 0.24, ease: EASE } }}
             className="group relative flex flex-col rounded-lg border-2 border-transparent bg-background p-8 shadow-sm cursor-pointer overflow-hidden
-              transition-all duration-500
+              transition-shadow duration-300
               hover:shadow-[0_20px_60px_rgba(59,130,246,0.25)]"
             style={{ border: "2px solid transparent", backgroundClip: "padding-box" }}
           >
@@ -55,11 +55,11 @@ export default function EcosistemaSection() {
             <div className="absolute inset-[2px] rounded-[calc(2rem-2px)] bg-background pointer-events-none -z-10" />
 
             {/* Brillo en hover — barre la card */}
-            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none rounded-lg"
+            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none rounded-lg"
               style={{ background: "linear-gradient(135deg, rgba(59,130,246,0.07) 0%, rgba(99,102,241,0.04) 50%, rgba(180,145,60,0.06) 100%)" }} />
 
             {/* Logo watermark */}
-            <div className="absolute top-0 right-0 p-8 opacity-[0.04] group-hover:opacity-[0.12] transition-opacity duration-700 pointer-events-none group-hover:scale-110 origin-top-right transform-gpu">
+            <div className="absolute top-0 right-0 p-8 opacity-[0.04] group-hover:opacity-[0.1] transition-opacity duration-300 pointer-events-none origin-top-right">
               <UnoptImage src="/images/logo-posgrado-educacion.webp" alt="" width={180} height={180} />
             </div>
 
@@ -67,7 +67,7 @@ export default function EcosistemaSection() {
               <div>
                 <motion.div
                   className="mb-6 inline-flex h-14 w-14 items-center justify-center rounded-lg bg-brand-50 text-brand-600 border border-brand-100"
-                  whileHover={{ scale: 1.18, rotate: -8, transition: { duration: 0.3, ease: "backOut" } }}
+                  whileHover={{ scale: 1.04, transition: { duration: 0.2, ease: EASE } }}
                 >
                   <Newspaper className="h-7 w-7" strokeWidth={1.5} />
                 </motion.div>
@@ -104,9 +104,9 @@ export default function EcosistemaSection() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-60px" }}
-            whileHover={{ y: -12, scale: 1.02, transition: { duration: 0.35, ease: EASE } }}
+            whileHover={{ y: -4, transition: { duration: 0.24, ease: EASE } }}
             className="group relative flex flex-col rounded-lg p-8 text-white cursor-pointer overflow-hidden
-              transition-shadow duration-500
+              transition-shadow duration-300
               hover:shadow-[0_28px_70px_rgba(30,49,82,0.7),0_0_0_1px_rgba(180,145,60,0.4)]"
             style={{ background: "linear-gradient(135deg, #1e3152 0%, #0d1623 60%, #050810 100%)" }}
           >
@@ -117,7 +117,7 @@ export default function EcosistemaSection() {
             <div className="absolute -top-10 -left-10 w-60 h-60 bg-brand-400 rounded-full blur-[80px] opacity-0 group-hover:opacity-20 transition-opacity duration-600 pointer-events-none" />
 
             {/* Logo watermark */}
-            <div className="absolute top-0 right-0 p-8 opacity-10 group-hover:opacity-30 group-hover:scale-110 transition-all duration-700 origin-top-right transform-gpu pointer-events-none grayscale group-hover:grayscale-0">
+            <div className="absolute top-0 right-0 p-8 opacity-10 group-hover:opacity-20 transition-opacity duration-300 origin-top-right pointer-events-none grayscale group-hover:grayscale-0">
               <UnoptImage src="/images/logo-posgrado-educacion.webp" alt="" width={160} height={160} className="object-contain" />
             </div>
 
@@ -129,7 +129,7 @@ export default function EcosistemaSection() {
               <div>
                 <motion.div
                   className="mb-6 inline-flex h-14 w-14 items-center justify-center rounded-lg bg-white/10 text-white border border-white/10 backdrop-blur-md"
-                  whileHover={{ scale: 1.18, rotate: 8, transition: { duration: 0.3, ease: "backOut" } }}
+                  whileHover={{ scale: 1.04, transition: { duration: 0.2, ease: EASE } }}
                 >
                   <MonitorPlay className="h-7 w-7" strokeWidth={1.5} />
                 </motion.div>
@@ -140,13 +140,13 @@ export default function EcosistemaSection() {
                 <div className="grid grid-cols-2 gap-4">
                   <div className="p-3 rounded-xl transition-all duration-300
                     bg-white/5 border border-white/10
-                    group-hover:bg-white/10 group-hover:border-brand-400/40 group-hover:-translate-y-1">
+                    group-hover:bg-white/10 group-hover:border-brand-400/40">
                     <div className="text-xl font-bold text-uncp-gold mb-0.5">24/7</div>
                     <div className="text-[10px] text-brand-300 uppercase tracking-widest font-bold">Disponibilidad</div>
                   </div>
                   <div className="p-3 rounded-xl transition-all duration-300 delay-75
                     bg-white/5 border border-white/10
-                    group-hover:bg-white/10 group-hover:border-brand-400/40 group-hover:-translate-y-1">
+                    group-hover:bg-white/10 group-hover:border-brand-400/40">
                     <div className="text-xl font-bold text-brand-400 mb-0.5">100%</div>
                     <div className="text-[10px] text-brand-300 uppercase tracking-widest font-bold">Seguro</div>
                   </div>

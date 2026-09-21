@@ -50,7 +50,7 @@ export default function PageHero({
       {/* Background */}
       <div className="absolute inset-0 z-0">
         <div
-          className="absolute inset-0 bg-cover bg-center grayscale opacity-60 contrast-110 brightness-50 z-0 transition-transform duration-[20s] hover:scale-105"
+          className="absolute inset-0 bg-cover bg-center grayscale opacity-60 contrast-110 brightness-50 z-0"
           style={{ backgroundImage: `url('${imageSrc}')` }}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-brand-950 via-brand-950/40 to-transparent z-10" />
@@ -98,7 +98,7 @@ export default function PageHero({
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+            transition={{ duration: 0.46, ease: [0.22, 1, 0.36, 1] }}
         >
           {subtitle && (
             <span className={cn(
@@ -134,7 +134,7 @@ export default function PageHero({
                   key={action.href}
                   href={action.href}
                   className={cn(
-                    "inline-flex items-center gap-2 rounded-md font-bold uppercase tracking-wider transition-all duration-300 transform hover:-translate-y-1 shadow-lg",
+                    "inline-flex items-center gap-2 rounded-md font-bold uppercase tracking-wider transition-all duration-200 hover:-translate-y-0.5 shadow-lg",
                     isCompact ? "px-6 py-3 text-xs" : "px-8 py-4 text-sm",
                     
                     // Primary: Brand color solid

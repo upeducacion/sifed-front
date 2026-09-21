@@ -71,6 +71,11 @@
   --shadow-soft: 0 12px 32px -18px rgb(0 27 72 / 0.22);
   --shadow-float: 0 24px 56px -28px rgb(0 27 72 / 0.28);
 
+  --motion-duration-fast: 160ms;
+  --motion-duration-standard: 240ms;
+  --motion-duration-slow: 420ms;
+  --motion-ease: cubic-bezier(0.22, 1, 0.36, 1);
+
   /* Radios de borde */
   --radius: 0.625rem;
   --radius-lg: 0.75rem;
@@ -111,6 +116,21 @@
   :focus-visible {
     outline: 3px solid color-mix(in srgb, var(--color-ring) 45%, transparent);
     outline-offset: 3px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 1ms !important;
   }
 }
 @layer components {

@@ -163,7 +163,7 @@ export default function Header() {
   return (
     <>
       <header className={cn(
-        "sticky top-0 z-50 w-full transition-all duration-500 border-b font-sans",
+        "sticky top-0 z-50 w-full transition-all duration-300 border-b font-sans",
         "h-20 lg:h-20", // Altura fija para evitar layout shifts
         scrolled 
           ? "bg-background/90 backdrop-blur-xl border-border/80 shadow-lg" 
@@ -175,7 +175,7 @@ export default function Header() {
           {/* BRAND */}
           <Link href="/" className="flex items-center gap-2 lg:gap-4 flex-shrink-0 cursor-pointer group relative z-50 max-w-[85%] lg:max-w-none">
             {/* Logo Posgrado */}
-            <UnoptImage src="/images/logo-posgrado-educacion.webp" alt="Posgrado Educación UNCP" width={60} height={60} className={cn("transition-all duration-500 object-contain shrink-0", scrolled ? "h-8 w-auto lg:h-10" : "h-10 w-auto lg:h-10")} />
+            <UnoptImage src="/images/logo-posgrado-educacion.webp" alt="Posgrado Educación UNCP" width={60} height={60} className={cn("transition-all duration-300 object-contain shrink-0", scrolled ? "h-8 w-auto lg:h-10" : "h-10 w-auto lg:h-10")} />
             
             {/* Texto */}
             <div className="flex items-center gap-2 lg:gap-3 overflow-hidden">
@@ -184,13 +184,13 @@ export default function Header() {
                    Universidad Nacional del Centro del Perú
                  </span>
                  <span className={cn(
-                   "font-black uppercase tracking-tight text-brand-800 leading-none truncate transition-all duration-500",
+                   "font-black uppercase tracking-tight text-brand-800 leading-none truncate transition-all duration-300",
                    scrolled ? "text-[9px] sm:text-[11px] lg:text-[12px]" : "text-[10px] sm:text-xs lg:text-sm"
                  )}>
                    Facultad de Educación
                  </span>
                  <span className={cn(
-                   "font-serif font-black leading-none text-brand-950 group-hover:text-brand-600 transition-all duration-500 truncate mt-0.5",
+                   "font-serif font-black leading-none text-brand-950 group-hover:text-brand-600 transition-colors duration-200 truncate mt-0.5",
                    scrolled ? "text-xs sm:text-sm lg:text-[1.15rem]" : "text-sm sm:text-base lg:text-[1.35rem]"
                  )}>
                    Unidad de Posgrado
@@ -312,7 +312,7 @@ export default function Header() {
               rel="noopener noreferrer"
               className="hidden lg:flex group items-center gap-2 rounded-xl bg-brand-950 px-5 py-2.5 lg:px-6 lg:py-3 text-xs font-black uppercase tracking-widest text-white transition-all hover:bg-brand-800 hover:shadow-xl hover:shadow-brand-950/20 hover:-translate-y-0.5 active:translate-y-0"
             >
-              <LogIn className="h-4 w-4 text-uncp-gold group-hover:scale-110 transition-transform" />
+              <LogIn className="h-4 w-4 text-uncp-gold group-hover:scale-[1.03] transition-transform duration-200" />
               <span>Aula Virtual</span>
             </a>
 
@@ -441,7 +441,7 @@ export default function Header() {
 
       {/* Overlay para oscurecer el fondo en desktop */}
       <div className={cn(
-        "hidden lg:block fixed inset-0 bg-brand-950/20 backdrop-blur-[2px] opacity-0 pointer-events-none transition-all duration-500 z-30 group-hover:opacity-100 has-[:hover]:opacity-100",
+        "hidden lg:block fixed inset-0 bg-brand-950/20 backdrop-blur-[2px] opacity-0 pointer-events-none transition-opacity duration-300 z-30 group-hover:opacity-100 has-[:hover]:opacity-100",
         scrolled ? "top-20" : "top-24"
       )} />
     </>

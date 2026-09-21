@@ -31,7 +31,7 @@ export default function InstitutionalBento({ photos }: InstitutionalBentoProps) 
           alt={photos[0].title}
           fill
           sizes="(max-width: 768px) 100vw, 50vw"
-          className="object-cover transition-transform duration-1000 group-hover:scale-105"
+              className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
         />        <div className="absolute inset-0 bg-gradient-to-t from-brand-950 via-transparent to-transparent opacity-80 group-hover:opacity-90 transition-opacity" />
         <div className="absolute bottom-10 left-10 right-10 z-20">
            <span className="bg-uncp-gold px-4 py-1.5 rounded-full text-[9px] font-black uppercase tracking-widest text-brand-950 mb-4 inline-block shadow-xl">
@@ -60,7 +60,7 @@ export default function InstitutionalBento({ photos }: InstitutionalBentoProps) 
               alt={photos[1].title} 
               fill
               sizes="(max-width: 768px) 100vw, 50vw"
-              className="object-cover opacity-80 transition-all duration-700 group-hover:scale-110 group-hover:opacity-100"
+              className="object-cover opacity-80 transition-all duration-300 group-hover:scale-[1.03] group-hover:opacity-100"
             />
             <div className="absolute inset-0 bg-brand-950/20 group-hover:bg-transparent transition-colors" />
             <div className="absolute top-8 left-8 z-20 opacity-0 group-hover:opacity-100 transition-opacity">
@@ -88,7 +88,7 @@ export default function InstitutionalBento({ photos }: InstitutionalBentoProps) 
                 alt={photos[idx].title} 
                 fill
                 sizes="(max-width: 768px) 50vw, 25vw"
-                className="object-cover grayscale group-hover:grayscale-0 transition-all duration-700 hover:scale-110"
+                className="object-cover grayscale group-hover:grayscale-0 transition-all duration-300 hover:scale-[1.03]"
               />
             )}
           </motion.div>

@@ -1,8 +1,7 @@
 import Link from "next/link";
-import { Docente } from "@/types/docente";
+import type { Docente } from "@/types/docente";
 import { GraduationCap, ArrowRight } from "lucide-react";
 import SmartProfileImage from "@/components/ui/smart-profile-image";
-import Image from "next/image";
 
 export default function DocenteCard({ docente }: { docente: Docente }) {
   const formatText = (text: string) => {
@@ -22,23 +21,18 @@ export default function DocenteCard({ docente }: { docente: Docente }) {
     <Link
       href={`/posgrado/plana-docente/${docente.slug}`}
       className="block outline-none focus-visible:ring-4 focus-visible:ring-brand-500 rounded-lg group"
-      style={{ perspective: "1200px" }}
     >
-      {/* Contenedor que rota en hover */}
       <div
-        className="relative w-full transition-transform duration-700 ease-in-out [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]"
+        className="relative w-full overflow-hidden rounded-lg"
         style={{ aspectRatio: "3/4" }}
       >
 
-        {/* ── CARA FRONTAL ── */}
-        <div
-          className="absolute inset-0 rounded-lg overflow-hidden [backface-visibility:hidden]"
-        >
+        <div className="absolute inset-0 overflow-hidden rounded-lg">
           {/* Imagen */}
           <SmartProfileImage
             src={docente.foto_url}
             alt={docente.nombre_completo}
-            className="transition-transform duration-700 ease-out group-hover:scale-[1.04]"
+            className="transition-transform duration-300 ease-out group-hover:scale-[1.03]"
           />
 
           {/* Gradiente inferior */}
@@ -51,7 +45,7 @@ export default function DocenteCard({ docente }: { docente: Docente }) {
           />
 
           {/* Nombre y categoría sobre el gradiente */}
-          <div className="absolute bottom-0 left-0 right-0 p-4">
+          <div className="absolute bottom-0 left-0 right-0 p-4 transition-opacity duration-200 group-hover:opacity-0 group-focus-within:opacity-0">
             <p
               className="text-[9px] font-black uppercase tracking-[0.25em] mb-1.5"
               style={{ color: "rgba(180,145,60,0.85)" }}
@@ -67,106 +61,36 @@ export default function DocenteCard({ docente }: { docente: Docente }) {
           </div>
         </div>
 
-        {/* ── CARA TRASERA ── */}
         <div
-          className="absolute inset-0 rounded-lg flex flex-col items-center justify-center px-5 py-6 [backface-visibility:hidden] [transform:rotateY(180deg)]"
+          className="absolute inset-x-0 bottom-0 z-10 flex h-[38%] translate-y-full flex-col items-start justify-end overflow-hidden px-4 py-4 transition-transform duration-300 ease-out group-hover:translate-y-0 group-focus-within:translate-y-0"
           style={{
-            background: "linear-gradient(160deg, #1e3152 0%, #112038 45%, #050810 100%)",
-            border: "1px solid rgba(180,145,60,0.22)",
-            boxShadow: "inset 0 1px 0 rgba(180,145,60,0.08)",
+            background: "linear-gradient(180deg, transparent 0%, rgba(5,8,18,0.88) 35%, #050810 100%)",
           }}
         >
-          {/* Línea dorada superior */}
-          <div
-            className="absolute top-0 left-0 right-0 h-[2px] rounded-t-2xl"
-            style={{
-              background:
-                "linear-gradient(90deg, transparent, #b4913c, #d4a853, #b4913c, transparent)",
-            }}
-          />
-
-          {/* Edificio UNCP desvanecido de fondo */}
-          <div className="absolute inset-0 pointer-events-none rounded-lg overflow-hidden">
-            <Image
-              src="/images/fondouncp1920x1080.webp"
-              alt=""
-              fill
-              className="object-cover object-center select-none"
-              style={{ opacity: 0.09, filter: "grayscale(1) brightness(1.4)" }}
-              unoptimized
-            />
-          </div>
-
-          {/* Separador dorado */}
-          <div
-            className="w-14 h-[1px] mb-5"
-            style={{
-              background: "linear-gradient(90deg, transparent, #b4913c, transparent)",
-            }}
-          />
-
-          {/* Nombre */}
-          <h3
-            className="font-serif font-bold text-white text-center leading-snug mb-3 line-clamp-3"
-            style={{
-              fontSize: "clamp(1rem, 2.5vw, 1.2rem)",
-              textShadow: "0 2px 10px rgba(0,0,0,0.5)",
-            }}
-          >
-            {docente.nombre_completo}
-          </h3>
-
-          {/* Badge categoría */}
-          <span
-            className="px-3 py-1 rounded-md text-[11px] font-black uppercase tracking-[0.25em]"
-            style={{
-              background: "rgba(180,145,60,0.12)",
-              border: "1px solid rgba(180,145,60,0.3)",
-              color: "#d4a853",
-            }}
-          >
-            Docente {docente.categoria}
-          </span>
-
-          {/* Grado académico */}
           {gradoPrincipal && (
             <div
-              className="flex items-start gap-2 mt-4 px-3 py-2.5 rounded-lg w-full"
-              style={{
-                backgroundColor: "rgba(255,255,255,0.04)",
-                border: "1px solid rgba(255,255,255,0.07)",
-              }}
+              className="relative flex w-full items-start gap-2 rounded-lg border border-white/10 bg-black/20 px-2.5 py-2"
+              style={{ boxShadow: "0 6px 18px rgba(0,0,0,0.14)" }}
             >
               <GraduationCap
-                className="w-3.5 h-3.5 shrink-0 mt-0.5"
+                className="mt-0.5 h-3 w-3 shrink-0"
                 style={{ color: "rgba(180,145,60,0.75)" }}
               />
               <p
-                className="text-[13px] leading-snug line-clamp-3"
-                style={{ color: "rgba(255,255,255,0.6)" }}
+                className="text-[11px] leading-snug text-white/70 line-clamp-2"
               >
                 {gradoPrincipal}
               </p>
             </div>
           )}
 
-          {/* CTA */}
           <div
-            className="absolute bottom-4 right-5 flex items-center gap-1.5"
-            style={{ color: "rgba(180,145,60,0.6)" }}
+            className="mt-2 flex w-full items-center justify-end gap-1.5"
+            style={{ color: "rgba(180,145,60,0.8)" }}
           >
-            <span className="text-[11px] font-black uppercase tracking-[0.2em]">Ver perfil</span>
-            <ArrowRight className="w-3.5 h-3.5" />
+            <span className="text-[9px] font-black uppercase tracking-[0.18em]">Ver perfil</span>
+            <ArrowRight className="h-3 w-3" />
           </div>
-
-          {/* Línea dorada inferior */}
-          <div
-            className="absolute bottom-0 left-0 right-0 h-[1px] rounded-b-2xl"
-            style={{
-              background:
-                "linear-gradient(90deg, transparent, rgba(180,145,60,0.3), transparent)",
-            }}
-          />
         </div>
       </div>
     </Link>

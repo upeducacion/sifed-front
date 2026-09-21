@@ -160,7 +160,7 @@ export default function DocumentosNormativosContent({
 
               {/* Banner Promocional / Ayuda */}
               <div className="bg-brand-950 rounded-lg p-8 text-white shadow-2xl relative overflow-hidden group border border-brand-800">
-                <div className="absolute -bottom-10 -right-10 opacity-10 group-hover:scale-110 transition-transform duration-1000">
+                <div className="absolute -bottom-10 -right-10 opacity-10 group-hover:scale-[1.03] transition-transform duration-300">
                   <Shield className="h-48 w-48" />
                 </div>
                 

@@ -116,7 +116,7 @@ export default function PortalesContent() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, scale: 0.98 }}
                 transition={{ duration: 0.3 }}
-                className="group flex flex-col gap-5 rounded-xl border border-brand-100 bg-white p-8 shadow-sm transition-all duration-500 hover:-translate-y-1 hover:border-brand-200 hover:shadow-xl"
+                className="group flex flex-col gap-5 rounded-xl border border-brand-100 bg-white p-8 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-brand-200 hover:shadow-lg"
               >
                 {/* Header de card */}
                 <div className="flex items-start justify-between">

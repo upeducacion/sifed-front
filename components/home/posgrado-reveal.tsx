@@ -38,7 +38,7 @@ function ProgramCard({ programa }: { programa: ProgramaResumen }) {
         alt={programa.titulo}
         fill
         sizes="(max-width: 768px) 100vw, 380px"
-        className="object-cover transition-transform duration-700 group-hover:scale-110 grayscale-[20%] group-hover:grayscale-0 opacity-60 group-hover:opacity-100"
+                  className="object-cover transition-transform duration-300 group-hover:scale-[1.03] grayscale-[20%] group-hover:grayscale-0 opacity-60 group-hover:opacity-100"
       />      <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/20 to-transparent z-10" />
       <div className="absolute inset-x-0 bottom-0 z-20 p-6">
         <h4 className="font-serif text-lg md:text-xl font-black text-white leading-tight drop-shadow-lg group-hover:text-uncp-gold transition-colors">
@@ -148,7 +148,7 @@ export default function PosgradoReveal({ maestrias, doctorados }: PosgradoReveal
                   Formamos investigadores capaces de rediseñar el futuro de la educación mediante el pensamiento crítico y el rigor científico.
                 </p>
                 <Link href="/posgrado" className="inline-flex w-fit items-center gap-4 text-white border-b border-white/20 pb-2 font-bold text-sm hover:text-uncp-gold hover:border-uncp-gold transition-all group">
-                  Explorar Institución <ArrowRight className="h-4 w-4 group-hover:translate-x-2 transition-transform" />
+                  Explorar Institución <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform duration-200" />
                 </Link>
               </motion.div>
 
