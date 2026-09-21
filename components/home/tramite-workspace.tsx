@@ -6,6 +6,8 @@ import Link from "next/link";
 import {
   ArrowRight,
   Check,
+  ChevronLeft,
+  ChevronRight,
   ClipboardList,
   Download,
   Eye,
@@ -50,14 +52,26 @@ export default function TramiteWorkspace({
   searchQuery,
 }: Readonly<TramiteWorkspaceProps>) {
   const [selectedDocId, setSelectedDocId] = useState<number | null>(null);
+  const [currentPage, setCurrentPage] = useState(1);
+  const pageSize = 8;
   const selectedProcedure = selectedSlug ? procedures[selectedSlug] : null;
   const selectedDoc = documentos.find((documento) => documento.id === selectedDocId) ?? documentos[0] ?? null;
+  const totalPages = Math.max(1, Math.ceil(documentos.length / pageSize));
+  const safeCurrentPage = Math.min(currentPage, totalPages);
+  const pageStart = (safeCurrentPage - 1) * pageSize;
+  const visibleDocuments = documentos.slice(pageStart, pageStart + pageSize);
+
+  const goToPage = (page: number) => {
+    const nextPage = Math.min(Math.max(page, 1), totalPages);
+    setCurrentPage(nextPage);
+    setSelectedDocId(documentos[(nextPage - 1) * pageSize]?.id ?? null);
+  };
 
   return (
     <main className="min-h-full flex-1 bg-[#f7f5f0] text-brand-950">
       <section className="relative overflow-hidden bg-brand-950 text-white">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(194,157,75,0.22),transparent_32%),linear-gradient(120deg,#07182f_0%,#102e51_65%,#153d65_100%)]" />
-        <div className="relative mx-auto max-w-7xl px-4 pb-8 pt-5 sm:px-6 sm:pb-12 sm:pt-8 lg:px-12 lg:pb-16">
+        <div className="page-shell-wide relative pb-8 pt-5 sm:pb-12 sm:pt-8 lg:pb-16">
           <nav aria-label="Breadcrumb" className="mb-7 flex items-center gap-2 overflow-hidden text-[10px] font-bold uppercase tracking-[0.14em] text-brand-200 sm:mb-12 sm:text-xs sm:tracking-[0.16em]">
             <Link href="/" className="transition hover:text-uncp-gold">Inicio</Link>
             <span className="text-brand-500">/</span>
@@ -78,7 +92,7 @@ export default function TramiteWorkspace({
         </div>
       </section>
 
-      <section className="mx-auto grid max-w-7xl gap-5 px-4 py-5 sm:gap-8 sm:px-6 sm:py-8 lg:grid-cols-[18rem_minmax(0,1fr)] lg:px-12 lg:py-12">
+      <section className="page-shell-wide grid gap-5 py-5 sm:gap-8 sm:py-8 lg:grid-cols-[18rem_minmax(0,1fr)] lg:py-12">
         <aside className="lg:sticky lg:top-28 lg:self-start">
           <div className="rounded-lg border border-brand-100 bg-white p-2 shadow-sm">
             <div className="px-3 pb-2 pt-1 sm:px-4 sm:pb-3 sm:pt-2">
@@ -156,17 +170,37 @@ export default function TramiteWorkspace({
                   {documentos.length === 0 ? (
                     <div className="rounded-lg border border-dashed border-brand-200 bg-white p-10 text-center shadow-sm"><Search className="mx-auto h-10 w-10 text-brand-300" aria-hidden="true" /><h4 className="mt-4 font-bold">No encontramos documentos</h4><p className="mt-2 text-sm text-muted-foreground">Prueba con otro término de búsqueda.</p></div>
                   ) : (
-                    <div className="space-y-3 lg:max-h-[calc(100vh-20rem)] lg:overflow-y-auto lg:pr-2">
-                      {documentos.map((doc) => {
+                    <div className="space-y-3">
+                      {visibleDocuments.map((doc) => {
                         const Icon = categoryIcon(doc.categoria?.slug || "");
                         const isSelected = selectedDoc?.id === doc.id;
-                        return <button key={doc.id} type="button" onClick={() => setSelectedDocId(doc.id)} className={cn("group flex w-full items-start gap-4 rounded-lg border bg-white p-4 text-left transition-[background-color,border-color,box-shadow] hover:shadow-md", isSelected ? "border-brand-200 border-l-4 border-l-uncp-gold bg-brand-50/50 shadow-sm" : "border-border hover:border-brand-300")}>
+                        return <button key={doc.id} type="button" onClick={() => setSelectedDocId(doc.id)} className={cn("group flex w-full items-start gap-4 rounded-lg border bg-white p-4 text-left transition-[background-color,border-color,box-shadow] hover:shadow-md", isSelected ? "border-brand-200 bg-brand-50/50 shadow-sm" : "border-border hover:border-brand-300")}>
                           <span className={cn("flex h-11 w-11 shrink-0 items-center justify-center rounded-xl", isSelected ? "bg-brand-950 text-uncp-gold" : "bg-brand-50 text-brand-700 group-hover:bg-brand-100")}><Icon className="h-5 w-5" aria-hidden="true" /></span>
                           <span className="min-w-0 flex-1"><span className="mb-2 flex flex-wrap gap-2"><span className="rounded-full bg-brand-50 px-2 py-1 text-[10px] font-black uppercase tracking-wide text-brand-700">{doc.categoria?.nombre || "Documento"}</span>{doc.extension_archivo && <span className="rounded-full border border-border px-2 py-1 text-[10px] font-black uppercase tracking-wide text-muted-foreground">{doc.extension_archivo}</span>}</span><span className="block font-bold leading-snug text-brand-950">{doc.titulo}</span>{doc.codigo && <span className="mt-2 block text-xs text-muted-foreground">{doc.codigo}</span>}</span>
                           <Eye className="mt-1 h-4 w-4 shrink-0 text-brand-300 transition group-hover:text-brand-700" aria-hidden="true" />
                         </button>;
                       })}
                     </div>
+                  )}
+                  {documentos.length > pageSize && (
+                    <nav aria-label="Paginación de documentos" className="mt-5 flex flex-wrap items-center justify-between gap-3 border-t border-border pt-4">
+                      <span className="text-xs font-medium text-muted-foreground">
+                        Mostrando {pageStart + 1}-{Math.min(pageStart + pageSize, documentos.length)} de {documentos.length}
+                      </span>
+                      <div className="flex items-center gap-1">
+                        <button type="button" onClick={() => goToPage(safeCurrentPage - 1)} disabled={safeCurrentPage === 1} className="flex h-9 w-9 items-center justify-center rounded-md border border-border text-brand-700 transition-colors hover:bg-brand-50 disabled:cursor-not-allowed disabled:opacity-40" aria-label="Página anterior">
+                          <ChevronLeft className="h-4 w-4" aria-hidden="true" />
+                        </button>
+                        {Array.from({ length: totalPages }, (_, index) => index + 1).map((page) => (
+                          <button key={page} type="button" onClick={() => goToPage(page)} className={cn("h-9 min-w-9 rounded-md px-2 text-xs font-bold transition-colors", page === safeCurrentPage ? "bg-brand-950 text-white" : "text-brand-700 hover:bg-brand-50")} aria-current={page === safeCurrentPage ? "page" : undefined}>
+                            {page}
+                          </button>
+                        ))}
+                        <button type="button" onClick={() => goToPage(safeCurrentPage + 1)} disabled={safeCurrentPage === totalPages} className="flex h-9 w-9 items-center justify-center rounded-md border border-border text-brand-700 transition-colors hover:bg-brand-50 disabled:cursor-not-allowed disabled:opacity-40" aria-label="Página siguiente">
+                          <ChevronRight className="h-4 w-4" aria-hidden="true" />
+                        </button>
+                      </div>
+                    </nav>
                   )}
                 </section>
 
