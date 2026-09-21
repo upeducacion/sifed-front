@@ -52,7 +52,7 @@ export default async function NosotrosPage() {
         ]}
       />
 
-      <div className="container mx-auto px-6 lg:px-12 max-w-7xl pt-10">
+      <div className="page-shell-wide pt-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
           
           {/* COLUMNA PRINCIPAL (HISTORIA Y AUTORIDADES) */}

@@ -38,7 +38,7 @@ export default function TramiteDetailContent({ slug }: Readonly<{ slug: Procedur
   return (
     <main className="flex-1 bg-neutral-50/30">
       <section className="bg-brand-950 text-white">
-        <div className="container mx-auto max-w-5xl px-6 py-16 lg:px-12 lg:py-24">
+        <div className="page-shell py-16 lg:py-24">
           <Link href="/tramites" className="mb-10 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.16em] text-brand-200 transition hover:text-uncp-gold">
             <ArrowLeft className="h-4 w-4" aria-hidden="true" /> Volver a trámites
           </Link>
@@ -52,7 +52,7 @@ export default function TramiteDetailContent({ slug }: Readonly<{ slug: Procedur
           </div>
         </div>
       </section>
-      <section className="container mx-auto max-w-5xl px-6 py-12 lg:px-12 lg:py-20">
+      <section className="page-shell py-12 lg:py-20">
         <div className="rounded-lg border border-border bg-white p-8 shadow-sm md:p-10">
           <span className="mb-2 block text-xs font-black uppercase tracking-[0.2em] text-amber-700">Siguiente paso</span>
           <h2 className="font-serif text-3xl font-black text-brand-950">Consulta los requisitos y formatos</h2>

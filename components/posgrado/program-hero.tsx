@@ -53,7 +53,7 @@ export default function ProgramHero({ program }: ProgramHeroProps) {
         </nav>
       </div>
 
-      <div className="container mx-auto px-6 lg:px-12 relative z-20">
+      <div className="page-shell-wide relative z-20">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <motion.div
             initial={{ opacity: 0, x: -30 }}

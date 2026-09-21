@@ -65,7 +65,7 @@ export default function PortalesContent() {
       />
 
       {/* Barra de filtros flotante */}
-      <section className="max-w-7xl mx-auto px-6 -mt-10 relative z-30">
+      <section className="page-shell-wide relative z-30 -mt-10">
         <div className="container-query-name cq-toolbar flex flex-col items-center gap-4 rounded-xl border border-brand-100 bg-white/90 p-2 shadow-2xl backdrop-blur-xl lg:flex-row">
           <div className="cq-toolbar-tabs flex items-center gap-1 overflow-x-auto rounded-md bg-brand-50 p-1 no-scrollbar">
             <button
@@ -102,7 +102,7 @@ export default function PortalesContent() {
       </section>
 
       {/* Grid de cards */}
-      <section className="max-w-7xl mx-auto px-6 py-16">
+      <section className="page-shell-wide py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           <AnimatePresence mode="popLayout">
             {portalsFiltrados.map((portal) => (

@@ -21,7 +21,7 @@ export default function DashboardShell({ children, navItems, title }: DashboardS
         <DashboardHeader setSidebarOpen={setSidebarOpen} title={title} />
         
         <main className="flex-1 p-6 lg:p-8 overflow-y-auto">
-          <div className="mx-auto max-w-6xl animate-in fade-in slide-in-from-bottom-4 duration-500">
+          <div className="page-shell-contained animate-in fade-in slide-in-from-bottom-4 duration-500">
             {children}
           </div>
         </main>

@@ -12,7 +12,7 @@ const images = [
 export default function GallerySection() {
   return (
     <section className="w-full py-20 bg-muted/40">
-      <div className="container mx-auto px-6">
+      <div className="page-shell">
         {/* Título */}
         <div className="text-center mb-14">
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight">

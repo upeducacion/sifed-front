@@ -62,7 +62,7 @@ export default function PosgradoFluid({ maestrias, doctorados }: PosgradoFluidPr
         </div>
       </div>
 
-      <div className="relative z-10 container mx-auto px-6 lg:px-12">
+      <div className="page-shell-wide relative z-10">
         <div className="grid lg:grid-cols-12 gap-8">
           
           {/* LADO IZQUIERDO: ANCLA INSTITUCIONAL (STICKY) */}

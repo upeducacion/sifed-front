@@ -9,7 +9,7 @@ export const metadata = {
 export default function PlanesEstudioPage() {
   return (
     <section className="w-full pt-20 pb-24 px-4 md:px-8 bg-background">
-      <div className="max-w-7xl mx-auto">
+      <div className="page-shell-wide">
 
         {/* Encabezado */}
         <div className="text-center max-w-3xl mx-auto mb-16">

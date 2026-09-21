@@ -46,7 +46,7 @@ export default async function InstitutionalShowcase() {
 
   return (
     <section className="w-full bg-black py-20 overflow-hidden border-y border-white/5">
-      <div className="container mx-auto px-8 mb-12 flex flex-col md:flex-row items-end justify-between gap-6">
+      <div className="page-shell-wide mb-12 flex flex-col items-end justify-between gap-6 md:flex-row">
         <div className="max-w-xl">
           <span className="text-uncp-gold font-black uppercase tracking-[0.4em] text-[9px] mb-4 block opacity-60">Archivo de Calidad Educativa</span>
           <h2 className="font-serif text-4xl md:text-6xl font-black text-white leading-tight tracking-tighter">
@@ -58,7 +58,7 @@ export default async function InstitutionalShowcase() {
         </Link>
       </div>
 
-      <div className="flex flex-col gap-3 md:gap-4">
+      <div className="page-shell-wide flex flex-col gap-3 md:gap-4">
         {row1.length > 0 && <MarqueeRow images={row1} direction="left" speed={60} label="Academia" />}
         {row2.length > 0 && <MarqueeRow images={row2} direction="right" speed={80} label="Investigación" />}
         {row3.length > 0 && <MarqueeRow images={row3} direction="left" speed={70} label="Vida Universitaria" />}

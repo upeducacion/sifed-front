@@ -25,7 +25,7 @@ export async function NewsCollage() {
 
   return (
     <section className="container-query-name w-full bg-white px-4 py-14 sm:py-20 md:px-8">
-      <div className="max-w-7xl mx-auto">
+      <div className="page-shell-wide">
         
         {/* Header de Sección */}
         <div className="mb-8 flex items-end justify-between border-b border-border pb-5 sm:mb-10 sm:pb-6">

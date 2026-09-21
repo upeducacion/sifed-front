@@ -223,7 +223,7 @@ export default function EditarProgramaPage({ params }: { params: Promise<{ id: s
   if (isLoading) return <Loader text="Cargando configuración del programa..." />;
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-6 max-w-6xl mx-auto pb-24">
+    <form onSubmit={handleSubmit} className="page-shell-wide-contained space-y-6 pb-24">
       {/* HEADER */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white p-6 rounded-lg border border-border shadow-sm mb-6">
         <div className="flex items-center gap-4">

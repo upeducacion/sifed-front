@@ -114,7 +114,7 @@ export default function PosgradoReveal({ maestrias, doctorados }: PosgradoReveal
           <div className="absolute inset-0 bg-gradient-to-r from-black via-brand-950/20 to-transparent z-10" />
         </motion.div>
 
-        <div className="container mx-auto h-full px-8 lg:px-16 relative z-20">
+        <div className="page-shell-wide relative z-20 h-full">
           <div className="grid grid-cols-12 h-full items-center">
             
             {/* 25% IDENTIDAD */}

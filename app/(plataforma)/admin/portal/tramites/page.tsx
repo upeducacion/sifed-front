@@ -375,7 +375,7 @@ export default function TramitesAdminPage() {
 
   return (
     <main className="min-h-full bg-[#f5f7fa] p-5 text-brand-950 md:p-8">
-      <div className="mx-auto max-w-[1500px]">
+      <div className="page-shell-wide-contained">
         <header className="mb-7 flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
           <div>
             <p className="text-[10px] font-black uppercase tracking-[0.24em] text-amber-700">Biblioteca de trámites</p>

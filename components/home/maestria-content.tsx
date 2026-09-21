@@ -281,7 +281,7 @@ export default function MaestriaContent() {
 
       {/* STRIP PROPUESTA DE VALOR */}
       <section className="bg-brand-800 py-14">
-        <div className="container mx-auto max-w-7xl px-6 lg:px-12">
+        <div className="page-shell-wide">
           <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
             {propuestaValor.map((item) => {
               const Icono = item.icono;
@@ -306,7 +306,7 @@ export default function MaestriaContent() {
 
       {/* MENCIONES */}
       <section className="bg-white py-20 md:py-24" id="menciones">
-        <div className="container mx-auto max-w-7xl px-6 lg:px-12">
+        <div className="page-shell-wide">
           <div className="mb-14 max-w-2xl">
             <p className="text-xs font-black uppercase tracking-[0.25em] text-brand-600">
               4 Especializaciones
@@ -467,7 +467,7 @@ export default function MaestriaContent() {
 
       {/* LOGROS */}
       <section className="bg-brand-950 py-20">
-        <div className="container mx-auto max-w-7xl px-6 lg:px-12">
+        <div className="page-shell-wide">
           <div className="grid gap-10 lg:grid-cols-2">
             <div className="flex flex-col justify-center">
               <p className="text-xs font-black uppercase tracking-[0.25em] text-uncp-gold">
@@ -546,7 +546,7 @@ export default function MaestriaContent() {
 
       {/* CTA FINAL */}
       <section className="bg-brand-950 py-20">
-        <div className="container mx-auto max-w-5xl px-6 text-center lg:px-12">
+        <div className="page-shell text-center">
           <span className="mb-6 inline-flex items-center gap-2 rounded-full border border-uncp-gold/40 bg-uncp-gold/10 px-4 py-1.5 text-[10px] font-black uppercase tracking-[0.25em] text-uncp-gold">
             <Calendar className="h-3.5 w-3.5" /> Proceso de Admisión Abierto
           </span>

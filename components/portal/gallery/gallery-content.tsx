@@ -118,7 +118,7 @@ export default function GalleryContent({ initialData }: GalleryContentProps) {
         breadcrumbs={[{ label: "Galería de Fotos" }]}
       />
 
-      <section className="max-w-7xl mx-auto px-6 -mt-12 relative z-30">
+      <section className="page-shell-wide relative z-30 -mt-12">
         <div className="container-query-name cq-toolbar bg-white shadow-float rounded-lg border border-brand-100 p-2 flex flex-col lg:flex-row items-center gap-4">
           <div className="cq-toolbar-tabs flex items-center gap-1 p-1 bg-brand-50 rounded-lg overflow-x-auto no-scrollbar max-w-full">
             {categorias.map((cat) => (
@@ -161,7 +161,7 @@ export default function GalleryContent({ initialData }: GalleryContentProps) {
         </div>
       </section>
 
-      <section className="max-w-7xl mx-auto px-6 py-16 relative">
+      <section className="page-shell-wide relative py-16">
         {isValidating && <RefreshCcw className="absolute top-0 right-6 w-4 h-4 animate-spin text-brand-200" />}
 
         {isLoading && galeriasRaw.length === 0 ? (

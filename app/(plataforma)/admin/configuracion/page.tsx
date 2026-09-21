@@ -8,7 +8,7 @@ export default function SettingsPage() {
   const [activeTab, setActiveTab] = useState("profile");
 
   return (
-    <div className="max-w-4xl mx-auto space-y-8 pb-12">
+    <div className="page-shell-contained space-y-8 pb-12">
       <div>
         <h2 className="text-3xl font-serif font-bold text-brand-950">Configuración</h2>
         <p className="text-muted-foreground">Gestiona tu información personal y preferencias de seguridad.</p>

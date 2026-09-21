@@ -41,7 +41,7 @@ const categories = [
 export default function ProgramSelectorSection() {
   return (
     <section className="py-24 bg-neutral-50 border-b border-border overflow-hidden">
-      <div className="container mx-auto px-6 lg:px-12 max-w-7xl">
+      <div className="page-shell-wide">
         
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
           <div className="max-w-2xl">

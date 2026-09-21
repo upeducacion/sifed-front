@@ -41,7 +41,7 @@ export default function GalleryDetailContent({ galeria }: GalleryDetailContentPr
     <div className="min-h-screen bg-white pb-20">
       {/* Header Navigation */}
       <nav className="sticky top-0 z-40 bg-white/80 backdrop-blur-md border-b border-border">
-        <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+        <div className="page-shell-wide flex h-16 items-center justify-between">
           <Link 
             href="/galeria-fotos" 
             className="group flex items-center gap-2 text-sm font-bold text-brand-950 hover:text-brand-600 transition-colors"
@@ -59,7 +59,7 @@ export default function GalleryDetailContent({ galeria }: GalleryDetailContentPr
       </nav>
 
       {/* Album Info */}
-      <header className="max-w-4xl mx-auto px-6 py-16 text-center space-y-4">
+      <header className="page-shell py-16 text-center space-y-4">
         <motion.div 
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
@@ -89,7 +89,7 @@ export default function GalleryDetailContent({ galeria }: GalleryDetailContentPr
       </header>
 
       {/* Photo Grid */}
-      <section className="max-w-7xl mx-auto px-6">
+      <section className="page-shell-wide">
         <div className="columns-1 sm:columns-2 lg:columns-3 gap-6 space-y-6">
           {fotos.map((foto, index) => (
             <motion.div

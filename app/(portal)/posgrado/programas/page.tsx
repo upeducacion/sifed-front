@@ -61,7 +61,7 @@ export default function ProgramasHubPage() {
       />
 
       <section className="py-20 bg-white">
-        <div className="container mx-auto px-6 lg:px-12 max-w-7xl">
+        <div className="page-shell-wide">
           <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
             {programCategories.map((cat) => (
               <Link 

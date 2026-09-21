@@ -12,7 +12,7 @@ export default function PosgradoCTA() {
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] border border-brand-950 rounded-full" />
       </div>
 
-      <div className="container mx-auto px-6 lg:px-12 relative z-10">
+      <div className="page-shell-wide relative z-10">
         <div className="text-center mb-10 lg:mb-14">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

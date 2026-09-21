@@ -228,7 +228,7 @@ export default function UnidadPosgradoAdminPage() {
   ];
 
   return (
-    <div className="space-y-6 max-w-7xl mx-auto pb-20">
+    <div className="page-shell-wide-contained space-y-6 pb-20">
       {/* Header */}
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
         <div className="flex flex-col gap-2">

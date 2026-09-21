@@ -5,8 +5,8 @@ import { EXTERNAL_LINKS } from "@/lib/constants";
 
 export default function SocialHubSection() {
   return (
-    <section className="w-full bg-white py-16 px-6 lg:px-12 border-b border-border overflow-hidden">
-      <div className="max-w-7xl mx-auto">
+    <section className="w-full overflow-hidden border-b border-border bg-white py-16">
+      <div className="page-shell-wide">
         <div className="grid lg:grid-cols-12 gap-12 items-start">
           
           {/* COLUMNA IZQUIERDA: INFORMACIÓN Y ACCESOS (4 COLUMNAS) */}

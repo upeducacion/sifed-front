@@ -58,7 +58,7 @@ export default function CategoriasBibliotecaPage() {
   };
 
   return (
-    <div className="max-w-4xl mx-auto space-y-8">
+    <div className="page-shell-contained space-y-8">
       <div className="flex items-center justify-between">
         <div>
           <h2 className="text-3xl font-serif font-bold text-brand-950">Categorías</h2>

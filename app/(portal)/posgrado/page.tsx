@@ -61,7 +61,7 @@ export default function PosgradoPage() {
 
       {/* CTA Institucional (Reemplaza la Identidad estática) */}
       <section className="bg-brand-50 border-y border-border py-12">
-        <div className="container mx-auto px-6 lg:px-12 max-w-7xl flex flex-col md:flex-row items-center justify-between gap-6">
+        <div className="page-shell-wide flex flex-col items-center justify-between gap-6 md:flex-row">
           <div>
             <h2 className="text-xl md:text-2xl font-serif font-black text-brand-950 mb-2">Conoce a la Unidad de Posgrado</h2>
             <p className="text-sm text-muted-foreground font-medium">Descubre nuestra historia, misión, visión y al equipo directivo que lidera la excelencia académica.</p>

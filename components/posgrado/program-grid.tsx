@@ -33,7 +33,7 @@ export default function ProgramGrid({ programs, type }: ProgramGridProps) {
 
   return (
     <section className="py-24 bg-white">
-      <div className="container-query-name mx-auto max-w-7xl px-4 sm:px-6 lg:px-12">
+      <div className="container-query-name page-shell-wide">
 
         {/* Título de Sección */}
         <div className="mb-10 text-center sm:mb-16">

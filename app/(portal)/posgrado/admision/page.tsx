@@ -21,7 +21,7 @@ export default function AdmisionHubPage() {
       />
 
       <section className="py-20 lg:py-24 bg-white">
-        <div className="container mx-auto px-6 max-w-6xl">
+        <div className="page-shell-wide">
           
           <div className="text-center mb-16">
             <span className="text-brand-600 font-bold uppercase tracking-[0.2em] text-xs block mb-3">

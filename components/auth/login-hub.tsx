@@ -197,7 +197,7 @@ export default function LoginHub() {
 
       {/* DERECHA: Grid de Servicios Académicos */}
       <main className="flex-1 bg-white p-6 lg:p-10 xl:p-12 xl:pt-6 overflow-y-auto lg:h-screen no-scrollbar">
-        <div className="max-w-7xl mx-auto">
+        <div className="page-shell-wide-contained">
           
           {/* Header Minimalista Editorial */}
           <header className="mb-6">

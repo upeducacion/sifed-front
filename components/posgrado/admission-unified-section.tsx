@@ -13,7 +13,7 @@ export default function AdmissionUnifiedSection({ data }: AdmissionUnifiedSectio
 
   return (
     <section id="admision" className="w-full pt-16 pb-24 px-4 md:px-8 bg-neutral-50 border-t border-border">
-      <div className="max-w-7xl mx-auto">
+      <div className="page-shell-wide">
         
         {/* Encabezado Simplificado */}
         <div className="mb-12 text-center">

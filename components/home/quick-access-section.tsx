@@ -82,7 +82,7 @@ export default function QuickAccessSection() {
 
   return (
     <section className="py-16 bg-slate-50/50 border-b border-border overflow-hidden" aria-label="Enlaces de acceso rápido">
-      <div className="container-query-name container mx-auto max-w-7xl px-4 sm:px-6 lg:px-12">
+      <div className="container-query-name page-shell-wide">
         
         <div className="mb-8 flex flex-col gap-5 sm:mb-10 md:flex-row md:items-center md:justify-between">
           <div>

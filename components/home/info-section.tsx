@@ -3,19 +3,19 @@ import { FileText, Bell, ArrowRight, TrendingUp } from "lucide-react";
 
 export default function InfoSection() {
   return (
-    <section className="w-auto bg-brand-50/30 min-h-screen flex items-center py-24 px-6 lg:px-12 border-b border-border overflow-hidden">
-       <div className="max-w-7xl mx-auto w-full flex flex-col justify-center">
+    <section className="flex w-full items-center overflow-hidden border-b border-border bg-brand-50/30 py-14 sm:py-24">
+      <div className="container-query-name page-shell-wide flex flex-col justify-center">
           
-          <div className="mb-12 text-center md:text-left">
+          <div className="mb-9 text-center sm:mb-12 md:text-left">
              <span className="text-[10px] font-black uppercase tracking-[0.3em] text-uncp-gold mb-2 block">Impacto Institucional</span>
-             <h2 className="text-3xl md:text-4xl font-serif font-black text-brand-950 leading-tight">Cifras y Gestión</h2>
-             <p className="text-base text-muted-foreground font-medium mt-3">Transparencia y resultados de nuestra labor académica.</p>
+             <h2 className="font-serif text-3xl font-black leading-tight text-brand-950 sm:text-4xl">Cifras y Gestión</h2>
+             <p className="mt-3 text-sm font-medium text-muted-foreground sm:text-base">Transparencia y resultados de nuestra labor académica.</p>
           </div>
 
-          <div className="grid lg:grid-cols-4 gap-8 md:gap-10">
+          <div className="grid grid-cols-1 gap-5 sm:gap-6 lg:grid-cols-4 lg:gap-10">
             {/* Bloque: Estadísticas */}
-            <div className="lg:col-span-1 bg-brand-50 p-8 md:p-10 rounded-lg rounded-lg flex flex-col justify-center border border-border">
-               <div className="space-y-8 md:space-y-12">
+            <div className="flex flex-col justify-center rounded-lg border border-border bg-brand-50 p-6 sm:p-10 lg:col-span-1">
+               <div className="grid grid-cols-1 gap-7 sm:grid-cols-3 sm:gap-8 lg:grid-cols-1 lg:gap-12">
                   <div className="group">
                       <div className="text-5xl md:text-6xl font-serif font-black text-brand-950 transition-transform group-hover:scale-105 duration-300">1k+</div>
                       <div className="text-xs md:text-sm font-bold text-muted-foreground mt-2 uppercase tracking-wide text-balance">Usuarios Activos</div>
@@ -32,8 +32,8 @@ export default function InfoSection() {
             </div>
 
             {/* Bloque: Noticias (Grid 2x1) */}
-            <div className="lg:col-span-2 grid gap-6 md:gap-8">
-               <Link href="/posgrado/admision" className="bg-background p-8 md:p-10 rounded-lg rounded-lg border border-border shadow-sm hover:shadow-2xl transition-all flex flex-col justify-center relative overflow-hidden group cursor-pointer hover:border-brand-200">
+            <div className="grid gap-5 sm:gap-8 lg:col-span-2">
+               <Link href="/posgrado/admision" className="group relative flex cursor-pointer flex-col justify-center overflow-hidden rounded-lg border border-border bg-background p-6 shadow-sm transition-all hover:border-brand-200 hover:shadow-2xl sm:p-10">
                   <div className="absolute top-0 right-0 w-24 h-24 md:w-32 md:h-32 bg-brand-50 rounded-bl-full -mr-12 -mt-12 md:-mr-16 md:-mt-16 transition-transform group-hover:scale-150 duration-700"></div>
                   <span className="relative z-10 flex items-center gap-2 text-[10px] md:text-xs font-black text-uncp-gold uppercase tracking-widest mb-4">
                       <Bell className="h-3 w-3 md:h-4 md:w-4" /> Informativo
@@ -43,7 +43,7 @@ export default function InfoSection() {
                   <div className="relative z-10 mt-6 text-xs md:text-sm font-black text-brand-600 flex items-center gap-2">VER INFORMACIÓN <ArrowRight className="h-4 w-4 md:h-5 md:w-5" /></div>
                </Link>
                
-               <Link href="/galeria-fotos/investigacion" className="bg-background p-8 md:p-10 rounded-lg rounded-lg border border-border shadow-sm hover:shadow-2xl transition-all flex flex-col justify-center relative overflow-hidden group cursor-pointer hover:border-brand-200">
+               <Link href="/galeria-fotos/investigacion" className="group relative flex cursor-pointer flex-col justify-center overflow-hidden rounded-lg border border-border bg-background p-6 shadow-sm transition-all hover:border-brand-200 hover:shadow-2xl sm:p-10">
                   <span className="relative z-10 flex items-center gap-2 text-[10px] md:text-xs font-black text-brand-600 uppercase tracking-widest mb-4">
                       <TrendingUp className="h-3 w-3 md:h-4 md:w-4" /> Investigación
                   </span>
@@ -54,7 +54,7 @@ export default function InfoSection() {
             </div>
 
             {/* Bloque: Trámites */}
-            <div className="lg:col-span-1 bg-brand-950 p-8 md:p-10 rounded-lg rounded-lg text-white flex flex-col justify-between shadow-2xl relative overflow-hidden">
+            <div className="relative flex flex-col justify-between overflow-hidden rounded-lg bg-brand-950 p-6 text-white shadow-2xl sm:p-10 lg:col-span-1">
                <div className="absolute inset-0 bg-gradient-to-b from-brand-800 to-brand-950"></div>
                <div className="relative z-10">
                   <h3 className="font-serif text-xl md:text-2xl font-bold mb-6 md:mb-8 flex items-center gap-3 text-uncp-gold">

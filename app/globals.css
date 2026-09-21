@@ -158,6 +158,16 @@
     margin-inline: auto;
   }
 
+  .page-shell-contained {
+    width: min(100%, var(--container-content));
+    margin-inline: auto;
+  }
+
+  .page-shell-wide-contained {
+    width: min(100%, var(--container-wide));
+    margin-inline: auto;
+  }
+
   .container-query {
     container-type: inline-size;
   }

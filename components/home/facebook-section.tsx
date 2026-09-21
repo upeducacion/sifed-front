@@ -12,7 +12,7 @@ export default function FacebookSection() {
         }}></div>
       </div>
 
-      <div className="container mx-auto px-6 lg:px-12 max-w-7xl relative z-10">
+      <div className="page-shell-wide relative z-10">
         {/* Header */}
         <div className="text-center mb-12">
           <div className="flex items-center justify-center gap-3 mb-4">

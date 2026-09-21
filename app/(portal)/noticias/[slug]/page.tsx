@@ -92,12 +92,12 @@ export default async function NoticiaDetallePage({ params }: PageProps) {
   return (
     <article className="min-h-screen bg-white">
       <div className="bg-neutral-50 border-b border-neutral-200">
-        <div className="container mx-auto px-4 py-4">
+        <div className="page-shell-wide py-4">
           <BackButton label="Volver" />
         </div>
       </div>
 
-      <header className="container mx-auto px-4 py-12 md:py-16 max-w-5xl text-center">
+      <header className="page-shell py-12 text-center md:py-16">
         <div className="flex flex-wrap items-center justify-center gap-4 text-sm font-medium text-neutral-500 mb-6">
           <span className="flex items-center gap-1.5 bg-brand-50 text-brand-700 px-3 py-1 rounded-full">
             <Calendar className="h-4 w-4" />
@@ -127,7 +127,7 @@ export default async function NoticiaDetallePage({ params }: PageProps) {
         )}
       </header>
 
-      <div className="container mx-auto px-4 max-w-6xl mb-16">
+      <div className="page-shell-wide mb-16">
         <div className="relative aspect-video w-full overflow-hidden rounded-lg rounded-lg bg-neutral-900 shadow-2xl ring-1 ring-black/5">
           {noticia.imagen_url ? (
             <UnoptImage
@@ -149,8 +149,8 @@ export default async function NoticiaDetallePage({ params }: PageProps) {
         </p>
       </div>
 
-      <div className="container mx-auto px-4 pb-24">
-        <div className="flex flex-col lg:flex-row gap-12 max-w-6xl mx-auto">
+      <div className="page-shell-wide pb-24">
+        <div className="page-shell-wide flex flex-col gap-12 lg:flex-row">
           <NewsToolbar />
 
           <div className="flex-1 max-w-3xl mx-auto">

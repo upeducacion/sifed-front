@@ -19,22 +19,22 @@ const cardVariants = {
 
 export default function EcosistemaSection() {
   return (
-    <section className="w-full bg-brand-50 flex items-center py-20 px-6 lg:px-12 border-b border-border overflow-hidden">
-      <div className="max-w-7xl mx-auto w-full">
+    <section className="w-full overflow-hidden border-b border-border bg-brand-50 py-14 sm:py-20">
+      <div className="container-query-name page-shell-wide">
 
         <motion.div
-          className="mb-12 text-center md:text-left"
+          className="mb-9 text-center sm:mb-12 md:text-left"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.42, ease: EASE }}
         >
           <span className="text-[10px] font-black uppercase tracking-[0.3em] text-uncp-gold mb-2 block">Ecosistema Digital</span>
-          <h2 className="text-3xl md:text-4xl font-serif font-black text-brand-950 leading-tight">Plataformas Académicas</h2>
-          <p className="text-base text-muted-foreground font-medium mt-3">Sistemas integrados para la gestión universitaria.</p>
+          <h2 className="font-serif text-3xl font-black leading-tight text-brand-950 sm:text-4xl">Plataformas Académicas</h2>
+          <p className="mt-3 text-sm font-medium text-muted-foreground sm:text-base">Sistemas integrados para la gestión universitaria.</p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 gap-5 sm:gap-6 lg:grid-cols-2">
 
           {/* CARD 1: PORTAL */}
           <motion.div
@@ -44,9 +44,7 @@ export default function EcosistemaSection() {
             whileInView="visible"
             viewport={{ once: true, margin: "-60px" }}
             whileHover={{ y: -4, transition: { duration: 0.24, ease: EASE } }}
-            className="group relative flex flex-col rounded-lg border-2 border-transparent bg-background p-8 shadow-sm cursor-pointer overflow-hidden
-              transition-shadow duration-300
-              hover:shadow-float"
+            className="group relative flex cursor-pointer flex-col overflow-hidden rounded-lg border-2 border-transparent bg-background p-5 shadow-sm transition-shadow duration-300 hover:shadow-float sm:p-8"
             style={{ border: "2px solid transparent", backgroundClip: "padding-box" }}
           >
             {/* Borde degradado al hover */}
@@ -71,13 +69,13 @@ export default function EcosistemaSection() {
                 >
                   <Newspaper className="h-7 w-7" strokeWidth={1.5} />
                 </motion.div>
-                <h3 className="font-serif text-2xl md:text-3xl font-bold text-brand-950 mb-3 transition-colors duration-300 group-hover:text-brand-600">
+                <h3 className="mb-3 font-serif text-2xl font-bold text-brand-950 transition-colors duration-300 group-hover:text-brand-600 sm:text-3xl">
                   Portal Informativo
                 </h3>
-                <p className="text-sm md:text-base text-muted-foreground leading-relaxed mb-6 transition-colors duration-300 group-hover:text-brand-800">
+                <p className="mb-6 text-sm leading-relaxed text-muted-foreground transition-colors duration-300 group-hover:text-brand-800 sm:text-base">
                   Espacio de acceso público. Consulta reglamentos, cronogramas, noticias y comunicados oficiales.
                 </p>
-                <ul className="grid grid-cols-2 gap-x-4 gap-y-2">
+                <ul className="grid grid-cols-1 gap-2 sm:grid-cols-2 sm:gap-x-4 sm:gap-y-2">
                   {['Transparencia', 'Noticias', 'Eventos', 'Calendario'].map((item, i) => (
                     <li key={item} className="flex items-center gap-2 text-brand-800 font-bold text-xs md:text-sm
                       transition-transform duration-300 group-hover:translate-x-1"
@@ -105,9 +103,7 @@ export default function EcosistemaSection() {
             whileInView="visible"
             viewport={{ once: true, margin: "-60px" }}
             whileHover={{ y: -4, transition: { duration: 0.24, ease: EASE } }}
-            className="group relative flex flex-col rounded-lg p-8 text-white cursor-pointer overflow-hidden
-              transition-shadow duration-300
-              hover:shadow-float"
+            className="group relative flex cursor-pointer flex-col overflow-hidden rounded-lg p-5 text-white transition-shadow duration-300 hover:shadow-float sm:p-8"
             style={{ background: "linear-gradient(135deg, #1e3152 0%, #0d1623 60%, #050810 100%)" }}
           >
             {/* Glow base */}
@@ -133,11 +129,11 @@ export default function EcosistemaSection() {
                 >
                   <MonitorPlay className="h-7 w-7" strokeWidth={1.5} />
                 </motion.div>
-                <h3 className="font-serif text-2xl md:text-3xl font-bold text-white mb-3">Intranet UP Educación</h3>
-                <p className="text-sm md:text-base leading-relaxed mb-6 transition-colors duration-300 text-brand-50/80 group-hover:text-white/90">
+                <h3 className="mb-3 font-serif text-2xl font-bold text-white sm:text-3xl">Intranet UP Educación</h3>
+                <p className="mb-6 text-sm leading-relaxed text-brand-50/80 transition-colors duration-300 group-hover:text-white/90 sm:text-base">
                   Gestión académica privada. Accede de forma segura a tus cursos, notas, matrícula y trámites digitales.
                 </p>
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-2 gap-3 sm:gap-4">
                   <div className="p-3 rounded-xl transition-all duration-300
                     bg-white/5 border border-white/10
                     group-hover:bg-white/10 group-hover:border-brand-400/40">

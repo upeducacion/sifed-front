@@ -57,7 +57,7 @@ export default function ProgramDetailLayout({ program, globalAdmissionData }: Pr
 
       {/* Navigation Tabs (Pills flotantes) */}
       <nav className="sticky top-0 z-40 bg-white/80 backdrop-blur-xl border-b border-border shadow-sm">
-        <div className="container mx-auto px-4 lg:px-12 max-w-7xl">
+        <div className="page-shell-wide">
           <div className="flex overflow-x-auto hide-scrollbar justify-start md:justify-center gap-2 py-4">
             {tabs.map((tab) => {
               const isActive = activeTab === tab.id;
@@ -90,7 +90,7 @@ export default function ProgramDetailLayout({ program, globalAdmissionData }: Pr
       </nav>
 
       {/* Content Sections */}
-      <div className="py-16 md:py-24 container mx-auto px-6 lg:px-12 max-w-7xl min-h-[50vh]">
+      <div className="page-shell-wide min-h-[50vh] py-16 md:py-24">
         <AnimatePresence mode="wait">
           
           {/* TAB 1: ACERCA DEL PROGRAMA */}

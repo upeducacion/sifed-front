@@ -91,7 +91,7 @@ export function CategoriaForm({ initialData }: CategoriaFormProps) {
     <form 
         key={initialData?.id || 'new'}
         onSubmit={handleSubmit} 
-        className="bg-white rounded-lg border border-brand-100 shadow-sm p-8 md:p-12 space-y-10 max-w-4xl mx-auto"
+        className="page-shell-contained bg-white rounded-lg border border-brand-100 shadow-sm p-8 md:p-12 space-y-10"
     >
       
       <div className="space-y-6">

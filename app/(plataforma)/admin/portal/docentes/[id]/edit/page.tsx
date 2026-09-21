@@ -206,7 +206,7 @@ export default function EditDocentePage({ params }: EditDocentePageProps) {
   }
 
   return (
-    <div className="max-w-5xl mx-auto space-y-8">
+    <div className="page-shell-wide-contained space-y-8">
       <div className="flex items-center justify-between">
         <Link 
           href="/admin/portal/docentes"

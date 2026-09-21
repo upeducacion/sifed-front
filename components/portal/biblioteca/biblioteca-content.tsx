@@ -59,7 +59,7 @@ export default function BibliotecaContent({ initialData }: BibliotecaContentProp
       />
 
       {/* Barra de filtros */}
-      <section className="max-w-7xl mx-auto px-6 -mt-10 relative z-30">
+      <section className="page-shell-wide relative z-30 -mt-10">
         <div className="container-query-name cq-toolbar bg-white/90 backdrop-blur-xl shadow-2xl rounded-lg border border-brand-100 p-2 flex flex-col lg:flex-row items-center gap-4">
           <div className="cq-toolbar-tabs flex items-center gap-1 p-1 bg-brand-50 rounded-lg overflow-x-auto no-scrollbar max-w-full">
             <button
@@ -106,7 +106,7 @@ export default function BibliotecaContent({ initialData }: BibliotecaContentProp
       </section>
 
       {/* Grid de recursos */}
-      <section className="max-w-7xl mx-auto px-6 py-16">
+      <section className="page-shell-wide py-16">
         {isLoading && rawRecursos.length === 0 ? (
           <div className="py-20"><Loader text="Sincronizando..." /></div>
         ) : filteredRecursos.length === 0 ? (

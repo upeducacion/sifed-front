@@ -75,7 +75,7 @@ export default async function DocenteProfilePage({ params }: PageProps) {
       />
 
       <section className="w-full py-16 px-4 md:px-8 bg-background">
-        <div className="max-w-6xl mx-auto">
+        <div className="page-shell-wide">
           
           <Link 
             href="/posgrado/plana-docente"

@@ -98,7 +98,7 @@ export default function AdminDashboardPage() {
   };
 
   return (
-    <div className="space-y-8 max-w-7xl mx-auto pb-12">
+    <div className="page-shell-wide-contained space-y-8 pb-12">
       <TabSelector 
         options={tabOptions} 
         activeTab={activeTab} 

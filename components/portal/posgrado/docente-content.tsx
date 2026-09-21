@@ -74,7 +74,7 @@ export default function DocenteContent({ initialData }: DocenteContentProps) {
 
   return (
     <section className="w-full py-16 px-4 md:px-8 bg-background">
-      <div className="max-w-7xl mx-auto">
+      <div className="page-shell-wide">
         <div className="container-query-name cq-toolbar flex flex-col md:flex-row items-center justify-between gap-4 mb-10 p-4 bg-white border border-border rounded-lg shadow-sm">
           <div className="cq-toolbar-control flex-1 relative w-full md:w-auto">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />

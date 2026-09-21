@@ -89,7 +89,7 @@ export function DocumentosClient() {
 
   return (
     <main className="min-h-full bg-[#f5f7fa] p-5 text-brand-950 md:p-8">
-      <div className="mx-auto max-w-[1500px] space-y-6">
+      <div className="page-shell-wide-contained space-y-6">
       <div className="flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
         <div>
           <p className="text-[10px] font-black uppercase tracking-[0.24em] text-amber-700">Biblioteca institucional</p>
