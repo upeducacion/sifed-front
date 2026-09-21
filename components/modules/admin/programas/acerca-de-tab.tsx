@@ -14,7 +14,7 @@ export function AcercaDeTab({ formData, setFormData }: AcercaDeTabProps) {
     <div className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500 pb-10">
       
       {/* SECCIÓN: El Programa */}
-      <div className="bg-white p-6 rounded-2xl border border-border shadow-sm space-y-6">
+      <div className="bg-white p-6 rounded-lg border border-border shadow-sm space-y-6">
         <h3 className="text-lg font-black text-brand-950 flex items-center gap-2 uppercase tracking-tight">
           <FileText className="w-5 h-5 text-brand-600" /> Descripción Detallada
         </h3>
@@ -37,7 +37,7 @@ export function AcercaDeTab({ formData, setFormData }: AcercaDeTabProps) {
       </div>
 
       {/* SECCIÓN: Certificación */}
-      <div className="bg-white p-6 rounded-2xl border border-border shadow-sm space-y-6">
+      <div className="bg-white p-6 rounded-lg border border-border shadow-sm space-y-6">
         <h3 className="text-lg font-black text-brand-950 flex items-center gap-2 uppercase tracking-tight">
           Detalle del Grado Académico
         </h3>

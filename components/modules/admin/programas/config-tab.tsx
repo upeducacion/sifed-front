@@ -53,7 +53,7 @@ export function ConfigTab({ configData, setConfigData }: ConfigTabProps) {
   return (
     <div className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500 pb-10">
       
-      <div className="bg-white p-6 rounded-2xl border border-border shadow-sm space-y-6">
+      <div className="bg-white p-6 rounded-lg border border-border shadow-sm space-y-6">
         <h3 className="text-lg font-black text-brand-950 flex items-center gap-2 uppercase tracking-tight">
           <Settings className="w-5 h-5 text-brand-600" /> Configuración de Visibilidad
         </h3>
@@ -64,7 +64,7 @@ export function ConfigTab({ configData, setConfigData }: ConfigTabProps) {
             return (
               <div 
                 key={item.id}
-                className={`p-5 rounded-2xl border transition-all flex items-start gap-4 cursor-pointer select-none ${
+                className={`p-5 rounded-lg border transition-all flex items-start gap-4 cursor-pointer select-none ${
                   isVisible ? 'bg-brand-50/50 border-brand-200' : 'bg-muted/20 border-border opacity-60'
                 }`}
                 onClick={() => toggleField(item.id as keyof ProgramaConfigVisibilidad)}

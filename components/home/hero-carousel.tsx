@@ -250,7 +250,7 @@ export default function HeroCarousel({ slides }: HeroCarouselProps) {
                     key={stat.label}
                     variants={statsCard}
                     custom={0.35 + i * 0.12}
-                    className="flex items-center gap-3 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl px-4 py-3.5 hover:bg-white/15 hover:border-white/30 transition-all"
+                    className="flex items-center gap-3 bg-white/10 backdrop-blur-md border border-white/20 rounded-lg px-4 py-3.5 hover:bg-white/15 hover:border-white/30 transition-all"
                   >
                     <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-brand-600/40 border border-brand-500/40">
                       <IconComponent aria-hidden="true" className="h-4 w-4 text-white" strokeWidth={2} />

@@ -43,7 +43,7 @@ export default function PageHero({
   return (
     <section 
       className={cn(
-        "relative w-full flex items-center justify-center overflow-hidden bg-black",
+        "relative flex w-full items-center justify-center overflow-hidden bg-black",
         isCompact ? "h-[50vh] min-h-[400px]" : "h-[calc(100vh-80px)]"
       )}
     >
@@ -58,13 +58,13 @@ export default function PageHero({
 
       {/* Breadcrumbs - Superior Izquierda (Estilo Sistema Glass) */}
       {breadcrumbs.length > 0 && (
-        <div className="absolute top-8 left-0 w-full z-30 px-6 lg:px-12">
+        <div className="page-shell absolute top-8 left-0 z-30 w-full">
           <motion.nav 
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.2 }}
             aria-label="Breadcrumb" 
-            className="inline-flex items-center gap-2 py-2 px-4 rounded-full bg-white/5 backdrop-blur-md border border-white/10 text-[10px] font-bold uppercase tracking-widest shadow-sm"
+            className="inline-flex items-center gap-2 rounded-md border border-white/15 bg-white/10 px-4 py-2 text-[10px] font-bold uppercase tracking-widest shadow-sm backdrop-blur-md"
           >
             <Link 
               href="/" 
@@ -94,7 +94,7 @@ export default function PageHero({
       )}
 
       {/* Contenido Principal */}
-      <div className={cn("container mx-auto px-6 lg:px-12 relative z-20", align === "center" ? "text-center" : "text-left")}>
+      <div className={cn("page-shell relative z-20", align === "center" ? "text-center" : "text-left")}>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -134,7 +134,7 @@ export default function PageHero({
                   key={action.href}
                   href={action.href}
                   className={cn(
-                    "inline-flex items-center gap-2 rounded-xl font-bold uppercase tracking-wider transition-all duration-300 transform hover:-translate-y-1 shadow-lg",
+                    "inline-flex items-center gap-2 rounded-md font-bold uppercase tracking-wider transition-all duration-300 transform hover:-translate-y-1 shadow-lg",
                     isCompact ? "px-6 py-3 text-xs" : "px-8 py-4 text-sm",
                     
                     // Primary: Brand color solid

@@ -221,7 +221,7 @@ export default function GaleriaForm({ initialData, isEditing = false }: GaleriaF
     <form onSubmit={handleSubmit} className="grid grid-cols-1 lg:grid-cols-3 gap-8">
       {/* Left Column: Info */}
       <div className="lg:col-span-2 space-y-6">
-        <div className="bg-white p-6 rounded-2xl border border-border shadow-sm space-y-4">
+        <div className="bg-white p-6 rounded-lg border border-border shadow-sm space-y-4">
           <h3 className="text-lg font-bold text-brand-950 flex items-center gap-2">
             <ImageIcon className="w-5 h-5 text-brand-500" />
             Información General
@@ -281,7 +281,7 @@ export default function GaleriaForm({ initialData, isEditing = false }: GaleriaF
         </div>
 
         {/* Multi-photo upload Section */}
-        <div className="bg-white p-6 rounded-2xl border border-border shadow-sm space-y-4">
+        <div className="bg-white p-6 rounded-lg border border-border shadow-sm space-y-4">
           <div className="flex items-center justify-between">
             <h3 className="text-lg font-bold text-brand-950 flex items-center gap-2">
               <Plus className="w-5 h-5 text-brand-500" />
@@ -306,7 +306,7 @@ export default function GaleriaForm({ initialData, isEditing = false }: GaleriaF
           </div>
 
           {newPhotos.length === 0 && existingPhotos.length === 0 && (
-            <div className="py-10 text-center border-2 border-dashed border-muted rounded-2xl">
+            <div className="py-10 text-center border-2 border-dashed border-muted rounded-lg">
                <ImageIcon className="w-10 h-10 text-muted mx-auto mb-2" />
                <p className="text-xs text-muted-foreground">No hay fotos seleccionadas</p>
             </div>
@@ -373,7 +373,7 @@ export default function GaleriaForm({ initialData, isEditing = false }: GaleriaF
       {/* Right Column: Settings & Portada */}
       <div className="space-y-6">
         {/* Portada Section */}
-        <div className="bg-white p-6 rounded-2xl border border-border shadow-sm space-y-4">
+        <div className="bg-white p-6 rounded-lg border border-border shadow-sm space-y-4">
           <h3 className="text-lg font-bold text-brand-950 flex items-center gap-2">
             <ImageIcon className="w-5 h-5 text-brand-500" />
             Portada
@@ -381,7 +381,7 @@ export default function GaleriaForm({ initialData, isEditing = false }: GaleriaF
           
           <div 
             onClick={() => portadaInputRef.current?.click()}
-            className="aspect-[4/3] rounded-2xl border-2 border-dashed border-border overflow-hidden relative group cursor-pointer hover:border-brand-500 transition-all bg-muted/30"
+            className="aspect-[4/3] rounded-lg border-2 border-dashed border-border overflow-hidden relative group cursor-pointer hover:border-brand-500 transition-all bg-muted/30"
           >
             {portadaPreview ? (
               <UnoptImage 
@@ -411,7 +411,7 @@ export default function GaleriaForm({ initialData, isEditing = false }: GaleriaF
         </div>
 
         {/* Publish Settings */}
-        <div className="bg-white p-6 rounded-2xl border border-border shadow-sm space-y-4">
+        <div className="bg-white p-6 rounded-lg border border-border shadow-sm space-y-4">
           <h3 className="text-lg font-bold text-brand-950">Publicación</h3>
           
           <div className="space-y-4">

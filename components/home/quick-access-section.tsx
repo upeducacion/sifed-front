@@ -119,7 +119,7 @@ export default function QuickAccessSection() {
                   target={item.external ? "_blank" : undefined}
                   rel={item.external ? "noopener noreferrer" : undefined}
                   aria-label={`Acceder a ${item.title}`}
-                  className="group relative p-6 rounded-[2.5rem] border-2 border-slate-200 bg-white hover:border-brand-600 hover:ring-4 hover:ring-brand-600/5 hover:shadow-[0_20px_50px_-12px_rgba(0,0,0,0.12)] hover:-translate-y-2 transition-all duration-500 flex flex-col justify-between h-full min-h-[220px]"
+                  className="group relative p-6 rounded-lg border-2 border-slate-200 bg-white hover:border-brand-600 hover:ring-4 hover:ring-brand-600/5 hover:shadow-[0_20px_50px_-12px_rgba(0,0,0,0.12)] hover:-translate-y-2 transition-all duration-500 flex flex-col justify-between h-full min-h-[220px]"
                 >
                   <div className="relative z-10">
                     <div className={cn(

@@ -44,18 +44,18 @@ export default function EcosistemaSection() {
             whileInView="visible"
             viewport={{ once: true, margin: "-60px" }}
             whileHover={{ y: -12, scale: 1.02, transition: { duration: 0.35, ease: EASE } }}
-            className="group relative flex flex-col rounded-[2rem] border-2 border-transparent bg-background p-8 shadow-sm cursor-pointer overflow-hidden
+            className="group relative flex flex-col rounded-lg border-2 border-transparent bg-background p-8 shadow-sm cursor-pointer overflow-hidden
               transition-all duration-500
               hover:shadow-[0_20px_60px_rgba(59,130,246,0.25)]"
             style={{ border: "2px solid transparent", backgroundClip: "padding-box" }}
           >
             {/* Borde degradado al hover */}
-            <div className="absolute inset-0 rounded-[2rem] opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none -z-10"
+            <div className="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none -z-10"
               style={{ background: "linear-gradient(135deg, #3b82f6, #6366f1, #b4913c)", padding: "2px", borderRadius: "2rem" }} />
             <div className="absolute inset-[2px] rounded-[calc(2rem-2px)] bg-background pointer-events-none -z-10" />
 
             {/* Brillo en hover — barre la card */}
-            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none rounded-[2rem]"
+            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none rounded-lg"
               style={{ background: "linear-gradient(135deg, rgba(59,130,246,0.07) 0%, rgba(99,102,241,0.04) 50%, rgba(180,145,60,0.06) 100%)" }} />
 
             {/* Logo watermark */}
@@ -66,7 +66,7 @@ export default function EcosistemaSection() {
             <div className="relative z-10 flex-1 flex flex-col justify-between">
               <div>
                 <motion.div
-                  className="mb-6 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-brand-50 text-brand-600 border border-brand-100"
+                  className="mb-6 inline-flex h-14 w-14 items-center justify-center rounded-lg bg-brand-50 text-brand-600 border border-brand-100"
                   whileHover={{ scale: 1.18, rotate: -8, transition: { duration: 0.3, ease: "backOut" } }}
                 >
                   <Newspaper className="h-7 w-7" strokeWidth={1.5} />
@@ -105,7 +105,7 @@ export default function EcosistemaSection() {
             whileInView="visible"
             viewport={{ once: true, margin: "-60px" }}
             whileHover={{ y: -12, scale: 1.02, transition: { duration: 0.35, ease: EASE } }}
-            className="group relative flex flex-col rounded-[2rem] p-8 text-white cursor-pointer overflow-hidden
+            className="group relative flex flex-col rounded-lg p-8 text-white cursor-pointer overflow-hidden
               transition-shadow duration-500
               hover:shadow-[0_28px_70px_rgba(30,49,82,0.7),0_0_0_1px_rgba(180,145,60,0.4)]"
             style={{ background: "linear-gradient(135deg, #1e3152 0%, #0d1623 60%, #050810 100%)" }}
@@ -128,7 +128,7 @@ export default function EcosistemaSection() {
             <div className="relative z-10 flex-1 flex flex-col justify-between">
               <div>
                 <motion.div
-                  className="mb-6 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-white/10 text-white border border-white/10 backdrop-blur-md"
+                  className="mb-6 inline-flex h-14 w-14 items-center justify-center rounded-lg bg-white/10 text-white border border-white/10 backdrop-blur-md"
                   whileHover={{ scale: 1.18, rotate: 8, transition: { duration: 0.3, ease: "backOut" } }}
                 >
                   <MonitorPlay className="h-7 w-7" strokeWidth={1.5} />

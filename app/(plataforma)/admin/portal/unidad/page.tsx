@@ -262,7 +262,7 @@ export default function UnidadPosgradoAdminPage() {
         {/* Left Column: Config (Shared) */}
         <div className="lg:col-span-1 space-y-6">
           {/* Cover Image / Organigrama */}
-          <div className="bg-white p-6 rounded-2xl border border-border shadow-sm space-y-6">
+          <div className="bg-white p-6 rounded-lg border border-border shadow-sm space-y-6">
             <h3 className="font-bold text-brand-950 flex items-center gap-2">
               <ImageIcon className="w-5 h-5 text-brand-500" />
               Organigrama Institucional
@@ -307,7 +307,7 @@ export default function UnidadPosgradoAdminPage() {
           </div>
 
           {/* Visibility Settings */}
-          <div className="bg-white p-6 rounded-2xl border border-border shadow-sm space-y-6">
+          <div className="bg-white p-6 rounded-lg border border-border shadow-sm space-y-6">
             <h3 className="font-bold text-brand-950 flex items-center gap-2">
               <Eye className="w-5 h-5 text-brand-500" />
               Visibilidad Pública
@@ -345,7 +345,7 @@ export default function UnidadPosgradoAdminPage() {
           
           {/* TAB: IDENTIDAD */}
           {activeTab === "identidad" && (
-            <div className="bg-white p-8 rounded-2xl border border-border shadow-sm space-y-6 animate-in fade-in slide-in-from-bottom-2 duration-300">
+            <div className="bg-white p-8 rounded-lg border border-border shadow-sm space-y-6 animate-in fade-in slide-in-from-bottom-2 duration-300">
               <h3 className="font-bold text-brand-950 flex items-center gap-2">
                 <Building className="w-5 h-5 text-brand-500" />
                 Identidad Institucional
@@ -430,7 +430,7 @@ export default function UnidadPosgradoAdminPage() {
 
               <div className="space-y-4">
                 {autoridades.map((aut, idx) => (
-                  <div key={aut.id} className="bg-white p-6 rounded-2xl border border-border shadow-sm relative group">
+                  <div key={aut.id} className="bg-white p-6 rounded-lg border border-border shadow-sm relative group">
                     <button
                       type="button"
                       onClick={() => removeAutoridad(idx)}
@@ -505,7 +505,7 @@ export default function UnidadPosgradoAdminPage() {
                   </div>
                 ))}
                 {autoridades.length === 0 && (
-                  <div className="text-center py-12 bg-muted/10 rounded-2xl border-2 border-dashed border-border">
+                  <div className="text-center py-12 bg-muted/10 rounded-lg border-2 border-dashed border-border">
                     <p className="text-sm text-muted-foreground">No hay autoridades registradas.</p>
                   </div>
                 )}
@@ -530,7 +530,7 @@ export default function UnidadPosgradoAdminPage() {
                 </button>
               </div>
 
-              <div className="bg-white rounded-2xl border border-border shadow-sm overflow-hidden">
+              <div className="bg-white rounded-lg border border-border shadow-sm overflow-hidden">
                 <table className="w-full text-left border-collapse">
                   <thead className="bg-gray-50 border-b border-border">
                     <tr>
@@ -604,7 +604,7 @@ export default function UnidadPosgradoAdminPage() {
 
           {/* TAB: ADMISIÓN GLOBAL */}
           {activeTab === "admision" && (
-            <div className="bg-white p-8 rounded-2xl border border-border shadow-sm space-y-8 animate-in fade-in slide-in-from-bottom-2 duration-300">
+            <div className="bg-white p-8 rounded-lg border border-border shadow-sm space-y-8 animate-in fade-in slide-in-from-bottom-2 duration-300">
               <div className="flex items-center gap-3">
                 <div className="p-3 bg-brand-50 rounded-xl border border-brand-100">
                   <GraduationCap className="w-6 h-6 text-brand-600" />
@@ -656,7 +656,7 @@ export default function UnidadPosgradoAdminPage() {
                     { key: 'diplomado' as const, label: 'Guía de Diplomado', ref: diplomadoRef },
                     { key: 'curso' as const, label: 'Guía de Cursos/Talleres', ref: cursoRef }
                   ].map((item) => (
-                    <div key={item.key} className="p-5 rounded-2xl border border-border bg-neutral-50/50 space-y-4 hover:border-brand-200 transition-colors">
+                    <div key={item.key} className="p-5 rounded-lg border border-border bg-neutral-50/50 space-y-4 hover:border-brand-200 transition-colors">
                       <div className="flex items-center justify-between">
                         <span className="text-xs font-black text-brand-900 uppercase tracking-tight">{item.label}</span>
                         {admisionData.documentos[item.key] && (

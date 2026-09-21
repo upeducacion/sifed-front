@@ -160,14 +160,14 @@ export default function NuevoDocentePage() {
         
         {/* Left Column: Profile & Visibilty */}
         <div className="space-y-6">
-          <div className="bg-white p-6 rounded-2xl border border-border shadow-sm space-y-6">
+          <div className="bg-white p-6 rounded-lg border border-border shadow-sm space-y-6">
             <h3 className="font-bold text-brand-950 flex items-center gap-2">
               <ImageIcon className="w-5 h-5 text-brand-500" />
               Foto de Perfil
             </h3>
             
             <div className="relative group">
-              <div className="aspect-[4/5] bg-brand-50 rounded-2xl border-2 border-dashed border-brand-200 flex flex-col items-center justify-center overflow-hidden transition-all group-hover:border-brand-400">
+              <div className="aspect-[4/5] bg-brand-50 rounded-lg border-2 border-dashed border-brand-200 flex flex-col items-center justify-center overflow-hidden transition-all group-hover:border-brand-400">
                 {fotoPreview ? (
                   <>
                     {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -198,7 +198,7 @@ export default function NuevoDocentePage() {
             </div>
           </div>
 
-          <div className="bg-white p-6 rounded-2xl border border-border shadow-sm space-y-6">
+          <div className="bg-white p-6 rounded-lg border border-border shadow-sm space-y-6">
             <h3 className="font-bold text-brand-950 flex items-center gap-2">
               <Eye className="w-5 h-5 text-brand-500" />
               Visibilidad de Campos
@@ -234,7 +234,7 @@ export default function NuevoDocentePage() {
         <div className="lg:col-span-2 space-y-6">
           
           {/* General Information */}
-          <div className="bg-white p-8 rounded-2xl border border-border shadow-sm space-y-6">
+          <div className="bg-white p-8 rounded-lg border border-border shadow-sm space-y-6">
             <h3 className="font-bold text-brand-950 flex items-center gap-2">
               <User className="w-5 h-5 text-brand-500" />
               Información Básica
@@ -297,7 +297,7 @@ export default function NuevoDocentePage() {
           </div>
 
           {/* CV & Bio */}
-          <div className="bg-white p-8 rounded-2xl border border-border shadow-sm space-y-6">
+          <div className="bg-white p-8 rounded-lg border border-border shadow-sm space-y-6">
             <h3 className="font-bold text-brand-950 flex items-center gap-2">
               <FileText className="w-5 h-5 text-brand-500" />
               Documentación y Biografía
@@ -340,7 +340,7 @@ export default function NuevoDocentePage() {
           </div>
 
           {/* Social Links */}
-          <div className="bg-white p-8 rounded-2xl border border-border shadow-sm space-y-6">
+          <div className="bg-white p-8 rounded-lg border border-border shadow-sm space-y-6">
             <div className="flex items-center justify-between">
               <h3 className="font-bold text-brand-950 flex items-center gap-2">
                 <LinkIcon className="w-5 h-5 text-brand-500" />

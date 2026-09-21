@@ -46,7 +46,7 @@ export default function SettingsPage() {
           
           {/* TAB: PERFIL */}
           {activeTab === "profile" && (
-            <div className="bg-white p-8 rounded-2xl border border-border shadow-sm animate-in fade-in slide-in-from-right-4 duration-300">
+            <div className="bg-white p-8 rounded-lg border border-border shadow-sm animate-in fade-in slide-in-from-right-4 duration-300">
               <h3 className="text-xl font-bold text-brand-950 mb-6 flex items-center gap-2">
                 <div className="h-8 w-8 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center">
                    <User className="h-4 w-4" />
@@ -114,7 +114,7 @@ export default function SettingsPage() {
 
           {/* TAB: SEGURIDAD */}
           {activeTab === "security" && (
-            <div className="bg-white p-8 rounded-2xl border border-border shadow-sm animate-in fade-in slide-in-from-right-4 duration-300">
+            <div className="bg-white p-8 rounded-lg border border-border shadow-sm animate-in fade-in slide-in-from-right-4 duration-300">
               <h3 className="text-xl font-bold text-brand-950 mb-6 flex items-center gap-2">
                 <div className="h-8 w-8 rounded-lg bg-orange-50 text-orange-600 flex items-center justify-center">
                    <Lock className="h-4 w-4" />

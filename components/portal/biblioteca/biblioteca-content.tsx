@@ -60,8 +60,8 @@ export default function BibliotecaContent({ initialData }: BibliotecaContentProp
 
       {/* Barra de filtros */}
       <section className="max-w-7xl mx-auto px-6 -mt-10 relative z-30">
-        <div className="bg-white/90 backdrop-blur-xl shadow-2xl rounded-3xl border border-brand-100 p-2 flex flex-col lg:flex-row items-center gap-4">
-          <div className="flex items-center gap-1 p-1 bg-brand-50 rounded-2xl overflow-x-auto no-scrollbar max-w-full">
+        <div className="bg-white/90 backdrop-blur-xl shadow-2xl rounded-lg border border-brand-100 p-2 flex flex-col lg:flex-row items-center gap-4">
+          <div className="flex items-center gap-1 p-1 bg-brand-50 rounded-lg overflow-x-auto no-scrollbar max-w-full">
             <button
               onClick={() => setCategoriaActiva(null)}
               className={cn(
@@ -98,7 +98,7 @@ export default function BibliotecaContent({ initialData }: BibliotecaContentProp
             </div>
           </div>
 
-          <div className="bg-brand-950 text-white px-5 py-3 rounded-2xl flex items-center gap-3 shrink-0">
+          <div className="bg-brand-950 text-white px-5 py-3 rounded-lg flex items-center gap-3 shrink-0">
             <Library className="w-4 h-4 text-uncp-gold" />
             <span className="text-xs font-black text-uncp-gold">{filteredRecursos.length}</span>
           </div>
@@ -125,7 +125,7 @@ export default function BibliotecaContent({ initialData }: BibliotecaContentProp
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, scale: 0.98 }}
                   transition={{ duration: 0.3 }}
-                  className="group bg-white rounded-[2rem] border border-brand-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-500 overflow-hidden flex flex-col"
+                  className="group bg-white rounded-lg border border-brand-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-500 overflow-hidden flex flex-col"
                 >
                   {/* Portada */}
                   <div className="relative aspect-[3/4] overflow-hidden rounded-t-[2rem]">

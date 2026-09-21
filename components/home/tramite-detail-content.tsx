@@ -43,7 +43,7 @@ export default function TramiteDetailContent({ slug }: Readonly<{ slug: Procedur
             <ArrowLeft className="h-4 w-4" aria-hidden="true" /> Volver a trámites
           </Link>
           <div className="flex items-start gap-5">
-            <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-white/10 text-uncp-gold"><Icon className="h-7 w-7" aria-hidden="true" /></span>
+            <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-lg bg-white/10 text-uncp-gold"><Icon className="h-7 w-7" aria-hidden="true" /></span>
             <div>
               <span className="mb-3 block text-xs font-black uppercase tracking-[0.28em] text-uncp-gold">Trámite académico</span>
               <h1 className="font-serif text-4xl font-black leading-tight md:text-6xl">{procedure.title}</h1>
@@ -53,7 +53,7 @@ export default function TramiteDetailContent({ slug }: Readonly<{ slug: Procedur
         </div>
       </section>
       <section className="container mx-auto max-w-5xl px-6 py-12 lg:px-12 lg:py-20">
-        <div className="rounded-2xl border border-border bg-white p-8 shadow-sm md:p-10">
+        <div className="rounded-lg border border-border bg-white p-8 shadow-sm md:p-10">
           <span className="mb-2 block text-xs font-black uppercase tracking-[0.2em] text-amber-700">Siguiente paso</span>
           <h2 className="font-serif text-3xl font-black text-brand-950">Consulta los requisitos y formatos</h2>
           <p className="mt-3 max-w-2xl leading-relaxed text-muted-foreground">Los documentos oficiales, guías y formatos disponibles para este trámite se encuentran en el repositorio institucional.</p>

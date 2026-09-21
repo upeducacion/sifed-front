@@ -29,7 +29,7 @@ export default function GallerySection() {
           {images.map((img, index) => (
             <div
               key={index}
-              className="group relative overflow-hidden rounded-2xl shadow-md"
+              className="group relative overflow-hidden rounded-lg shadow-md"
             >
               <UnoptImage
                 src={`/galeria/${img}`}

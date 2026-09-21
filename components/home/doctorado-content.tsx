@@ -157,7 +157,7 @@ export default function DoctoradoContent() {
               return (
                 <div
                   key={item.titulo}
-                  className="flex items-start gap-4 rounded-[1.5rem] border border-white/10 bg-white/8 p-6 backdrop-blur-sm hover:bg-white/12 transition-all"
+                  className="flex items-start gap-4 rounded-lg border border-white/10 bg-white/8 p-6 backdrop-blur-sm hover:bg-white/12 transition-all"
                 >
                   <div className="shrink-0 rounded-xl bg-uncp-gold/15 p-2.5 text-uncp-gold">
                     <Icono className="h-5 w-5" />
@@ -198,7 +198,7 @@ export default function DoctoradoContent() {
               return (
                 <article
                   key={ciclo.titulo}
-                  className="overflow-hidden rounded-[2rem] border border-border bg-white shadow-sm transition-all duration-300 hover:border-brand-200 hover:shadow-xl"
+                  className="overflow-hidden rounded-lg border border-border bg-white shadow-sm transition-all duration-300 hover:border-brand-200 hover:shadow-xl"
                 >
                   {/* CABECERA OSCURA */}
                   <div className="relative bg-brand-950 p-7">
@@ -237,7 +237,7 @@ export default function DoctoradoContent() {
 
                     <button
                       onClick={() => toggleCiclo(ciclo.titulo)}
-                      className="mt-6 flex w-full items-center justify-between rounded-2xl border border-brand-200 bg-brand-50/40 px-5 py-3.5 text-sm font-black text-brand-950 transition hover:border-brand-400 hover:bg-brand-50"
+                      className="mt-6 flex w-full items-center justify-between rounded-lg border border-brand-200 bg-brand-50/40 px-5 py-3.5 text-sm font-black text-brand-950 transition hover:border-brand-400 hover:bg-brand-50"
                     >
                       <span className="flex items-center gap-2">
                         <BookOpen className="h-4 w-4 text-brand-600" />
@@ -252,7 +252,7 @@ export default function DoctoradoContent() {
 
                     {isOpen && (
                       <div className="mt-5 space-y-4 border-t border-brand-100 pt-5">
-                        <div className="rounded-2xl border border-border bg-background">
+                        <div className="rounded-lg border border-border bg-background">
                           <div className="flex items-center justify-between gap-3 border-b border-border px-5 py-3">
                             <p className="text-xs font-black uppercase tracking-widest text-brand-950">
                               {ciclo.titulo}
@@ -299,7 +299,7 @@ export default function DoctoradoContent() {
                             )}
                           </div>
                         </div>
-                        <div className="flex items-center justify-center gap-3 rounded-2xl border border-brand-100 bg-brand-50/50 py-3">
+                        <div className="flex items-center justify-center gap-3 rounded-lg border border-brand-100 bg-brand-50/50 py-3">
                           <p className="text-[11px] font-black uppercase tracking-widest text-brand-600">
                             Total {ciclo.titulo}
                           </p>
@@ -314,7 +314,7 @@ export default function DoctoradoContent() {
           </div>
 
           {/* resumen total */}
-          <div className="mt-8 flex items-center justify-center gap-3 rounded-2xl border border-brand-100 bg-brand-50/50 py-4">
+          <div className="mt-8 flex items-center justify-center gap-3 rounded-lg border border-brand-100 bg-brand-50/50 py-4">
             <p className="text-[11px] font-black uppercase tracking-widest text-brand-600">
               Total plan de estudios
             </p>
@@ -343,7 +343,7 @@ export default function DoctoradoContent() {
                   href="https://wa.me/51949260658?text=Hola,%20quisiera%20informaci%C3%B3n%20sobre%20el%20Doctorado%20en%20Educaci%C3%B3n"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-2xl bg-uncp-gold px-6 py-3 text-sm font-black uppercase tracking-wider text-brand-950 transition hover:brightness-110"
+                  className="inline-flex items-center gap-2 rounded-lg bg-uncp-gold px-6 py-3 text-sm font-black uppercase tracking-wider text-brand-950 transition hover:brightness-110"
                 >
                   <MessageCircle className="h-4 w-4" /> WhatsApp: 949 260 658
                 </a>
@@ -351,7 +351,7 @@ export default function DoctoradoContent() {
                   href="https://uncpadmision.edu.pe/posgrado/registration/login.php"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-2xl border border-white/30 bg-white/10 px-6 py-3 text-sm font-black uppercase tracking-wider text-white transition hover:bg-white/20"
+                  className="inline-flex items-center gap-2 rounded-lg border border-white/30 bg-white/10 px-6 py-3 text-sm font-black uppercase tracking-wider text-white transition hover:bg-white/20"
                 >
                   Inscribirme <ArrowRight className="h-4 w-4" />
                 </a>
@@ -385,7 +385,7 @@ export default function DoctoradoContent() {
                 return (
                   <div
                     key={l.titulo}
-                    className="rounded-[1.5rem] border border-white/10 bg-white/6 p-5 backdrop-blur-sm"
+                    className="rounded-lg border border-white/10 bg-white/6 p-5 backdrop-blur-sm"
                   >
                     <div className="mb-3 inline-flex rounded-xl bg-uncp-gold/15 p-2.5 text-uncp-gold">
                       <Icono className="h-5 w-5" />
@@ -421,7 +421,7 @@ export default function DoctoradoContent() {
               href="https://uncpadmision.edu.pe/posgrado/registration/login.php"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-2xl bg-uncp-gold px-8 py-4 text-sm font-black uppercase tracking-wider text-brand-950 shadow-lg transition hover:brightness-110 active:scale-95"
+              className="inline-flex items-center gap-2 rounded-lg bg-uncp-gold px-8 py-4 text-sm font-black uppercase tracking-wider text-brand-950 shadow-lg transition hover:brightness-110 active:scale-95"
             >
               Inscribirme ahora <ArrowRight className="h-4 w-4" />
             </a>
@@ -429,13 +429,13 @@ export default function DoctoradoContent() {
               href="https://wa.me/51949260658"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-2xl border border-white/30 bg-white/10 px-8 py-4 text-sm font-black uppercase tracking-wider text-white transition hover:bg-white/20"
+              className="inline-flex items-center gap-2 rounded-lg border border-white/30 bg-white/10 px-8 py-4 text-sm font-black uppercase tracking-wider text-white transition hover:bg-white/20"
             >
               <MessageCircle className="h-4 w-4" /> 949 260 658
             </a>
             <a
               href="mailto:UPGEDUCACION@UNCP.EDU.PE"
-              className="inline-flex items-center gap-2 rounded-2xl border border-white/20 bg-white/6 px-8 py-4 text-sm font-black uppercase tracking-wider text-brand-50/80 transition hover:bg-white/12"
+              className="inline-flex items-center gap-2 rounded-lg border border-white/20 bg-white/6 px-8 py-4 text-sm font-black uppercase tracking-wider text-brand-50/80 transition hover:bg-white/12"
             >
               UPGEDUCACION@UNCP.EDU.PE
             </a>

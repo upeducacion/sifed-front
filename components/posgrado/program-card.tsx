@@ -28,7 +28,7 @@ export default function ProgramCard({ program }: ProgramCardProps) {
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      className="group bg-white rounded-[2.5rem] border border-border overflow-hidden hover:border-brand-200 hover:shadow-2xl transition-all duration-500 flex flex-col h-full"
+      className="group bg-white rounded-lg border border-border overflow-hidden hover:border-brand-200 hover:shadow-2xl transition-all duration-500 flex flex-col h-full"
     >
       {/* Portada */}
       <div className="relative h-64 overflow-hidden bg-muted/20 flex items-center justify-center">
@@ -91,7 +91,7 @@ export default function ProgramCard({ program }: ProgramCardProps) {
         {/* Link Final */}
         <Link 
           href={detailHref}
-          className="mt-auto inline-flex items-center justify-center gap-2 w-full py-4 bg-brand-50 text-brand-950 rounded-2xl font-black text-xs uppercase tracking-widest group-hover:bg-brand-950 group-hover:text-white transition-all duration-300"
+          className="mt-auto inline-flex items-center justify-center gap-2 w-full py-4 bg-brand-50 text-brand-950 rounded-lg font-black text-xs uppercase tracking-widest group-hover:bg-brand-950 group-hover:text-white transition-all duration-300"
         >
           Explorar Programa <ArrowRight className="w-4 h-4" />
         </Link>

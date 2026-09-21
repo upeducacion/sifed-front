@@ -148,7 +148,7 @@ export function NoticiaForm({ initialData }: NoticiaFormProps) {
     >
       {loading && (
         <div className="absolute inset-0 z-50 flex items-center justify-center bg-white/40 backdrop-blur-[1px]">
-            <div className="bg-brand-950 text-white px-6 py-3 rounded-2xl shadow-2xl flex items-center gap-3 animate-in fade-in zoom-in duration-300">
+            <div className="bg-brand-950 text-white px-6 py-3 rounded-lg shadow-2xl flex items-center gap-3 animate-in fade-in zoom-in duration-300">
                 <Loader2 className="h-5 w-5 animate-spin" />
                 <span className="text-sm font-bold">Procesando Crónica...</span>
             </div>

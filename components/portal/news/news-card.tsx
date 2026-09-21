@@ -18,7 +18,7 @@ export function NewsCard({ noticia, className, featured = false }: NewsCardProps
   return (
     <div
       className={cn(
-        "group relative overflow-hidden rounded-2xl bg-neutral-900 shadow-md hover:shadow-2xl w-full h-full min-h-[250px]",
+        "group relative overflow-hidden rounded-lg bg-neutral-900 shadow-md hover:shadow-2xl w-full h-full min-h-[250px]",
         "border border-white/5 hover:border-white/20 transition-all duration-400 ease-out",
         "hover:-translate-y-1 hover:scale-[1.005]",
         featured ? "md:min-h-[500px]" : "md:min-h-[300px]",

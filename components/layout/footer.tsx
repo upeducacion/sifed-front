@@ -14,7 +14,7 @@ import { EXTERNAL_LINKS, INTERNAL_LINKS } from "@/lib/constants";
 export default function Footer() {
   return (
     <footer className="bg-brand-50 border-t border-border pt-24 pb-12 flex-none">
-      <div className="mx-auto max-w-[1920px] px-6 lg:px-12">
+      <div className="page-shell-wide">
         
         <div className="grid gap-16 lg:grid-cols-4 mb-20">
           {/* Columna Marca */}
@@ -38,7 +38,7 @@ export default function Footer() {
                  target="_blank"
                  rel="noopener noreferrer"
                  aria-label="Visitar nuestra página de Facebook"
-                 className="h-12 w-12 rounded-2xl bg-white border border-border flex items-center justify-center text-slate-600 hover:bg-brand-600 hover:text-white transition-all shadow-sm focus-visible:outline-brand-600 focus-visible:outline-2"
+                 className="h-12 w-12 rounded-lg bg-white border border-border flex items-center justify-center text-slate-600 hover:bg-brand-600 hover:text-white transition-all shadow-sm focus-visible:outline-brand-600 focus-visible:outline-2"
                >
                   <Facebook aria-hidden="true" className="h-5 w-5" />
                </Link>
@@ -47,7 +47,7 @@ export default function Footer() {
                  target="_blank"
                  rel="noopener noreferrer"
                  aria-label="Visitar nuestro canal de YouTube"
-                 className="h-12 w-12 rounded-2xl bg-white border border-border flex items-center justify-center text-slate-600 hover:bg-red-600 hover:text-white transition-all shadow-sm focus-visible:outline-red-600 focus-visible:outline-2"
+                 className="h-12 w-12 rounded-lg bg-white border border-border flex items-center justify-center text-slate-600 hover:bg-red-600 hover:text-white transition-all shadow-sm focus-visible:outline-red-600 focus-visible:outline-2"
                >
                   <Youtube aria-hidden="true" className="h-5 w-5" />
                </Link>
@@ -56,7 +56,7 @@ export default function Footer() {
                  target="_blank"
                  rel="noopener noreferrer"
                  aria-label="Visitar nuestro perfil de LinkedIn"
-                 className="h-12 w-12 rounded-2xl bg-white border border-border flex items-center justify-center text-slate-600 hover:bg-blue-700 hover:text-white transition-all shadow-sm focus-visible:outline-blue-700 focus-visible:outline-2"
+                 className="h-12 w-12 rounded-lg bg-white border border-border flex items-center justify-center text-slate-600 hover:bg-blue-700 hover:text-white transition-all shadow-sm focus-visible:outline-blue-700 focus-visible:outline-2"
                >
                   <Linkedin aria-hidden="true" className="h-5 w-5" />
                </Link>

@@ -119,8 +119,8 @@ export default function GalleryContent({ initialData }: GalleryContentProps) {
       />
 
       <section className="max-w-7xl mx-auto px-6 -mt-12 relative z-30">
-        <div className="bg-white shadow-[0_30px_60px_rgba(0,0,0,0.12)] rounded-[2rem] border border-brand-100 p-2 flex flex-col lg:flex-row items-center gap-4">
-          <div className="flex items-center gap-1 p-1 bg-brand-50 rounded-2xl overflow-x-auto no-scrollbar max-w-full">
+        <div className="bg-white shadow-[0_30px_60px_rgba(0,0,0,0.12)] rounded-lg border border-brand-100 p-2 flex flex-col lg:flex-row items-center gap-4">
+          <div className="flex items-center gap-1 p-1 bg-brand-50 rounded-lg overflow-x-auto no-scrollbar max-w-full">
             {categorias.map((cat) => (
               <button
                 key={cat.id}
@@ -154,7 +154,7 @@ export default function GalleryContent({ initialData }: GalleryContentProps) {
             </select>
           </div>
 
-          <div className="bg-brand-950 text-white px-6 py-3 rounded-2xl flex items-center gap-3 shrink-0">
+          <div className="bg-brand-950 text-white px-6 py-3 rounded-lg flex items-center gap-3 shrink-0">
              <Camera className="w-4 h-4 text-uncp-gold" />
              <span className="text-xs font-black text-uncp-gold">{filteredPhotos.length}</span>
           </div>
@@ -190,7 +190,7 @@ export default function GalleryContent({ initialData }: GalleryContentProps) {
                         exit={{ opacity: 0, scale: 0.95 }}
                         transition={{ duration: 0.3 }}
                         onClick={() => setPhotoIndex(filteredPhotos.findIndex(p => p.id === foto.id))}
-                        className="group relative cursor-zoom-in rounded-3xl overflow-hidden border border-border bg-brand-50 break-inside-avoid shadow-sm hover:shadow-2xl transition-all duration-500"
+                        className="group relative cursor-zoom-in rounded-lg overflow-hidden border border-border bg-brand-50 break-inside-avoid shadow-sm hover:shadow-2xl transition-all duration-500"
                       >
                         <div className="relative w-full h-auto min-h-[200px]">
                           <UnoptImage 
@@ -225,7 +225,7 @@ export default function GalleryContent({ initialData }: GalleryContentProps) {
           >
             <div className="absolute top-0 left-0 right-0 z-[110] p-6 flex items-center justify-between bg-gradient-to-b from-brand-950 via-brand-950/50 to-transparent">
                <div className="flex items-center gap-4">
-                  <button onClick={() => setPhotoIndex(null)} className="w-12 h-12 rounded-2xl bg-white/10 hover:bg-white/20 text-white flex items-center justify-center border border-white/10 transition-all"><X className="w-6 h-6" /></button>
+                  <button onClick={() => setPhotoIndex(null)} className="w-12 h-12 rounded-lg bg-white/10 hover:bg-white/20 text-white flex items-center justify-center border border-white/10 transition-all"><X className="w-6 h-6" /></button>
                   <div className="hidden sm:block text-white">
                     <p className="font-bold text-xs uppercase tracking-[0.2em]">{filteredPhotos[photoIndex].galeriaTitulo}</p>
                     <p className="text-uncp-gold text-[10px] font-black uppercase tracking-widest mt-1">{photoIndex + 1} / {filteredPhotos.length}</p>
@@ -261,7 +261,7 @@ export default function GalleryContent({ initialData }: GalleryContentProps) {
               </motion.div>
             </div>
 
-            <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2 p-2 bg-white/5 backdrop-blur-md rounded-2xl border border-white/5 max-w-[90vw] overflow-x-auto no-scrollbar">
+            <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2 p-2 bg-white/5 backdrop-blur-md rounded-lg border border-white/5 max-w-[90vw] overflow-x-auto no-scrollbar">
                {filteredPhotos.map((f, i) => (
                  <button 
                    key={f.id} 

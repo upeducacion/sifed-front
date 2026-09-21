@@ -141,7 +141,7 @@ export default function BibliotecaForm({ initialData, isEditing = false }: Bibli
   return (
     <form onSubmit={handleSubmit} className="grid grid-cols-1 lg:grid-cols-3 gap-8">
       <div className="lg:col-span-2 space-y-6">
-        <div className="bg-white p-6 rounded-2xl border border-border shadow-sm space-y-4">
+        <div className="bg-white p-6 rounded-lg border border-border shadow-sm space-y-4">
           <h3 className="text-lg font-bold text-brand-950 flex items-center gap-2">
             <Book className="w-5 h-5 text-brand-500" />
             Información del Recurso
@@ -186,7 +186,7 @@ export default function BibliotecaForm({ initialData, isEditing = false }: Bibli
           </div>
         </div>
 
-        <div className="bg-white p-6 rounded-2xl border border-border shadow-sm space-y-4">
+        <div className="bg-white p-6 rounded-lg border border-border shadow-sm space-y-4">
           <h3 className="text-lg font-bold text-brand-950 flex items-center gap-2">
             <User className="w-5 h-5 text-brand-500" />
             Diferencial: Recomendado Por
@@ -218,7 +218,7 @@ export default function BibliotecaForm({ initialData, isEditing = false }: Bibli
       </div>
 
       <div className="space-y-6">
-        <div className="bg-brand-950 p-6 rounded-2xl shadow-xl space-y-4 text-white">
+        <div className="bg-brand-950 p-6 rounded-lg shadow-xl space-y-4 text-white">
           <h3 className="text-sm font-black uppercase tracking-widest flex items-center gap-2">
             <FileText className="w-4 h-4 text-uncp-gold" />
             Archivo PDF
@@ -242,7 +242,7 @@ export default function BibliotecaForm({ initialData, isEditing = false }: Bibli
           <input type="file" accept=".pdf" className="hidden" ref={pdfInputRef} onChange={handlePdfChange} />
         </div>
 
-        <div className="bg-white p-6 rounded-2xl border border-border shadow-sm space-y-4">
+        <div className="bg-white p-6 rounded-lg border border-border shadow-sm space-y-4">
           <h3 className="text-sm font-black uppercase tracking-widest text-brand-950 flex items-center gap-2">
             <ImageIcon className="w-4 h-4 text-brand-500" />
             Portada del Libro
@@ -268,7 +268,7 @@ export default function BibliotecaForm({ initialData, isEditing = false }: Bibli
           <input type="file" accept="image/*" className="hidden" ref={portadaInputRef} onChange={handlePortadaChange} />
         </div>
 
-        <div className="bg-white p-6 rounded-2xl border border-border shadow-sm space-y-4">
+        <div className="bg-white p-6 rounded-lg border border-border shadow-sm space-y-4">
           <div className="space-y-4">
             <div className="flex items-center justify-between p-3 bg-muted/30 rounded-xl border border-border">
               <span className="text-xs font-bold">Estado</span>

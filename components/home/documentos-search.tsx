@@ -44,7 +44,7 @@ export default function DocumentosSearch({ initialQuery }: { initialQuery: strin
         placeholder="Buscar por código, título..."
         value={query}
         onChange={(e) => setQuery(e.target.value)}
-        className="w-full pl-11 pr-12 py-3.5 bg-neutral-50/50 border border-border rounded-2xl text-sm font-medium focus:ring-2 focus:ring-brand-500 focus:bg-white outline-none transition-all placeholder:text-muted-foreground"
+        className="w-full pl-11 pr-12 py-3.5 bg-neutral-50/50 border border-border rounded-lg text-sm font-medium focus:ring-2 focus:ring-brand-500 focus:bg-white outline-none transition-all placeholder:text-muted-foreground"
       />
       {query && (
         <button

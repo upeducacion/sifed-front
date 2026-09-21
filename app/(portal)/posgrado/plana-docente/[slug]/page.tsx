@@ -91,7 +91,7 @@ export default async function DocenteProfilePage({ params }: PageProps) {
             <div className="lg:col-span-4 space-y-8 lg:sticky lg:top-32">
               
               {/* Contenedor de Imagen Retrato */}
-              <div className="relative w-full aspect-[9/16] max-h-[600px] rounded-[2.5rem] bg-gradient-to-t from-brand-100 to-brand-50 border border-brand-200/50 overflow-hidden shadow-2xl shadow-brand-900/10">
+              <div className="relative w-full aspect-[9/16] max-h-[600px] rounded-lg bg-gradient-to-t from-brand-100 to-brand-50 border border-brand-200/50 overflow-hidden shadow-2xl shadow-brand-900/10">
                 <SmartProfileImage
                   src={docente.foto_url}
                   alt={docente.nombre_completo}
@@ -113,7 +113,7 @@ export default async function DocenteProfilePage({ params }: PageProps) {
                     href={getStorageUrl(docente.cv_url)} 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="w-full flex items-center justify-center gap-3 bg-brand-950 hover:bg-brand-800 text-white px-6 py-4 rounded-2xl font-bold transition-all shadow-xl shadow-brand-950/20 hover:-translate-y-1"
+                    className="w-full flex items-center justify-center gap-3 bg-brand-950 hover:bg-brand-800 text-white px-6 py-4 rounded-lg font-bold transition-all shadow-xl shadow-brand-950/20 hover:-translate-y-1"
                   >
                     <FileText className="w-5 h-5" />
                     Descargar Currículum (PDF)
@@ -161,7 +161,7 @@ export default async function DocenteProfilePage({ params }: PageProps) {
                 </h3>
                 <div className="grid gap-4">
                   {gradosList.map((grado, index) => (
-                    <div key={index} className="bg-white p-6 rounded-2xl border border-brand-100 shadow-sm flex items-start gap-4 hover:border-brand-300 transition-colors">
+                    <div key={index} className="bg-white p-6 rounded-lg border border-brand-100 shadow-sm flex items-start gap-4 hover:border-brand-300 transition-colors">
                       <div className="w-10 h-10 rounded-full bg-brand-50 flex items-center justify-center shrink-0 border border-brand-100">
                         <span className="text-brand-700 font-serif font-bold">{index + 1}</span>
                       </div>
@@ -180,7 +180,7 @@ export default async function DocenteProfilePage({ params }: PageProps) {
                     <User className="w-5 h-5" />
                     Trayectoria Profesional
                   </h3>
-                  <div className="bg-white p-8 md:p-10 rounded-3xl border border-brand-100 shadow-sm">
+                  <div className="bg-white p-8 md:p-10 rounded-lg border border-brand-100 shadow-sm">
                     <div className="prose prose-brand prose-lg max-w-none text-brand-800/80 text-pretty font-medium leading-loose">
                       {docente.biografia.split('\n').map((paragraph, idx) => (
                         paragraph.trim() ? (

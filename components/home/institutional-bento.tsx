@@ -24,7 +24,7 @@ export default function InstitutionalBento({ photos }: InstitutionalBentoProps) 
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-        className="md:col-span-2 md:row-span-2 relative group overflow-hidden rounded-[2.5rem] shadow-2xl border border-brand-100"
+        className="md:col-span-2 md:row-span-2 relative group overflow-hidden rounded-lg shadow-2xl border border-brand-100"
       >
         <UnoptImage
           src={photos[0].url}
@@ -51,7 +51,7 @@ export default function InstitutionalBento({ photos }: InstitutionalBentoProps) 
         initial={{ opacity: 0, scale: 0.95 }}
         whileInView={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.6, delay: 0.2 }}
-        className="md:col-span-2 md:row-span-1 relative group overflow-hidden rounded-[2.5rem] border border-brand-100 bg-brand-50"
+        className="md:col-span-2 md:row-span-1 relative group overflow-hidden rounded-lg border border-brand-100 bg-brand-50"
       >
         {photos[1] && (
           <>
@@ -80,7 +80,7 @@ export default function InstitutionalBento({ photos }: InstitutionalBentoProps) 
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, delay: 0.3 + (i * 0.1) }}
-            className="relative h-48 md:h-full group overflow-hidden rounded-[2rem] border border-brand-100 shadow-lg"
+            className="relative h-48 md:h-full group overflow-hidden rounded-lg border border-brand-100 shadow-lg"
           >
             {photos[idx] && (
               <UnoptImage 
@@ -95,7 +95,7 @@ export default function InstitutionalBento({ photos }: InstitutionalBentoProps) 
         ))}
       </div>
 
-      <div className="md:col-span-1 md:row-span-1 relative group overflow-hidden rounded-[2.5rem] border border-brand-100 bg-brand-950 flex flex-col justify-center items-center text-center p-8">
+      <div className="md:col-span-1 md:row-span-1 relative group overflow-hidden rounded-lg border border-brand-100 bg-brand-950 flex flex-col justify-center items-center text-center p-8">
          <h4 className="text-uncp-gold font-serif text-4xl font-black mb-2">+50</h4>
          <p className="text-white/40 text-[10px] font-black uppercase tracking-[0.3em] leading-relaxed">
            Galerías <br /> Históricas

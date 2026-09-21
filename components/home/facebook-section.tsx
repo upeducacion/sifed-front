@@ -36,7 +36,7 @@ export default function FacebookSection() {
           {/* Stats cards - 2 columnas */}
           <div className="lg:col-span-2 space-y-6">
             {/* CTA Principal */}
-            <div className="bg-gradient-to-br from-[#1877F2] to-[#0c5fcd] rounded-[2.5rem] p-8 text-white shadow-2xl">
+            <div className="bg-gradient-to-br from-[#1877F2] to-[#0c5fcd] rounded-lg p-8 text-white shadow-2xl">
               <Facebook className="h-12 w-12 mb-4 opacity-90" />
               <h3 className="font-serif text-2xl font-bold mb-3" style={{ color: '#E7F3FF' }}>
                 Unidad de Posgrado
@@ -48,7 +48,7 @@ export default function FacebookSection() {
                 href="https://www.facebook.com/UPG.UNCP.Educacion"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-3 px-8 py-4 bg-white text-[#1877F2] rounded-2xl font-bold hover:bg-blue-50 transition-all shadow-lg hover:shadow-xl hover:scale-105"
+                className="inline-flex items-center gap-3 px-8 py-4 bg-white text-[#1877F2] rounded-lg font-bold hover:bg-blue-50 transition-all shadow-lg hover:shadow-xl hover:scale-105"
               >
                 <Facebook className="h-5 w-5" />
                 Seguir en Facebook
@@ -57,13 +57,13 @@ export default function FacebookSection() {
 
             {/* Stats */}
             <div className="grid grid-cols-2 gap-4">
-              <div className="bg-white rounded-2xl p-6 border-2 border-gray-200 hover:border-[#1877F2] hover:shadow-lg transition-all">
+              <div className="bg-white rounded-lg p-6 border-2 border-gray-200 hover:border-[#1877F2] hover:shadow-lg transition-all">
                 <Users className="h-8 w-8 text-[#1877F2] mb-3" />
                 <div className="text-2xl font-black text-brand-950 mb-1">900+</div>
                 <div className="text-xs text-muted-foreground font-medium">Seguidores activos</div>
               </div>
 
-              <div className="bg-white rounded-2xl p-6 border-2 border-gray-200 hover:border-[#1877F2] hover:shadow-lg transition-all">
+              <div className="bg-white rounded-lg p-6 border-2 border-gray-200 hover:border-[#1877F2] hover:shadow-lg transition-all">
                 <MessageCircle className="h-8 w-8 text-[#1877F2] mb-3" />
                 <div className="text-2xl font-black text-brand-950 mb-1">Diario</div>
                 <div className="text-xs text-muted-foreground font-medium">Actualizaciones</div>
@@ -71,7 +71,7 @@ export default function FacebookSection() {
             </div>
 
             {/* Info adicional */}
-            <div className="bg-white rounded-2xl p-6 border-2 border-gray-200">
+            <div className="bg-white rounded-lg p-6 border-2 border-gray-200">
               <div className="flex items-start gap-3 mb-4">
                 <Calendar className="h-5 w-5 text-uncp-gold shrink-0 mt-0.5" />
                 <div>
@@ -89,7 +89,7 @@ export default function FacebookSection() {
 
           {/* Facebook Page Plugin - 3 columnas */}
           <div className="lg:col-span-3">
-            <div className="bg-white rounded-[2.5rem] p-6 border-2 border-gray-200 shadow-xl">
+            <div className="bg-white rounded-lg p-6 border-2 border-gray-200 shadow-xl">
               <div className="relative w-full" style={{ minHeight: '600px' }}>
                 <iframe 
                   src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FUPG.UNCP.Educacion&tabs=timeline&width=500&height=600&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId"
@@ -100,7 +100,7 @@ export default function FacebookSection() {
                   frameBorder="0"
                   allowFullScreen={true}
                   allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
-                  className="rounded-2xl"
+                  className="rounded-lg"
                 ></iframe>
               </div>
             </div>

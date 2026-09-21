@@ -77,7 +77,7 @@ export default function GaleriasAdminPage() {
 
   if (error) {
     return (
-      <div className="w-full py-20 text-center bg-red-50 rounded-2xl border border-red-200">
+      <div className="w-full py-20 text-center bg-red-50 rounded-lg border border-red-200">
         <p className="text-red-600 font-bold mb-2">Error de conexión</p>
         <p className="text-red-500/80 text-sm">No se pudo cargar la galería de fotos.</p>
       </div>
@@ -102,7 +102,7 @@ export default function GaleriasAdminPage() {
       </div>
 
       {/* Filters & Search */}
-      <div className="flex flex-col lg:flex-row gap-4 bg-white p-4 rounded-2xl border border-border shadow-sm">
+      <div className="flex flex-col lg:flex-row gap-4 bg-white p-4 rounded-lg border border-border shadow-sm">
         <div className="flex-1 relative">
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
           <input 
@@ -133,7 +133,7 @@ export default function GaleriasAdminPage() {
       </div>
 
       {/* Table Section */}
-      <div className="bg-white rounded-2xl border border-border shadow-sm overflow-hidden">
+      <div className="bg-white rounded-lg border border-border shadow-sm overflow-hidden">
         <div className="overflow-x-auto">
           <table className="w-full text-left border-collapse">
             <thead>

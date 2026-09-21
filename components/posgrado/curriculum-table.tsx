@@ -10,7 +10,7 @@ export default function CurriculumTable({ ciclo }: { ciclo: Ciclo }) {
   const creditosElectivo = electivos.length > 0 ? electivos[0].creditos : 0;
 
   return (
-    <div className="bg-white border border-border rounded-2xl overflow-hidden shadow-sm flex flex-col h-full">
+    <div className="bg-white border border-border rounded-lg overflow-hidden shadow-sm flex flex-col h-full">
       {/* Header del Ciclo */}
       <div className="bg-brand-950 px-6 py-4 flex justify-between items-center">
         <h4 className="font-serif text-xl font-bold text-white">Ciclo {ciclo.numero}</h4>

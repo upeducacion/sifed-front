@@ -85,7 +85,7 @@ export default function PortalManagementPage() {
             <Link 
               key={section.title} 
               href={section.href}
-              className="group p-6 bg-white rounded-2xl border border-border shadow-sm hover:shadow-xl hover:border-brand-200 transition-all hover:-translate-y-1"
+              className="group p-6 bg-white rounded-lg border border-border shadow-sm hover:shadow-xl hover:border-brand-200 transition-all hover:-translate-y-1"
             >
               <div className={`h-12 w-12 rounded-xl flex items-center justify-center mb-4 transition-transform group-hover:scale-110 ${section.color}`}>
                 <Icon className="h-6 w-6" />

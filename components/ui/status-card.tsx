@@ -47,7 +47,7 @@ export default function StatusCard({
 
         {/* Icono Flotante */}
         <div className={cn(
-          "h-24 w-24 rounded-3xl flex items-center justify-center mb-8 transition-transform hover:scale-105 duration-300",
+          "mb-8 flex h-24 w-24 items-center justify-center rounded-lg transition-transform duration-300 hover:scale-105",
           colorStyles[color]
         )}>
           <Icon className="h-12 w-12" strokeWidth={1.5} />

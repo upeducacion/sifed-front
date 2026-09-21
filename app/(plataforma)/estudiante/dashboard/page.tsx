@@ -9,7 +9,7 @@ export default function EstudianteDashboardPage() {
   return (
     <div className="space-y-8">
       {/* Banner de Bienvenida */}
-      <div className="relative overflow-hidden rounded-3xl bg-brand-900 p-8 text-white shadow-xl">
+      <div className="relative overflow-hidden rounded-lg bg-brand-900 p-8 text-white shadow-xl">
         <div className="absolute top-0 right-0 w-64 h-64 bg-brand-600 rounded-full blur-[100px] opacity-50 -mr-20 -mt-20"></div>
         <div className="relative z-10">
            <h2 className="text-3xl font-serif font-bold mb-2">Hola, {user?.name.split(' ')[0]}</h2>
@@ -29,7 +29,7 @@ export default function EstudianteDashboardPage() {
            
            <div className="grid gap-4 sm:grid-cols-2">
               {[1, 2, 3].map(i => (
-                 <div key={i} className="group p-5 bg-white rounded-2xl border border-border shadow-sm hover:border-brand-300 hover:shadow-md transition-all cursor-pointer">
+                 <div key={i} className="group p-5 bg-white rounded-lg border border-border shadow-sm hover:border-brand-300 hover:shadow-md transition-all cursor-pointer">
                     <div className="h-2 w-12 bg-brand-200 rounded-full mb-4 group-hover:bg-brand-500 transition-colors"></div>
                     <h4 className="font-bold text-lg text-brand-950 mb-1">Didáctica Universitaria</h4>
                     <p className="text-xs text-muted-foreground mb-4">Docente: Dr. Juan Pérez</p>

@@ -53,7 +53,7 @@ export async function NewsCollage() {
             <NewsCard 
               noticia={heroNews} 
               featured={true} 
-              className="h-full shadow-xl hover:shadow-2xl transition-shadow duration-500 rounded-3xl" 
+              className="h-full shadow-xl hover:shadow-2xl transition-shadow duration-500 rounded-lg"
             />
           </div>
 
@@ -64,7 +64,7 @@ export async function NewsCollage() {
                 <Link 
                   key={item.id} 
                   href={`/noticias/${item.slug}`}
-                  className="group flex gap-5 items-start p-4 rounded-2xl hover:bg-gray-50 transition-colors border border-transparent hover:border-gray-100"
+                  className="group flex gap-5 items-start p-4 rounded-lg hover:bg-gray-50 transition-colors border border-transparent hover:border-gray-100"
                 >
                   {/* Thumbnail */}
                   <div className="shrink-0 w-24 h-24 md:w-32 md:h-32 relative rounded-xl overflow-hidden shadow-sm">

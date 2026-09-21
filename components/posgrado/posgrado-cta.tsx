@@ -40,7 +40,7 @@ export default function PosgradoCTA() {
             className="group"
           >
             <Link href="/posgrado/maestrias" className="block h-full">
-              <div className="relative h-full bg-brand-50 rounded-[2rem] p-8 lg:p-10 border border-brand-100 shadow-xl shadow-brand-950/5 transition-all duration-500 hover:shadow-2xl hover:shadow-brand-600/10 hover:-translate-y-1 overflow-hidden">
+              <div className="relative h-full bg-brand-50 rounded-lg p-8 lg:p-10 border border-brand-100 shadow-xl shadow-brand-950/5 transition-all duration-500 hover:shadow-2xl hover:shadow-brand-600/10 hover:-translate-y-1 overflow-hidden">
                 <div className="absolute top-0 right-0 p-6 opacity-[0.03] group-hover:opacity-[0.07] transition-opacity text-brand-950 group-hover:scale-110 transition-transform duration-700">
                   <BookOpen size={180} strokeWidth={1} />
                 </div>
@@ -72,7 +72,7 @@ export default function PosgradoCTA() {
             className="group"
           >
             <Link href="/posgrado/doctorados" className="block h-full">
-              <div className="relative h-full bg-brand-950 rounded-[2rem] p-8 lg:p-10 border border-white/5 shadow-2xl transition-all duration-500 hover:shadow-uncp-gold/10 hover:-translate-y-1 overflow-hidden">
+              <div className="relative h-full bg-brand-950 rounded-lg p-8 lg:p-10 border border-white/5 shadow-2xl transition-all duration-500 hover:shadow-uncp-gold/10 hover:-translate-y-1 overflow-hidden">
                 <div className="absolute top-0 right-0 p-6 opacity-[0.03] group-hover:opacity-[0.07] transition-opacity text-white group-hover:scale-110 transition-transform duration-700">
                   <GraduationCap size={180} strokeWidth={1} />
                 </div>
@@ -104,7 +104,7 @@ export default function PosgradoCTA() {
             className="group"
           >
             <Link href="/posgrado/diplomados" className="block h-full">
-              <div className="relative h-full bg-white rounded-[2rem] p-8 lg:p-10 border border-border shadow-xl shadow-brand-950/5 transition-all duration-500 hover:border-brand-200 hover:shadow-2xl hover:shadow-brand-600/5 hover:-translate-y-1 overflow-hidden">
+              <div className="relative h-full bg-white rounded-lg p-8 lg:p-10 border border-border shadow-xl shadow-brand-950/5 transition-all duration-500 hover:border-brand-200 hover:shadow-2xl hover:shadow-brand-600/5 hover:-translate-y-1 overflow-hidden">
                 <div className="absolute top-0 right-0 p-6 opacity-[0.02] group-hover:opacity-[0.05] transition-opacity text-brand-950 group-hover:scale-110 transition-transform duration-700">
                   <Award size={180} strokeWidth={1} />
                 </div>
@@ -136,7 +136,7 @@ export default function PosgradoCTA() {
             className="group"
           >
             <Link href="/posgrado/formacion-continua" className="block h-full">
-              <div className="relative h-full bg-white rounded-[2rem] p-8 lg:p-10 border border-border shadow-xl shadow-brand-950/5 transition-all duration-500 hover:border-brand-200 hover:shadow-2xl hover:shadow-brand-600/5 hover:-translate-y-1 overflow-hidden">
+              <div className="relative h-full bg-white rounded-lg p-8 lg:p-10 border border-border shadow-xl shadow-brand-950/5 transition-all duration-500 hover:border-brand-200 hover:shadow-2xl hover:shadow-brand-600/5 hover:-translate-y-1 overflow-hidden">
                 <div className="absolute top-0 right-0 p-6 opacity-[0.02] group-hover:opacity-[0.05] transition-opacity text-brand-950 group-hover:scale-110 transition-transform duration-700">
                   <Zap size={180} strokeWidth={1} />
                 </div>

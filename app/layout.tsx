@@ -1,15 +1,15 @@
 import type { Metadata } from "next";
-import { Playfair_Display, Plus_Jakarta_Sans } from "next/font/google";
+import { Plus_Jakarta_Sans, Sora } from "next/font/google";
 import "./globals.css";
 
-const playfair = Playfair_Display({
-  variable: "--font-serif",
+const sora = Sora({
+  variable: "--font-display",
   subsets: ["latin"],
   display: "swap",
 });
 
 const jakarta = Plus_Jakarta_Sans({
-  variable: "--font-sans",
+  variable: "--font-body",
   subsets: ["latin"],
   display: "swap",
 });
@@ -81,7 +81,7 @@ export default async function RootLayout({
   const websiteJsonLd = getWebsiteJsonLd();
 
   return (
-    <html lang="es" className={`${playfair.variable} ${jakarta.variable}`}>
+    <html lang="es" className={`${sora.variable} ${jakarta.variable}`}>
       <head>
         <script
           type="application/ld+json"

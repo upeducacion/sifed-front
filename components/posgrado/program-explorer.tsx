@@ -74,7 +74,7 @@ export default function ProgramExplorer() {
       <div className="space-y-10 animate-in fade-in slide-in-from-bottom-4 duration-500">
         
         {/* Info Header */}
-        <div className="bg-white border border-border rounded-3xl p-8 shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-8">
+        <div className="bg-white border border-border rounded-lg p-8 shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-8">
           <div className="space-y-4">
             <h2 className="text-3xl md:text-4xl font-serif font-black text-brand-950 leading-tight">
               {selectedProgram.nombre}
@@ -94,7 +94,7 @@ export default function ProgramExplorer() {
           <div className="shrink-0">
             <a 
               href="/posgrado/planes-estudio"
-              className="flex items-center gap-2 px-6 py-3 bg-brand-600 hover:bg-brand-700 text-white rounded-2xl font-bold transition-all shadow-lg shadow-brand-600/20 active:scale-95"
+              className="flex items-center gap-2 px-6 py-3 bg-brand-600 hover:bg-brand-700 text-white rounded-lg font-bold transition-all shadow-lg shadow-brand-600/20 active:scale-95"
             >
               <Download className="w-5 h-5" />
               Ver planes de estudio
@@ -111,7 +111,7 @@ export default function ProgramExplorer() {
 
         {/* Nota / Pie de Página */}
         {selectedProgram.nota && (
-          <div className="flex items-start gap-3 p-6 bg-brand-50/50 rounded-2xl border border-brand-100/50 text-brand-800">
+          <div className="flex items-start gap-3 p-6 bg-brand-50/50 rounded-lg border border-brand-100/50 text-brand-800">
             <Info className="w-5 h-5 mt-0.5 shrink-0 text-brand-500" />
             <p className="text-sm font-medium leading-relaxed italic">
               {selectedProgram.nota}

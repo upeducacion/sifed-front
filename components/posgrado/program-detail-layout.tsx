@@ -117,7 +117,7 @@ export default function ProgramDetailLayout({ program, globalAdmissionData }: Pr
               </div>
 
               {(program.configVisibilidad?.mostrar_certificacion !== false && program.certificacionDetalle) && (
-                <div className="mt-10 p-8 md:p-10 rounded-[2rem] bg-brand-50 border border-brand-100 flex flex-col md:flex-row items-center md:items-start gap-8">
+                <div className="mt-10 p-8 md:p-10 rounded-lg bg-brand-50 border border-brand-100 flex flex-col md:flex-row items-center md:items-start gap-8">
                   <div className="w-16 h-16 shrink-0 rounded-full bg-uncp-gold/20 flex items-center justify-center">
                     <Award className="w-8 h-8 text-uncp-gold" />
                   </div>
@@ -153,7 +153,7 @@ export default function ProgramDetailLayout({ program, globalAdmissionData }: Pr
                   </div>
                   <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
                     {program.objetivos.map((obj, i) => (
-                      <div key={i} className="p-6 rounded-2xl border border-border bg-white shadow-sm hover:shadow-md transition-shadow flex items-start gap-4">
+                      <div key={i} className="p-6 rounded-lg border border-border bg-white shadow-sm hover:shadow-md transition-shadow flex items-start gap-4">
                         <div className="mt-1 flex-shrink-0 w-8 h-8 rounded-full bg-brand-50 flex items-center justify-center text-brand-600">
                           <Target className="w-4 h-4" />
                         </div>
@@ -166,7 +166,7 @@ export default function ProgramDetailLayout({ program, globalAdmissionData }: Pr
 
               {/* Split View Perfiles */}
               {(program.perfilEstudiante?.length > 0 || program.perfilEgresado?.length > 0) && (
-                <section className="grid lg:grid-cols-2 gap-8 lg:gap-0 rounded-[3rem] overflow-hidden shadow-2xl border border-border">
+                <section className="grid lg:grid-cols-2 gap-8 lg:gap-0 rounded-lg overflow-hidden shadow-2xl border border-border">
                   {/* Ingreso */}
                   <div className="p-10 md:p-16 bg-brand-950 text-white relative group">
                     <div className="absolute top-0 right-0 p-10 opacity-5 transition-transform group-hover:scale-110 duration-700">
@@ -260,14 +260,14 @@ export default function ProgramDetailLayout({ program, globalAdmissionData }: Pr
               </div>
 
               {(!program.horarios || program.horarios.length === 0) ? (
-                <div className="text-center py-12 bg-neutral-50 rounded-3xl border border-dashed border-border">
+                <div className="text-center py-12 bg-neutral-50 rounded-lg border border-dashed border-border">
                   <Clock className="w-12 h-12 text-muted-foreground mx-auto mb-4 opacity-50" />
                   <p className="text-muted-foreground">Los horarios para este programa serán publicados próximamente.</p>
                 </div>
               ) : (
                 <div className="grid gap-8 max-w-4xl mx-auto">
                   {program.horarios.map((modulo: HorarioModulo, i: number) => (
-                    <div key={i} className="bg-white border border-border shadow-sm rounded-[2rem] overflow-hidden">
+                    <div key={i} className="bg-white border border-border shadow-sm rounded-lg overflow-hidden">
                       <div className="p-8 bg-brand-50/50 border-b border-border">
                         <div className="flex items-center gap-4 mb-3">
                           <div className="p-2.5 bg-brand-100 rounded-xl text-brand-600">
@@ -328,7 +328,7 @@ export default function ProgramDetailLayout({ program, globalAdmissionData }: Pr
 
               <div className="grid md:grid-cols-2 gap-8 items-start">
                 {/* Costos */}
-                <div className="bg-white border border-border shadow-sm rounded-[2rem] p-8">
+                <div className="bg-white border border-border shadow-sm rounded-lg p-8">
                   <div className="flex items-center gap-3 mb-8">
                     <div className="p-3 bg-emerald-100 rounded-xl text-emerald-600">
                       <CreditCard className="w-6 h-6" />
@@ -362,7 +362,7 @@ export default function ProgramDetailLayout({ program, globalAdmissionData }: Pr
                 </div>
 
                 {/* Requisitos */}
-                <div className="bg-brand-950 text-white shadow-2xl rounded-[2rem] p-8 relative overflow-hidden">
+                <div className="bg-brand-950 text-white shadow-2xl rounded-lg p-8 relative overflow-hidden">
                    <div className="absolute top-0 right-0 p-8 opacity-5">
                     <FileCheck size={160} />
                   </div>

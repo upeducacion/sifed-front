@@ -93,7 +93,7 @@ export default function FAQSection() {
                   <div 
                     key={index}
                     className={cn(
-                      "rounded-2xl border transition-all duration-300",
+                      "rounded-lg border transition-all duration-300",
                       isOpen ? "bg-white border-brand-200 shadow-xl" : "bg-white/50 border-border hover:border-brand-200"
                     )}
                   >

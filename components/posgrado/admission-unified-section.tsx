@@ -31,10 +31,10 @@ export default function AdmissionUnifiedSection({ data }: AdmissionUnifiedSectio
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
           
           {/* Columna Izquierda: Visor de PDF (Más grande) */}
-          <div className="lg:col-span-8 bg-white rounded-[2.5rem] p-3 border-4 border-white shadow-2xl overflow-hidden min-h-[500px] lg:h-[850px]">
+          <div className="lg:col-span-8 bg-white rounded-lg p-3 border-4 border-white shadow-2xl overflow-hidden min-h-[500px] lg:h-[850px]">
             <iframe
               src={`${data.documentUrl}#toolbar=0`}
-              className="w-full h-full rounded-2xl border border-border"
+              className="w-full h-full rounded-lg border border-border"
               title="Visor de Guía de Admisión"
             />
           </div>
@@ -46,9 +46,9 @@ export default function AdmissionUnifiedSection({ data }: AdmissionUnifiedSectio
             <a
               href={data.documentUrl}
               download
-              className="group flex flex-col items-center justify-center gap-4 p-8 text-center bg-brand-950 text-white rounded-[2rem] hover:bg-brand-800 transition-all hover:shadow-2xl hover:-translate-y-1"
+              className="group flex flex-col items-center justify-center gap-4 p-8 text-center bg-brand-950 text-white rounded-lg hover:bg-brand-800 transition-all hover:shadow-2xl hover:-translate-y-1"
             >
-              <div className="h-16 w-16 rounded-2xl bg-white/10 flex items-center justify-center group-hover:scale-110 transition-transform">
+              <div className="h-16 w-16 rounded-lg bg-white/10 flex items-center justify-center group-hover:scale-110 transition-transform">
                 <Printer className="h-8 w-8 text-uncp-gold" />
               </div>
               <div>
@@ -62,9 +62,9 @@ export default function AdmissionUnifiedSection({ data }: AdmissionUnifiedSectio
               href={`https://wa.me/${whatsappNumber}?text=${whatsappMessage}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex flex-col items-center justify-center gap-4 p-8 text-center bg-emerald-600 text-white rounded-[2rem] hover:bg-emerald-500 transition-all hover:shadow-2xl hover:-translate-y-1"
+              className="group flex flex-col items-center justify-center gap-4 p-8 text-center bg-emerald-600 text-white rounded-lg hover:bg-emerald-500 transition-all hover:shadow-2xl hover:-translate-y-1"
             >
-              <div className="h-16 w-16 rounded-2xl bg-white/10 flex items-center justify-center group-hover:scale-110 transition-transform">
+              <div className="h-16 w-16 rounded-lg bg-white/10 flex items-center justify-center group-hover:scale-110 transition-transform">
                 <MessageCircle className="h-8 w-8" />
               </div>
               <div>
@@ -78,7 +78,7 @@ export default function AdmissionUnifiedSection({ data }: AdmissionUnifiedSectio
               href={data.documentUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex items-center gap-4 p-6 bg-white border-2 border-brand-100 text-brand-950 rounded-[2rem] hover:border-brand-300 hover:bg-brand-50 transition-all"
+              className="group flex items-center gap-4 p-6 bg-white border-2 border-brand-100 text-brand-950 rounded-lg hover:border-brand-300 hover:bg-brand-50 transition-all"
             >
               <div className="h-12 w-12 rounded-xl bg-brand-50 flex items-center justify-center shrink-0">
                 <Maximize2 className="h-6 w-6 text-brand-600" />
@@ -87,7 +87,7 @@ export default function AdmissionUnifiedSection({ data }: AdmissionUnifiedSectio
             </a>
 
             {/* Aviso de Confianza */}
-            <div className="mt-auto p-6 bg-brand-50/50 border border-brand-100 rounded-[2rem] text-center">
+            <div className="mt-auto p-6 bg-brand-50/50 border border-brand-100 rounded-lg text-center">
                <p className="text-xs font-bold text-brand-400 uppercase tracking-widest mb-3">Documento Verificado</p>
                <p className="text-sm font-medium text-brand-900 leading-relaxed">
                   Esta es la última versión oficial emitida por la Unidad de Posgrado de la Facultad de Educación - UNCP.

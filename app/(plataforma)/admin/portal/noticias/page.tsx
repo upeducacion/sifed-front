@@ -125,7 +125,7 @@ export default function AdminNoticiasPage() {
       </div>
 
       {/* TABS EDITORIALES */}
-      <div className="flex items-center gap-1 bg-brand-50 p-1.5 rounded-2xl w-fit border border-brand-100/50">
+      <div className="flex items-center gap-1 bg-brand-50 p-1.5 rounded-lg w-fit border border-brand-100/50">
         <button
           onClick={() => setActiveTab('noticias')}
           className={cn(
@@ -152,7 +152,7 @@ export default function AdminNoticiasPage() {
 
       {activeTab === 'noticias' ? (
         /* VISTA: LISTADO DE NOTICIAS */
-        <div className="bg-white rounded-3xl border border-brand-100 shadow-sm overflow-hidden relative min-h-[400px]">
+        <div className="bg-white rounded-lg border border-brand-100 shadow-sm overflow-hidden relative min-h-[400px]">
             {loadingNoticias && noticias.length > 0 && (
                 <div className="absolute inset-0 bg-white/50 backdrop-blur-[1px] flex items-center justify-center z-10">
                     <Loader text="Actualizando grilla..." size="sm" fullHeight={false} />
@@ -256,7 +256,7 @@ export default function AdminNoticiasPage() {
         </div>
       ) : (
         /* VISTA: GESTIÓN DE CATEGORÍAS */
-        <div className="bg-white rounded-3xl border border-brand-100 shadow-sm overflow-hidden relative min-h-[400px]">
+        <div className="bg-white rounded-lg border border-brand-100 shadow-sm overflow-hidden relative min-h-[400px]">
             {loadingCategorias && categorias.length > 0 && (
                 <div className="absolute inset-0 bg-white/50 backdrop-blur-[1px] flex items-center justify-center z-10">
                     <Loader text="Actualizando..." size="sm" fullHeight={false} />

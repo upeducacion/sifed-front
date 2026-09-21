@@ -38,7 +38,7 @@ export default function MarqueeRow({ images, direction = "left", speed = 30 }: M
         {[...images, ...images].map((img, idx) => (
           <div 
             key={`${img.url}-${idx}`} 
-            className="relative h-40 w-64 md:h-52 md:w-80 shrink-0 overflow-hidden rounded-2xl border border-white/5 bg-brand-900 shadow-xl"
+            className="relative h-40 w-64 md:h-52 md:w-80 shrink-0 overflow-hidden rounded-lg border border-white/5 bg-brand-900 shadow-xl"
           >
             <UnoptImage
               src={getStorageUrl(img.url)}

@@ -34,9 +34,9 @@ export default function ServiceCard({
     <motion.div
       whileHover={!isLocked ? { y: -5 } : {}}
       className={cn(
-        "group relative flex flex-col h-full min-h-[200px] p-8 rounded-[2rem] transition-all duration-500",
+        "group relative flex min-h-[200px] h-full flex-col rounded-lg p-6 transition-all duration-300",
         "bg-white border border-brand-100/60",
-        "shadow-[0_10px_30px_-15px_rgba(0,27,72,0.05)] hover:shadow-[0_25px_50px_-12px_rgba(0,27,72,0.12)]",
+        "shadow-[0_12px_32px_-18px_rgba(0,27,72,0.22)] hover:-translate-y-1 hover:shadow-[0_24px_56px_-28px_rgba(0,27,72,0.28)]",
         "hover:border-brand-200",
         variant === "special" && "bg-brand-50/30 border-dashed border-brand-200",
         isLocked && "cursor-default opacity-90",
@@ -88,7 +88,7 @@ export default function ServiceCard({
 
       {/* Efecto de Vidrio para Bloqueo */}
       {isLocked && (
-        <div className="absolute inset-0 bg-white/40 backdrop-blur-[2px] rounded-[2rem] z-10 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+        <div className="absolute inset-0 z-10 flex items-center justify-center rounded-lg bg-white/40 opacity-0 backdrop-blur-[2px] transition-opacity duration-300 group-hover:opacity-100">
           <span className="bg-brand-950 text-white text-[9px] font-black uppercase tracking-widest px-4 py-2 rounded-full shadow-xl">
             Acceso Restringido
           </span>

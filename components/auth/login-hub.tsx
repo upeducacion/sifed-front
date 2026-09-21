@@ -139,7 +139,7 @@ export default function LoginHub() {
                   initial={{ opacity: 0, scale: 0.95 }}
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.95 }}
-                  className="bg-white rounded-[3rem] shadow-[0_30px_60px_-15px_rgba(0,27,72,0.08)] border border-brand-100/50 p-8 xl:p-10"
+                  className="bg-white rounded-lg shadow-[0_30px_60px_-15px_rgba(0,27,72,0.08)] border border-brand-100/50 p-8 xl:p-10"
                 >
                   <LoginForm onLoginSuccess={handleLoginSuccess} />
                 </motion.div>
@@ -149,7 +149,7 @@ export default function LoginHub() {
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, x: 20 }}
-                  className="bg-white rounded-[3rem] shadow-[0_30px_60px_-15px_rgba(0,27,72,0.08)] border border-brand-100/50 p-10 text-center"
+                  className="bg-white rounded-lg shadow-[0_30px_60px_-15px_rgba(0,27,72,0.08)] border border-brand-100/50 p-10 text-center"
                 >
                   <div className="relative h-24 w-24 mx-auto mb-6">
                     <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-brand-100 to-uncp-gold animate-pulse" />
@@ -177,7 +177,7 @@ export default function LoginHub() {
 
                   <button 
                     onClick={handleLogout}
-                    className="mt-10 w-full py-4 px-6 rounded-2xl bg-brand-50 text-brand-950 font-black text-[10px] uppercase tracking-[0.2em] hover:bg-brand-950 hover:text-white transition-all duration-300 border border-brand-100"
+                    className="mt-10 w-full py-4 px-6 rounded-lg bg-brand-50 text-brand-950 font-black text-[10px] uppercase tracking-[0.2em] hover:bg-brand-950 hover:text-white transition-all duration-300 border border-brand-100"
                   >
                     Cerrar Sesión
                   </button>

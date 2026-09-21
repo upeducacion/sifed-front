@@ -59,7 +59,7 @@ export default async function NosotrosPage() {
           <div className="lg:col-span-8 space-y-12">
             
             {/* Módulo: Historia */}
-            <section className="bg-white p-8 md:p-12 rounded-[2.5rem] border border-brand-100 shadow-xl shadow-brand-900/5 relative overflow-hidden">
+            <section className="bg-white p-8 md:p-12 rounded-lg border border-brand-100 shadow-xl shadow-brand-900/5 relative overflow-hidden">
               <div className="absolute top-0 right-0 p-8 opacity-[0.02]">
                 <Building2 className="h-64 w-64 text-brand-950" />
               </div>
@@ -105,7 +105,7 @@ export default async function NosotrosPage() {
             
             {/* Tarjeta: Misión & Visión (CON CONTRASTE MEJORADO) */}
             {(showMision || showVision) && (
-              <div className="bg-brand-950 rounded-[2.5rem] p-8 text-white shadow-2xl relative overflow-hidden group border border-brand-800">
+              <div className="bg-brand-950 rounded-lg p-8 text-white shadow-2xl relative overflow-hidden group border border-brand-800">
                 <div className="absolute -bottom-10 -right-10 opacity-10 group-hover:scale-110 transition-transform duration-1000">
                   <Building2 className="h-48 w-48" />
                 </div>
@@ -144,7 +144,7 @@ export default async function NosotrosPage() {
 
             {/* Tarjeta: Organigrama */}
             {unidad?.organigrama_url && showOrganigrama && (
-              <div className="bg-white rounded-[2rem] p-6 border border-brand-100 shadow-sm group">
+              <div className="bg-white rounded-lg p-6 border border-brand-100 shadow-sm group">
                 <h3 className="text-[10px] font-black uppercase tracking-widest text-brand-950 mb-4 flex items-center gap-2">
                   <FileText className="h-4 w-4 text-uncp-gold" />
                   Estructura Organizativa
@@ -165,7 +165,7 @@ export default async function NosotrosPage() {
 
             {/* Tarjeta: Directorio Compacto */}
             {showDirectorio && directorio.length > 0 && (
-              <div className="bg-white rounded-[2rem] p-8 border border-brand-100 shadow-sm">
+              <div className="bg-white rounded-lg p-8 border border-brand-100 shadow-sm">
                 <h3 className="text-[10px] font-black uppercase tracking-widest text-brand-950 mb-6 flex items-center gap-2">
                   <Phone className="h-4 w-4 text-uncp-gold" />
                   Directorio Telefónico
@@ -201,9 +201,9 @@ export default async function NosotrosPage() {
 
 function AuthorityCard({ autoridad }: { autoridad: Autoridad }) {
   return (
-    <div className="bg-white p-6 rounded-3xl border border-brand-100 hover:border-uncp-gold/30 transition-all hover:shadow-xl group">
+    <div className="bg-white p-6 rounded-lg border border-brand-100 hover:border-uncp-gold/30 transition-all hover:shadow-xl group">
       <div className="flex items-center gap-5">
-        <div className="relative h-20 w-20 shrink-0 rounded-2xl overflow-hidden border-2 border-brand-50 group-hover:scale-105 transition-transform duration-500 shadow-sm">
+        <div className="relative h-20 w-20 shrink-0 rounded-lg overflow-hidden border-2 border-brand-50 group-hover:scale-105 transition-transform duration-500 shadow-sm">
           <SmartProfileImage src={autoridad.foto_url} alt={autoridad.nombre} />
         </div>
         <div className="min-w-0">

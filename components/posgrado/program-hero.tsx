@@ -87,7 +87,7 @@ export default function ProgramHero({ program }: ProgramHeroProps) {
                 { icon: Hash, label: "Créditos", value: `${program.infoGeneral.totalCreditos || 0} Totales` },
                 { icon: GraduationCap, label: "Grado", value: program.infoGeneral.certificacion, className: "col-span-2" },
               ].map((stat, idx) => (
-                <div key={idx} className={cn("p-4 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm shadow-xl", stat.className)}>
+                <div key={idx} className={cn("p-4 rounded-lg bg-white/5 border border-white/10 backdrop-blur-sm shadow-xl", stat.className)}>
                   <stat.icon className="w-5 h-5 text-uncp-gold mb-2" />
                   <p className="text-[9px] font-bold uppercase tracking-widest text-white/50 mb-0.5">{stat.label}</p>
                   <p className="text-xs font-black text-white">{stat.value}</p>
@@ -96,7 +96,7 @@ export default function ProgramHero({ program }: ProgramHeroProps) {
             </div>
 
             {/* Quick Contact CTA */}
-            <div className="p-5 rounded-2xl bg-gradient-to-br from-uncp-gold/20 to-uncp-gold/5 border border-uncp-gold/30 backdrop-blur-md relative overflow-hidden group shadow-xl">
+            <div className="p-5 rounded-lg bg-gradient-to-br from-uncp-gold/20 to-uncp-gold/5 border border-uncp-gold/30 backdrop-blur-md relative overflow-hidden group shadow-xl">
               <div className="absolute top-0 right-0 p-4 opacity-20 transform translate-x-4 -translate-y-4 group-hover:scale-110 transition-transform duration-500">
                 <MessageCircle className="w-16 h-16 text-uncp-gold" />
               </div>

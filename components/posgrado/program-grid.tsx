@@ -54,7 +54,7 @@ export default function ProgramGrid({ programs, type }: ProgramGridProps) {
         </div>
 
         {programs.length === 0 && (
-          <div className="text-center py-20 border-2 border-dashed border-brand-100 rounded-[3rem]">
+          <div className="text-center py-20 border-2 border-dashed border-brand-100 rounded-lg">
             <p className="text-muted-foreground font-medium">Aún no hay programas disponibles.</p>
           </div>
         )}

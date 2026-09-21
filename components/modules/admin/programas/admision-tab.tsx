@@ -37,7 +37,7 @@ export function AdmisionTab({ admisionData, setAdmisionData }: AdmisionTabProps)
     <div className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500 pb-10">
       
       {/* SECCIÓN: Costos */}
-      <div className="bg-white p-6 rounded-2xl border border-border shadow-sm space-y-6">
+      <div className="bg-white p-6 rounded-lg border border-border shadow-sm space-y-6">
         <h3 className="text-lg font-black text-brand-950 flex items-center gap-2 uppercase tracking-tight">
           <Wallet className="w-5 h-5 text-brand-600" /> Inversión Económica
         </h3>
@@ -90,7 +90,7 @@ export function AdmisionTab({ admisionData, setAdmisionData }: AdmisionTabProps)
       </div>
 
       {/* SECCIÓN: Requisitos */}
-      <div className="bg-white p-6 rounded-2xl border border-border shadow-sm space-y-6">
+      <div className="bg-white p-6 rounded-lg border border-border shadow-sm space-y-6">
         <div className="flex items-center justify-between">
           <h3 className="text-lg font-black text-brand-950 uppercase tracking-tight">Requisitos de Postulación</h3>
           <button

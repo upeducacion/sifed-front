@@ -143,7 +143,7 @@ export default function AdminDashboardPage() {
 
           <div className="grid lg:grid-cols-3 gap-6">
             {/* Estado de Admisión (A la izquierda, más relevante) */}
-            <div className="lg:col-span-2 bg-white rounded-3xl border border-border shadow-sm p-8 flex flex-col justify-center relative overflow-hidden group">
+            <div className="lg:col-span-2 bg-white rounded-lg border border-border shadow-sm p-8 flex flex-col justify-center relative overflow-hidden group">
               <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-opacity duration-500 pointer-events-none">
                 <BookOpen className="w-48 h-48" />
               </div>
@@ -193,7 +193,7 @@ export default function AdminDashboardPage() {
             </div>
 
             {/* Accesos Rápidos */}
-            <div className="bg-brand-950 rounded-3xl p-6 shadow-xl text-white flex flex-col">
+            <div className="bg-brand-950 rounded-lg p-6 shadow-xl text-white flex flex-col">
               <h3 className="text-sm font-black uppercase tracking-widest text-brand-300 mb-6">Accesos Rápidos</h3>
               <div className="flex flex-col gap-3 flex-grow">
                 <QuickActionLink 
@@ -229,7 +229,7 @@ export default function AdminDashboardPage() {
       {activeTab === "portal" && (
         <div className="grid md:grid-cols-2 gap-6 animate-in fade-in slide-in-from-bottom-4 duration-500">
           {/* Últimos Programas */}
-          <div className="bg-white rounded-3xl border border-border shadow-sm overflow-hidden flex flex-col">
+          <div className="bg-white rounded-lg border border-border shadow-sm overflow-hidden flex flex-col">
             <div className="p-6 border-b border-border flex items-center justify-between bg-muted/10">
               <h3 className="font-bold text-brand-950 flex items-center gap-2">
                 <GraduationCap className="w-5 h-5 text-brand-500" />
@@ -265,7 +265,7 @@ export default function AdminDashboardPage() {
           </div>
 
           {/* Últimos Docentes */}
-          <div className="bg-white rounded-3xl border border-border shadow-sm overflow-hidden flex flex-col">
+          <div className="bg-white rounded-lg border border-border shadow-sm overflow-hidden flex flex-col">
             <div className="p-6 border-b border-border flex items-center justify-between bg-muted/10">
               <h3 className="font-bold text-brand-950 flex items-center gap-2">
                 <Users className="w-5 h-5 text-emerald-500" />
@@ -315,9 +315,9 @@ export default function AdminDashboardPage() {
 
 function StatCard({ title, value, icon, bgIcon, link }: { title: string, value: number, icon: React.ReactNode, bgIcon: string, link: string }) {
   return (
-    <Link href={link} className="bg-white p-6 rounded-3xl border border-border shadow-sm flex flex-col gap-4 hover:shadow-md hover:-translate-y-1 transition-all group">
+    <Link href={link} className="bg-white p-6 rounded-lg border border-border shadow-sm flex flex-col gap-4 hover:shadow-md hover:-translate-y-1 transition-all group">
       <div className="flex items-start justify-between">
-        <div className={cn("p-3 rounded-2xl", bgIcon)}>
+        <div className={cn("p-3 rounded-lg", bgIcon)}>
           {icon}
         </div>
         <div className="p-1.5 bg-muted/50 rounded-full opacity-0 group-hover:opacity-100 transition-opacity">
@@ -336,7 +336,7 @@ function QuickActionLink({ href, icon, title, desc }: { href: string, icon: Reac
   return (
     <Link 
       href={href}
-      className="flex items-center gap-4 p-4 rounded-2xl bg-brand-900/50 border border-brand-800/50 hover:bg-brand-800 hover:border-brand-600 transition-all group"
+      className="flex items-center gap-4 p-4 rounded-lg bg-brand-900/50 border border-brand-800/50 hover:bg-brand-800 hover:border-brand-600 transition-all group"
     >
       <div className="p-2 bg-brand-800 rounded-xl text-brand-300 group-hover:text-white transition-colors">
         {icon}

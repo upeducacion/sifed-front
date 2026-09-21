@@ -99,7 +99,7 @@ export default function GalleryDetailContent({ galeria }: GalleryDetailContentPr
               viewport={{ once: true }}
               transition={{ delay: index * 0.05 }}
               onClick={() => setPhotoIndex(index)}
-              className="relative group cursor-zoom-in rounded-2xl overflow-hidden border border-border bg-brand-50 break-inside-avoid"
+              className="relative group cursor-zoom-in rounded-lg overflow-hidden border border-border bg-brand-50 break-inside-avoid"
             >
               <div className="relative w-full h-auto min-h-[200px]">
                 <UnoptImage 
@@ -190,7 +190,7 @@ export default function GalleryDetailContent({ galeria }: GalleryDetailContentPr
             </motion.div>
 
             {/* Thumbnail Strip */}
-            <div className="hidden md:flex absolute bottom-8 left-1/2 -translate-x-1/2 gap-2 p-2 bg-white/5 backdrop-blur-md rounded-2xl border border-white/5">
+            <div className="hidden md:flex absolute bottom-8 left-1/2 -translate-x-1/2 gap-2 p-2 bg-white/5 backdrop-blur-md rounded-lg border border-white/5">
                {fotos.map((f, i) => (
                  <button 
                   key={f.id}

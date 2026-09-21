@@ -70,7 +70,7 @@ export function HorariosTab({ horariosData, setHorariosData }: HorariosTabProps)
     <div className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
       
       {/* HEADER EXPLICATIVO */}
-      <div className="bg-brand-50 p-6 rounded-2xl border border-brand-100 flex flex-col sm:flex-row gap-6 items-start sm:items-center justify-between">
+      <div className="bg-brand-50 p-6 rounded-lg border border-brand-100 flex flex-col sm:flex-row gap-6 items-start sm:items-center justify-between">
         <div className="flex-1">
           <h3 className="text-lg font-black text-brand-950 mb-1 flex items-center gap-2">
             <Clock className="w-5 h-5 text-brand-600" /> Gestión de Horarios
@@ -89,7 +89,7 @@ export function HorariosTab({ horariosData, setHorariosData }: HorariosTabProps)
       {/* CONSTRUCTOR DE MÓDULOS DE HORARIO */}
       <div className="space-y-6">
         {horariosData.map((modulo, mIndex) => (
-          <div key={mIndex} className="bg-white rounded-2xl border border-border shadow-sm overflow-hidden group/modulo">
+          <div key={mIndex} className="bg-white rounded-lg border border-border shadow-sm overflow-hidden group/modulo">
             
             {/* Header del Bloque */}
             <div className="bg-muted/30 px-6 py-4 flex items-center justify-between border-b border-border">
@@ -199,7 +199,7 @@ export function HorariosTab({ horariosData, setHorariosData }: HorariosTabProps)
         ))}
 
         {horariosData.length === 0 && (
-          <div className="text-center py-16 border-2 border-dashed border-brand-100 rounded-[2rem] bg-brand-50/20">
+          <div className="text-center py-16 border-2 border-dashed border-brand-100 rounded-lg bg-brand-50/20">
             <p className="text-muted-foreground font-medium mb-4">No hay horarios registrados.</p>
             <button
               type="button"

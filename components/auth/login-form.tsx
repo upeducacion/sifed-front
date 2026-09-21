@@ -71,7 +71,7 @@ export default function LoginForm({ onLoginSuccess }: LoginFormProps) {
           type="email"
           required
           placeholder="usuario@uncp.edu.pe"
-          className="w-full px-4 py-3.5 rounded-2xl border border-border bg-brand-50/30 text-[13px] text-foreground focus:outline-none focus:ring-2 focus:ring-brand-600/20 focus:border-brand-600 transition-all placeholder:text-muted-foreground/50 font-medium"
+          className="w-full px-4 py-3.5 rounded-lg border border-border bg-brand-50/30 text-[13px] text-foreground focus:outline-none focus:ring-2 focus:ring-brand-600/20 focus:border-brand-600 transition-all placeholder:text-muted-foreground/50 font-medium"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
@@ -98,7 +98,7 @@ export default function LoginForm({ onLoginSuccess }: LoginFormProps) {
             type={showPassword ? "text" : "password"}
             required
             placeholder="••••••••"
-            className="w-full px-4 py-3.5 rounded-2xl border border-border bg-brand-50/30 text-[13px] text-foreground focus:outline-none focus:ring-2 focus:ring-brand-600/20 focus:border-brand-600 transition-all placeholder:text-muted-foreground/50 pr-12 font-medium"
+            className="w-full px-4 py-3.5 rounded-lg border border-border bg-brand-50/30 text-[13px] text-foreground focus:outline-none focus:ring-2 focus:ring-brand-600/20 focus:border-brand-600 transition-all placeholder:text-muted-foreground/50 pr-12 font-medium"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
@@ -120,7 +120,7 @@ export default function LoginForm({ onLoginSuccess }: LoginFormProps) {
         type="submit"
         disabled={loading}
         className={cn(
-          "w-full flex items-center justify-center py-4.5 px-6 rounded-2xl font-black text-[9px] uppercase tracking-[0.2em] text-white transition-all shadow-xl shadow-brand-600/20",
+          "w-full flex items-center justify-center py-4.5 px-6 rounded-lg font-black text-[9px] uppercase tracking-[0.2em] text-white transition-all shadow-xl shadow-brand-600/20",
           loading
             ? "bg-brand-300 cursor-not-allowed"
             : "bg-brand-600 hover:bg-brand-950 hover:-translate-y-1 hover:shadow-2xl hover:shadow-brand-950/20"

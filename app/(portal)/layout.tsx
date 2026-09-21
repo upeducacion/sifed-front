@@ -25,7 +25,7 @@ export default async function PortalLayout({
       {/* HEADER MEGA MENU */}
       <Header />
 
-      <main className="flex-1 w-full max-w-[1920px] mx-auto flex flex-col">
+      <main className="flex w-full flex-1 flex-col">
         {children}
       </main>
 

@@ -45,7 +45,7 @@ export function Toast({ id, message, type = "info", onClose }: ToastProps) {
       animate={{ opacity: 1, y: 0, scale: 1 }}
       exit={{ opacity: 0, scale: 0.9, transition: { duration: 0.2 } }}
       className={cn(
-        "flex items-center gap-4 p-4 min-w-[320px] max-w-md rounded-2xl border shadow-xl backdrop-blur-md",
+        "flex items-center gap-4 p-4 min-w-[320px] max-w-md rounded-lg border shadow-xl backdrop-blur-md",
         styles[type]
       )}
     >

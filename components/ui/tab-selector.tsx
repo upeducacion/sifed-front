@@ -20,7 +20,7 @@ export default function TabSelector({
   className,
 }: TabSelectorProps) {
   return (
-    <div className={cn("flex flex-wrap items-center gap-1 p-1.5 bg-brand-50 rounded-2xl w-fit border border-brand-100/50", className)}>
+    <div className={cn("flex flex-wrap items-center gap-1 p-1.5 bg-brand-50 rounded-lg w-fit border border-brand-100/50", className)}>
       {options.map((option) => (
         <button
           key={option.id}

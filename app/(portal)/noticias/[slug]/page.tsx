@@ -128,7 +128,7 @@ export default async function NoticiaDetallePage({ params }: PageProps) {
       </header>
 
       <div className="container mx-auto px-4 max-w-6xl mb-16">
-        <div className="relative aspect-video w-full overflow-hidden rounded-2xl md:rounded-3xl bg-neutral-900 shadow-2xl ring-1 ring-black/5">
+        <div className="relative aspect-video w-full overflow-hidden rounded-lg rounded-lg bg-neutral-900 shadow-2xl ring-1 ring-black/5">
           {noticia.imagen_url ? (
             <UnoptImage
               src={noticia.imagen_url}
@@ -170,7 +170,7 @@ export default async function NoticiaDetallePage({ params }: PageProps) {
               {previousNoticia ? (
                 <Link
                   href={`/noticias/${previousNoticia.slug}`}
-                  className="group rounded-2xl border border-border bg-neutral-50 p-5 transition-all hover:border-brand-200 hover:bg-brand-50"
+                  className="group rounded-lg border border-border bg-neutral-50 p-5 transition-all hover:border-brand-200 hover:bg-brand-50"
                 >
                   <div className="mb-2 flex items-center gap-2 text-xs font-black uppercase tracking-widest text-muted-foreground">
                     <ChevronLeft className="h-4 w-4" />
@@ -181,7 +181,7 @@ export default async function NoticiaDetallePage({ params }: PageProps) {
                   </h3>
                 </Link>
               ) : (
-                <div className="rounded-2xl border border-dashed border-border p-5 text-sm font-bold text-muted-foreground">
+                <div className="rounded-lg border border-dashed border-border p-5 text-sm font-bold text-muted-foreground">
                   No hay noticia anterior
                 </div>
               )}
@@ -189,7 +189,7 @@ export default async function NoticiaDetallePage({ params }: PageProps) {
               {nextNoticia ? (
                 <Link
                   href={`/noticias/${nextNoticia.slug}`}
-                  className="group rounded-2xl border border-border bg-neutral-50 p-5 text-right transition-all hover:border-brand-200 hover:bg-brand-50"
+                  className="group rounded-lg border border-border bg-neutral-50 p-5 text-right transition-all hover:border-brand-200 hover:bg-brand-50"
                 >
                   <div className="mb-2 flex items-center justify-end gap-2 text-xs font-black uppercase tracking-widest text-muted-foreground">
                     Siguiente noticia
@@ -200,7 +200,7 @@ export default async function NoticiaDetallePage({ params }: PageProps) {
                   </h3>
                 </Link>
               ) : (
-                <div className="rounded-2xl border border-dashed border-border p-5 text-right text-sm font-bold text-muted-foreground">
+                <div className="rounded-lg border border-dashed border-border p-5 text-right text-sm font-bold text-muted-foreground">
                   No hay siguiente noticia
                 </div>
               )}

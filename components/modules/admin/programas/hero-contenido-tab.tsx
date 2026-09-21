@@ -60,7 +60,7 @@ export function HeroContenidoTab({
     <div className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
       
       {/* SECCIÓN: Contexto */}
-      <div className="bg-brand-50 p-6 rounded-2xl border border-brand-100">
+      <div className="bg-brand-50 p-6 rounded-lg border border-brand-100">
         <h3 className="text-lg font-black text-brand-950 mb-2">Cabecera del Programa (Contenido)</h3>
         <p className="text-sm text-muted-foreground">
           Configura los textos y la imagen que aparecerán en el gran bloque oscuro al inicio de la página individual de este programa. <br className="mb-2" />
@@ -69,7 +69,7 @@ export function HeroContenidoTab({
       </div>
 
       {/* SECCIÓN: Imagen del Hero Contenido y Tarjeta */}
-      <div className="bg-white p-6 rounded-2xl border border-border shadow-sm space-y-6">
+      <div className="bg-white p-6 rounded-lg border border-border shadow-sm space-y-6">
         <h3 className="text-lg font-black text-brand-950 flex items-center gap-2">
           <ImageIcon className="w-5 h-5 text-brand-600" /> Imagen Principal (Fondo y Tarjeta)
         </h3>
@@ -80,7 +80,7 @@ export function HeroContenidoTab({
             <p className="text-xs text-muted-foreground">Resolución recomendada: 1920x1080px. Se usará de fondo aquí y como portada en las tarjetas.</p>
           </div>
           
-          <div className="relative h-80 rounded-2xl border-2 border-dashed border-border bg-muted/30 overflow-hidden group hover:border-brand-500 transition-colors flex items-center justify-center">
+          <div className="relative h-80 rounded-lg border-2 border-dashed border-border bg-muted/30 overflow-hidden group hover:border-brand-500 transition-colors flex items-center justify-center">
             {fotoPortadaPreview ? (
               <>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -114,7 +114,7 @@ export function HeroContenidoTab({
       </div>
 
       {/* SECCIÓN: Textos del Hero Contenido */}
-      <div className="bg-white p-6 rounded-2xl border border-border shadow-sm space-y-6">
+      <div className="bg-white p-6 rounded-lg border border-border shadow-sm space-y-6">
         <h3 className="text-lg font-black text-brand-950 flex items-center gap-2">
           <LayoutTemplate className="w-5 h-5 text-brand-600" /> Textos de la Cabecera Interna
         </h3>

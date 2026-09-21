@@ -91,7 +91,7 @@ export function CategoriaForm({ initialData }: CategoriaFormProps) {
     <form 
         key={initialData?.id || 'new'}
         onSubmit={handleSubmit} 
-        className="bg-white rounded-3xl border border-brand-100 shadow-sm p-8 md:p-12 space-y-10 max-w-4xl mx-auto"
+        className="bg-white rounded-lg border border-brand-100 shadow-sm p-8 md:p-12 space-y-10 max-w-4xl mx-auto"
     >
       
       <div className="space-y-6">
@@ -107,7 +107,7 @@ export function CategoriaForm({ initialData }: CategoriaFormProps) {
                 defaultValue={initialData?.nombre}
                 placeholder="Ej: Investigación Avanzada"
                 className={cn(
-                    "w-full px-6 py-4 rounded-2xl border bg-brand-50/30 focus:ring-4 focus:ring-brand-600/10 outline-none transition-all font-bold text-brand-950",
+                    "w-full px-6 py-4 rounded-lg border bg-brand-50/30 focus:ring-4 focus:ring-brand-600/10 outline-none transition-all font-bold text-brand-950",
                     formErrors.nombre ? "border-red-500 bg-red-50" : "border-brand-100 focus:border-brand-600"
                 )}
             />
@@ -129,7 +129,7 @@ export function CategoriaForm({ initialData }: CategoriaFormProps) {
                     required
                     key={`orden-${initialData?.orden}`}
                     defaultValue={initialData?.orden || (categoriasExistentes.length + 1)}
-                    className="w-full px-6 py-4 rounded-2xl border border-brand-100 bg-brand-50/30 focus:ring-4 focus:ring-brand-600/10 outline-none font-bold text-brand-950 bg-white"
+                    className="w-full px-6 py-4 rounded-lg border border-brand-100 bg-brand-50/30 focus:ring-4 focus:ring-brand-600/10 outline-none font-bold text-brand-950 bg-white"
                 >
                     {!isEditing && <option value={1}>1 - Al principio</option>}
                     {isEditing && <option value={initialData?.orden}>{initialData?.orden} - Posición actual</option>}
@@ -154,7 +154,7 @@ export function CategoriaForm({ initialData }: CategoriaFormProps) {
                 <label className="text-xs font-black uppercase tracking-widest text-brand-950 flex items-center gap-2">
                     <Palette className="h-3.5 w-3.5 text-brand-600" /> Estilo de Exhibición
                 </label>
-                <div className="flex items-center gap-3 p-2 bg-brand-50/50 rounded-2xl border border-brand-100">
+                <div className="flex items-center gap-3 p-2 bg-brand-50/50 rounded-lg border border-brand-100">
                     {STYLE_OPTIONS.map((style) => (
                         <button
                             key={style.id}
@@ -182,7 +182,7 @@ export function CategoriaForm({ initialData }: CategoriaFormProps) {
                 rows={3}
                 defaultValue={initialData?.descripcion || ""}
                 placeholder="Describe qué tipo de contenido se mostrará en esta sección..."
-                className="w-full px-6 py-4 rounded-2xl border border-brand-100 bg-brand-50/30 focus:ring-4 focus:ring-brand-600/10 outline-none resize-none font-medium text-brand-950/70"
+                className="w-full px-6 py-4 rounded-lg border border-brand-100 bg-brand-50/30 focus:ring-4 focus:ring-brand-600/10 outline-none resize-none font-medium text-brand-950/70"
             />
         </div>
       </div>
@@ -195,7 +195,7 @@ export function CategoriaForm({ initialData }: CategoriaFormProps) {
           <button 
               type="submit" 
               disabled={loading}
-              className="flex items-center gap-3 bg-brand-950 text-white px-10 py-4 rounded-2xl hover:bg-black transition-all shadow-xl shadow-black/20 disabled:opacity-50 font-black text-xs uppercase tracking-widest"
+              className="flex items-center gap-3 bg-brand-950 text-white px-10 py-4 rounded-lg hover:bg-black transition-all shadow-xl shadow-black/20 disabled:opacity-50 font-black text-xs uppercase tracking-widest"
           >
               {loading ? <Loader2 className="h-4 w-4 animate-spin" /> : <Save className="h-4 w-4" />}
               {isEditing ? 'Actualizar Sección' : 'Crear Sección'}

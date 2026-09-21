@@ -57,7 +57,7 @@ export default function BibliotecaAdminPage() {
     }
   };
 
-  if (error) return <div className="p-10 text-center text-red-500 bg-red-50 rounded-2xl border border-red-100 font-bold">Error al conectar con la biblioteca</div>;
+  if (error) return <div className="p-10 text-center text-red-500 bg-red-50 rounded-lg border border-red-100 font-bold">Error al conectar con la biblioteca</div>;
 
   return (
     <div className="space-y-6">
@@ -86,7 +86,7 @@ export default function BibliotecaAdminPage() {
       </div>
 
       {/* Filters */}
-      <div className="flex flex-col lg:flex-row gap-4 bg-white p-4 rounded-2xl border border-border shadow-sm">
+      <div className="flex flex-col lg:flex-row gap-4 bg-white p-4 rounded-lg border border-border shadow-sm">
         <div className="flex-1 relative group">
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground group-focus-within:text-brand-500 transition-colors" />
           <input 
@@ -116,7 +116,7 @@ export default function BibliotecaAdminPage() {
       </div>
 
       {/* Table */}
-      <div className="bg-white rounded-2xl border border-border shadow-sm overflow-hidden">
+      <div className="bg-white rounded-lg border border-border shadow-sm overflow-hidden">
         <div className="overflow-x-auto">
           <table className="w-full text-left border-collapse">
             <thead>

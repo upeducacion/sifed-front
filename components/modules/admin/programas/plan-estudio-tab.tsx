@@ -136,7 +136,7 @@ export function PlanEstudioTab({ planData, setPlanData }: PlanEstudioTabProps) {
     <div className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
       
       {/* HEADER Y NOTA */}
-      <div className="bg-white p-6 rounded-2xl border border-border shadow-sm flex flex-col sm:flex-row gap-6 items-start sm:items-center justify-between">
+      <div className="bg-white p-6 rounded-lg border border-border shadow-sm flex flex-col sm:flex-row gap-6 items-start sm:items-center justify-between">
         <div className="flex-1 w-full space-y-2">
           <label className="text-sm font-bold text-brand-950 block">Nota General del Plan de Estudios</label>
           <input
@@ -159,7 +159,7 @@ export function PlanEstudioTab({ planData, setPlanData }: PlanEstudioTabProps) {
       {/* CONSTRUCTOR DE CICLOS */}
       <div className="space-y-6">
         {data.ciclos.map((ciclo: Ciclo, cIndex: number) => (
-          <div key={cIndex} className="bg-white rounded-2xl border border-border shadow-sm overflow-hidden group/ciclo">
+          <div key={cIndex} className="bg-white rounded-lg border border-border shadow-sm overflow-hidden group/ciclo">
             
             {/* Header del Ciclo */}
             <div className="bg-brand-50/50 px-6 py-4 flex items-center justify-between border-b border-border">
@@ -370,7 +370,7 @@ export function PlanEstudioTab({ planData, setPlanData }: PlanEstudioTabProps) {
         ))}
 
         {data.ciclos.length === 0 && (
-          <div className="text-center py-16 border-2 border-dashed border-brand-100 rounded-[2rem] bg-brand-50/20">
+          <div className="text-center py-16 border-2 border-dashed border-brand-100 rounded-lg bg-brand-50/20">
             <p className="text-muted-foreground font-medium mb-4">No hay ciclos registrados en el plan de estudios.</p>
             <button
               type="button"

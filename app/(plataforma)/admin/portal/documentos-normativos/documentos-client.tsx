@@ -121,12 +121,12 @@ export function DocumentosClient() {
       </div>
 
       <div className="grid gap-3 sm:grid-cols-3">
-        <div className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm"><div className="flex items-center justify-between text-xs font-bold text-muted-foreground">Documentos encontrados <FileText className="h-4 w-4 text-brand-400" /></div><p className="mt-2 text-2xl font-black">{meta?.total ?? documentos.length}</p></div>
-        <div className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm"><div className="flex items-center justify-between text-xs font-bold text-muted-foreground">Carpetas organizadas <Folder className="h-4 w-4 text-amber-500" /></div><p className="mt-2 text-2xl font-black">{folders.length}</p></div>
-        <div className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm"><div className="flex items-center justify-between text-xs font-bold text-muted-foreground">Visibles en el portal <Eye className="h-4 w-4 text-emerald-500" /></div><p className="mt-2 text-2xl font-black">{documentos.filter((document: DocumentoNormativo) => document.is_public).length}</p></div>
+        <div className="rounded-lg border border-slate-200 bg-white p-4 shadow-sm"><div className="flex items-center justify-between text-xs font-bold text-muted-foreground">Documentos encontrados <FileText className="h-4 w-4 text-brand-400" /></div><p className="mt-2 text-2xl font-black">{meta?.total ?? documentos.length}</p></div>
+        <div className="rounded-lg border border-slate-200 bg-white p-4 shadow-sm"><div className="flex items-center justify-between text-xs font-bold text-muted-foreground">Carpetas organizadas <Folder className="h-4 w-4 text-amber-500" /></div><p className="mt-2 text-2xl font-black">{folders.length}</p></div>
+        <div className="rounded-lg border border-slate-200 bg-white p-4 shadow-sm"><div className="flex items-center justify-between text-xs font-bold text-muted-foreground">Visibles en el portal <Eye className="h-4 w-4 text-emerald-500" /></div><p className="mt-2 text-2xl font-black">{documentos.filter((document: DocumentoNormativo) => document.is_public).length}</p></div>
       </div>
 
-      <section className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm md:p-5">
+      <section className="rounded-lg border border-slate-200 bg-white p-4 shadow-sm md:p-5">
         <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
           <div><p className="text-[10px] font-black uppercase tracking-[0.2em] text-muted-foreground">Ubicación rápida</p><p className="mt-1 text-sm font-bold">{selectedFolderId ? "Filtrando por carpeta seleccionada" : "Todos los documentos"}</p></div>
           <Link href="/admin/portal/tramites" className="inline-flex items-center gap-1.5 text-xs font-bold text-brand-600 hover:text-brand-950"><Settings2 className="h-3.5 w-3.5" /> Gestionar estructura <ChevronRight className="h-3.5 w-3.5" /></Link>
@@ -139,7 +139,7 @@ export function DocumentosClient() {
         </div>
       </section>
 
-      <div className="flex flex-col gap-4 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm md:p-5">
+      <div className="flex flex-col gap-4 rounded-lg border border-slate-200 bg-white p-4 shadow-sm md:p-5">
         <div className="relative flex-1">
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
           <input
@@ -179,7 +179,7 @@ export function DocumentosClient() {
         </select>
       </div>
 
-      <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+      <div className="overflow-hidden rounded-lg border border-slate-200 bg-white shadow-sm">
         {isLoading ? (
           <div className="flex justify-center p-12">
             <Loader2 className="h-8 w-8 animate-spin text-brand-600" />

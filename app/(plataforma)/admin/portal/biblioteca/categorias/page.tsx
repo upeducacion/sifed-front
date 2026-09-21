@@ -66,7 +66,7 @@ export default function CategoriasBibliotecaPage() {
         </div>
       </div>
 
-      <div className="bg-white p-6 rounded-2xl border border-border shadow-sm flex flex-wrap items-end gap-4">
+      <div className="bg-white p-6 rounded-lg border border-border shadow-sm flex flex-wrap items-end gap-4">
         <div className="flex-1 space-y-2 min-w-[200px]">
           <label className="text-xs font-bold uppercase tracking-widest text-brand-900">Nombre de Categoría</label>
           <input 
@@ -91,7 +91,7 @@ export default function CategoriasBibliotecaPage() {
         </button>
       </div>
 
-      <div className="bg-white rounded-2xl border border-border shadow-sm overflow-hidden">
+      <div className="bg-white rounded-lg border border-border shadow-sm overflow-hidden">
         {isLoading ? <Loader text="Cargando categorías..." /> : (
           <table className="w-full text-left">
             <thead>

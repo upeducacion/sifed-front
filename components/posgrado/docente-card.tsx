@@ -21,7 +21,7 @@ export default function DocenteCard({ docente }: { docente: Docente }) {
   return (
     <Link
       href={`/posgrado/plana-docente/${docente.slug}`}
-      className="block outline-none focus-visible:ring-4 focus-visible:ring-brand-500 rounded-2xl group"
+      className="block outline-none focus-visible:ring-4 focus-visible:ring-brand-500 rounded-lg group"
       style={{ perspective: "1200px" }}
     >
       {/* Contenedor que rota en hover */}
@@ -32,7 +32,7 @@ export default function DocenteCard({ docente }: { docente: Docente }) {
 
         {/* ── CARA FRONTAL ── */}
         <div
-          className="absolute inset-0 rounded-2xl overflow-hidden [backface-visibility:hidden]"
+          className="absolute inset-0 rounded-lg overflow-hidden [backface-visibility:hidden]"
         >
           {/* Imagen */}
           <SmartProfileImage
@@ -69,7 +69,7 @@ export default function DocenteCard({ docente }: { docente: Docente }) {
 
         {/* ── CARA TRASERA ── */}
         <div
-          className="absolute inset-0 rounded-2xl flex flex-col items-center justify-center px-5 py-6 [backface-visibility:hidden] [transform:rotateY(180deg)]"
+          className="absolute inset-0 rounded-lg flex flex-col items-center justify-center px-5 py-6 [backface-visibility:hidden] [transform:rotateY(180deg)]"
           style={{
             background: "linear-gradient(160deg, #1e3152 0%, #112038 45%, #050810 100%)",
             border: "1px solid rgba(180,145,60,0.22)",
@@ -86,7 +86,7 @@ export default function DocenteCard({ docente }: { docente: Docente }) {
           />
 
           {/* Edificio UNCP desvanecido de fondo */}
-          <div className="absolute inset-0 pointer-events-none rounded-2xl overflow-hidden">
+          <div className="absolute inset-0 pointer-events-none rounded-lg overflow-hidden">
             <Image
               src="/images/fondouncp1920x1080.webp"
               alt=""

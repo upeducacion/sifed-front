@@ -27,7 +27,7 @@ export default function SocialHubSection() {
                 href={EXTERNAL_LINKS.AULA_VIRTUAL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group relative flex items-center justify-between p-5 rounded-2xl bg-brand-950 text-white shadow-xl hover:shadow-brand-950/20 transition-all hover:-translate-y-1"
+                className="group relative flex items-center justify-between p-5 rounded-lg bg-brand-950 text-white shadow-xl hover:shadow-brand-950/20 transition-all hover:-translate-y-1"
               >
                 <div className="flex items-center gap-4">
                   <div className="h-12 w-12 rounded-xl bg-white/10 flex items-center justify-center text-uncp-gold group-hover:bg-brand-600 group-hover:text-white transition-colors">
@@ -86,7 +86,7 @@ export default function SocialHubSection() {
                   <Facebook className="h-3 w-3" />
                   <span className="text-[9px] font-black uppercase tracking-[0.2em]">Facebook Feed</span>
                 </div>
-                <div className="relative w-full h-[600px] rounded-[2rem] border-4 border-slate-50 shadow-2xl bg-white">
+                <div className="relative w-full h-[600px] rounded-lg border-4 border-slate-50 shadow-2xl bg-white">
                   <iframe 
                     src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FUPG.UNCP.Educacion&tabs=timeline&width=500&height=600&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=false&appId"
                     width="100%"
@@ -96,7 +96,7 @@ export default function SocialHubSection() {
                     frameBorder="0"
                     allowFullScreen={true}
                     allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
-                    className="rounded-[1.8rem]"
+                    className="rounded-lg"
                   ></iframe>
                 </div>
               </div>
@@ -107,7 +107,7 @@ export default function SocialHubSection() {
                   <Youtube className="h-3 w-3" />
                   <span className="text-[9px] font-black uppercase tracking-[0.2em]">YouTube Reciente</span>
                 </div>
-                <div className="relative w-full h-[600px] rounded-[2rem] overflow-hidden border-4 border-slate-50 shadow-2xl bg-slate-900">
+                <div className="relative w-full h-[600px] rounded-lg overflow-hidden border-4 border-slate-50 shadow-2xl bg-slate-900">
                   <iframe 
                     src="https://www.youtube.com/embed/videoseries?list=UUFhOPsvkFgLYA1sOGl9kmyQ"
                     title="YouTube Video"

@@ -47,11 +47,11 @@ export default function DocumentosNormativosContent({
   };
 
   return (
-    <main className="flex-1 w-full bg-neutral-50/30">
+    <main className="flex-1 w-full bg-surface-subtle">
       <section className="relative overflow-hidden bg-brand-950 text-white">
         <div className="absolute inset-y-0 right-0 hidden w-1/2 bg-[url('/images/fondouncp1920x1080.webp')] bg-cover bg-center opacity-20 lg:block" />
         <div className="absolute inset-0 bg-gradient-to-r from-brand-950 via-brand-950/95 to-brand-950/60" />
-        <div className="relative container mx-auto max-w-7xl px-6 pb-12 pt-8 lg:px-12 lg:pb-14">
+        <div className="page-shell-wide relative pb-12 pt-8 lg:pb-14">
           <nav aria-label="Breadcrumb" className="mb-10 flex items-center gap-2 text-xs font-bold uppercase tracking-[0.16em] text-brand-200">
             <Link href="/" className="transition hover:text-uncp-gold">Inicio</Link>
             <span className="text-brand-500">/</span>
@@ -76,7 +76,7 @@ export default function DocumentosNormativosContent({
       </section>
 
       <section className="relative z-10 border-b border-border bg-white py-10 md:py-14">
-        <div className="container mx-auto max-w-7xl px-6 lg:px-12">
+        <div className="page-shell-wide">
           <div className="mb-7 flex flex-col justify-between gap-5 lg:flex-row lg:items-end">
             <div className="max-w-2xl">
             <span className="mb-2 block text-xs font-black uppercase tracking-[0.2em] text-amber-700">Paso 1 de 2</span>
@@ -97,8 +97,8 @@ export default function DocumentosNormativosContent({
             ].map((item) => {
               const Icon = item.icon;
               return (
-                <Link key={item.title} href={item.href} scroll={false} className="group flex min-h-32 items-start gap-4 rounded-2xl border border-border bg-neutral-50 p-5 transition hover:-translate-y-0.5 hover:border-brand-300 hover:bg-white hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 md:p-6">
-                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-white text-brand-700 shadow-sm transition group-hover:bg-brand-950 group-hover:text-white"><Icon className="h-5 w-5" aria-hidden="true" /></span>
+                <Link key={item.title} href={item.href} scroll={false} className="group flex min-h-32 items-start gap-4 rounded-lg border border-border bg-muted p-5 transition hover:-translate-y-0.5 hover:border-brand-300 hover:bg-white hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 md:p-6">
+                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-md bg-white text-brand-700 shadow-sm transition group-hover:bg-brand-950 group-hover:text-white"><Icon className="h-5 w-5" aria-hidden="true" /></span>
                   <span className="flex flex-1 flex-col">
                     <span className="block font-bold text-brand-950">{item.title}</span>
                     <span className="mt-1 block text-sm leading-relaxed text-muted-foreground">{item.description}</span>
@@ -112,21 +112,21 @@ export default function DocumentosNormativosContent({
       </section>
 
       <section className="py-12 md:py-20 relative">
-        <div className="container mx-auto px-6 lg:px-12 max-w-[1500px]">
+        <div className="page-shell-wide">
           
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
             
             {/* Columna Izquierda: Filtros y Búsqueda (3 Columnas o 25%) */}
             <aside className="lg:col-span-3 space-y-6 lg:sticky lg:top-32 hidden md:block">
               {/* Navegación por Categorías */}
-              <div className="bg-white rounded-[2rem] border border-border shadow-sm overflow-hidden p-3">
+              <div className="surface-card overflow-hidden p-3">
                 <h3 className="px-5 py-4 font-black text-brand-950 uppercase tracking-widest text-[10px] opacity-60">Clasificación</h3>
                 <nav className="flex flex-col gap-1">
                   <Link 
                     href="/documentos-normativos" 
                     scroll={false}
                     className={cn(
-                      "px-5 py-3.5 rounded-2xl text-sm font-bold transition-all flex items-center gap-3",
+                      "flex items-center gap-3 rounded-md px-5 py-3.5 text-sm font-bold transition-all",
                       !currentCategoria 
                         ? "bg-brand-950 text-white shadow-md scale-[1.02]" 
                         : "text-muted-foreground hover:bg-neutral-50 hover:text-brand-950"
@@ -144,7 +144,7 @@ export default function DocumentosNormativosContent({
                         href={`/documentos-normativos?categoria=${cat.slug}`} 
                         scroll={false}
                         className={cn(
-                          "px-5 py-3.5 rounded-2xl text-sm font-bold transition-all flex items-center gap-3",
+                          "px-5 py-3.5 rounded-lg text-sm font-bold transition-all flex items-center gap-3",
                           isActive 
                             ? "bg-brand-950 text-white shadow-md scale-[1.02]" 
                             : "text-muted-foreground hover:bg-neutral-50 hover:text-brand-950"
@@ -159,7 +159,7 @@ export default function DocumentosNormativosContent({
               </div>
 
               {/* Banner Promocional / Ayuda */}
-              <div className="bg-brand-950 rounded-[2.5rem] p-8 text-white shadow-2xl relative overflow-hidden group border border-brand-800">
+              <div className="bg-brand-950 rounded-lg p-8 text-white shadow-2xl relative overflow-hidden group border border-brand-800">
                 <div className="absolute -bottom-10 -right-10 opacity-10 group-hover:scale-110 transition-transform duration-1000">
                   <Shield className="h-48 w-48" />
                 </div>
@@ -225,7 +225,7 @@ export default function DocumentosNormativosContent({
               </div>
 
               {documentos.length === 0 ? (
-                  <div className="bg-white p-16 rounded-[2rem] text-center border border-border border-dashed shadow-sm">
+                  <div className="bg-white p-16 rounded-lg text-center border border-border border-dashed shadow-sm">
                     <FileText className="mx-auto h-16 w-16 text-muted-foreground mb-6 opacity-20"/>
                     <h3 className="font-bold text-xl text-brand-950 mb-2">No hay documentos</h3>
                     <p className="text-muted-foreground font-medium">
@@ -245,14 +245,14 @@ export default function DocumentosNormativosContent({
                             href={getStorageUrl(doc.archivo_path)} 
                             onClick={(e) => handleSelectDoc(e, doc)}
                             className={cn(
-                              "group block bg-white rounded-[2rem] p-6 border transition-all duration-300",
+                              "group block bg-white rounded-lg p-6 border transition-all duration-300",
                               isSelected ? "border-brand-500 shadow-md ring-4 ring-brand-500/10" : "border-border hover:border-brand-200 hover:shadow-md",
                               isDerogado && !isSelected && "border-red-100 opacity-75 grayscale hover:grayscale-0 hover:opacity-100"
                             )}
                           >
                             <div className="flex flex-col sm:flex-row gap-6 items-start">
                                 <div className={cn(
-                                  "shrink-0 w-16 h-16 rounded-2xl flex items-center justify-center border transition-transform",
+                                  "shrink-0 w-16 h-16 rounded-lg flex items-center justify-center border transition-transform",
                                   isSelected ? "bg-brand-600 text-white border-brand-600 scale-105" :
                                   isDerogado ? "bg-red-50 text-red-600 border-red-100 group-hover:scale-105" : "bg-brand-50 text-brand-600 border-brand-100 group-hover:scale-105"
                                 )}>
@@ -301,7 +301,7 @@ export default function DocumentosNormativosContent({
 
             {/* Columna Derecha: Previsualización (4 Columnas o ~35%) */}
             <aside className="lg:col-span-4 space-y-6 lg:sticky lg:top-32 h-[calc(100vh-140px)] flex flex-col">
-              <div className="bg-white rounded-[2rem] border border-border shadow-sm overflow-hidden flex-1 flex flex-col">
+              <div className="bg-white rounded-lg border border-border shadow-sm overflow-hidden flex-1 flex flex-col">
                 {selectedDoc ? (
                   <>
                     <div className="p-4 border-b border-border bg-neutral-50/50 flex items-center justify-between">

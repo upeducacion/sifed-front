@@ -26,7 +26,7 @@ export default function DocenteDashboardPage() {
         {stats.map((stat) => {
           const Icon = stat.icon;
           return (
-            <div key={stat.label} className="p-6 bg-white rounded-2xl border border-border shadow-sm flex items-center gap-4 transition-all hover:shadow-md">
+            <div key={stat.label} className="p-6 bg-white rounded-lg border border-border shadow-sm flex items-center gap-4 transition-all hover:shadow-md">
               <div className={`p-3 rounded-xl ${stat.color}`}>
                 <Icon className="h-6 w-6" />
               </div>
@@ -41,7 +41,7 @@ export default function DocenteDashboardPage() {
 
       <div className="grid gap-6 md:grid-cols-3">
         {/* Próximas Clases */}
-        <div className="md:col-span-2 p-6 bg-white rounded-2xl border border-border shadow-sm">
+        <div className="md:col-span-2 p-6 bg-white rounded-lg border border-border shadow-sm">
           <h3 className="font-bold text-brand-950 mb-4 flex items-center gap-2">
              <Clock className="h-5 w-5 text-brand-600" /> Horario de Hoy
           </h3>
@@ -63,7 +63,7 @@ export default function DocenteDashboardPage() {
         </div>
 
         {/* Avisos */}
-        <div className="p-6 bg-brand-950 text-white rounded-2xl shadow-xl">
+        <div className="p-6 bg-brand-950 text-white rounded-lg shadow-xl">
            <h3 className="font-bold mb-4 text-uncp-gold">Avisos Importantes</h3>
            <p className="text-sm text-brand-100 leading-relaxed">
               Recuerde subir las notas del primer parcial antes del viernes 25. El sistema se cerrará automáticamente a las 23:59.

@@ -80,7 +80,7 @@ export default function TramiteWorkspace({
 
       <section className="mx-auto grid max-w-7xl gap-8 px-6 py-8 lg:grid-cols-[18rem_minmax(0,1fr)] lg:px-12 lg:py-12">
         <aside className="lg:sticky lg:top-28 lg:self-start">
-          <div className="rounded-3xl border border-brand-100 bg-white p-3 shadow-sm">
+          <div className="rounded-lg border border-brand-100 bg-white p-3 shadow-sm">
             <div className="px-4 pb-3 pt-2">
               <span className="text-[10px] font-black uppercase tracking-[0.2em] text-amber-700">Tu ruta</span>
               <h2 className="mt-1 font-serif text-xl font-black">Elige un trámite</h2>
@@ -95,7 +95,7 @@ export default function TramiteWorkspace({
                     key={slug}
                     href={`/tramites/${slug}`}
                     className={cn(
-                      "group flex items-center gap-3 rounded-2xl px-4 py-3 text-sm font-bold transition",
+                      "group flex items-center gap-3 rounded-lg px-4 py-3 text-sm font-bold transition",
                       isActive ? "bg-brand-950 text-white shadow-md" : "text-muted-foreground hover:bg-brand-50 hover:text-brand-950"
                     )}
                   >
@@ -109,7 +109,7 @@ export default function TramiteWorkspace({
               })}
             </nav>
           </div>
-          <div className="mt-4 rounded-3xl bg-[#e9dfc4] p-5 text-sm text-brand-950">
+          <div className="mt-4 rounded-lg bg-[#e9dfc4] p-5 text-sm text-brand-950">
             <p className="font-black">¿Necesitas presentar una solicitud?</p>
             <p className="mt-2 leading-relaxed text-brand-800">Usa la Mesa de Partes Virtual para enviar tus documentos.</p>
             <a href="https://erpcampus.uncp.edu.pe/" target="_blank" rel="noopener noreferrer" className="mt-4 inline-flex items-center gap-2 text-xs font-black uppercase tracking-wide text-brand-950 underline decoration-uncp-gold decoration-2 underline-offset-4">
@@ -120,7 +120,7 @@ export default function TramiteWorkspace({
 
         <div className="min-w-0">
           {!selectedProcedure ? (
-            <section className="rounded-3xl border border-brand-100 bg-white p-7 shadow-sm md:p-10">
+            <section className="rounded-lg border border-brand-100 bg-white p-7 shadow-sm md:p-10">
               <span className="text-xs font-black uppercase tracking-[0.2em] text-amber-700">Inicio de la ruta</span>
               <h2 className="mt-2 max-w-2xl font-serif text-3xl font-black md:text-4xl">¿Qué necesitas gestionar hoy?</h2>
               <p className="mt-4 max-w-2xl leading-relaxed text-muted-foreground">Selecciona una opción para ver sus documentos oficiales, buscar por título y revisar cada archivo sin salir del trámite.</p>
@@ -128,7 +128,7 @@ export default function TramiteWorkspace({
                 {(Object.keys(procedures) as ProcedureSlug[]).map((slug) => {
                   const procedure = procedures[slug];
                   const Icon = procedureIcons[slug];
-                  return <Link key={slug} href={`/tramites/${slug}`} className="group flex items-center gap-4 rounded-2xl border border-border p-4 transition hover:-translate-y-0.5 hover:border-brand-300 hover:shadow-md">
+                  return <Link key={slug} href={`/tramites/${slug}`} className="group flex items-center gap-4 rounded-lg border border-border p-4 transition hover:-translate-y-0.5 hover:border-brand-300 hover:shadow-md">
                     <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-brand-50 text-brand-700 group-hover:bg-brand-950 group-hover:text-white"><Icon className="h-5 w-5" aria-hidden="true" /></span>
                     <span className="min-w-0 flex-1"><span className="block font-bold">{procedure.title}</span><span className="mt-1 block text-xs text-muted-foreground">Ver requisitos y formatos</span></span>
                     <ArrowRight className="h-4 w-4 text-brand-400 transition group-hover:translate-x-1 group-hover:text-brand-700" aria-hidden="true" />
@@ -138,7 +138,7 @@ export default function TramiteWorkspace({
             </section>
           ) : (
             <>
-              <div className="mb-6 flex flex-col gap-5 rounded-3xl border border-brand-100 bg-white p-6 shadow-sm md:flex-row md:items-end md:justify-between md:p-7">
+              <div className="mb-6 flex flex-col gap-5 rounded-lg border border-brand-100 bg-white p-6 shadow-sm md:flex-row md:items-end md:justify-between md:p-7">
                 <div>
                   <div className="flex items-center gap-2 text-xs font-black uppercase tracking-[0.18em] text-amber-700"><Check className="h-4 w-4" aria-hidden="true" /> Paso 1 completado</div>
                   <h2 className="mt-2 font-serif text-2xl font-black md:text-3xl">Documentos para {selectedProcedure.title.toLowerCase()}</h2>
@@ -154,13 +154,13 @@ export default function TramiteWorkspace({
                     <span className="rounded-full bg-brand-100 px-3 py-1 text-xs font-black text-brand-700">{documentos.length} archivos</span>
                   </div>
                   {documentos.length === 0 ? (
-                    <div className="rounded-3xl border border-dashed border-brand-200 bg-white p-10 text-center shadow-sm"><Search className="mx-auto h-10 w-10 text-brand-300" aria-hidden="true" /><h4 className="mt-4 font-bold">No encontramos documentos</h4><p className="mt-2 text-sm text-muted-foreground">Prueba con otro término de búsqueda.</p></div>
+                    <div className="rounded-lg border border-dashed border-brand-200 bg-white p-10 text-center shadow-sm"><Search className="mx-auto h-10 w-10 text-brand-300" aria-hidden="true" /><h4 className="mt-4 font-bold">No encontramos documentos</h4><p className="mt-2 text-sm text-muted-foreground">Prueba con otro término de búsqueda.</p></div>
                   ) : (
                     <div className="space-y-3">
                       {documentos.map((doc) => {
                         const Icon = categoryIcon(doc.categoria?.slug || "");
                         const isSelected = selectedDoc?.id === doc.id;
-                        return <button key={doc.id} type="button" onClick={() => setSelectedDocId(doc.id)} className={cn("group flex w-full items-start gap-4 rounded-2xl border bg-white p-4 text-left transition hover:-translate-y-0.5 hover:shadow-md", isSelected ? "border-brand-500 ring-2 ring-brand-500/10" : "border-border hover:border-brand-300")}>
+                        return <button key={doc.id} type="button" onClick={() => setSelectedDocId(doc.id)} className={cn("group flex w-full items-start gap-4 rounded-lg border bg-white p-4 text-left transition hover:-translate-y-0.5 hover:shadow-md", isSelected ? "border-brand-500 ring-2 ring-brand-500/10" : "border-border hover:border-brand-300")}>
                           <span className={cn("flex h-11 w-11 shrink-0 items-center justify-center rounded-xl", isSelected ? "bg-brand-950 text-uncp-gold" : "bg-brand-50 text-brand-700 group-hover:bg-brand-100")}><Icon className="h-5 w-5" aria-hidden="true" /></span>
                           <span className="min-w-0 flex-1"><span className="mb-2 flex flex-wrap gap-2"><span className="rounded-full bg-brand-50 px-2 py-1 text-[10px] font-black uppercase tracking-wide text-brand-700">{doc.categoria?.nombre || "Documento"}</span>{doc.extension_archivo && <span className="rounded-full border border-border px-2 py-1 text-[10px] font-black uppercase tracking-wide text-muted-foreground">{doc.extension_archivo}</span>}</span><span className="block font-bold leading-snug text-brand-950">{doc.titulo}</span>{doc.codigo && <span className="mt-2 block text-xs text-muted-foreground">{doc.codigo}</span>}</span>
                           <Eye className="mt-1 h-4 w-4 shrink-0 text-brand-300 transition group-hover:text-brand-700" aria-hidden="true" />
@@ -171,14 +171,14 @@ export default function TramiteWorkspace({
                 </section>
 
                 <aside className="xl:sticky xl:top-28 xl:self-start">
-                  <div className="overflow-hidden rounded-3xl border border-brand-100 bg-white shadow-sm">
+                  <div className="overflow-hidden rounded-lg border border-brand-100 bg-white shadow-sm">
                     {selectedDoc ? <>
                       <div className="flex items-center justify-between gap-3 border-b border-border bg-brand-50/60 p-4"><h3 className="truncate text-sm font-bold">{selectedDoc.titulo}</h3><button type="button" onClick={() => setSelectedDocId(null)} className="rounded-lg p-1.5 text-muted-foreground hover:bg-white hover:text-brand-950" aria-label="Cerrar previsualización"><X className="h-4 w-4" /></button></div>
                       <div className="h-[28rem] bg-neutral-100">
                         {selectedDoc.extension_archivo.toLowerCase() === "pdf" ? <iframe src={getStorageUrl(selectedDoc.archivo_path)} title={`Vista previa de ${selectedDoc.titulo}`} className="h-full w-full border-0" /> : <div className="flex h-full flex-col items-center justify-center p-8 text-center"><FileSpreadsheet className="h-12 w-12 text-uncp-gold" aria-hidden="true" /><p className="mt-4 font-bold">Vista previa no disponible</p><p className="mt-2 text-sm text-muted-foreground">Descarga el archivo para revisarlo.</p></div>}
                       </div>
                       <a href={getStorageUrl(selectedDoc.archivo_path)} target="_blank" rel="noopener noreferrer" className="m-4 inline-flex items-center justify-center gap-2 rounded-xl bg-brand-950 px-4 py-3 text-sm font-bold text-white transition hover:bg-brand-700"><Download className="h-4 w-4" aria-hidden="true" /> Abrir documento</a>
-                    </> : <div className="flex h-[28rem] flex-col items-center justify-center p-8 text-center"><div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-brand-50 text-brand-500"><Eye className="h-7 w-7" aria-hidden="true" /></div><h3 className="mt-5 font-serif text-xl font-black">Vista previa</h3><p className="mt-2 max-w-xs text-sm leading-relaxed text-muted-foreground">Selecciona un documento para leerlo aquí.</p></div>}
+                    </> : <div className="flex h-[28rem] flex-col items-center justify-center p-8 text-center"><div className="flex h-16 w-16 items-center justify-center rounded-lg bg-brand-50 text-brand-500"><Eye className="h-7 w-7" aria-hidden="true" /></div><h3 className="mt-5 font-serif text-xl font-black">Vista previa</h3><p className="mt-2 max-w-xs text-sm leading-relaxed text-muted-foreground">Selecciona un documento para leerlo aquí.</p></div>}
                   </div>
                 </aside>
               </div>

@@ -170,7 +170,7 @@ export default function Header() {
           : "bg-background border-border",
         !isVisible && !mobileMenuOpen && "-translate-y-full shadow-none" // Ocultar al bajar
       )}>
-        <div className="mx-auto flex h-full max-w-[1920px] items-center justify-between px-4 sm:px-6 lg:px-12 relative z-50">
+        <div className="page-shell-wide flex h-full items-center justify-between relative z-50">
           
           {/* BRAND */}
           <Link href="/" className="flex items-center gap-2 lg:gap-4 flex-shrink-0 cursor-pointer group relative z-50 max-w-[85%] lg:max-w-none">
@@ -217,7 +217,7 @@ export default function Header() {
 
                   {/* Mega Menu Dropdown */}
                   <div className="absolute left-0 top-full w-full bg-background/95 backdrop-blur-xl border-t border-border shadow-[0_30px_60px_-15px_rgba(0,0,0,0.1)] opacity-0 invisible translate-y-4 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-300 ease-out z-40">
-                     <div className="max-w-[1920px] mx-auto overflow-hidden">
+                     <div className="page-shell-wide overflow-hidden">
                         <div className="flex">
                             
                             {/* COLUMNA DESTACADA */}

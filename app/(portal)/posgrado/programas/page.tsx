@@ -67,7 +67,7 @@ export default function ProgramasHubPage() {
               <Link 
                 key={cat.title} 
                 href={cat.href}
-                className="group relative h-[350px] md:h-[400px] overflow-hidden rounded-[2.5rem] flex flex-col justify-end p-8 md:p-12 transition-all duration-700 hover:shadow-2xl shadow-xl"
+                className="group relative h-[350px] md:h-[400px] overflow-hidden rounded-lg flex flex-col justify-end p-8 md:p-12 transition-all duration-700 hover:shadow-2xl shadow-xl"
               >
                 {/* Background Image with Overlays */}
                 <UnoptImage 
@@ -81,7 +81,7 @@ export default function ProgramasHubPage() {
 
                 {/* Top Badge */}
                 <div className="absolute top-8 left-8 right-8 flex justify-between items-start z-10">
-                  <div className="w-12 h-12 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white transition-all duration-500 group-hover:bg-uncp-gold group-hover:text-brand-950 group-hover:border-uncp-gold">
+                  <div className="w-12 h-12 rounded-lg bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white transition-all duration-500 group-hover:bg-uncp-gold group-hover:text-brand-950 group-hover:border-uncp-gold">
                     {cat.icon}
                   </div>
                   <span className="text-[9px] font-black uppercase tracking-[0.3em] px-3 py-1.5 rounded-full bg-black/30 backdrop-blur-md border border-white/10 text-uncp-gold">

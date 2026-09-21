@@ -35,13 +35,13 @@ export default function AdmisionHubPage() {
           <div className="grid md:grid-cols-2 gap-8 lg:gap-12 mb-20">
             {/* Tarjeta Maestría */}
             <Link href="/posgrado/admision/maestria" className="group block">
-              <div className="bg-brand-50 rounded-3xl p-8 lg:p-12 border border-brand-100 h-full transition-all duration-300 hover:shadow-xl hover:shadow-brand-900/5 hover:-translate-y-1 relative overflow-hidden">
+              <div className="bg-brand-50 rounded-lg p-8 lg:p-12 border border-brand-100 h-full transition-all duration-300 hover:shadow-xl hover:shadow-brand-900/5 hover:-translate-y-1 relative overflow-hidden">
                 <div className="absolute top-0 right-0 p-8 opacity-[0.05] group-hover:scale-110 transition-transform duration-500">
                   <BookOpen size={160} />
                 </div>
                 
                 <div className="relative z-10">
-                  <div className="w-14 h-14 bg-white rounded-2xl flex items-center justify-center text-brand-600 mb-6 shadow-sm group-hover:bg-brand-600 group-hover:text-white transition-colors">
+                  <div className="w-14 h-14 bg-white rounded-lg flex items-center justify-center text-brand-600 mb-6 shadow-sm group-hover:bg-brand-600 group-hover:text-white transition-colors">
                     <BookOpen size={28} />
                   </div>
                   <h3 className="text-2xl font-bold text-brand-950 mb-3">Admisión Maestrías</h3>
@@ -57,13 +57,13 @@ export default function AdmisionHubPage() {
 
             {/* Tarjeta Doctorado */}
             <Link href="/posgrado/admision/doctorado" className="group block">
-              <div className="bg-brand-950 rounded-3xl p-8 lg:p-12 border border-brand-800 h-full transition-all duration-300 hover:shadow-xl hover:shadow-brand-900/20 hover:-translate-y-1 relative overflow-hidden">
+              <div className="bg-brand-950 rounded-lg p-8 lg:p-12 border border-brand-800 h-full transition-all duration-300 hover:shadow-xl hover:shadow-brand-900/20 hover:-translate-y-1 relative overflow-hidden">
                 <div className="absolute top-0 right-0 p-8 opacity-[0.05] text-white group-hover:scale-110 transition-transform duration-500">
                   <GraduationCap size={160} />
                 </div>
                 
                 <div className="relative z-10">
-                  <div className="w-14 h-14 bg-white/10 rounded-2xl flex items-center justify-center text-uncp-gold mb-6 border border-white/10 group-hover:bg-uncp-gold group-hover:text-brand-950 transition-colors">
+                  <div className="w-14 h-14 bg-white/10 rounded-lg flex items-center justify-center text-uncp-gold mb-6 border border-white/10 group-hover:bg-uncp-gold group-hover:text-brand-950 transition-colors">
                     <GraduationCap size={28} />
                   </div>
                   <h3 className="text-2xl font-bold text-white mb-3">Admisión Doctorados</h3>

@@ -20,7 +20,7 @@ function ListBuilder({ title, field, dataList, onUpdate }: ListBuilderProps) {
   };
 
   return (
-    <div className="bg-white p-6 rounded-2xl border border-border shadow-sm space-y-4">
+    <div className="bg-white p-6 rounded-lg border border-border shadow-sm space-y-4">
       <div className="flex items-center justify-between">
         <h3 className="text-lg font-black text-brand-950 uppercase tracking-tight">{title}</h3>
         <button

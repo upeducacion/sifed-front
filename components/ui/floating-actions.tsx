@@ -88,7 +88,7 @@ export default function FloatingActions({ whatsappNumber = "51949260658" }: { wh
                     {option.label}
                   </span>
                   <div className={cn(
-                    "w-12 h-12 rounded-2xl flex items-center justify-center text-white shadow-2xl transition-transform hover:scale-110 active:scale-95",
+                    "w-12 h-12 rounded-lg flex items-center justify-center text-white shadow-2xl transition-transform hover:scale-110 active:scale-95",
                     option.color
                   )}>
                     {option.icon}
@@ -105,7 +105,7 @@ export default function FloatingActions({ whatsappNumber = "51949260658" }: { wh
           aria-expanded={isMenuOpen}
           aria-label={isMenuOpen ? "Cerrar menú de ayuda" : "Abrir menú de ayuda y contacto"}
           className={cn(
-            "w-14 h-14 lg:w-16 lg:h-16 rounded-[1.5rem] flex items-center justify-center text-white shadow-[0_20px_50px_rgba(0,0,0,0.3)] transition-all duration-500 transform hover:-translate-y-1 active:scale-95",
+            "w-14 h-14 lg:w-16 lg:h-16 rounded-lg flex items-center justify-center text-white shadow-[0_20px_50px_rgba(0,0,0,0.3)] transition-all duration-500 transform hover:-translate-y-1 active:scale-95",
             isMenuOpen ? "bg-brand-950 rotate-90" : "bg-brand-950"
           )}
         >
