@@ -88,14 +88,6 @@ export default function LoginHub() {
       requiresAuth: true,
       imageSrc: UNCP_LOGO
     },
-    {
-      title: "Mesa de Ayuda",
-      subtitle: "Soporte Técnico",
-      href: "/soporte",
-      requiresAuth: false,
-      variant: "special" as const,
-      imageSrc: UNCP_LOGO
-    }
   ];
 
   if (user && user.roles.includes("admin")) {
@@ -228,7 +220,6 @@ export default function LoginHub() {
                   subtitle={service.subtitle}
                   href={service.href}
                   imageSrc={service.imageSrc}
-                  variant={service.variant}
                   isLocked={service.requiresAuth && !user}
                   onLockedClick={focusLogin}
                 />

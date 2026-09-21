@@ -6,8 +6,7 @@ import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { LucideIcon, X, ChevronRight, LogOut, User as UserIcon, Settings, ArrowLeft } from "lucide-react";
 import { UnoptImage } from "@/components/ui/unopt-image";
-import { useLocalStorage } from "@/hooks/use-local-storage";
-import { AuthService } from "@/lib/services/auth-service";
+import { useAuth } from "@/hooks/use-auth";
 
 export interface NavItem {
   title: string;
@@ -15,11 +14,6 @@ export interface NavItem {
   icon?: LucideIcon;
   disabled?: boolean;
   children?: NavItem[];
-}
-
-interface User {
-  name: string;
-  email: string;
 }
 
 interface SidebarProps {
@@ -30,7 +24,7 @@ interface SidebarProps {
 
 export function DashboardSidebar({ items, open, setOpen }: SidebarProps) {
   const pathname = usePathname();
-  const [user] = useLocalStorage<User | null>("user", null);
+  const { user, logout } = useAuth();
 
   // Calcular menús abiertos iniciales (Lazy State Initialization)
   const [openMenus, setOpenMenus] = useState<Record<string, boolean>>(() => {
@@ -66,8 +60,7 @@ export function DashboardSidebar({ items, open, setOpen }: SidebarProps) {
   };
 
   const handleLogout = async () => {
-    localStorage.removeItem("user");
-    await AuthService.logout();
+    await logout();
   };
 
   return (

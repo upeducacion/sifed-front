@@ -16,13 +16,6 @@ export const documentosApi = {
     return response.data; // .data is standard for Laravel Resources
   },
 
-  getPublicoBySlug: async (slug: string): Promise<DocumentoNormativo> => {
-    const response = await fetchPublic<{ data: DocumentoNormativo }>(`portal/documentos-normativos/${slug}`, {
-      next: { tags: ['documentos-normativos'] }
-    });
-    return response.data;
-  },
-
   getCategoriasPublicas: async (): Promise<DocumentoCategoria[]> => {
     const response = await fetchPublic<{ data: DocumentoCategoria[] }>('portal/documento-categorias', {
       next: { tags: ['documento-categorias'] }

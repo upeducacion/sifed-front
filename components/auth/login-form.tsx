@@ -26,9 +26,6 @@ export default function LoginForm({ onLoginSuccess }: LoginFormProps) {
       const result = await AuthService.login(email, password);
       
       if (result.success && result.user) {
-        // Guardar solo metadata del usuario para la UI
-        localStorage.setItem("user", JSON.stringify(result.user));
-        
         onLoginSuccess(result.user);
       } else {
         setError("Error en la respuesta del servidor");

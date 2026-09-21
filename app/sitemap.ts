@@ -43,19 +43,27 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     console.error('Error fetching news for sitemap:', error)
   }
 
-  // 3. Rutas Dinámicas: Programas (Maestrías y Doctorados)
+  // 3. Rutas Dinámicas: Programas
   let programRoutes: MetadataRoute.Sitemap = []
   try {
     const programs = await programasApi.getPublicAll()
     programRoutes = programs.map((program) => {
-      const typePath = program.tipo === 'maestria' ? 'maestrias' : 'doctorados'
+      const typePathByProgramType = {
+        maestria: 'maestrias',
+        doctorado: 'doctorados',
+        diplomado: 'diplomados',
+        curso: 'cursos',
+        taller: 'talleres',
+      } as const
+      const typePath = typePathByProgramType[program.tipo]
+      if (!typePath) return null
       return {
         url: `${baseUrl}/posgrado/${typePath}/${program.slug}`,
         lastModified: program.updated_at || new Date().toISOString(),
         changeFrequency: 'monthly' as const,
         priority: 0.7,
       }
-    })
+    }).filter((route): route is NonNullable<typeof route> => route !== null)
   } catch (error) {
     console.error('Error fetching programs for sitemap:', error)
   }

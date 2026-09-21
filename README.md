@@ -52,7 +52,7 @@ El frontend estará disponible en: `http://localhost:3000`
   - `/ui`: Elementos base (botones, cards).
   - `/layout`: Header, Sidebar, Shells.
   - `/auth`: Formularios y lógica de protección.
-- `/hooks`: Hooks personalizados (`useAuth`, `useMediaQuery`).
+- `/hooks`: Hooks personalizados (`useAuth`).
 - `/lib`: Utilidades y configuración de API (Axios).
 
 ---

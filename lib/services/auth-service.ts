@@ -29,14 +29,4 @@ export const AuthService = {
     window.location.href = "/login";
   },
 
-  me: async (): Promise<User | null> => {
-    try {
-      // Intentamos obtener el usuario desde la API de Laravel (el middleware de api.ts inyectará el token)
-      // O podríamos usar el contenido de la cookie si está disponible
-      const { data } = await axios.get<User>('/api/me');
-      return data;
-    } catch {
-      return null;
-    }
-  }
 };

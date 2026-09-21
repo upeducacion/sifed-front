@@ -101,8 +101,6 @@ export default function Footer() {
         <div className="border-t border-border pt-10 flex flex-col md:flex-row justify-between items-center gap-6 text-[11px] font-black text-slate-500 uppercase tracking-widest">
           <p>© 2026 Universidad Nacional del Centro del Perú.</p>
           <div className="flex gap-8">
-            <Link href="/privacidad" className="hover:text-brand-950 transition-colors focus-visible:outline-brand-600">Privacidad</Link>
-            <Link href="/terminos" className="hover:text-brand-950 transition-colors focus-visible:outline-brand-600">Términos</Link>
             <Link 
               href={EXTERNAL_LINKS.RECLAMACIONES} 
               target="_blank" 

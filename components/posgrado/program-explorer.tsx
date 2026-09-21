@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo, useEffect } from "react";
+import { useState, useMemo } from "react";
 import { useSearchParams } from "next/navigation";
 import { curriculums } from "@/data/curriculums";
 import TabSelector from "@/components/ui/tab-selector";
@@ -36,20 +36,9 @@ export default function ProgramExplorer() {
 
   const [activeProgramId, setActiveProgramId] = useState(initial.id);
 
-  // Sincronizar activeProgramId cuando cambia el tipo (sin sobrescribir el param inicial)
-  const [hasInitialized, setHasInitialized] = useState(false);
-  useEffect(() => {
-    if (!hasInitialized) {
-      setHasInitialized(true);
-      return;
-    }
-    setActiveProgramId(availablePrograms[0].id);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [activeType]);
-
   const selectedProgram = useMemo(() => 
-    curriculums.find(p => p.id === activeProgramId)!, 
-  [activeProgramId]);
+    availablePrograms.find(p => p.id === activeProgramId) ?? availablePrograms[0],
+  [activeProgramId, availablePrograms]);
 
   return (
     <div className="space-y-12">
@@ -69,7 +58,7 @@ export default function ProgramExplorer() {
                 key={p.id}
                 onClick={() => setActiveProgramId(p.id)}
                 className={`px-4 py-2 text-xs font-bold rounded-full border transition-all ${
-                  activeProgramId === p.id
+                  selectedProgram.id === p.id
                     ? "bg-brand-100 border-brand-300 text-brand-800 shadow-sm"
                     : "bg-white border-border text-muted-foreground hover:border-brand-200 hover:bg-brand-50/50"
                 }`}
