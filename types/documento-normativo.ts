@@ -10,6 +10,7 @@ export interface DocumentoCategoria {
 
 export interface DocumentoNormativo {
   id: number;
+  type: string | null;
   titulo: string;
   descripcion: string | null;
   codigo: string | null;

@@ -33,9 +33,11 @@ export async function fetchPublic<T>(
       'Accept': 'application/json',
       ...options?.headers,
     },
-    // En el servidor forzamos el caché para que solo expire con el webhook de On-Demand
-    // En el cliente dejamos que SWR y el navegador manejen el cache normal
-    cache: isServer ? (options?.cache ?? 'force-cache') : 'default',
+    // En desarrollo evitamos servir datos viejos después de cambios administrativos.
+    // En producción los documentos se actualizan mediante revalidación por tags.
+    cache: isServer
+      ? (process.env.NODE_ENV === 'development' ? 'no-store' : (options?.cache ?? 'force-cache'))
+      : 'default',
     ...(isServer && {
       next: {
         ...options?.next,

@@ -1,4 +1,4 @@
-import { DocumentoNormativo, DocumentoCategoria } from "@/types/documento-normativo";
+import type { DocumentoNormativo, DocumentoCategoria } from "@/types/documento-normativo";
 import axios from "axios";
 import Cookies from "js-cookie";
 import { AUTH_COOKIE_NAME } from "@/lib/auth-config";
@@ -8,7 +8,7 @@ const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
 export const documentosApi = {
   // --- PORTAL (Público) ---
-  getPublicos: async (params?: { documento_categoria_id?: string | number; categoria_slug?: string; sub_categoria?: string; search?: string }): Promise<DocumentoNormativo[]> => {
+  getPublicos: async (params?: { documento_categoria_id?: string | number; categoria_slug?: string; sub_categoria?: string; search?: string; type?: string }): Promise<DocumentoNormativo[]> => {
     const response = await fetchPublic<{ data: DocumentoNormativo[] }>('portal/documentos-normativos', { 
       params: params as Record<string, string | number | boolean>,
       next: { tags: ['documentos-normativos'] }

@@ -58,6 +58,16 @@ const nextConfig: NextConfig = {
       },
     ];
   },
+  async rewrites() {
+    return {
+      beforeFiles: [
+        {
+          source: '/tramites',
+          destination: '/documentos-normativos?view=tramites',
+        },
+      ],
+    };
+  },
 };
 
 export default nextConfig;

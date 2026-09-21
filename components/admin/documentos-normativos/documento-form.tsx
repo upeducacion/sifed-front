@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { documentosApi } from "@/lib/api/documentos";
-import { DocumentoNormativo } from "@/types/documento-normativo";
+import type { DocumentoNormativo } from "@/types/documento-normativo";
 import { Save, Upload, FileText, Loader2, Hash, AlertCircle, Plus } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { cn, getStorageUrl } from "@/lib/utils";
@@ -171,6 +171,30 @@ export function DocumentoForm({ initialData }: DocumentoFormProps) {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="space-y-2">
+          <label htmlFor="type" className="text-sm font-semibold text-brand-950">Tipo de trámite</label>
+          <select
+            id="type"
+            name="type"
+            defaultValue={initialData?.type || ""}
+            className={cn(
+              "w-full px-4 py-2 rounded-lg border focus:ring-2 focus:ring-brand-500 outline-none bg-white",
+              formErrors.type ? "border-red-500 bg-red-50/30" : "border-input"
+            )}
+          >
+            <option value="">Sin tipo de trámite</option>
+            <option value="constancia-egresado">Constancia de egresado</option>
+            <option value="record-academico">Récord académico</option>
+            <option value="reserva-matricula">Reserva de matrícula</option>
+            <option value="mesa-de-partes">Mesa de partes</option>
+          </select>
+          {formErrors.type && (
+            <p className="text-xs text-red-500 flex items-center gap-1 font-medium">
+              <AlertCircle className="h-3 w-3" /> {formErrors.type[0]}
+            </p>
+          )}
+        </div>
+
         <div className="space-y-2">
           <label className="text-sm font-semibold text-brand-950 flex items-center gap-2">
             <Hash className="h-3.5 w-3.5 text-brand-600" /> Código

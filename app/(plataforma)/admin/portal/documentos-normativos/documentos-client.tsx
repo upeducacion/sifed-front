@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useSWRConfig } from "swr";
 import useSWR from "swr";
 import { documentosApi } from "@/lib/api/documentos";
-import { DocumentoNormativo, DocumentoCategoria } from "@/types/documento-normativo";
+import type { DocumentoNormativo, DocumentoCategoria } from "@/types/documento-normativo";
 import { Plus, Search, FileText, Eye, EyeOff, Edit, Trash2, Loader2, BookOpen, FileSpreadsheet, Tags } from "lucide-react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
@@ -26,6 +26,7 @@ export function DocumentosClient() {
   const [search, setSearch] = useState("");
   const [page, setPage] = useState(1);
   const [categoriaId, setCategoriaId] = useState<string>("");
+  const [type, setType] = useState<string>("");
 
   // Obtener categorías dinámicas para los filtros
   const { data: categoriasResponse } = useSWR(
@@ -36,11 +37,12 @@ export function DocumentosClient() {
 
   // Obtener los documentos
   const { data, isLoading } = useSWR(
-    ['/api/admin/documentos-normativos', page, search, categoriaId],
+    ['/api/admin/documentos-normativos', page, search, categoriaId, type],
     () => documentosApi.getAll({
       page,
       search: search || undefined,
-      documento_categoria_id: categoriaId || undefined
+      documento_categoria_id: categoriaId || undefined,
+      type: type || undefined
     })
   );
   const documentos = data?.data || [];
@@ -50,7 +52,7 @@ export function DocumentosClient() {
     try {
       await documentosApi.toggleVisibility(id, !isPublic);
       showToast("Visibilidad actualizada correctamente", "success");
-      mutate(['/api/admin/documentos-normativos', page, search, categoriaId]);
+      mutate(['/api/admin/documentos-normativos', page, search, categoriaId, type]);
     } catch (error) {
       console.error(error);
       showToast("Error al actualizar visibilidad", "error");
@@ -63,7 +65,7 @@ export function DocumentosClient() {
     try {
       await documentosApi.delete(id);
       showToast("Documento eliminado correctamente", "success");
-      mutate(['/api/admin/documentos-normativos', page, search, categoriaId]);
+      mutate(['/api/admin/documentos-normativos', page, search, categoriaId, type]);
     } catch (error) {
       console.error(error);
       showToast("Error al eliminar el documento", "error");
@@ -124,6 +126,18 @@ export function DocumentosClient() {
             </button>
           ))}
         </div>
+        <select
+          value={type}
+          onChange={(e) => { setType(e.target.value); setPage(1); }}
+          className="rounded-lg border border-input bg-white px-4 py-2 text-sm font-medium text-brand-950 focus:ring-2 focus:ring-brand-500 outline-none"
+          aria-label="Filtrar por tipo de trámite"
+        >
+          <option value="">Todos los tipos</option>
+          <option value="constancia-egresado">Constancia de egresado</option>
+          <option value="record-academico">Récord académico</option>
+          <option value="reserva-matricula">Reserva de matrícula</option>
+          <option value="mesa-de-partes">Mesa de partes</option>
+        </select>
       </div>
 
       <div className="bg-white rounded-xl border border-border shadow-sm overflow-hidden">
