@@ -4,8 +4,8 @@ import { useState } from "react";
 import { useSWRConfig } from "swr";
 import useSWR from "swr";
 import { documentosApi } from "@/lib/api/documentos";
-import type { DocumentoNormativo, DocumentoCategoria } from "@/types/documento-normativo";
-import { Plus, Search, FileText, Eye, EyeOff, Edit, Trash2, Loader2, BookOpen, FileSpreadsheet, Tags } from "lucide-react";
+import type { DocumentFolder, DocumentoNormativo, DocumentoCategoria } from "@/types/documento-normativo";
+import { Plus, Search, FileText, Eye, EyeOff, Edit, Trash2, Loader2, BookOpen, FileSpreadsheet, Tags, Folder, FolderOpen, ChevronRight, Settings2 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { useToast } from "@/hooks/use-toast";
@@ -19,6 +19,13 @@ const getIconForCategory = (slug?: string) => {
   return <FileText className="h-5 w-5 text-brand-600" />;
 };
 
+const procedureOptions = [
+  { value: "constancia-egresado", label: "Constancia de egresado" },
+  { value: "record-academico", label: "Récord académico" },
+  { value: "reserva-matricula", label: "Reserva de matrícula" },
+  { value: "mesa-de-partes", label: "Mesa de partes" },
+];
+
 export function DocumentosClient() {
   const router = useRouter();
   const { showToast } = useToast();
@@ -27,6 +34,7 @@ export function DocumentosClient() {
   const [page, setPage] = useState(1);
   const [categoriaId, setCategoriaId] = useState<string>("");
   const [type, setType] = useState<string>("");
+  const [selectedFolderId, setSelectedFolderId] = useState<number | null>(null);
 
   // Obtener categorías dinámicas para los filtros
   const { data: categoriasResponse } = useSWR(
@@ -35,14 +43,21 @@ export function DocumentosClient() {
   );
   const categorias: DocumentoCategoria[] = categoriasResponse || [];
 
+  const { data: folders = [] } = useSWR<DocumentFolder[]>(
+    '/api/admin/document-folders/tree',
+    documentosApi.getFolders
+  );
+
   // Obtener los documentos
+  const documentKey = ['/api/admin/documentos-normativos', page, search, categoriaId, type, selectedFolderId];
   const { data, isLoading } = useSWR(
-    ['/api/admin/documentos-normativos', page, search, categoriaId, type],
+    documentKey,
     () => documentosApi.getAll({
       page,
       search: search || undefined,
       documento_categoria_id: categoriaId || undefined,
-      type: type || undefined
+      type: type || undefined,
+      folder_id: selectedFolderId ?? undefined,
     })
   );
   const documentos = data?.data || [];
@@ -52,7 +67,7 @@ export function DocumentosClient() {
     try {
       await documentosApi.toggleVisibility(id, !isPublic);
       showToast("Visibilidad actualizada correctamente", "success");
-      mutate(['/api/admin/documentos-normativos', page, search, categoriaId, type]);
+      mutate(documentKey);
     } catch (error) {
       console.error(error);
       showToast("Error al actualizar visibilidad", "error");
@@ -65,7 +80,7 @@ export function DocumentosClient() {
     try {
       await documentosApi.delete(id);
       showToast("Documento eliminado correctamente", "success");
-      mutate(['/api/admin/documentos-normativos', page, search, categoriaId, type]);
+      mutate(documentKey);
     } catch (error) {
       console.error(error);
       showToast("Error al eliminar el documento", "error");
@@ -73,16 +88,24 @@ export function DocumentosClient() {
   };
 
   return (
-    <div className="flex-1 space-y-4 p-8 pt-6">
-      <div className="flex flex-col md:flex-row md:items-center justify-between space-y-2 md:space-y-0">
+    <main className="min-h-full bg-[#f5f7fa] p-5 text-brand-950 md:p-8">
+      <div className="mx-auto max-w-[1500px] space-y-6">
+      <div className="flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
         <div>
-          <h2 className="text-3xl font-bold tracking-tight">Documentos Normativos</h2>
-          <p className="text-muted-foreground text-sm">Gestiona normativas, formatos oficiales, flujos y guías.</p>
+          <p className="text-[10px] font-black uppercase tracking-[0.24em] text-amber-700">Biblioteca institucional</p>
+          <h1 className="mt-2 font-serif text-3xl font-black tracking-tight md:text-4xl">Documentos normativos</h1>
+          <p className="mt-2 text-sm text-muted-foreground">Gestiona normativas, formatos oficiales, flujos y guías desde un solo espacio.</p>
         </div>
-        <div className="flex items-center space-x-2">
+        <div className="flex flex-wrap gap-2">
+          <Link
+            href="/admin/portal/tramites"
+            className="inline-flex items-center gap-2 rounded-xl border border-brand-200 bg-white px-4 py-2.5 text-sm font-bold text-brand-900 shadow-sm transition hover:border-brand-400 hover:bg-brand-50"
+          >
+            <Folder className="h-4 w-4" /> Organizar carpetas
+          </Link>
           <Link 
             href="/admin/portal/documentos-normativos/categorias"
-            className="inline-flex items-center gap-2 bg-white border border-border hover:bg-muted text-brand-950 px-4 py-2 rounded-lg font-medium transition-all text-sm shadow-sm"
+            className="inline-flex items-center gap-2 rounded-xl border border-brand-200 bg-white px-4 py-2.5 text-sm font-bold text-brand-900 shadow-sm transition hover:border-brand-400 hover:bg-brand-50"
           >
             <Tags className="w-4 h-4" />
             Categorías
@@ -90,14 +113,33 @@ export function DocumentosClient() {
           <button 
             type="button"
             onClick={() => router.push("/admin/portal/documentos-normativos/nuevo")}
-            className="flex items-center gap-2 bg-brand-600 text-white px-4 py-2 rounded-lg hover:bg-brand-700 transition-all text-sm font-medium shadow-sm"
+            className="inline-flex items-center gap-2 rounded-xl bg-brand-950 px-4 py-2.5 text-sm font-bold text-white shadow-sm transition hover:bg-brand-700"
           >
-            <Plus className="h-4 w-4" /> Nuevo Documento
+            <Plus className="h-4 w-4" /> Nuevo documento
           </button>
         </div>
       </div>
 
-      <div className="flex flex-col md:flex-row gap-4 mb-6">
+      <div className="grid gap-3 sm:grid-cols-3">
+        <div className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm"><div className="flex items-center justify-between text-xs font-bold text-muted-foreground">Documentos encontrados <FileText className="h-4 w-4 text-brand-400" /></div><p className="mt-2 text-2xl font-black">{meta?.total ?? documentos.length}</p></div>
+        <div className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm"><div className="flex items-center justify-between text-xs font-bold text-muted-foreground">Carpetas organizadas <Folder className="h-4 w-4 text-amber-500" /></div><p className="mt-2 text-2xl font-black">{folders.length}</p></div>
+        <div className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm"><div className="flex items-center justify-between text-xs font-bold text-muted-foreground">Visibles en el portal <Eye className="h-4 w-4 text-emerald-500" /></div><p className="mt-2 text-2xl font-black">{documentos.filter((document: DocumentoNormativo) => document.is_public).length}</p></div>
+      </div>
+
+      <section className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm md:p-5">
+        <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
+          <div><p className="text-[10px] font-black uppercase tracking-[0.2em] text-muted-foreground">Ubicación rápida</p><p className="mt-1 text-sm font-bold">{selectedFolderId ? "Filtrando por carpeta seleccionada" : "Todos los documentos"}</p></div>
+          <Link href="/admin/portal/tramites" className="inline-flex items-center gap-1.5 text-xs font-bold text-brand-600 hover:text-brand-950"><Settings2 className="h-3.5 w-3.5" /> Gestionar estructura <ChevronRight className="h-3.5 w-3.5" /></Link>
+        </div>
+        <div className="mt-4 flex gap-2 overflow-x-auto pb-1">
+          <button type="button" onClick={() => { setSelectedFolderId(null); setPage(1); }} className={cn("inline-flex shrink-0 items-center gap-2 rounded-xl border px-3 py-2 text-xs font-bold transition", selectedFolderId === null ? "border-brand-950 bg-brand-950 text-white" : "border-slate-200 text-brand-800 hover:border-brand-300 hover:bg-brand-50")}><FolderOpen className="h-4 w-4" /> Todos</button>
+          {folders.filter((folder) => folder.parent_id === null).map((folder) => (
+            <button key={folder.id} type="button" onClick={() => { setSelectedFolderId(folder.id); setPage(1); }} className={cn("inline-flex shrink-0 items-center gap-2 rounded-xl border px-3 py-2 text-xs font-bold transition", selectedFolderId === folder.id ? "border-brand-950 bg-brand-950 text-white" : "border-slate-200 text-brand-800 hover:border-brand-300 hover:bg-brand-50")}><Folder className={cn("h-4 w-4", selectedFolderId === folder.id ? "text-uncp-gold" : "text-amber-500")} /> {folder.name}<span className="text-[10px] opacity-60">{folder.documents_count ?? 0}</span></button>
+          ))}
+        </div>
+      </section>
+
+      <div className="flex flex-col gap-4 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm md:p-5">
         <div className="relative flex-1">
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
           <input
@@ -133,14 +175,11 @@ export function DocumentosClient() {
           aria-label="Filtrar por tipo de trámite"
         >
           <option value="">Todos los tipos</option>
-          <option value="constancia-egresado">Constancia de egresado</option>
-          <option value="record-academico">Récord académico</option>
-          <option value="reserva-matricula">Reserva de matrícula</option>
-          <option value="mesa-de-partes">Mesa de partes</option>
+          {procedureOptions.map((option) => <option key={option.value} value={option.value}>{option.label}</option>)}
         </select>
       </div>
 
-      <div className="bg-white rounded-xl border border-border shadow-sm overflow-hidden">
+      <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
         {isLoading ? (
           <div className="flex justify-center p-12">
             <Loader2 className="h-8 w-8 animate-spin text-brand-600" />
@@ -235,6 +274,7 @@ export function DocumentosClient() {
       {meta && meta.last_page > 1 && (
         <div className="flex items-center justify-end gap-4 py-4">
           <button
+            type="button"
             onClick={() => setPage(p => Math.max(1, p - 1))}
             disabled={page === 1}
             className="px-4 py-2 text-sm font-medium rounded-lg border border-input hover:bg-neutral-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
@@ -245,6 +285,7 @@ export function DocumentosClient() {
             Página {page} de {meta.last_page}
           </div>
           <button
+            type="button"
             onClick={() => setPage(p => Math.min(meta.last_page, p + 1))}
             disabled={page === meta.last_page}
             className="px-4 py-2 text-sm font-medium rounded-lg border border-input hover:bg-neutral-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
@@ -253,6 +294,7 @@ export function DocumentosClient() {
           </button>
         </div>
       )}
-    </div>
+      </div>
+    </main>
   );
 }

@@ -5,14 +5,14 @@ import {
   LayoutDashboard, 
   GraduationCap, 
   Users, 
-  FileText, 
   Settings, 
   Image as ImageIcon,
   Globe,
   School,
   Scale,
   Library,
-  Newspaper
+  Newspaper,
+  Folder
 } from "lucide-react";const adminNavItems = [
   {
     title: "Dashboard",
@@ -60,9 +60,9 @@ import {
         icon: ImageIcon,
       },
       {
-        title: "Documentos y formatos",
-        href: "/admin/portal/documentos-normativos",
-        icon: FileText,
+        title: "Organizador de trámites",
+        href: "/admin/portal/tramites",
+        icon: Folder,
       },
     ]
   },

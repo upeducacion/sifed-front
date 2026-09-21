@@ -1,4 +1,4 @@
-import type { DocumentoNormativo, DocumentoCategoria } from "@/types/documento-normativo";
+import type { DocumentoNormativo, DocumentoCategoria, DocumentFolder } from "@/types/documento-normativo";
 import axios from "axios";
 import Cookies from "js-cookie";
 import { AUTH_COOKIE_NAME } from "@/lib/auth-config";
@@ -7,6 +7,36 @@ import { fetchPublic } from "@/lib/fetch-public";
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
 export const documentosApi = {
+  getFolders: async (): Promise<DocumentFolder[]> => {
+    const token = Cookies.get(AUTH_COOKIE_NAME);
+    const response = await axios.get(`${API_URL}/admin/document-folders/tree`, {
+      headers: { Authorization: `Bearer ${token}` }
+    });
+    return response.data.data;
+  },
+
+  createFolder: async (data: { name: string; parent_id: number | null; type: string }) => {
+    const token = Cookies.get(AUTH_COOKIE_NAME);
+    const response = await axios.post(`${API_URL}/admin/document-folders`, data, {
+      headers: { Authorization: `Bearer ${token}` }
+    });
+    return response.data.data as DocumentFolder;
+  },
+
+  updateFolder: async (id: number, data: Partial<Pick<DocumentFolder, 'name' | 'parent_id' | 'sort_order'>>) => {
+    const token = Cookies.get(AUTH_COOKIE_NAME);
+    const response = await axios.put(`${API_URL}/admin/document-folders/${id}`, data, {
+      headers: { Authorization: `Bearer ${token}` }
+    });
+    return response.data.data as DocumentFolder;
+  },
+
+  deleteFolder: async (id: number) => {
+    const token = Cookies.get(AUTH_COOKIE_NAME);
+    await axios.delete(`${API_URL}/admin/document-folders/${id}`, {
+      headers: { Authorization: `Bearer ${token}` }
+    });
+  },
   // --- PORTAL (Público) ---
   getPublicos: async (params?: { documento_categoria_id?: string | number; categoria_slug?: string; sub_categoria?: string; search?: string; type?: string }): Promise<DocumentoNormativo[]> => {
     const response = await fetchPublic<{ data: DocumentoNormativo[] }>('portal/documentos-normativos', { 
@@ -91,6 +121,20 @@ export const documentosApi = {
         Authorization: `Bearer ${token}`,
         'Content-Type': 'multipart/form-data'
       }
+    });
+    return response.data;
+  },
+
+  move: async (id: string | number, folderId: number | null) => {
+    const data = new FormData();
+    data.append("folder_id", folderId === null ? "" : String(folderId));
+    data.append("_method", "PUT");
+    const token = Cookies.get(AUTH_COOKIE_NAME);
+    const response = await axios.post(`${API_URL}/admin/documentos-normativos/${id}`, data, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "multipart/form-data",
+      },
     });
     return response.data;
   },

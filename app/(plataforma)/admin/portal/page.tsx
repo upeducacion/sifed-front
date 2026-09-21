@@ -6,7 +6,7 @@ import {
   Users, 
   Library, 
   Image as ImageIcon, 
-  FileText,
+  Folder,
   ArrowRight,
   Newspaper
 } from "lucide-react";
@@ -63,11 +63,11 @@ export default function PortalManagementPage() {
       color: "text-pink-600 bg-pink-50"
     },
     {
-      title: "Documentos y formatos",
-      description: "Guías de procedimientos, requisitos y formularios.",
-      icon: FileText,
-      href: "/admin/portal/documentos-normativos",
-      color: "text-yellow-600 bg-yellow-50"
+      title: "Organizador de trámites",
+      description: "Ordena carpetas, requisitos y formularios del portal.",
+      icon: Folder,
+      href: "/admin/portal/tramites",
+      color: "text-amber-600 bg-amber-50"
     },
   ];
 
