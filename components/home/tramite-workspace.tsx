@@ -57,8 +57,8 @@ export default function TramiteWorkspace({
     <main className="min-h-full flex-1 bg-[#f7f5f0] text-brand-950">
       <section className="relative overflow-hidden bg-brand-950 text-white">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(194,157,75,0.22),transparent_32%),linear-gradient(120deg,#07182f_0%,#102e51_65%,#153d65_100%)]" />
-        <div className="relative mx-auto max-w-7xl px-6 pb-12 pt-8 lg:px-12 lg:pb-16">
-          <nav aria-label="Breadcrumb" className="mb-12 flex items-center gap-2 text-xs font-bold uppercase tracking-[0.16em] text-brand-200">
+        <div className="relative mx-auto max-w-7xl px-4 pb-8 pt-5 sm:px-6 sm:pb-12 sm:pt-8 lg:px-12 lg:pb-16">
+          <nav aria-label="Breadcrumb" className="mb-7 flex items-center gap-2 overflow-hidden text-[10px] font-bold uppercase tracking-[0.14em] text-brand-200 sm:mb-12 sm:text-xs sm:tracking-[0.16em]">
             <Link href="/" className="transition hover:text-uncp-gold">Inicio</Link>
             <span className="text-brand-500">/</span>
             <span className="text-uncp-gold">Trámites</span>
@@ -68,24 +68,24 @@ export default function TramiteWorkspace({
             <span className="mb-4 inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.28em] text-uncp-gold">
               <ShieldCheck className="h-4 w-4" aria-hidden="true" /> Atención académica
             </span>
-            <h1 className="max-w-3xl font-serif text-4xl font-black leading-[1.02] text-white md:text-6xl">
+            <h1 className="max-w-3xl font-serif text-3xl font-black leading-[1.02] text-white sm:text-4xl md:text-6xl">
               {selectedProcedure ? selectedProcedure.title : "Trámites académicos"}
             </h1>
-            <p className="mt-5 max-w-2xl text-base leading-relaxed text-brand-100 md:text-lg">
+            <p className="mt-4 max-w-2xl text-sm leading-relaxed text-brand-100 sm:mt-5 sm:text-base md:text-lg">
               {selectedProcedure?.description || "Encuentra el procedimiento que necesitas y accede a sus requisitos, formatos y guías desde un solo lugar."}
             </p>
           </div>
         </div>
       </section>
 
-      <section className="mx-auto grid max-w-7xl gap-8 px-6 py-8 lg:grid-cols-[18rem_minmax(0,1fr)] lg:px-12 lg:py-12">
+      <section className="mx-auto grid max-w-7xl gap-5 px-4 py-5 sm:gap-8 sm:px-6 sm:py-8 lg:grid-cols-[18rem_minmax(0,1fr)] lg:px-12 lg:py-12">
         <aside className="lg:sticky lg:top-28 lg:self-start">
-          <div className="rounded-lg border border-brand-100 bg-white p-3 shadow-sm">
-            <div className="px-4 pb-3 pt-2">
+          <div className="rounded-lg border border-brand-100 bg-white p-2 shadow-sm">
+            <div className="px-3 pb-2 pt-1 sm:px-4 sm:pb-3 sm:pt-2">
               <span className="text-[10px] font-black uppercase tracking-[0.2em] text-amber-700">Tu ruta</span>
               <h2 className="mt-1 font-serif text-xl font-black">Elige un trámite</h2>
             </div>
-            <nav aria-label="Trámites disponibles" className="space-y-1">
+            <nav aria-label="Trámites disponibles" className="grid grid-cols-2 gap-1 lg:block lg:space-y-1">
               {(Object.keys(procedures) as ProcedureSlug[]).map((slug) => {
                 const procedure = procedures[slug];
                 const Icon = procedureIcons[slug];
@@ -95,21 +95,21 @@ export default function TramiteWorkspace({
                     key={slug}
                     href={`/tramites/${slug}`}
                     className={cn(
-                      "group flex items-center gap-3 rounded-lg px-4 py-3 text-sm font-bold transition",
+                      "group flex min-w-0 items-center gap-2 rounded-lg px-2.5 py-2.5 text-xs font-bold transition sm:px-4 sm:py-3 sm:text-sm",
                       isActive ? "bg-brand-950 text-white shadow-md" : "text-muted-foreground hover:bg-brand-50 hover:text-brand-950"
                     )}
                   >
-                    <span className={cn("flex h-9 w-9 shrink-0 items-center justify-center rounded-xl", isActive ? "bg-uncp-gold text-brand-950" : "bg-brand-50 text-brand-700 group-hover:bg-brand-100")}>
+                    <span className={cn("flex h-8 w-8 shrink-0 items-center justify-center rounded-lg sm:h-9 sm:w-9 sm:rounded-xl", isActive ? "bg-uncp-gold text-brand-950" : "bg-brand-50 text-brand-700 group-hover:bg-brand-100")}>
                       <Icon className="h-4 w-4" aria-hidden="true" />
                     </span>
                     <span className="min-w-0 flex-1 leading-tight">{procedure.title}</span>
-                    {isActive && <ArrowRight className="h-4 w-4 text-uncp-gold" aria-hidden="true" />}
+                    {isActive && <ArrowRight className="hidden h-4 w-4 shrink-0 text-uncp-gold sm:block" aria-hidden="true" />}
                   </Link>
                 );
               })}
             </nav>
           </div>
-          <div className="mt-4 rounded-lg bg-[#e9dfc4] p-5 text-sm text-brand-950">
+          <div className="mt-3 rounded-lg bg-[#e9dfc4] p-4 text-xs text-brand-950 sm:mt-4 sm:p-5 sm:text-sm">
             <p className="font-black">¿Necesitas presentar una solicitud?</p>
             <p className="mt-2 leading-relaxed text-brand-800">Usa la Mesa de Partes Virtual para enviar tus documentos.</p>
             <a href="https://erpcampus.uncp.edu.pe/" target="_blank" rel="noopener noreferrer" className="mt-4 inline-flex items-center gap-2 text-xs font-black uppercase tracking-wide text-brand-950 underline decoration-uncp-gold decoration-2 underline-offset-4">
@@ -138,7 +138,7 @@ export default function TramiteWorkspace({
             </section>
           ) : (
             <>
-              <div className="mb-6 flex flex-col gap-5 rounded-lg border border-brand-100 bg-white p-6 shadow-sm md:flex-row md:items-end md:justify-between md:p-7">
+              <div className="mb-5 flex flex-col gap-4 rounded-lg border border-brand-100 bg-white p-4 shadow-sm sm:mb-6 sm:gap-5 sm:p-6 md:flex-row md:items-end md:justify-between md:p-7">
                 <div>
                   <div className="flex items-center gap-2 text-xs font-black uppercase tracking-[0.18em] text-amber-700"><Check className="h-4 w-4" aria-hidden="true" /> Paso 1 completado</div>
                   <h2 className="mt-2 font-serif text-2xl font-black md:text-3xl">Documentos para {selectedProcedure.title.toLowerCase()}</h2>
@@ -147,8 +147,8 @@ export default function TramiteWorkspace({
                 <div className="w-full md:max-w-xs"><DocumentosSearch initialQuery={searchQuery} /></div>
               </div>
 
-              <div className="grid gap-6 xl:grid-cols-[minmax(0,1fr)_minmax(20rem,0.9fr)]">
-                <section aria-labelledby="documents-heading">
+              <div className="grid gap-5 xl:grid-cols-[minmax(0,1fr)_minmax(20rem,0.9fr)] xl:gap-6">
+                <section aria-labelledby="documents-heading" className="order-2 xl:order-1">
                   <div className="mb-4 flex items-center justify-between gap-4">
                     <div><span className="text-xs font-black uppercase tracking-[0.18em] text-amber-700">Paso 2</span><h3 id="documents-heading" className="mt-1 font-serif text-2xl font-black">Revisa y descarga</h3></div>
                     <span className="rounded-full bg-brand-100 px-3 py-1 text-xs font-black text-brand-700">{documentos.length} archivos</span>
@@ -156,11 +156,11 @@ export default function TramiteWorkspace({
                   {documentos.length === 0 ? (
                     <div className="rounded-lg border border-dashed border-brand-200 bg-white p-10 text-center shadow-sm"><Search className="mx-auto h-10 w-10 text-brand-300" aria-hidden="true" /><h4 className="mt-4 font-bold">No encontramos documentos</h4><p className="mt-2 text-sm text-muted-foreground">Prueba con otro término de búsqueda.</p></div>
                   ) : (
-                    <div className="space-y-3">
+                    <div className="space-y-3 lg:max-h-[calc(100vh-20rem)] lg:overflow-y-auto lg:pr-2">
                       {documentos.map((doc) => {
                         const Icon = categoryIcon(doc.categoria?.slug || "");
                         const isSelected = selectedDoc?.id === doc.id;
-                        return <button key={doc.id} type="button" onClick={() => setSelectedDocId(doc.id)} className={cn("group flex w-full items-start gap-4 rounded-lg border bg-white p-4 text-left transition hover:-translate-y-0.5 hover:shadow-md", isSelected ? "border-brand-500 ring-2 ring-brand-500/10" : "border-border hover:border-brand-300")}>
+                        return <button key={doc.id} type="button" onClick={() => setSelectedDocId(doc.id)} className={cn("group flex w-full items-start gap-4 rounded-lg border bg-white p-4 text-left transition-[background-color,border-color,box-shadow] hover:shadow-md", isSelected ? "border-brand-200 border-l-4 border-l-uncp-gold bg-brand-50/50 shadow-sm" : "border-border hover:border-brand-300")}>
                           <span className={cn("flex h-11 w-11 shrink-0 items-center justify-center rounded-xl", isSelected ? "bg-brand-950 text-uncp-gold" : "bg-brand-50 text-brand-700 group-hover:bg-brand-100")}><Icon className="h-5 w-5" aria-hidden="true" /></span>
                           <span className="min-w-0 flex-1"><span className="mb-2 flex flex-wrap gap-2"><span className="rounded-full bg-brand-50 px-2 py-1 text-[10px] font-black uppercase tracking-wide text-brand-700">{doc.categoria?.nombre || "Documento"}</span>{doc.extension_archivo && <span className="rounded-full border border-border px-2 py-1 text-[10px] font-black uppercase tracking-wide text-muted-foreground">{doc.extension_archivo}</span>}</span><span className="block font-bold leading-snug text-brand-950">{doc.titulo}</span>{doc.codigo && <span className="mt-2 block text-xs text-muted-foreground">{doc.codigo}</span>}</span>
                           <Eye className="mt-1 h-4 w-4 shrink-0 text-brand-300 transition group-hover:text-brand-700" aria-hidden="true" />
@@ -170,15 +170,15 @@ export default function TramiteWorkspace({
                   )}
                 </section>
 
-                <aside className="xl:sticky xl:top-28 xl:self-start">
+                <aside className="order-1 xl:order-2 xl:sticky xl:top-28 xl:self-start">
                   <div className="overflow-hidden rounded-lg border border-brand-100 bg-white shadow-sm">
                     {selectedDoc ? <>
                       <div className="flex items-center justify-between gap-3 border-b border-border bg-brand-50/60 p-4"><h3 className="truncate text-sm font-bold">{selectedDoc.titulo}</h3><button type="button" onClick={() => setSelectedDocId(null)} className="rounded-lg p-1.5 text-muted-foreground hover:bg-white hover:text-brand-950" aria-label="Cerrar previsualización"><X className="h-4 w-4" /></button></div>
-                      <div className="h-[28rem] bg-neutral-100">
+                      <div className="h-[22rem] bg-neutral-100 sm:h-[28rem]">
                         {selectedDoc.extension_archivo.toLowerCase() === "pdf" ? <iframe src={getStorageUrl(selectedDoc.archivo_path)} title={`Vista previa de ${selectedDoc.titulo}`} className="h-full w-full border-0" /> : <div className="flex h-full flex-col items-center justify-center p-8 text-center"><FileSpreadsheet className="h-12 w-12 text-uncp-gold" aria-hidden="true" /><p className="mt-4 font-bold">Vista previa no disponible</p><p className="mt-2 text-sm text-muted-foreground">Descarga el archivo para revisarlo.</p></div>}
                       </div>
                       <a href={getStorageUrl(selectedDoc.archivo_path)} target="_blank" rel="noopener noreferrer" className="m-4 inline-flex items-center justify-center gap-2 rounded-xl bg-brand-950 px-4 py-3 text-sm font-bold text-white transition hover:bg-brand-700"><Download className="h-4 w-4" aria-hidden="true" /> Abrir documento</a>
-                    </> : <div className="flex h-[28rem] flex-col items-center justify-center p-8 text-center"><div className="flex h-16 w-16 items-center justify-center rounded-lg bg-brand-50 text-brand-500"><Eye className="h-7 w-7" aria-hidden="true" /></div><h3 className="mt-5 font-serif text-xl font-black">Vista previa</h3><p className="mt-2 max-w-xs text-sm leading-relaxed text-muted-foreground">Selecciona un documento para leerlo aquí.</p></div>}
+                    </> : <div className="flex h-[18rem] flex-col items-center justify-center p-6 text-center sm:h-[28rem] sm:p-8"><div className="flex h-16 w-16 items-center justify-center rounded-lg bg-brand-50 text-brand-500"><Eye className="h-7 w-7" aria-hidden="true" /></div><h3 className="mt-5 font-serif text-xl font-black">Vista previa</h3><p className="mt-2 max-w-xs text-sm leading-relaxed text-muted-foreground">Selecciona un documento para leerlo aquí.</p></div>}
                   </div>
                 </aside>
               </div>
