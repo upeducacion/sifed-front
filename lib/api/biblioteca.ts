@@ -134,6 +134,15 @@ export interface RepositorioPublicResponse {
 /** @deprecated usar {@link RepositorioPublicResponse}. */
 export type PublicBibliotecaResponse = RepositorioPublicResponse;
 
+/** Records loaded before the repository metadata existed come back with null lists. */
+function normalizarRecurso(recurso: Recurso): Recurso {
+  return {
+    ...recurso,
+    autores: recurso.autores ?? [],
+    palabras_clave: recurso.palabras_clave ?? [],
+  };
+}
+
 export interface RepositorioDetailResponse {
   recurso: Recurso;
   relacionados: Recurso[];
@@ -230,19 +239,27 @@ export const bibliotecaApi = {
    * Obtener recursos para el repositorio público (con cache e ISR).
    */
   getPublic: async (params?: RepositorioSearchParams) => {
-    return await fetchPublic<RepositorioPublicResponse>("portal/biblioteca", {
+    const response = await fetchPublic<RepositorioPublicResponse>("portal/biblioteca", {
       params: cleanParams(params as Record<string, unknown>),
       next: { tags: ["biblioteca"] },
     });
+    return {
+      ...response,
+      recursos: { ...response.recursos, data: response.recursos.data.map(normalizarRecurso) },
+    };
   },
 
   /**
    * Obtener el detalle público de un recurso por su slug.
    */
   getPublicBySlug: async (slug: string) => {
-    return await fetchPublic<RepositorioDetailResponse>(`portal/biblioteca/${slug}`, {
+    const response = await fetchPublic<RepositorioDetailResponse>(`portal/biblioteca/${slug}`, {
       next: { tags: ["biblioteca", `biblioteca:${slug}`] },
     });
+    return {
+      recurso: normalizarRecurso(response.recurso),
+      relacionados: response.relacionados.map(normalizarRecurso),
+    };
   },
 
   /**

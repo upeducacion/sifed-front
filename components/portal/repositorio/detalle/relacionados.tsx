@@ -27,8 +27,12 @@ export default function Relacionados({ items }: Readonly<{ items: Recurso[] }>) 
                 </Link>
               </h3>
               <p className="mt-1 text-[13px] text-neutral-500">
-                {item.autores.slice(0, 2).join("; ")}
-                {item.autores.length > 2 ? ", et al." : ""} · {item.anio}
+                {[
+                  item.autores.length > 2 ? `${item.autores.slice(0, 2).join("; ")}, et al.` : item.autores.join("; "),
+                  item.anio,
+                ]
+                  .filter(Boolean)
+                  .join(" · ")}
               </p>
             </li>
           );

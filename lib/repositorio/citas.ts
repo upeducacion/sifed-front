@@ -51,21 +51,21 @@ export function citaApa(recurso: Recurso, origin = ""): string {
   const sufijoEnlace = enlace ? ` ${enlace}` : "";
 
   if (esTesis(recurso.tipo)) {
-    return `${autores} (${recurso.anio}). ${recurso.titulo} [${tesisLabel(recurso.tipo)}, ${INSTITUCION}].${sufijoEnlace}`;
+    return `${autores} (${recurso.anio ?? "s. f."}). ${recurso.titulo} [${tesisLabel(recurso.tipo)}, ${INSTITUCION}].${sufijoEnlace}`;
   }
 
   if (recurso.tipo === "articulo") {
     const fuente = recurso.editorial ? ` ${recurso.editorial}.` : "";
-    return `${autores} (${recurso.anio}). ${recurso.titulo}.${fuente}${sufijoEnlace}`;
+    return `${autores} (${recurso.anio ?? "s. f."}). ${recurso.titulo}.${fuente}${sufijoEnlace}`;
   }
 
   if (recurso.tipo === "libro" || recurso.tipo === "capitulo_libro") {
     const editorial = recurso.editorial ? ` ${recurso.editorial}.` : "";
-    return `${autores} (${recurso.anio}). ${recurso.titulo}.${editorial}${sufijoEnlace}`;
+    return `${autores} (${recurso.anio ?? "s. f."}). ${recurso.titulo}.${editorial}${sufijoEnlace}`;
   }
 
   const fuente = recurso.editorial ? ` ${recurso.editorial}.` : "";
-  return `${autores} (${recurso.anio}). ${recurso.titulo}.${fuente}${sufijoEnlace}`;
+  return `${autores} (${recurso.anio ?? "s. f."}). ${recurso.titulo}.${fuente}${sufijoEnlace}`;
 }
 
 const BIBTEX_TYPE: Record<TipoRecurso, string> = {
@@ -93,7 +93,7 @@ function slugifyKey(value: string): string {
 export function claveCitacion(recurso: Recurso): string {
   const primerAutor = recurso.autores[0]?.split(",")[0] ?? "anonimo";
   const primeraPalabra = recurso.titulo.split(/\s+/)[0] ?? "obra";
-  return `${slugifyKey(primerAutor)}${recurso.anio}${slugifyKey(primeraPalabra)}` || `obra${recurso.anio}`;
+  return `${slugifyKey(primerAutor)}${recurso.anio ?? ""}${slugifyKey(primeraPalabra)}` || "obra";
 }
 
 function bibtexEscape(value: string): string {
@@ -110,7 +110,7 @@ export function citaBibtex(recurso: Recurso, origin = ""): string {
   const campos: [string, string | undefined][] = [
     ["author", autores],
     ["title", bibtexEscape(recurso.titulo)],
-    ["year", String(recurso.anio)],
+    ...(recurso.anio ? [["year", String(recurso.anio)] as [string, string]] : []),
   ];
 
   if (esTesis(recurso.tipo)) {
@@ -158,7 +158,7 @@ export function citaRis(recurso: Recurso, origin = ""): string {
 
   for (const autor of recurso.autores) lineas.push(`AU  - ${autor}`);
   lineas.push(`TI  - ${recurso.titulo}`);
-  lineas.push(`PY  - ${recurso.anio}`);
+  if (recurso.anio) lineas.push(`PY  - ${recurso.anio}`);
   if (recurso.editorial) lineas.push(`PB  - ${recurso.editorial}`);
   if (esTesis(recurso.tipo)) lineas.push(`PB  - ${INSTITUCION}`);
   if (recurso.idioma) lineas.push(`LA  - ${recurso.idioma}`);

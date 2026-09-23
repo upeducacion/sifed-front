@@ -36,7 +36,7 @@ export default function MetadatosSidebar({ recurso }: Readonly<{ recurso: Recurs
             </ul>
           </Fila>
           {recurso.asesor && <Fila label="Asesor">{recurso.asesor}</Fila>}
-          <Fila label="Año">{recurso.anio}</Fila>
+          {recurso.anio && <Fila label="Año">{recurso.anio}</Fila>}
           {recurso.programa && (
             <Fila label="Programa">
               <Link href={`/repositorio?programa_id=${recurso.programa.id}`} className="text-brand-700 hover:underline">

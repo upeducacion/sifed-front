@@ -88,9 +88,7 @@ export default async function RepositorioDetallePage({ params }: Readonly<Detall
           </p>
 
           <p className="mt-1.5 text-[13px] text-neutral-500">
-            {recurso.anio}
-            {recurso.programa ? ` · ${recurso.programa.titulo}` : ""}
-            {recurso.editorial ? ` · ${recurso.editorial}` : ""}
+            {[recurso.anio, recurso.programa?.titulo, recurso.editorial].filter(Boolean).join(" · ")}
           </p>
 
           <div className="mt-6">

@@ -46,9 +46,7 @@ export default function ResultadoRow({ recurso }: Readonly<{ recurso: Recurso }>
           <p className="mt-1 text-[0.9rem] text-neutral-600">{autoresLinea(recurso.autores)}</p>
 
           <p className="mt-1 text-[13px] text-neutral-500">
-            {recurso.anio}
-            {fuente ? ` · ${fuente}` : ""}
-            {recurso.idioma ? ` · ${idiomaLabel(recurso.idioma)}` : ""}
+            {[recurso.anio, fuente, recurso.idioma && idiomaLabel(recurso.idioma)].filter(Boolean).join(" · ")}
           </p>
 
           {recurso.descripcion && (

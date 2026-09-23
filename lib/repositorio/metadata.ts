@@ -10,13 +10,13 @@ export function buildCitationMeta(recurso: Recurso): Record<string, string | str
   const meta: Record<string, string | string[]> = {
     citation_title: recurso.titulo,
     citation_author: recurso.autores.length ? recurso.autores : ["Sin autor"],
-    citation_publication_date: String(recurso.anio),
     citation_language: recurso.idioma || "es",
   };
 
   if (recurso.archivo_url) meta.citation_pdf_url = getStorageUrl(recurso.archivo_url);
   if (recurso.doi) meta.citation_doi = recurso.doi;
   if (recurso.editorial) meta.citation_publisher = recurso.editorial;
+  if (recurso.anio) meta.citation_publication_date = String(recurso.anio);
   if (recurso.palabras_clave.length) meta.citation_keywords = recurso.palabras_clave.join("; ");
   if (esTesis(recurso.tipo)) meta.citation_dissertation_institution = INSTITUCION;
 
@@ -44,7 +44,7 @@ export function buildJsonLd(recurso: Recurso): Record<string, unknown> {
     name: recurso.titulo,
     headline: recurso.titulo,
     author: recurso.autores.map((autor) => ({ "@type": "Person", name: autor })),
-    datePublished: String(recurso.anio),
+    datePublished: recurso.anio ? String(recurso.anio) : undefined,
     inLanguage: recurso.idioma || "es",
     description: recurso.descripcion || undefined,
     keywords: recurso.palabras_clave.length ? recurso.palabras_clave.join(", ") : undefined,

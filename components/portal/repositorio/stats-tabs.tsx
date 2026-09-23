@@ -48,7 +48,7 @@ export default async function Stats({ filtros }: Readonly<{ filtros: ParsedFiltr
       <StatCell value={stats.total_obras} label="Obras" />
       <StatCell value={stats.total_autores} label="Autores" />
       <StatCell value={stats.total_descargas} label="Descargas" />
-      <StatCell value={`${stats.anio_min}–${stats.anio_max}`} label="Cobertura" />
+      <StatCell value={stats.anio_min && stats.anio_max ? `${stats.anio_min}–${stats.anio_max}` : "—"} label="Cobertura" />
     </dl>
   );
 }
