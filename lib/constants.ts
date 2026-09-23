@@ -4,7 +4,7 @@
 
 export const EXTERNAL_LINKS = {
     // Aula Virtual / Intranet Externa
-    AULA_VIRTUAL: "https://intranet.upeducacion-uncp.edu.pe/login",
+    AULA_VIRTUAL: "https://intranet.upgeducacionuncp.com/",
     
     // Redes Sociales
     FACEBOOK: "https://www.facebook.com/share/1CYePnSe63/",
