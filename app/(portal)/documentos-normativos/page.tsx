@@ -1,7 +1,7 @@
 import DocumentosNormativosContent from "@/components/home/documentos-normativos-content";
 import TramitesContent from "@/components/home/tramites-content";
 import { documentosApi } from "@/lib/api/documentos";
-import { procedures, type ProcedureSlug } from "@/components/home/tramite-detail-content";
+import { isProcedureSlug } from "@/lib/tramites/catalog";
 import { redirect } from "next/navigation";
 
 export const metadata = {
@@ -25,8 +25,8 @@ export default async function DocumentosNormativosPage({
     return <TramitesContent />;
   }
 
-  if (type && Object.hasOwn(procedures, type)) {
-    redirect(`/tramites/${type as ProcedureSlug}`);
+  if (isProcedureSlug(type)) {
+    redirect(`/tramites/${type}`);
   }
 
   // SSR / ISR Fetching: Ambas promesas se ejecutan en paralelo

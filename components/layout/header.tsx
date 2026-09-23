@@ -163,7 +163,7 @@ export default function Header() {
 
   return (
     <>
-      <header className={cn(
+      <header style={{ viewTransitionName: "site-header" }} className={cn(
         "sticky top-0 z-50 w-full transition-all duration-300 border-b font-sans",
         "h-16 lg:h-20", // Altura fija para evitar layout shifts
         scrolled 

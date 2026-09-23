@@ -278,3 +278,127 @@
     width: 100%;
   }
 }
+
+/* View transitions (React <ViewTransition> + Link transitionTypes) */
+:root {
+  --vt-exit: 150ms;
+  --vt-enter: 220ms;
+  --vt-move: 380ms;
+  --vt-ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+::view-transition {
+  pointer-events: none;
+}
+
+::view-transition-group(.morph) {
+  animation-duration: var(--vt-move);
+  animation-timing-function: var(--vt-ease);
+}
+
+::view-transition-image-pair(.morph) {
+  animation-name: vt-via-blur;
+}
+
+::view-transition-old(.nav-forward) {
+  --vt-offset: -48px;
+  animation: var(--vt-exit) ease-in both vt-fade reverse, var(--vt-move) var(--vt-ease) both vt-slide-x reverse;
+}
+
+::view-transition-new(.nav-forward) {
+  --vt-offset: 48px;
+  animation: var(--vt-enter) ease-out var(--vt-exit) both vt-fade, var(--vt-move) var(--vt-ease) both vt-slide-x;
+}
+
+::view-transition-old(.nav-back) {
+  --vt-offset: 48px;
+  animation: var(--vt-exit) ease-in both vt-fade reverse, var(--vt-move) var(--vt-ease) both vt-slide-x reverse;
+}
+
+::view-transition-new(.nav-back) {
+  --vt-offset: -48px;
+  animation: var(--vt-enter) ease-out var(--vt-exit) both vt-fade, var(--vt-move) var(--vt-ease) both vt-slide-x;
+}
+
+::view-transition-old(.text-swap),
+::view-transition-old(.fade-out),
+::view-transition-old(.preview-swap),
+::view-transition-old(.doc-page) {
+  animation: var(--vt-exit) ease-in both vt-fade reverse;
+}
+
+::view-transition-new(.text-swap) {
+  animation: var(--vt-enter) ease-out var(--vt-exit) both vt-fade, var(--vt-move) var(--vt-ease) both vt-slide-y;
+}
+
+::view-transition-new(.preview-swap),
+::view-transition-new(.doc-page) {
+  animation: var(--vt-enter) ease-out both vt-fade;
+}
+
+::view-transition-old(.slide-down) {
+  animation: var(--vt-exit) ease-out both vt-fade reverse, var(--vt-exit) ease-out both vt-slide-y reverse;
+}
+
+::view-transition-new(.slide-up) {
+  animation: var(--vt-enter) ease-in var(--vt-exit) both vt-fade, var(--vt-move) var(--vt-ease) both vt-slide-y;
+}
+
+::view-transition-group(site-header) {
+  animation: none;
+  z-index: 100;
+}
+
+::view-transition-old(site-header) {
+  display: none;
+}
+
+::view-transition-new(site-header) {
+  animation: none;
+}
+
+@keyframes vt-fade {
+  from { opacity: 0; filter: blur(2px); }
+  to { opacity: 1; filter: blur(0); }
+}
+
+@keyframes vt-slide-x {
+  from { translate: var(--vt-offset) 0; }
+  to { translate: 0 0; }
+}
+
+@keyframes vt-slide-y {
+  from { translate: 0 10px; }
+  to { translate: 0 0; }
+}
+
+@keyframes vt-via-blur {
+  30% { filter: blur(2px); }
+}
+
+@keyframes rise-in {
+  from { opacity: 0; translate: 0 12px; }
+  to { opacity: 1; translate: 0 0; }
+}
+
+.tramite-rise {
+  animation: rise-in 480ms var(--vt-ease) both;
+  animation-delay: calc(var(--i, 0) * 45ms);
+}
+
+details[open] > .details-reveal {
+  animation: rise-in 260ms var(--vt-ease) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(*),
+  ::view-transition-new(*),
+  ::view-transition-group(*) {
+    animation-duration: 0s !important;
+    animation-delay: 0s !important;
+  }
+
+  .tramite-rise {
+    animation: none;
+  }
+}

@@ -10,6 +10,7 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { useToast } from "@/hooks/use-toast";
 import { cn, getStorageUrl } from "@/lib/utils";
+import ProcedureOptions from "@/components/tramites/procedure-options";
 
 // Mapeo simple de iconos según el slug de la categoría
 const getIconForCategory = (slug?: string) => {
@@ -18,13 +19,6 @@ const getIconForCategory = (slug?: string) => {
   if (slug.includes('formato') || slug.includes('plantilla')) return <FileSpreadsheet className="h-5 w-5 text-uncp-gold" />;
   return <FileText className="h-5 w-5 text-brand-600" />;
 };
-
-const procedureOptions = [
-  { value: "constancia-egresado", label: "Constancia de egresado" },
-  { value: "record-academico", label: "Récord académico" },
-  { value: "reserva-matricula", label: "Reserva de matrícula" },
-  { value: "mesa-de-partes", label: "Mesa de partes" },
-];
 
 export function DocumentosClient() {
   const router = useRouter();
@@ -88,11 +82,11 @@ export function DocumentosClient() {
   };
 
   return (
-    <main className="min-h-full bg-[#f5f7fa] p-5 text-brand-950 md:p-8">
+    <main className="min-h-full bg-surface-subtle p-5 text-brand-950 md:p-8">
       <div className="page-shell-wide-contained space-y-6">
       <div className="flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
         <div>
-          <p className="text-[10px] font-black uppercase tracking-[0.24em] text-amber-700">Biblioteca institucional</p>
+          <p className="text-[10px] font-black uppercase tracking-[0.24em] text-gold-700">Biblioteca institucional</p>
           <h1 className="mt-2 font-serif text-3xl font-black tracking-tight md:text-4xl">Documentos normativos</h1>
           <p className="mt-2 text-sm text-muted-foreground">Gestiona normativas, formatos oficiales, flujos y guías desde un solo espacio.</p>
         </div>
@@ -121,25 +115,25 @@ export function DocumentosClient() {
       </div>
 
       <div className="grid gap-3 sm:grid-cols-3">
-        <div className="rounded-lg border border-slate-200 bg-white p-4 shadow-sm"><div className="flex items-center justify-between text-xs font-bold text-muted-foreground">Documentos encontrados <FileText className="h-4 w-4 text-brand-400" /></div><p className="mt-2 text-2xl font-black">{meta?.total ?? documentos.length}</p></div>
-        <div className="rounded-lg border border-slate-200 bg-white p-4 shadow-sm"><div className="flex items-center justify-between text-xs font-bold text-muted-foreground">Carpetas organizadas <Folder className="h-4 w-4 text-amber-500" /></div><p className="mt-2 text-2xl font-black">{folders.length}</p></div>
-        <div className="rounded-lg border border-slate-200 bg-white p-4 shadow-sm"><div className="flex items-center justify-between text-xs font-bold text-muted-foreground">Visibles en el portal <Eye className="h-4 w-4 text-emerald-500" /></div><p className="mt-2 text-2xl font-black">{documentos.filter((document: DocumentoNormativo) => document.is_public).length}</p></div>
+        <div className="rounded-lg border border-border bg-white p-4 shadow-sm"><div className="flex items-center justify-between text-xs font-bold text-muted-foreground">Documentos encontrados <FileText className="h-4 w-4 text-brand-400" /></div><p className="mt-2 text-2xl font-black">{meta?.total ?? documentos.length}</p></div>
+        <div className="rounded-lg border border-border bg-white p-4 shadow-sm"><div className="flex items-center justify-between text-xs font-bold text-muted-foreground">Carpetas organizadas <Folder className="h-4 w-4 text-gold-500" /></div><p className="mt-2 text-2xl font-black">{folders.length}</p></div>
+        <div className="rounded-lg border border-border bg-white p-4 shadow-sm"><div className="flex items-center justify-between text-xs font-bold text-muted-foreground">Visibles en el portal <Eye className="h-4 w-4 text-emerald-500" /></div><p className="mt-2 text-2xl font-black">{documentos.filter((document: DocumentoNormativo) => document.is_public).length}</p></div>
       </div>
 
-      <section className="rounded-lg border border-slate-200 bg-white p-4 shadow-sm md:p-5">
+      <section className="rounded-lg border border-border bg-white p-4 shadow-sm md:p-5">
         <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
           <div><p className="text-[10px] font-black uppercase tracking-[0.2em] text-muted-foreground">Ubicación rápida</p><p className="mt-1 text-sm font-bold">{selectedFolderId ? "Filtrando por carpeta seleccionada" : "Todos los documentos"}</p></div>
           <Link href="/admin/portal/tramites" className="inline-flex items-center gap-1.5 text-xs font-bold text-brand-600 hover:text-brand-950"><Settings2 className="h-3.5 w-3.5" /> Gestionar estructura <ChevronRight className="h-3.5 w-3.5" /></Link>
         </div>
         <div className="mt-4 flex gap-2 overflow-x-auto pb-1">
-          <button type="button" onClick={() => { setSelectedFolderId(null); setPage(1); }} className={cn("inline-flex shrink-0 items-center gap-2 rounded-xl border px-3 py-2 text-xs font-bold transition", selectedFolderId === null ? "border-brand-950 bg-brand-950 text-white" : "border-slate-200 text-brand-800 hover:border-brand-300 hover:bg-brand-50")}><FolderOpen className="h-4 w-4" /> Todos</button>
+          <button type="button" onClick={() => { setSelectedFolderId(null); setPage(1); }} className={cn("inline-flex shrink-0 items-center gap-2 rounded-xl border px-3 py-2 text-xs font-bold transition", selectedFolderId === null ? "border-brand-950 bg-brand-950 text-white" : "border-border text-brand-800 hover:border-brand-300 hover:bg-brand-50")}><FolderOpen className="h-4 w-4" /> Todos</button>
           {folders.filter((folder) => folder.parent_id === null).map((folder) => (
-            <button key={folder.id} type="button" onClick={() => { setSelectedFolderId(folder.id); setPage(1); }} className={cn("inline-flex shrink-0 items-center gap-2 rounded-xl border px-3 py-2 text-xs font-bold transition", selectedFolderId === folder.id ? "border-brand-950 bg-brand-950 text-white" : "border-slate-200 text-brand-800 hover:border-brand-300 hover:bg-brand-50")}><Folder className={cn("h-4 w-4", selectedFolderId === folder.id ? "text-uncp-gold" : "text-amber-500")} /> {folder.name}<span className="text-[10px] opacity-60">{folder.documents_count ?? 0}</span></button>
+            <button key={folder.id} type="button" onClick={() => { setSelectedFolderId(folder.id); setPage(1); }} className={cn("inline-flex shrink-0 items-center gap-2 rounded-xl border px-3 py-2 text-xs font-bold transition", selectedFolderId === folder.id ? "border-brand-950 bg-brand-950 text-white" : "border-border text-brand-800 hover:border-brand-300 hover:bg-brand-50")}><Folder className={cn("h-4 w-4", selectedFolderId === folder.id ? "text-uncp-gold" : "text-gold-500")} /> {folder.name}<span className="text-[10px] opacity-60">{folder.documents_count ?? 0}</span></button>
           ))}
         </div>
       </section>
 
-      <div className="flex flex-col gap-4 rounded-lg border border-slate-200 bg-white p-4 shadow-sm md:p-5">
+      <div className="flex flex-col gap-4 rounded-lg border border-border bg-white p-4 shadow-sm md:p-5">
         <div className="relative flex-1">
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
           <input
@@ -175,11 +169,11 @@ export function DocumentosClient() {
           aria-label="Filtrar por tipo de trámite"
         >
           <option value="">Todos los tipos</option>
-          {procedureOptions.map((option) => <option key={option.value} value={option.value}>{option.label}</option>)}
+          <ProcedureOptions />
         </select>
       </div>
 
-      <div className="overflow-hidden rounded-lg border border-slate-200 bg-white shadow-sm">
+      <div className="overflow-hidden rounded-lg border border-border bg-white shadow-sm">
         {isLoading ? (
           <div className="flex justify-center p-12">
             <Loader2 className="h-8 w-8 animate-spin text-brand-600" />
@@ -220,7 +214,7 @@ export function DocumentosClient() {
                       <span className={`inline-flex items-center rounded-full px-2.5 py-1 text-[10px] uppercase tracking-widest font-bold ring-1 ring-inset ${
                         doc.estado === 'vigente' ? 'bg-green-50 text-green-700 ring-green-600/20' : 
                         doc.estado === 'derogado' ? 'bg-red-50 text-red-700 ring-red-600/20' : 
-                        'bg-yellow-50 text-yellow-800 ring-yellow-600/20'
+                        'bg-gold-50 text-gold-800 ring-gold-700/20'
                       }`}>
                         {doc.estado}
                       </span>
