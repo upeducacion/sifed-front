@@ -20,7 +20,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/noticias',
     '/galeria-fotos',
     '/documentos-normativos',
-    '/biblioteca-virtual',
+    '/repositorio',
     '/portales-institucionales',
   ].map((route) => ({
     url: `${baseUrl}${route}`,

@@ -3,6 +3,7 @@ import Footer from "@/components/layout/footer";
 import SdlFooter from "@/components/layout/sdl-footer";
 import FloatingActions from "@/components/ui/floating-actions";
 import { unidadPosgradoApi } from "@/lib/api/unidad-posgrado";
+import { ToastProvider } from "@/hooks/use-toast";
 
 export default async function PortalLayout({
   children,
@@ -21,20 +22,22 @@ export default async function PortalLayout({
   }
 
   return (
-    <div className="flex min-h-screen flex-col bg-background text-foreground font-sans selection:bg-brand-600 selection:text-white">
-      {/* HEADER MEGA MENU */}
-      <Header />
+    <ToastProvider>
+      <div className="flex min-h-screen flex-col bg-background text-foreground font-sans selection:bg-brand-600 selection:text-white">
+        {/* HEADER MEGA MENU */}
+        <Header />
 
-      <main className="flex w-full flex-1 flex-col">
-        {children}
-      </main>
+        <main className="flex w-full flex-1 flex-col">
+          {children}
+        </main>
 
-      <Footer />
-      <SdlFooter />
-      
-      {/* ACCIONES FLOTANTES (CONTACTO Y SCROLL) */}
-      <FloatingActions whatsappNumber={whatsappNumber} />
-    </div>
+        <Footer />
+        <SdlFooter />
+
+        {/* ACCIONES FLOTANTES (CONTACTO Y SCROLL) */}
+        <FloatingActions whatsappNumber={whatsappNumber} />
+      </div>
+    </ToastProvider>
   );
 }
 

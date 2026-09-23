@@ -49,21 +49,26 @@ const menuItems = [
   {
     label: "Investigación",
     featured: {
-      title: "Biblioteca e Investigación",
-      desc: "Accede a nuestra biblioteca virtual, producción científica y sustentaciones.",
-      link: "/biblioteca-virtual",
+      title: "Repositorio Institucional",
+      desc: "Tesis, artículos y biblioteca virtual de la Unidad de Posgrado.",
+      link: "/repositorio",
       image: "/images/logo-posgrado-educacion.webp"
     },
     cols: [
       {
-        title: "Recursos y Normativa",
+        title: "Repositorio",
         links: [
-          { label: "Biblioteca Virtual", href: "/biblioteca-virtual" }
+          { label: "Todo el repositorio", href: "/repositorio" },
+          { label: "Investigación", href: "/repositorio?coleccion=investigacion" },
+          { label: "Biblioteca virtual", href: "/repositorio?coleccion=biblioteca" }
         ]
       },
       {
         title: "Producción Científica",
         links: [
+          { label: "Tesis de maestría", href: "/repositorio?tipo=tesis_maestria" },
+          { label: "Tesis de doctorado", href: "/repositorio?tipo=tesis_doctorado" },
+          { label: "Artículos científicos", href: "/repositorio?tipo=articulo" },
           { label: "Memoria Visual y Sustentaciones", href: "/galeria-fotos" }
         ]
       }

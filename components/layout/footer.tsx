@@ -78,7 +78,8 @@ export default function Footer() {
           <div>
             <h4 className="mb-8 text-xs font-black text-brand-950 uppercase tracking-[0.2em]">Investigación</h4>
             <ul className="space-y-4 text-sm font-bold text-text-secondary">
-              <li><Link href="/biblioteca-virtual" className="hover:text-brand-600 transition-colors focus-visible:outline-brand-600">Biblioteca Virtual</Link></li>
+              <li><Link href="/repositorio" className="hover:text-brand-600 transition-colors focus-visible:outline-brand-600">Repositorio Institucional</Link></li>
+              <li><Link href="/repositorio?coleccion=biblioteca" className="hover:text-brand-600 transition-colors focus-visible:outline-brand-600">Biblioteca Virtual</Link></li>
               <li><Link href="/documentos-normativos" className="hover:text-brand-600 transition-colors focus-visible:outline-brand-600">Normativa de Grados</Link></li>
               <li><Link href="/galeria-fotos" className="hover:text-brand-600 transition-colors focus-visible:outline-brand-600">Memoria Visual (Galería)</Link></li>
               <li><Link href="/posgrado/plana-docente" className="hover:text-brand-600 transition-colors focus-visible:outline-brand-600">Plana Docente</Link></li>

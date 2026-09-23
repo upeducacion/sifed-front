@@ -56,6 +56,16 @@ const nextConfig: NextConfig = {
         destination: '/documentos-normativos/formatos',
         permanent: true,
       },
+      {
+        source: '/biblioteca-virtual',
+        destination: '/repositorio?coleccion=biblioteca',
+        permanent: true,
+      },
+      {
+        source: '/investigacion',
+        destination: '/repositorio?coleccion=investigacion',
+        permanent: true,
+      },
     ];
   },
   async rewrites() {
