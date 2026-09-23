@@ -1,4 +1,4 @@
-import { ViewTransition } from "react";
+import { ViewTransition, type ReactNode } from "react";
 import Link from "next/link";
 import { ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -22,10 +22,14 @@ export function StepBadge({ procedure, isActive = false, className }: Readonly<{
   );
 }
 
-function ActivePill({ morph }: Readonly<{ morph: boolean }>) {
-  const pill = <span className="absolute inset-0 rounded-lg bg-brand-950 shadow-md" aria-hidden="true" />;
-  if (!morph) return pill;
-  return <ViewTransition name="tramite-nav-active" share="morph" default="none">{pill}</ViewTransition>;
+function ActivePill() {
+  return <span className="absolute inset-0 rounded-lg bg-brand-950 shadow-md" aria-hidden="true" />;
+}
+
+/* The whole active link morphs (background, icon and label together) so the pill never flies over foreign text. */
+function MorphWhenActive({ active, children }: Readonly<{ active: boolean; children: ReactNode }>) {
+  if (!active) return children;
+  return <ViewTransition name="tramite-nav-active" share="morph" default="none">{children}</ViewTransition>;
 }
 
 function ProcedureLinks({ selectedSlug, variant }: Readonly<{ selectedSlug?: ProcedureSlug; variant: "mobile" | "desktop" }>) {
@@ -47,29 +51,31 @@ function ProcedureLinks({ selectedSlug, variant }: Readonly<{ selectedSlug?: Pro
                 const Icon = procedure.icon;
                 return (
                   <li key={procedure.slug}>
-                    <Link
-                      href={selectedSlug && variant === "mobile" ? `/tramites/${procedure.slug}#documentos` : `/tramites/${procedure.slug}`}
-                      transitionTypes={navTransition(selectedSlug ?? null, procedure.slug)}
-                      scroll={!selectedSlug || variant === "mobile"}
-                      aria-current={isActive ? "page" : undefined}
-                      className={cn(
-                        "group relative flex items-center gap-3 rounded-lg px-2 py-2 text-sm font-semibold leading-tight transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-uncp-gold",
-                        isActive ? "text-white" : "text-brand-800 hover:bg-brand-50 hover:text-brand-950"
-                      )}
-                    >
-                      {isActive && <ActivePill morph={variant === "desktop"} />}
-                      {procedure.step ? (
-                        <StepBadge procedure={procedure} isActive={isActive} />
-                      ) : (
-                        <span className={cn("relative flex h-8 w-8 shrink-0 items-center justify-center rounded-lg transition-colors", isActive ? "bg-uncp-gold text-brand-950" : "bg-brand-50 text-brand-800 group-hover:bg-white")}>
-                          <Icon className="h-4 w-4" aria-hidden="true" />
+                    <MorphWhenActive active={isActive && variant === "desktop"}>
+                      <Link
+                        href={selectedSlug && variant === "mobile" ? `/tramites/${procedure.slug}#documentos` : `/tramites/${procedure.slug}`}
+                        transitionTypes={navTransition(selectedSlug ?? null, procedure.slug)}
+                        scroll={!selectedSlug || variant === "mobile"}
+                        aria-current={isActive ? "page" : undefined}
+                        className={cn(
+                          "group relative flex items-center gap-3 rounded-lg px-2 py-2 text-sm font-semibold leading-tight transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-uncp-gold",
+                          isActive ? "text-white" : "text-brand-800 hover:bg-brand-50 hover:text-brand-950"
+                        )}
+                      >
+                        {isActive && <ActivePill />}
+                        {procedure.step ? (
+                          <StepBadge procedure={procedure} isActive={isActive} />
+                        ) : (
+                          <span className={cn("relative flex h-8 w-8 shrink-0 items-center justify-center rounded-lg transition-colors", isActive ? "bg-uncp-gold text-brand-950" : "bg-brand-50 text-brand-800 group-hover:bg-white")}>
+                            <Icon className="h-4 w-4" aria-hidden="true" />
+                          </span>
+                        )}
+                        <span className="relative min-w-0 flex-1">
+                          {procedure.title}
+                          {procedure.step?.optional && <span className={cn("mt-0.5 block text-[11px] font-medium", isActive ? "text-brand-300" : "text-muted-foreground")}>{procedure.step.optional}</span>}
                         </span>
-                      )}
-                      <span className="relative min-w-0 flex-1">
-                        {procedure.title}
-                        {procedure.step?.optional && <span className={cn("mt-0.5 block text-[11px] font-medium", isActive ? "text-brand-300" : "text-muted-foreground")}>{procedure.step.optional}</span>}
-                      </span>
-                    </Link>
+                      </Link>
+                    </MorphWhenActive>
                   </li>
                 );
               })}

@@ -1,4 +1,5 @@
 import { ViewTransition } from "react";
+import DirectionalTransition from "./directional-transition";
 import Link from "next/link";
 import { ShieldCheck } from "lucide-react";
 import { getGroup, navTransition, type CatalogProcedure } from "@/lib/tramites/catalog";
@@ -21,22 +22,22 @@ export default function TramiteHero({ procedure }: Readonly<{ procedure?: Catalo
           {group && <><span className="text-brand-600">/</span><span className="truncate text-uncp-gold" aria-current="page">{group.title}</span></>}
         </nav>
 
-        <ViewTransition key={procedure?.slug ?? "tramites"} enter="text-swap" exit="text-swap" default="none">
+        <DirectionalTransition name="tramite-hero-copy" transitionKey={procedure?.slug ?? "tramites"}>
           <div className="max-w-4xl">
             <span className="mb-4 inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.28em] text-uncp-gold">
               <ShieldCheck className="h-4 w-4" aria-hidden="true" />
               {group ? [group.title, caption].filter(Boolean).join(" · ") : "Atención académica · Posgrado"}
             </span>
             <ViewTransition name={`tramite-title-${procedure?.slug ?? "index"}`} share="morph" default="none">
-              <h1 className="max-w-3xl font-serif text-3xl font-black leading-[1.02] text-white sm:text-4xl md:text-6xl">
+              <h1 className="min-h-[2.04em] max-w-3xl font-serif text-3xl font-black leading-[1.02] text-white sm:text-4xl md:text-6xl">
                 {procedure ? procedure.title : "Trámites académicos"}
               </h1>
             </ViewTransition>
-            <p className="mt-4 max-w-2xl text-sm leading-relaxed text-brand-50 sm:mt-5 sm:text-base md:text-lg">
+            <p className="mt-4 min-h-[3.25em] max-w-2xl text-sm leading-relaxed text-brand-50 sm:mt-5 sm:text-base md:text-lg">
               {procedure?.description ?? "Encuentra el procedimiento que necesitas y descarga sus requisitos y modelos de solicitud desde un solo lugar."}
             </p>
           </div>
-        </ViewTransition>
+        </DirectionalTransition>
       </div>
     </section>
   );

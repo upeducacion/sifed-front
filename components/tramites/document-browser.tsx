@@ -4,9 +4,10 @@ import { useState, useTransition, ViewTransition, type CSSProperties } from "rea
 import { ChevronLeft, ChevronRight, Download, Eye, FileSpreadsheet, FileText, ListChecks, PenLine, Search, X } from "lucide-react";
 import type { DocumentoNormativo } from "@/types/documento-normativo";
 import { getStorageUrl, cn } from "@/lib/utils";
-import { documentSections, sectionOf, type DocumentSectionId } from "@/lib/tramites/catalog";
+import { documentSections, sectionOf, type DocumentSectionId, type ProcedureSlug } from "@/lib/tramites/catalog";
 
 const PAGE_SIZE = 8;
+const PREVIEW_PANE_QUERY = "(min-width: 80rem)";
 
 const sectionIcons: Record<DocumentSectionId, typeof FileText> = {
   requisitos: ListChecks,
@@ -19,6 +20,18 @@ const sectionOrder = documentSections.map((section) => section.id);
 function sortBySection(documentos: DocumentoNormativo[]) {
   return [...documentos].sort(
     (a, b) => sectionOrder.indexOf(sectionOf(a.sub_categoria)) - sectionOrder.indexOf(sectionOf(b.sub_categoria))
+  );
+}
+
+function PdfFrame({ src, title }: Readonly<{ src: string; title: string }>) {
+  const [loaded, setLoaded] = useState(false);
+  return (
+    <iframe
+      src={src}
+      title={title}
+      onLoad={() => setLoaded(true)}
+      className={cn("h-full w-full border-0 transition-opacity duration-300 ease-out", loaded ? "opacity-100" : "opacity-0")}
+    />
   );
 }
 
@@ -42,7 +55,7 @@ function DocumentPreview({ doc, onClose }: Readonly<{ doc: DocumentoNormativo | 
       </div>
       <div className="h-[28rem] bg-neutral-100">
         {doc.extension_archivo.toLowerCase() === "pdf"
-          ? <iframe src={fileUrl} title={`Vista previa de ${doc.titulo}`} className="h-full w-full border-0" />
+          ? <PdfFrame src={fileUrl} title={`Vista previa de ${doc.titulo}`} />
           : (
             <div className="flex h-full flex-col items-center justify-center p-8 text-center">
               <FileSpreadsheet className="h-12 w-12 text-uncp-gold" aria-hidden="true" />
@@ -58,7 +71,7 @@ function DocumentPreview({ doc, onClose }: Readonly<{ doc: DocumentoNormativo | 
   );
 }
 
-export default function DocumentBrowser({ documentos, searchQuery }: Readonly<{ documentos: DocumentoNormativo[]; searchQuery: string }>) {
+export default function DocumentBrowser({ slug, documentos, searchQuery }: Readonly<{ slug: ProcedureSlug; documentos: DocumentoNormativo[]; searchQuery: string }>) {
   const [selectedDocId, setSelectedDocId] = useState<number | null>(null);
   const [currentPage, setCurrentPage] = useState(1);
   const [, startTransition] = useTransition();
@@ -71,7 +84,13 @@ export default function DocumentBrowser({ documentos, searchQuery }: Readonly<{ 
   const pageStart = (safeCurrentPage - 1) * PAGE_SIZE;
   const visibleDocuments = sortedDocuments.slice(pageStart, pageStart + PAGE_SIZE);
 
-  const selectDocument = (id: number) => startTransition(() => setSelectedDocId(id));
+  const selectDocument = (doc: DocumentoNormativo) => {
+    if (window.matchMedia(PREVIEW_PANE_QUERY).matches) {
+      startTransition(() => setSelectedDocId(doc.id));
+      return;
+    }
+    window.open(getStorageUrl(doc.archivo_path), "_blank", "noopener,noreferrer");
+  };
 
   const goToPage = (page: number) => {
     const nextPage = Math.min(Math.max(page, 1), totalPages);
@@ -112,13 +131,13 @@ export default function DocumentBrowser({ documentos, searchQuery }: Readonly<{ 
                   )}
                   <div className={cn("group relative flex items-stretch overflow-hidden rounded-lg border bg-white transition duration-200 hover:-translate-y-0.5 hover:shadow-md", isSelected ? "xl:border-brand-300 xl:bg-brand-50/50 xl:shadow-sm" : "border-border hover:border-brand-300")}>
                     {isSelected && (
-                      <ViewTransition name="doc-selected-indicator" share="morph" default="none">
+                      <ViewTransition name={`doc-selected-${slug}`} share="morph" default="none">
                         <span className="absolute inset-y-3 left-0 hidden w-1 rounded-r-full bg-uncp-gold xl:block" aria-hidden="true" />
                       </ViewTransition>
                     )}
                     <button
                       type="button"
-                      onClick={() => selectDocument(doc.id)}
+                      onClick={() => selectDocument(doc)}
                       aria-pressed={isSelected}
                       className="flex min-w-0 flex-1 items-start gap-4 p-4 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-uncp-gold"
                     >

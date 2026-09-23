@@ -369,7 +369,9 @@
   }
 }
 
-/* View transitions (React <ViewTransition> + Link transitionTypes) */
+/* View transitions (React <ViewTransition> + Link transitionTypes)
+   One timing scale for every transition so hero, panel and lists move together:
+   old content leaves fast, new content arrives after it, movement is longer than the fade. */
 :root {
   --vt-exit: 150ms;
   --vt-enter: 220ms;
@@ -381,6 +383,7 @@
   pointer-events: none;
 }
 
+/* Shared elements that fly between positions (nav pill, progress marker, title). */
 ::view-transition-group(.morph) {
   animation-duration: var(--vt-move);
   animation-timing-function: var(--vt-ease);
@@ -390,48 +393,63 @@
   animation-name: vt-via-blur;
 }
 
+/* Paired regions (hero copy, content panel): snap the box to its new size, slide the content. */
+::view-transition-group(.nav-forward),
+::view-transition-group(.nav-back) {
+  animation: none;
+}
+
+::view-transition-image-pair(.nav-forward),
+::view-transition-image-pair(.nav-back) {
+  isolation: auto;
+}
+
+::view-transition-old(.nav-forward),
+::view-transition-old(.nav-back),
+::view-transition-new(.nav-forward),
+::view-transition-new(.nav-back) {
+  mix-blend-mode: normal;
+}
+
 ::view-transition-old(.nav-forward) {
-  --vt-offset: -48px;
+  --vt-offset: -40px;
   animation: var(--vt-exit) ease-in both vt-fade reverse, var(--vt-move) var(--vt-ease) both vt-slide-x reverse;
 }
 
 ::view-transition-new(.nav-forward) {
-  --vt-offset: 48px;
+  --vt-offset: 40px;
   animation: var(--vt-enter) ease-out var(--vt-exit) both vt-fade, var(--vt-move) var(--vt-ease) both vt-slide-x;
 }
 
 ::view-transition-old(.nav-back) {
-  --vt-offset: 48px;
+  --vt-offset: 40px;
   animation: var(--vt-exit) ease-in both vt-fade reverse, var(--vt-move) var(--vt-ease) both vt-slide-x reverse;
 }
 
 ::view-transition-new(.nav-back) {
-  --vt-offset: -48px;
+  --vt-offset: -40px;
   animation: var(--vt-enter) ease-out var(--vt-exit) both vt-fade, var(--vt-move) var(--vt-ease) both vt-slide-x;
 }
 
-::view-transition-old(.text-swap),
+/* In-place swaps: search results, pagination, preview pane. */
 ::view-transition-old(.fade-out),
 ::view-transition-old(.preview-swap),
 ::view-transition-old(.doc-page) {
   animation: var(--vt-exit) ease-in both vt-fade reverse;
 }
 
-::view-transition-new(.text-swap) {
-  animation: var(--vt-enter) ease-out var(--vt-exit) both vt-fade, var(--vt-move) var(--vt-ease) both vt-slide-y;
-}
-
 ::view-transition-new(.preview-swap),
 ::view-transition-new(.doc-page) {
-  animation: var(--vt-enter) ease-out both vt-fade;
+  animation: var(--vt-enter) ease-out var(--vt-exit) both vt-fade;
 }
 
+/* Suspense handoff: skeleton steps down, data steps up. */
 ::view-transition-old(.slide-down) {
-  animation: var(--vt-exit) ease-out both vt-fade reverse, var(--vt-exit) ease-out both vt-slide-y reverse;
+  animation: var(--vt-exit) ease-in both vt-fade reverse, var(--vt-exit) ease-in both vt-slide-y reverse;
 }
 
 ::view-transition-new(.slide-up) {
-  animation: var(--vt-enter) ease-in var(--vt-exit) both vt-fade, var(--vt-move) var(--vt-ease) both vt-slide-y;
+  animation: var(--vt-enter) ease-out var(--vt-exit) both vt-fade, var(--vt-move) var(--vt-ease) both vt-slide-y;
 }
 
 ::view-transition-group(site-header) {
@@ -448,8 +466,8 @@
 }
 
 @keyframes vt-fade {
-  from { opacity: 0; filter: blur(2px); }
-  to { opacity: 1; filter: blur(0); }
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 @keyframes vt-slide-x {
@@ -471,7 +489,8 @@
   to { opacity: 1; translate: 0 0; }
 }
 
-.tramite-rise {
+/* First-paint stagger only; later navigations render without the flag and the view transition owns the motion. */
+[data-entrance] .tramite-rise {
   animation: rise-in 480ms var(--vt-ease) both;
   animation-delay: calc(var(--i, 0) * 45ms);
 }
@@ -488,7 +507,8 @@ details[open] > .details-reveal {
     animation-delay: 0s !important;
   }
 
-  .tramite-rise {
+  [data-entrance] .tramite-rise,
+  details[open] > .details-reveal {
     animation: none;
   }
 }

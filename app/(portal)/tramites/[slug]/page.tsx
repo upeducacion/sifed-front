@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import DocumentosSearch from "@/components/home/documentos-search";
 import DirectionalTransition from "@/components/tramites/directional-transition";
+import EntranceScope from "@/components/tramites/entrance-scope";
 import MesaDePartesCallout from "@/components/tramites/mesa-de-partes-callout";
 import ProcedureNav from "@/components/tramites/procedure-nav";
 import TramiteHero from "@/components/tramites/tramite-hero";
@@ -33,16 +34,16 @@ export default async function TramitePage({ params, searchParams }: TramitePageP
   const procedure = getProcedure(slug);
 
   return (
-    <main className="min-h-full flex-1 bg-parchment text-brand-950">
+    <EntranceScope className="min-h-full flex-1 bg-parchment text-brand-950">
       <TramiteHero procedure={procedure} />
 
       <section className="page-shell-wide grid gap-5 py-5 sm:gap-8 sm:py-8 lg:grid-cols-[19rem_minmax(0,1fr)] lg:py-12">
-        <aside className="space-y-3 sm:space-y-4 lg:sticky lg:top-28 lg:max-h-[calc(100vh-8rem)] lg:self-start lg:overflow-y-auto">
+        <aside className="space-y-3 sm:space-y-4 lg:self-start">
           <ProcedureNav selectedSlug={slug} />
           <div className="hidden lg:block"><MesaDePartesCallout /></div>
         </aside>
 
-        <DirectionalTransition transitionKey={slug}>
+        <DirectionalTransition name="tramite-panel" transitionKey={slug}>
           <div className="min-w-0">
             <div id="documentos" className="mb-5 scroll-mt-24 rounded-lg border border-brand-50 bg-white p-4 shadow-sm sm:mb-6 sm:p-6 md:p-7 lg:scroll-mt-28">
               <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
@@ -52,7 +53,7 @@ export default async function TramitePage({ params, searchParams }: TramitePageP
                   <p className="mt-2 text-sm text-muted-foreground">Revisa los requisitos y descarga el modelo de solicitud.</p>
                 </div>
                 <div className="w-full md:max-w-xs">
-                  <DocumentosSearch key={search} initialQuery={search} label="Buscar en este trámite" placeholder="Buscar por título" />
+                  <DocumentosSearch initialQuery={search} label="Buscar en este trámite" placeholder="Buscar por título" />
                 </div>
               </div>
               {procedure.step && <GradoProgress slug={slug} />}
@@ -67,6 +68,6 @@ export default async function TramitePage({ params, searchParams }: TramitePageP
           </div>
         </DirectionalTransition>
       </section>
-    </main>
+    </EntranceScope>
   );
 }

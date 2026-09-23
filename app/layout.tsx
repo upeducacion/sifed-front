@@ -81,7 +81,7 @@ export default async function RootLayout({
   const websiteJsonLd = getWebsiteJsonLd();
 
   return (
-    <html lang="es" className={`${sora.variable} ${jakarta.variable}`}>
+    <html lang="es" className={`${sora.variable} ${jakarta.variable}`} data-scroll-behavior="smooth">
       <head>
         <script
           type="application/ld+json"
