@@ -314,7 +314,7 @@ export default function HeroCarousel({ slides }: HeroCarouselProps) {
                 <motion.span
                   animate={{
                     width: idx === selectedIndex ? "2rem" : "0.375rem",
-                    backgroundColor: idx === selectedIndex ? "var(--color-uncp-gold)" : "rgba(255,255,255,0.5)",
+                    backgroundColor: idx === selectedIndex ? "var(--color-uncp-gold)" : "color-mix(in srgb, var(--color-white) 50%, transparent)",
                   }}
                   transition={{ duration: 0.4 }}
                   className="block h-1.5 rounded-full"

@@ -138,7 +138,7 @@ export default function CategoriasDocumentosPage() {
                         </>
                       ) : (
                         <>
-                          <button onClick={() => { setEditingId(cat.id); setEditCat({ nombre: cat.nombre, orden: cat.orden, is_active: cat.is_active }); }} className="p-2 text-blue-600 hover:bg-blue-50 rounded-lg transition-colors border border-transparent hover:border-blue-100" title="Editar">
+                          <button onClick={() => { setEditingId(cat.id); setEditCat({ nombre: cat.nombre, orden: cat.orden, is_active: cat.is_active }); }} className="p-2 text-brand-600 hover:bg-brand-50 rounded-lg transition-colors border border-transparent hover:border-brand-100" title="Editar">
                              <Edit2 className="w-4 h-4" />
                           </button>
                           <button onClick={() => handleDelete(cat.id)} className="p-2 text-red-600 hover:bg-red-50 rounded-lg transition-colors border border-transparent hover:border-red-100" title="Eliminar">

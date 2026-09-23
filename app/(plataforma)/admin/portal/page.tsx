@@ -18,7 +18,7 @@ export default function PortalManagementPage() {
       description: "Información institucional, misión, visión y autoridades.",
       icon: School,
       href: "/admin/portal/unidad",
-      color: "text-blue-600 bg-blue-50"
+      color: "text-brand-600 bg-brand-50"
     },
     {
       title: "Noticias y Novedades",
@@ -39,7 +39,7 @@ export default function PortalManagementPage() {
       description: "Reglamentos, resoluciones y directivas institucionales.",
       icon: Scale,
       href: "/admin/portal/documentos-normativos",
-      color: "text-orange-600 bg-orange-50"
+      color: "text-gold-700 bg-gold-50"
     },
     {
       title: "Plana Docente",
@@ -53,21 +53,21 @@ export default function PortalManagementPage() {
       description: "Acceso a bases de datos, repositorios digitales y recursos bibliográficos.",
       icon: Library,
       href: "/admin/portal/biblioteca",
-      color: "text-indigo-600 bg-indigo-50"
+      color: "text-brand-600 bg-brand-50"
     },
     {
       title: "Galería de Fotos",
       description: "Álbumes de eventos, ceremonias y actividades académicas.",
       icon: ImageIcon,
       href: "/admin/portal/galerias",
-      color: "text-pink-600 bg-pink-50"
+      color: "text-red-600 bg-red-50"
     },
     {
       title: "Organizador de trámites",
       description: "Ordena carpetas, requisitos y formularios del portal.",
       icon: Folder,
       href: "/admin/portal/tramites",
-      color: "text-amber-600 bg-amber-50"
+      color: "text-gold-600 bg-gold-50"
     },
   ];
 

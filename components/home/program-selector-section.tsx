@@ -45,8 +45,8 @@ export default function ProgramSelectorSection() {
         
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
           <div className="max-w-2xl">
-            {/* A11y: Cambio a text-amber-700 en lugar de uncp-gold sobre fondo claro para pasar contraste WCAG AA */}
-            <span className="text-[10px] font-black uppercase tracking-[0.3em] text-amber-700 mb-2 block">
+            {/* A11y: Cambio a text-gold-700 en lugar de uncp-gold sobre fondo claro para pasar contraste WCAG AA */}
+            <span className="text-[10px] font-black uppercase tracking-[0.3em] text-gold-700 mb-2 block">
               Oferta Académica
             </span>
             <h2 className="text-3xl md:text-4xl font-serif font-black text-brand-950 leading-tight">
@@ -83,7 +83,7 @@ export default function ProgramSelectorSection() {
               </div>
 
               <div className="mt-8 flex items-center justify-between">
-                {/* A11y: Cambio de text-brand-400 (muy claro) a text-brand-600 o amber-500 para contraste seguro */}
+                {/* A11y: Cambio de text-brand-400 (muy claro) a text-brand-600 o gold-500 para contraste seguro */}
                 <span className={`text-[10px] font-black uppercase tracking-widest ${cat.title === 'Doctorados' ? 'text-uncp-gold' : 'text-brand-600'}`}>
                   {cat.count}
                 </span>

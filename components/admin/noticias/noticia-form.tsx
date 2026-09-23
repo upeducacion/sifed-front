@@ -331,7 +331,7 @@ export function NoticiaForm({ initialData }: NoticiaFormProps) {
               name="destacada"
               id="destacada"
               defaultChecked={initialData?.destacada}
-              className="h-5 w-5 text-brand-600 rounded border-gray-300 focus:ring-brand-500"
+              className="h-5 w-5 text-brand-600 rounded border-border-strong focus:ring-brand-500"
           />
           <label htmlFor="destacada" className="text-sm font-medium text-brand-950 cursor-pointer">
               Destacar esta noticia (aparecerá más grande en el portal)

@@ -105,7 +105,7 @@ export default async function NoticiaDetallePage({ params }: PageProps) {
           </span>
 
           {noticia.destacada && (
-            <span className="bg-uncp-gold/20 text-yellow-800 px-3 py-1 rounded-full flex items-center gap-1">
+            <span className="bg-uncp-gold/20 text-gold-800 px-3 py-1 rounded-full flex items-center gap-1">
               ★ Destacada
             </span>
           )}
@@ -158,7 +158,7 @@ export default async function NoticiaDetallePage({ params }: PageProps) {
               prose-headings:font-serif prose-headings:font-bold prose-headings:text-neutral-900 
               prose-p:text-neutral-700 prose-p:leading-relaxed 
               prose-a:text-brand-600 prose-a:font-bold hover:prose-a:text-brand-800 
-              prose-blockquote:border-l-4 prose-blockquote:border-uncp-gold prose-blockquote:bg-amber-50 prose-blockquote:py-2 prose-blockquote:px-6 prose-blockquote:rounded-r-lg
+              prose-blockquote:border-l-4 prose-blockquote:border-uncp-gold prose-blockquote:bg-gold-50 prose-blockquote:py-2 prose-blockquote:px-6 prose-blockquote:rounded-r-lg
               prose-img:rounded-xl prose-img:shadow-lg"
             >
               <div dangerouslySetInnerHTML={{ __html: noticia.contenido }} />

@@ -45,14 +45,14 @@ export default function EstudianteDashboardPage() {
         {/* Sidebar: Pendientes */}
         <div className="space-y-6">
            <h3 className="font-bold text-brand-950 text-xl flex items-center gap-2">
-              <Clock className="h-5 w-5 text-orange-500" /> Por Vencer
+              <Clock className="h-5 w-5 text-gold-500" /> Por Vencer
            </h3>
            
            <div className="space-y-3">
               <div className="p-4 bg-white rounded-xl border border-l-4 border-l-orange-500 shadow-sm">
                  <h5 className="font-bold text-sm text-brand-900">Ensayo Final</h5>
                  <p className="text-xs text-muted-foreground mt-1">Didáctica Universitaria</p>
-                 <div className="mt-2 flex items-center gap-1 text-xs font-bold text-orange-600">
+                 <div className="mt-2 flex items-center gap-1 text-xs font-bold text-gold-700">
                     <AlertCircle className="h-3 w-3" /> Vence mañana
                  </div>
               </div>

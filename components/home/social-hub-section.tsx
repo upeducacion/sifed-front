@@ -47,9 +47,9 @@ export default function SocialHubSection() {
                   href={EXTERNAL_LINKS.FACEBOOK}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-3 p-4 rounded-xl border-2 border-slate-100 hover:border-blue-100 hover:bg-blue-50 transition-all group"
+                  className="flex items-center gap-3 p-4 rounded-xl border-2 border-border-subtle hover:border-brand-100 hover:bg-brand-50 transition-all group"
                 >
-                  <div className="h-10 w-10 rounded-lg bg-blue-100 flex items-center justify-center text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition-all">
+                  <div className="h-10 w-10 rounded-lg bg-brand-100 flex items-center justify-center text-brand-600 group-hover:bg-brand-600 group-hover:text-white transition-all">
                     <Facebook className="h-5 w-5" />
                   </div>
                   <span className="text-sm font-bold text-brand-950">Facebook</span>
@@ -58,7 +58,7 @@ export default function SocialHubSection() {
                   href={EXTERNAL_LINKS.YOUTUBE}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-3 p-4 rounded-xl border-2 border-slate-100 hover:border-red-100 hover:bg-red-50 transition-all group"
+                  className="flex items-center gap-3 p-4 rounded-xl border-2 border-border-subtle hover:border-red-100 hover:bg-red-50 transition-all group"
                 >
                   <div className="h-10 w-10 rounded-lg bg-red-100 flex items-center justify-center text-red-600 group-hover:bg-red-600 group-hover:text-white transition-all">
                     <Youtube className="h-5 w-5" />
@@ -68,7 +68,7 @@ export default function SocialHubSection() {
               </div>
             </div>
 
-            <div className="pt-6 border-t border-slate-100">
+            <div className="pt-6 border-t border-border-subtle">
                <div className="flex items-center gap-3 text-muted-foreground">
                   <MessageSquare className="h-5 w-5 text-uncp-gold" />
                   <p className="text-xs font-medium">Soporte técnico vía <a href="https://wa.me/51949260658" target="_blank" rel="noopener noreferrer" className="text-brand-600 font-bold hover:underline">WhatsApp</a></p>
@@ -82,11 +82,11 @@ export default function SocialHubSection() {
               
               {/* FACEBOOK FEED VERTICAL */}
               <div className="flex flex-col gap-3 w-full">
-                <div className="flex items-center gap-2 px-1 text-slate-400">
+                <div className="flex items-center gap-2 px-1 text-text-tertiary">
                   <Facebook className="h-3 w-3" />
                   <span className="text-[9px] font-black uppercase tracking-[0.2em]">Facebook Feed</span>
                 </div>
-                <div className="relative w-full h-[600px] rounded-lg border-4 border-slate-50 shadow-2xl bg-white">
+                <div className="relative w-full h-[600px] rounded-lg border-4 border-border-subtle shadow-2xl bg-white">
                   <iframe 
                     src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FUPG.UNCP.Educacion&tabs=timeline&width=500&height=600&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=false&appId"
                     width="100%"
@@ -103,11 +103,11 @@ export default function SocialHubSection() {
 
               {/* YOUTUBE: ÚLTIMO CONTENIDO */}
               <div className="flex flex-col gap-3 w-full">
-                <div className="flex items-center gap-2 px-1 text-slate-400">
+                <div className="flex items-center gap-2 px-1 text-text-tertiary">
                   <Youtube className="h-3 w-3" />
                   <span className="text-[9px] font-black uppercase tracking-[0.2em]">YouTube Reciente</span>
                 </div>
-                <div className="relative w-full h-[600px] rounded-lg overflow-hidden border-4 border-slate-50 shadow-2xl bg-slate-900">
+                <div className="relative w-full h-[600px] rounded-lg overflow-hidden border-4 border-border-subtle shadow-2xl bg-brand-950">
                   <iframe 
                     src="https://www.youtube.com/embed/videoseries?list=UUFhOPsvkFgLYA1sOGl9kmyQ"
                     title="YouTube Video"

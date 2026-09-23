@@ -233,10 +233,10 @@ export default function UnidadPosgradoAdminPage() {
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
         <div className="flex flex-col gap-2">
           <BackButton label="Volver a Gestión" />
-          <h1 className="text-2xl font-bold tracking-tight text-gray-900">
+          <h1 className="text-2xl font-bold tracking-tight text-foreground">
             Unidad de Posgrado
           </h1>
-          <p className="text-sm text-gray-500">
+          <p className="text-sm text-text-secondary">
             Gestiona la información institucional y la visibilidad del módulo público.
           </p>
         </div>
@@ -532,7 +532,7 @@ export default function UnidadPosgradoAdminPage() {
 
               <div className="bg-white rounded-lg border border-border shadow-sm overflow-hidden">
                 <table className="w-full text-left border-collapse">
-                  <thead className="bg-gray-50 border-b border-border">
+                  <thead className="bg-surface-subtle border-b border-border">
                     <tr>
                       <th className="px-6 py-3 text-[10px] font-black uppercase text-muted-foreground">Área / Oficina</th>
                       <th className="px-6 py-3 text-[10px] font-black uppercase text-muted-foreground">Teléfono / Celular</th>
@@ -674,7 +674,7 @@ export default function UnidadPosgradoAdminPage() {
                         onClick={() => item.ref.current?.click()}
                         className={cn(
                           "cursor-pointer border-2 border-dashed rounded-xl p-4 flex flex-col items-center justify-center gap-2 transition-all",
-                          admisionFiles[item.key] ? "border-brand-500 bg-brand-50/30" : "border-gray-200 bg-white hover:border-brand-300"
+                          admisionFiles[item.key] ? "border-brand-500 bg-brand-50/30" : "border-border bg-white hover:border-brand-300"
                         )}
                       >
                         <Upload className={cn("w-5 h-5", admisionFiles[item.key] ? "text-brand-600" : "text-muted-foreground")} />

@@ -5,29 +5,112 @@
   --font-sans: var(--font-body);
   --font-serif: var(--font-display);
 
-  /* --- PALETA DE COLORES SIFED --- */
-  
-  /* Azules Institucionales (Brand) */
-  --color-brand-50: #dee8f1;
-  --color-brand-300: #97cadb;
-  --color-brand-600: #018abe;
-  --color-brand-800: #004481;
-  --color-brand-950: #001b48;
+  /* --- PALETA DE COLORES SIFED ---
+     Inspirada en: Indigo Velvet #4A306D · Sunflower Gold #E5B212 ·
+     Turf Green #1A7B44 · Carbon Black #1C1C1E · Parchment #F7F5F0.
+     Regla: los componentes usan tokens semánticos (primary, muted, border…)
+     o escalas (brand-*, gold-*); nunca hex sueltos ni paletas de Tailwind
+     ajenas (slate, gray, amber). */
 
-  /* Identidad UNCP */
-  --color-uncp-green: #006838;
-  --color-uncp-gold: #F5A623;
+  /* Índigo institucional (Brand) — 600 es el color madre */
+  --color-brand-50: #f4f1f8;
+  --color-brand-100: #e8e2ef;
+  --color-brand-200: #d0c5de;
+  --color-brand-300: #b2a1c8;
+  --color-brand-400: #9079b0;
+  --color-brand-500: #6c5391;
+  --color-brand-600: #4a306d;
+  --color-brand-700: #3f2a5d;
+  --color-brand-800: #34234d;
+  --color-brand-900: #27193b;
+  --color-brand-950: #1b1230;
+
+  /* Dorado (Gold) — 500 es el color madre; 700+ para texto sobre claro */
+  --color-gold-50: #fdf9e7;
+  --color-gold-100: #faf0c4;
+  --color-gold-200: #f5e08e;
+  --color-gold-300: #efcd55;
+  --color-gold-400: #e9be2c;
+  --color-gold-500: #e5b212;
+  --color-gold-600: #c39716;
+  --color-gold-700: #9a7512;
+  --color-gold-800: #74570e;
+  --color-gold-900: #533f0b;
+  --color-gold-950: #2e2205;
+
+  /* Verde (Turf) — estados de éxito y guiños institucionales */
+  --color-green-50: #e9f4ed;
+  --color-green-100: #cfe7d8;
+  --color-green-200: #a4d0b4;
+  --color-green-300: #74b58e;
+  --color-green-400: #459a68;
+  --color-green-500: #1a7b44;
+  --color-green-600: #176a3b;
+  --color-green-700: #135732;
+  --color-green-800: #0f4427;
+  --color-green-900: #0b311c;
+  --color-green-950: #061d11;
+  --color-emerald-50: var(--color-green-50);
+  --color-emerald-100: var(--color-green-100);
+  --color-emerald-200: var(--color-green-200);
+  --color-emerald-300: var(--color-green-300);
+  --color-emerald-400: var(--color-green-400);
+  --color-emerald-500: var(--color-green-500);
+  --color-emerald-600: var(--color-green-600);
+  --color-emerald-700: var(--color-green-700);
+  --color-emerald-800: var(--color-green-800);
+  --color-emerald-900: var(--color-green-900);
+  --color-emerald-950: var(--color-green-950);
+
+  /* Rojo — errores y acciones destructivas (500 = destructive) */
+  --color-red-50: #fcf1ef;
+  --color-red-100: #f8dcd8;
+  --color-red-200: #f0b9b2;
+  --color-red-300: #e48f85;
+  --color-red-400: #d5605a;
+  --color-red-500: #c2362e;
+  --color-red-600: #a52b25;
+  --color-red-700: #86231e;
+  --color-red-800: #681b17;
+  --color-red-900: #4c1310;
+  --color-red-950: #2c0a08;
+
+  /* Neutros cálidos (Parchment → Carbon) */
+  --color-neutral-50: #faf9f6;
+  --color-neutral-100: #f3f1eb;
+  --color-neutral-200: #e6e2d9;
+  --color-neutral-300: #d4cfc3;
+  --color-neutral-400: #a8a297;
+  --color-neutral-500: #7d776e;
+  --color-neutral-600: #5d5850;
+  --color-neutral-700: #45413b;
+  --color-neutral-800: #2e2b27;
+  --color-neutral-900: #1f1d1b;
+  --color-neutral-950: #1c1c1e;
+
+  /* Alias de identidad UNCP (compatibilidad) */
+  --color-uncp-green: var(--color-green-500);
+  --color-uncp-gold: var(--color-gold-500);
+  --color-parchment: #f7f5f0;
+  --color-carbon: #1c1c1e;
+
+  /* Marcas externas (único lugar permitido para sus hex oficiales) */
+  --color-social-facebook: #1877f2;
+  --color-social-facebook-deep: #0c5fcd;
+  --color-social-linkedin: #0a66c2;
+  --color-social-orcid: #a6ce39;
+  --color-social-scholar: #4285f4;
 
   /* --- COLORES SEMÁNTICOS (Roles) --- */
-  
+
   /* Base */
-  --color-background: #ffffff;
-  --color-foreground: #23364d;
+  --color-background: #fdfcfa;
+  --color-foreground: var(--color-carbon);
 
   /* Componentes UI */
   --color-card: #ffffff;
   --color-card-foreground: var(--color-brand-950);
-  
+
   --color-popover: #ffffff;
   --color-popover-foreground: var(--color-brand-950);
 
@@ -40,18 +123,22 @@
   --color-secondary-foreground: var(--color-brand-800);
 
   /* Estados y Elementos Pasivos */
-  --color-muted: #f5f8fb;
-  --color-muted-foreground: #52657a;
-  
-  --color-accent: var(--color-brand-50);
-  --color-accent-foreground: var(--color-brand-600);
+  --color-muted: var(--color-neutral-100);
+  --color-muted-foreground: #5c5666;
 
-  --color-destructive: #ef4444;
+  --color-accent: var(--color-gold-50);
+  --color-accent-foreground: var(--color-brand-700);
+
+  --color-success: var(--color-green-500);
+  --color-success-foreground: #ffffff;
+  --color-warning: var(--color-gold-500);
+  --color-warning-foreground: var(--color-brand-950);
+  --color-destructive: var(--color-red-500);
   --color-destructive-foreground: #ffffff;
 
   /* Bordes e Inputs */
-  --color-border: #dbe5ee;
-  --color-input: #c8d6e3;
+  --color-border: #e4e0d7;
+  --color-input: #cfcabf;
   --color-ring: var(--color-brand-600);
 
   /* Escala de espaciado y layout */
@@ -61,24 +148,27 @@
   --container-wide: 90rem;
 
   /* Superficies y elevación */
-  --color-surface-subtle: #f7f9fc;
-  --color-surface-brand: #edf5fa;
-  --color-surface-warm: #fff8eb;
-  --color-text-secondary: #52657a;
-  --color-text-tertiary: #718196;
-  --color-border-subtle: #edf2f7;
-  --color-border-strong: #cbd8e5;
+  --color-surface-subtle: var(--color-parchment);
+  --color-surface-brand: var(--color-brand-50);
+  --color-surface-warm: var(--color-gold-50);
+  --color-text-secondary: #5c5666;
+  --color-text-tertiary: #7d7788;
+  --color-border-subtle: #eeebe4;
+  --color-border-strong: #cfcabf;
 
-  /* Escala de elevación compartida por toda la interfaz */
-  --shadow-2xs: 0 1px 2px rgb(0 27 72 / 0.05);
-  --shadow-xs: 0 2px 6px -2px rgb(0 27 72 / 0.08);
-  --shadow-sm: 0 6px 16px -8px rgb(0 27 72 / 0.12);
-  --shadow-md: 0 12px 28px -14px rgb(0 27 72 / 0.16);
-  --shadow-lg: 0 18px 40px -20px rgb(0 27 72 / 0.2);
-  --shadow-xl: 0 24px 52px -24px rgb(0 27 72 / 0.22);
-  --shadow-2xl: 0 32px 72px -30px rgb(0 27 72 / 0.26);
-  --shadow-soft: 0 12px 32px -18px rgb(0 27 72 / 0.14);
-  --shadow-float: 0 24px 56px -28px rgb(0 27 72 / 0.22);
+  /* Escala de elevación compartida por toda la interfaz (sombra teñida de índigo) */
+  --shadow-2xs: 0 1px 2px color-mix(in srgb, var(--color-brand-950) 5%, transparent);
+  --shadow-xs: 0 2px 6px -2px color-mix(in srgb, var(--color-brand-950) 8%, transparent);
+  --shadow-sm: 0 6px 16px -8px color-mix(in srgb, var(--color-brand-950) 12%, transparent);
+  --shadow-md: 0 12px 28px -14px color-mix(in srgb, var(--color-brand-950) 16%, transparent);
+  --shadow-lg: 0 18px 40px -20px color-mix(in srgb, var(--color-brand-950) 20%, transparent);
+  --shadow-xl: 0 24px 52px -24px color-mix(in srgb, var(--color-brand-950) 22%, transparent);
+  --shadow-2xl: 0 32px 72px -30px color-mix(in srgb, var(--color-brand-950) 26%, transparent);
+  --shadow-soft: 0 12px 32px -18px color-mix(in srgb, var(--color-brand-950) 14%, transparent);
+  --shadow-float: 0 24px 56px -28px color-mix(in srgb, var(--color-brand-950) 22%, transparent);
+  --shadow-lightbox: 0 0 100px color-mix(in srgb, var(--color-carbon) 50%, transparent);
+  --shadow-glow-success: 0 0 8px color-mix(in srgb, var(--color-green-500) 50%, transparent);
+  --drop-shadow-panel: -20px 0 50px color-mix(in srgb, var(--color-carbon) 10%, transparent);
 
   --motion-duration-fast: 160ms;
   --motion-duration-standard: 240ms;

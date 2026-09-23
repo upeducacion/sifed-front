@@ -274,7 +274,7 @@ export default function DoctoradoContent() {
                               ) : (
                                 <div key={idx} className="px-5 py-4">
                                   <div className="mb-3 flex items-center gap-2">
-                                    <span className="rounded-lg border border-amber-200 bg-amber-50 px-2.5 py-1 text-[10px] font-black uppercase tracking-widest text-amber-700">
+                                    <span className="rounded-lg border border-gold-200 bg-gold-50 px-2.5 py-1 text-[10px] font-black uppercase tracking-widest text-gold-700">
                                       Elige 1 electivo · {item.creditos} cr.
                                     </span>
                                   </div>

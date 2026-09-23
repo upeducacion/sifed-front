@@ -131,7 +131,7 @@ export default function CategoriasBibliotecaPage() {
                         </>
                       ) : (
                         <>
-                          <button onClick={() => { setEditingId(cat.id); setEditCat({ nombre: cat.nombre, orden: cat.orden }); }} className="p-2 text-blue-600 hover:bg-blue-50 rounded-lg"><Edit2 className="w-4 h-4" /></button>
+                          <button onClick={() => { setEditingId(cat.id); setEditCat({ nombre: cat.nombre, orden: cat.orden }); }} className="p-2 text-brand-600 hover:bg-brand-50 rounded-lg"><Edit2 className="w-4 h-4" /></button>
                           <button onClick={() => handleDelete(cat.id)} className="p-2 text-red-600 hover:bg-red-50 rounded-lg"><Trash2 className="w-4 h-4" /></button>
                         </>
                       )}

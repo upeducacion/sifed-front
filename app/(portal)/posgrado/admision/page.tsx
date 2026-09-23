@@ -79,7 +79,7 @@ export default function AdmisionHubPage() {
           </div>
 
           {/* Recursos Comunes */}
-          <div className="border-t border-gray-100 pt-16">
+          <div className="border-t border-border-subtle pt-16">
             <h3 className="text-xl font-bold text-brand-950 mb-8 text-center">Recursos y Ayuda</h3>
             <div className="grid sm:grid-cols-3 gap-6">
               {[
@@ -87,7 +87,7 @@ export default function AdmisionHubPage() {
                 { icon: CreditCard, label: "Tasas Educativas", href: "/documentos-normativos?search=tasas", desc: "Buscar tarifarios oficiales" },
                 { icon: HelpCircle, label: "Preguntas Frecuentes", href: "/#preguntas-frecuentes", desc: "Centro de ayuda" },
               ].map((item, idx) => (
-                <Link key={idx} href={item.href} className="flex items-center gap-4 p-4 rounded-xl hover:bg-gray-50 transition-colors group">
+                <Link key={idx} href={item.href} className="flex items-center gap-4 p-4 rounded-xl hover:bg-surface-subtle transition-colors group">
                   <div className="w-10 h-10 bg-brand-50 rounded-full flex items-center justify-center text-brand-600 group-hover:scale-110 transition-transform">
                     <item.icon size={20} />
                   </div>

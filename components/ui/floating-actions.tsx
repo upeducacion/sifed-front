@@ -51,7 +51,7 @@ export default function FloatingActions({ whatsappNumber = "51949260658" }: { wh
       icon: <Phone aria-hidden="true" className="w-5 h-5" />,
       label: "Llamar",
       href: "tel:064481060",
-      color: "bg-blue-500",
+      color: "bg-brand-500",
       delay: 0.2
     },
     {

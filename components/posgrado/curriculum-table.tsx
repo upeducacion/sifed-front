@@ -44,12 +44,12 @@ export default function CurriculumTable({ ciclo }: { ciclo: Ciclo }) {
 
             {/* Fila agrupada para Electivos */}
             {electivos.length > 0 && (
-              <tr className="bg-amber-50/40 border-b border-brand-100 border-l-4 border-l-amber-400 group transition-colors">
+              <tr className="bg-gold-50/40 border-b border-brand-100 border-l-4 border-l-gold-400 group transition-colors">
                 <td className="p-0 text-foreground font-medium leading-snug">
                   <div className="flex flex-col">
-                    <div className="flex items-center gap-3 px-6 py-4 border-b border-amber-200/50">
-                      <span className="font-bold text-amber-900">Elegir un curso electivo:</span>
-                      <span className="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-black uppercase tracking-widest bg-amber-100 text-amber-700 border border-amber-200">
+                    <div className="flex items-center gap-3 px-6 py-4 border-b border-gold-200/50">
+                      <span className="font-bold text-gold-900">Elegir un curso electivo:</span>
+                      <span className="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-black uppercase tracking-widest bg-gold-100 text-gold-700 border border-gold-200">
                         Electivo
                       </span>
                     </div>
@@ -58,8 +58,8 @@ export default function CurriculumTable({ ciclo }: { ciclo: Ciclo }) {
                         <li 
                           key={`elec-${idx}`}
                           className={cn(
-                            "px-6 py-3 flex items-center before:content-[''] before:w-1.5 before:h-1.5 before:bg-amber-300 before:rounded-full before:mr-3",
-                            idx !== electivos.length - 1 ? "border-b border-amber-200/30" : ""
+                            "px-6 py-3 flex items-center before:content-[''] before:w-1.5 before:h-1.5 before:bg-gold-300 before:rounded-full before:mr-3",
+                            idx !== electivos.length - 1 ? "border-b border-gold-200/30" : ""
                           )}
                         >
                           {electivo.nombre}
@@ -68,8 +68,8 @@ export default function CurriculumTable({ ciclo }: { ciclo: Ciclo }) {
                     </ul>
                   </div>
                 </td>
-                <td className="px-6 py-4 text-right align-middle border-l border-amber-200/30">
-                  <span className="font-bold text-amber-600 text-base">
+                <td className="px-6 py-4 text-right align-middle border-l border-gold-200/30">
+                  <span className="font-bold text-gold-600 text-base">
                     {creditosElectivo || "—"}
                   </span>
                 </td>

@@ -23,7 +23,7 @@ export default function StatusCard({
   
   const colorStyles = {
     brand: "text-brand-600 bg-brand-50/50",
-    gold: "text-uncp-gold bg-yellow-50/50",
+    gold: "text-uncp-gold bg-gold-50/50",
     red: "text-red-600 bg-red-50/50",
     green: "text-uncp-green bg-green-50/50",
   };

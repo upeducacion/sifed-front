@@ -64,7 +64,7 @@ export async function NewsCollage() {
                 <Link 
                   key={item.id} 
                   href={`/noticias/${item.slug}`}
-                  className="group flex items-start gap-3 rounded-lg border border-transparent p-3 transition-colors hover:border-gray-100 hover:bg-gray-50 sm:gap-5 sm:p-4"
+                  className="group flex items-start gap-3 rounded-lg border border-transparent p-3 transition-colors hover:border-border-subtle hover:bg-surface-subtle sm:gap-5 sm:p-4"
                 >
                   {/* Thumbnail */}
                   <div className="relative h-20 w-20 shrink-0 overflow-hidden rounded-xl shadow-sm sm:h-24 sm:w-24 md:h-32 md:w-32">

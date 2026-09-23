@@ -11,22 +11,22 @@
 
 /* VARIABLES DE DISEÑO */
 :root {
-  --sdlf-bg:          #212830;             /* Fondo — igual al footer principal del sitio */
-  --sdlf-blue:        #3178c6;             /* Azul de marca */
-  --sdlf-purple:      #65318d;             /* Morado IA */
-  --sdlf-soft:        #c8d6e8;             /* Texto claro principal */
-  --sdlf-muted:       #6b82a4;             /* Texto secundario / apagado */
-  --sdlf-border:      rgba(49, 120, 198, 0.18); /* Borde sutil con tono azul */
+  --sdlf-bg:          var(--color-brand-950);             /* Fondo — igual al footer principal del sitio */
+  --sdlf-blue:        var(--color-brand-400);             /* Azul de marca */
+  --sdlf-purple:      var(--color-brand-600);             /* Morado IA */
+  --sdlf-soft:        var(--color-brand-100);             /* Texto claro principal */
+  --sdlf-muted:       var(--color-brand-300);             /* Texto secundario / apagado */
+  --sdlf-border:      color-mix(in srgb, var(--color-brand-400) 18%, transparent); /* Borde sutil con tono azul */
 
   /* Capas de color para la aurora animada */
-  --sdlf-aurora-a:    rgba(49,  120, 198, 0.50);
-  --sdlf-aurora-b:    rgba(101,  49, 141, 0.40);
-  --sdlf-aurora-c:    rgba(29,   78, 143, 0.35);
-  --sdlf-aurora-d:    rgba(65,   32,  90, 0.30);
+  --sdlf-aurora-a:    color-mix(in srgb, var(--color-brand-400) 50%, transparent);
+  --sdlf-aurora-b:    color-mix(in srgb, var(--color-brand-600) 40%, transparent);
+  --sdlf-aurora-c:    color-mix(in srgb, var(--color-brand-500) 35%, transparent);
+  --sdlf-aurora-d:    color-mix(in srgb, var(--color-brand-800) 30%, transparent);
 
   /* Versión intensa para la línea de brillo superior */
-  --sdlf-gloss-a:     rgba(49,  120, 198, 0.60);
-  --sdlf-gloss-b:     rgba(101,  49, 141, 0.50);
+  --sdlf-gloss-a:     color-mix(in srgb, var(--color-brand-400) 60%, transparent);
+  --sdlf-gloss-b:     color-mix(in srgb, var(--color-brand-600) 50%, transparent);
 }
 
 
@@ -73,7 +73,7 @@
 
   border-top: 1px solid var(--sdlf-border);
   box-shadow: 0 -1px 0 0 var(--sdlf-border),
-              inset 0 1px 0 0 rgba(49, 120, 198, 0.06);
+              inset 0 1px 0 0 color-mix(in srgb, var(--color-brand-400) 6%, transparent);
 
   animation: sdlf-fadein 0.5s ease both;
 }
@@ -289,16 +289,16 @@
 
 .sdl-footer.sdl-light,
 .sdl-footer[data-dark="false"] {
-  background-color: #f4f7fa;
-  color: #212830;
+  background-color: var(--color-surface-subtle);
+  color: var(--color-brand-950);
 }
 
 .sdl-footer.sdl-light::before,
 .sdl-footer[data-dark="false"]::before {
-  --sdlf-aurora-a: rgba(49,  120, 198, 0.12);
-  --sdlf-aurora-b: rgba(101,  49, 141, 0.08);
-  --sdlf-aurora-c: rgba(29,   78, 143, 0.09);
-  --sdlf-aurora-d: rgba(65,   32,  90, 0.07);
+  --sdlf-aurora-a: color-mix(in srgb, var(--color-brand-400) 12%, transparent);
+  --sdlf-aurora-b: color-mix(in srgb, var(--color-brand-600) 8%, transparent);
+  --sdlf-aurora-c: color-mix(in srgb, var(--color-brand-500) 9%, transparent);
+  --sdlf-aurora-d: color-mix(in srgb, var(--color-brand-800) 7%, transparent);
   opacity: 0.90;
 }
 

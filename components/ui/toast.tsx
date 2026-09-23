@@ -25,16 +25,16 @@ export function Toast({ id, message, type = "info", onClose }: ToastProps) {
   const icons = {
     success: <CheckCircle2 className="h-5 w-5 text-emerald-500" />,
     error: <AlertCircle className="h-5 w-5 text-red-500" />,
-    info: <Info className="h-5 w-5 text-blue-500" />,
-    warning: <AlertTriangle className="h-5 w-5 text-amber-500" />,
+    info: <Info className="h-5 w-5 text-brand-500" />,
+    warning: <AlertTriangle className="h-5 w-5 text-gold-500" />,
     loading: <Loader2 className="h-5 w-5 text-brand-600 animate-spin" />,
   };
 
   const styles = {
     success: "border-emerald-100 bg-emerald-50/50",
     error: "border-red-100 bg-red-50/50",
-    info: "border-blue-100 bg-blue-50/50",
-    warning: "border-amber-100 bg-amber-50/50",
+    info: "border-brand-100 bg-brand-50/50",
+    warning: "border-gold-100 bg-gold-50/50",
     loading: "border-brand-100 bg-brand-50/50",
   };
 

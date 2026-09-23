@@ -128,9 +128,9 @@ export default async function DocenteProfilePage({ params }: PageProps) {
                       let Icon = LinkIcon;
                       let hoverColors = "hover:bg-brand-100 hover:text-brand-900 border-brand-200";
                       
-                      if (redLower.includes("linkedin")) { Icon = Linkedin; hoverColors = "hover:bg-[#0A66C2]/10 hover:text-[#0A66C2] hover:border-[#0A66C2]/30 border-brand-200"; }
-                      else if (redLower.includes("orcid")) { Icon = Globe; hoverColors = "hover:bg-[#A6CE39]/10 hover:text-[#A6CE39] hover:border-[#A6CE39]/30 border-brand-200"; }
-                      else if (redLower.includes("scholar") || redLower.includes("google")) { Icon = GraduationCap; hoverColors = "hover:bg-[#4285F4]/10 hover:text-[#4285F4] hover:border-[#4285F4]/30 border-brand-200"; }
+                      if (redLower.includes("linkedin")) { Icon = Linkedin; hoverColors = "hover:bg-social-linkedin/10 hover:text-social-linkedin hover:border-social-linkedin/30 border-brand-200"; }
+                      else if (redLower.includes("orcid")) { Icon = Globe; hoverColors = "hover:bg-social-orcid/10 hover:text-social-orcid hover:border-social-orcid/30 border-brand-200"; }
+                      else if (redLower.includes("scholar") || redLower.includes("google")) { Icon = GraduationCap; hoverColors = "hover:bg-social-scholar/10 hover:text-social-scholar hover:border-social-scholar/30 border-brand-200"; }
 
                       return (
                         <a 

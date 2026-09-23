@@ -114,8 +114,8 @@ export default function AdminDashboardPage() {
             <StatCard 
               title="Programas" 
               value={stats.programas} 
-              icon={<GraduationCap className="w-6 h-6 text-indigo-600" />} 
-              bgIcon="bg-indigo-50"
+              icon={<GraduationCap className="w-6 h-6 text-brand-600" />} 
+              bgIcon="bg-brand-50"
               link="/admin/portal/programas"
             />
             <StatCard 
@@ -128,15 +128,15 @@ export default function AdminDashboardPage() {
             <StatCard 
               title="Documentos" 
               value={stats.documentos} 
-              icon={<FileText className="w-6 h-6 text-amber-600" />} 
-              bgIcon="bg-amber-50"
+              icon={<FileText className="w-6 h-6 text-gold-600" />} 
+              bgIcon="bg-gold-50"
               link="/admin/portal/documentos-normativos"
             />
             <StatCard 
               title="Galerías" 
               value={stats.galerias} 
-              icon={<ImageIcon className="w-6 h-6 text-rose-600" />} 
-              bgIcon="bg-rose-50"
+              icon={<ImageIcon className="w-6 h-6 text-red-600" />} 
+              bgIcon="bg-red-50"
               link="/admin/portal/galerias"
             />
           </div>

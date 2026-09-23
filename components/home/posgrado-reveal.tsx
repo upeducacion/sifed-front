@@ -51,7 +51,7 @@ function ProgramCard({ programa }: { programa: ProgramaResumen }) {
 }
 
 function ProgressDot({ i, step }: { i: number; step: MotionValue<number> }) {
-  const backgroundColor = useTransform(step, (v) => Math.round(v) === i ? "#D4AF37" : "transparent");
+  const backgroundColor = useTransform(step, (v) => Math.round(v) === i ? "var(--color-gold-500)" : "transparent");
   const scale = useTransform(step, (v) => Math.round(v) === i ? 1.4 : 1);
   const opacity = useTransform(step, (v) => Math.round(v) === i ? 1 : 0.3);
 

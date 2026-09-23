@@ -255,7 +255,7 @@ export default function GalleryContent({ initialData }: GalleryContentProps) {
                     alt="Full View" 
                     fill
                     priority
-                    className="object-contain shadow-[0_0_100px_rgba(0,0,0,0.5)] rounded-lg pointer-events-none transition-all duration-300" 
+                    className="object-contain shadow-lightbox rounded-lg pointer-events-none transition-all duration-300" 
                   />
                 </div>
               </motion.div>

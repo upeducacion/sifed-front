@@ -274,29 +274,29 @@ export function PlanEstudioTab({ planData, setPlanData }: PlanEstudioTabProps) {
 
                 {/* BLOQUE B: BOLSA DE ELECTIVOS */}
                 {ciclo.asignaturas.some(a => a.isElectivo) && (
-                  <div className="bg-amber-50/50 rounded-xl border border-amber-200/60 p-4 sm:p-5 space-y-4">
-                    <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center justify-between border-b border-amber-200/60 pb-4">
+                  <div className="bg-gold-50/50 rounded-xl border border-gold-200/60 p-4 sm:p-5 space-y-4">
+                    <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center justify-between border-b border-gold-200/60 pb-4">
                       <div>
-                        <h4 className="font-bold text-amber-900 text-sm flex items-center gap-2">
-                          <CheckSquare className="w-4 h-4 text-amber-600" />
+                        <h4 className="font-bold text-gold-900 text-sm flex items-center gap-2">
+                          <CheckSquare className="w-4 h-4 text-gold-600" />
                           Bolsa de Cursos Electivos
                         </h4>
-                        <p className="text-xs text-amber-700/80 mt-1 max-w-md">
+                        <p className="text-xs text-gold-700/80 mt-1 max-w-md">
                           El estudiante elegirá uno de estos cursos. Todos comparten el mismo valor de créditos para el cálculo total del ciclo.
                         </p>
                       </div>
                       
-                      <div className="flex items-center gap-3 bg-amber-100/50 px-4 py-2.5 rounded-xl border border-amber-200 shrink-0">
-                        <span className="text-xs font-bold text-amber-800">Créditos de bolsa:</span>
+                      <div className="flex items-center gap-3 bg-gold-100/50 px-4 py-2.5 rounded-xl border border-gold-200 shrink-0">
+                        <span className="text-xs font-bold text-gold-800">Créditos de bolsa:</span>
                         <div className="relative">
                           <input
                             type="number"
                             value={ciclo.asignaturas.find(a => a.isElectivo)?.creditos || ''}
                             onChange={(e) => updateCreditosElectivos(cIndex, Number(e.target.value))}
-                            className="w-20 pl-3 pr-6 py-1.5 rounded-md border border-amber-300 bg-white focus:outline-none focus:ring-2 focus:ring-amber-500 transition-all text-sm text-center font-black text-amber-900"
+                            className="w-20 pl-3 pr-6 py-1.5 rounded-md border border-gold-300 bg-white focus:outline-none focus:ring-2 focus:ring-gold-500 transition-all text-sm text-center font-black text-gold-900"
                             placeholder="0"
                           />
-                          <span className="absolute right-2 top-1/2 -translate-y-1/2 text-[10px] text-amber-600 font-bold">cr</span>
+                          <span className="absolute right-2 top-1/2 -translate-y-1/2 text-[10px] text-gold-600 font-bold">cr</span>
                         </div>
                       </div>
                     </div>
@@ -307,14 +307,14 @@ export function PlanEstudioTab({ planData, setPlanData }: PlanEstudioTabProps) {
                         return (
                           <div key={aIndex} className="flex flex-col sm:flex-row gap-2 items-center relative">
                             {/* Conector visual lateral */}
-                            <div className="absolute -left-3 top-1/2 w-2 border-t-2 border-amber-200 hidden sm:block"></div>
+                            <div className="absolute -left-3 top-1/2 w-2 border-t-2 border-gold-200 hidden sm:block"></div>
                             
                             <div className="flex-1 w-full">
                               <input
                                 type="text"
                                 value={asig.nombre}
                                 onChange={(e) => updateAsignatura(cIndex, aIndex, 'nombre', e.target.value)}
-                                className="w-full px-3 py-2.5 rounded-lg border border-amber-200 bg-white focus:outline-none focus:ring-2 focus:ring-amber-500 transition-all text-sm text-amber-950"
+                                className="w-full px-3 py-2.5 rounded-lg border border-gold-200 bg-white focus:outline-none focus:ring-2 focus:ring-gold-500 transition-all text-sm text-gold-950"
                                 placeholder="Nombre de Curso Electivo"
                               />
                             </div>
@@ -322,7 +322,7 @@ export function PlanEstudioTab({ planData, setPlanData }: PlanEstudioTabProps) {
                               <button
                                 type="button"
                                 onClick={() => toggleElectivo(cIndex, aIndex)}
-                                className="flex items-center gap-1.5 px-3 py-2.5 rounded-lg border bg-amber-100 border-amber-300 text-amber-800 transition-all text-xs font-bold w-full sm:w-auto justify-center hover:bg-amber-200"
+                                className="flex items-center gap-1.5 px-3 py-2.5 rounded-lg border bg-gold-100 border-gold-300 text-gold-800 transition-all text-xs font-bold w-full sm:w-auto justify-center hover:bg-gold-200"
                                 title="Quitar de electivos (volverá a ser obligatorio)"
                               >
                                 <CheckSquare className="w-4 h-4" />
@@ -331,7 +331,7 @@ export function PlanEstudioTab({ planData, setPlanData }: PlanEstudioTabProps) {
                               <button
                                 type="button"
                                 onClick={() => removeAsignatura(cIndex, aIndex)}
-                                className="p-2.5 text-amber-700 hover:bg-red-50 hover:text-red-600 border border-transparent hover:border-red-100 rounded-lg transition-all"
+                                className="p-2.5 text-gold-700 hover:bg-red-50 hover:text-red-600 border border-transparent hover:border-red-100 rounded-lg transition-all"
                               >
                                 <Trash2 className="w-4 h-4" />
                               </button>
@@ -344,7 +344,7 @@ export function PlanEstudioTab({ planData, setPlanData }: PlanEstudioTabProps) {
                         <button
                           type="button"
                           onClick={() => addAsignatura(cIndex, true)}
-                          className="flex items-center gap-1 text-xs font-bold text-amber-600 hover:text-amber-800 hover:bg-amber-100 px-3 py-1.5 rounded-lg transition-all"
+                          className="flex items-center gap-1 text-xs font-bold text-gold-600 hover:text-gold-800 hover:bg-gold-100 px-3 py-1.5 rounded-lg transition-all"
                         >
                           <Plus className="w-3.5 h-3.5" /> Añadir otro electivo a la bolsa
                         </button>

@@ -59,10 +59,26 @@ El frontend estará disponible en: `http://localhost:3000`
 
 ## 🎨 Sistema de Diseño
 
-Usamos variables CSS semánticas (definidas en `globals.css`):
-- **Primary:** `bg-brand-600` (Azul Institucional)
-- **Secondary:** `bg-brand-50` (Fondos suaves)
-- **Accent:** `text-uncp-gold` (Dorado)
+Los tokens viven en `app/globals.css` (`@theme`, Tailwind v4). La paleta está inspirada en
+Indigo Velvet `#4A306D`, Sunflower Gold `#E5B212`, Turf Green `#1A7B44`, Carbon Black `#1C1C1E`
+y Parchment `#F7F5F0`.
+
+**Escalas (50–950):**
+- `brand-*` — índigo institucional. `brand-600` es el color madre; `brand-950` para fondos oscuros y títulos.
+- `gold-*` — dorado. `gold-500` para acentos sobre fondos oscuros; `gold-700`+ para texto sobre fondos claros (contraste AA).
+- `green-*` — verde para estados de éxito (`emerald-*` es alias).
+- `neutral-*` — neutros cálidos, del pergamino al carbón.
+
+**Roles semánticos (úsalos antes que la escala):**
+- Superficies: `bg-background`, `bg-card`, `bg-muted`, `bg-surface-subtle`, `bg-surface-brand`, `bg-surface-warm`, `bg-parchment`.
+- Texto: `text-foreground`, `text-muted-foreground`, `text-text-secondary`, `text-text-tertiary`.
+- Bordes: `border-border`, `border-border-subtle`, `border-border-strong`, `border-input`.
+- Acciones y estados: `bg-primary`, `bg-secondary`, `bg-accent`, `bg-success`, `bg-warning`, `bg-destructive`, `ring-ring`.
+
+**Reglas:**
+- Nada de hex sueltos ni paletas ajenas de Tailwind (`slate`, `gray`, `amber`, `blue`). Si falta un token, se agrega en `globals.css`.
+- En estilos inline usa `var(--color-brand-950)` y compañía, nunca el hex.
+- Sombras: `shadow-xs` … `shadow-2xl`, `shadow-soft`, `shadow-float` (ya vienen teñidas de índigo).
 
 ---
 

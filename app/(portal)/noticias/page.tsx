@@ -24,10 +24,10 @@ const VISUAL_STYLES: Record<string, { accent: string, bg: string, text: string, 
     border: "border-uncp-gold/10"
   },
   blue: {
-    accent: "text-blue-600",
-    bg: "bg-blue-50/10",
+    accent: "text-brand-600",
+    bg: "bg-brand-50/10",
     text: "text-brand-950",
-    border: "border-blue-100"
+    border: "border-brand-100"
   },
   brand: {
     accent: "text-brand-800",

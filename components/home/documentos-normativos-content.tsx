@@ -79,7 +79,7 @@ export default function DocumentosNormativosContent({
         <div className="page-shell-wide">
           <div className="mb-7 flex flex-col justify-between gap-5 lg:flex-row lg:items-end">
             <div className="max-w-2xl">
-            <span className="mb-2 block text-xs font-black uppercase tracking-[0.2em] text-amber-700">Paso 1 de 2</span>
+            <span className="mb-2 block text-xs font-black uppercase tracking-[0.2em] text-gold-700">Paso 1 de 2</span>
             <h2 className="font-serif text-2xl font-black text-brand-950 md:text-3xl">¿Qué estás tratando de hacer?</h2>
             <p className="mt-2 text-sm leading-relaxed text-muted-foreground">No necesitas conocer el nombre del archivo. Elige tu objetivo.</p>
             </div>
@@ -181,7 +181,7 @@ export default function DocumentosNormativosContent({
                     href="https://erpcampus.uncp.edu.pe/" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="inline-flex w-full items-center justify-center gap-2 bg-uncp-gold text-brand-950 font-bold tracking-wide py-3.5 px-4 rounded-xl hover:bg-amber-400 hover:shadow-lg hover:-translate-y-0.5 transition-all text-sm"
+                    className="inline-flex w-full items-center justify-center gap-2 bg-uncp-gold text-brand-950 font-bold tracking-wide py-3.5 px-4 rounded-xl hover:bg-gold-400 hover:shadow-lg hover:-translate-y-0.5 transition-all text-sm"
                   >
                     Ir a Mesa de Partes <ExternalLink className="h-4 w-4" />
                   </a>
@@ -214,7 +214,7 @@ export default function DocumentosNormativosContent({
             <section className="lg:col-span-5 space-y-4">
               <div className="flex items-center justify-between mb-2 px-2">
                   <div>
-                   {(searchQuery || currentType) && <span className="mb-1 block text-xs font-black uppercase tracking-[0.16em] text-amber-700">Paso 2 de 2</span>}
+                   {(searchQuery || currentType) && <span className="mb-1 block text-xs font-black uppercase tracking-[0.16em] text-gold-700">Paso 2 de 2</span>}
                    <h2 className="font-serif text-2xl font-bold text-brand-950">
                       {resultsHeading}
                    </h2>
@@ -331,7 +331,7 @@ export default function DocumentosNormativosContent({
                             href={getStorageUrl(selectedDoc.archivo_path)} 
                             target="_blank" 
                             rel="noopener noreferrer"
-                            className="bg-uncp-gold text-brand-950 font-bold px-6 py-2.5 rounded-xl hover:bg-amber-400 transition-colors shadow-md"
+                            className="bg-uncp-gold text-brand-950 font-bold px-6 py-2.5 rounded-xl hover:bg-gold-400 transition-colors shadow-md"
                           >
                             Descargar Archivo
                           </a>
@@ -361,7 +361,7 @@ export default function DocumentosNormativosContent({
           background: transparent;
         }
         .custom-scrollbar::-webkit-scrollbar-thumb {
-          background-color: #cbd5e1;
+          background-color: var(--color-border-strong);
           border-radius: 20px;
         }
       `}</style>

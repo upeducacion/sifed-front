@@ -16,7 +16,7 @@ interface CategoriaFormProps {
 const STYLE_OPTIONS = [
   { id: 'green', label: 'Verde Institucional', color: 'bg-uncp-green' },
   { id: 'gold', label: 'Dorado Excelencia', color: 'bg-uncp-gold' },
-  { id: 'blue', label: 'Azul Estudiantil', color: 'bg-blue-600' },
+  { id: 'blue', label: 'Índigo Estudiantil', color: 'bg-brand-600' },
   { id: 'brand', label: 'Negro Prestigio', color: 'bg-brand-950' },
 ];
 

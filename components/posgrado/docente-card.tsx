@@ -40,7 +40,7 @@ export default function DocenteCard({ docente }: { docente: Docente }) {
             className="absolute inset-0 pointer-events-none"
             style={{
               background:
-                "linear-gradient(to top, rgba(5,8,18,0.92) 0%, rgba(5,8,18,0.45) 40%, transparent 100%)",
+                "linear-gradient(to top, color-mix(in srgb, var(--color-brand-950) 92%, transparent) 0%, color-mix(in srgb, var(--color-brand-950) 45%, transparent) 40%, transparent 100%)",
             }}
           />
 
@@ -48,13 +48,13 @@ export default function DocenteCard({ docente }: { docente: Docente }) {
           <div className="absolute bottom-0 left-0 right-0 p-4 transition-opacity duration-200 group-hover:opacity-0 group-focus-within:opacity-0">
             <p
               className="text-[9px] font-black uppercase tracking-[0.25em] mb-1.5"
-              style={{ color: "rgba(180,145,60,0.85)" }}
+              style={{ color: "color-mix(in srgb, var(--color-gold-600) 85%, transparent)" }}
             >
               Docente {docente.categoria}
             </p>
             <h3
               className="font-serif font-bold text-white text-base leading-tight line-clamp-2"
-              style={{ textShadow: "0 2px 10px rgba(0,0,0,0.6)" }}
+              style={{ textShadow: "0 2px 10px color-mix(in srgb, var(--color-carbon) 60%, transparent)" }}
             >
               {docente.nombre_completo}
             </h3>
@@ -64,17 +64,17 @@ export default function DocenteCard({ docente }: { docente: Docente }) {
         <div
           className="absolute inset-x-0 bottom-0 z-10 flex h-[38%] translate-y-full flex-col items-start justify-end overflow-hidden px-4 py-4 transition-transform duration-300 ease-out group-hover:translate-y-0 group-focus-within:translate-y-0"
           style={{
-            background: "linear-gradient(180deg, transparent 0%, rgba(5,8,18,0.88) 35%, #050810 100%)",
+            background: "linear-gradient(180deg, transparent 0%, color-mix(in srgb, var(--color-brand-950) 88%, transparent) 35%, var(--color-brand-950) 100%)",
           }}
         >
           {gradoPrincipal && (
             <div
               className="relative flex w-full items-start gap-2 rounded-lg border border-white/10 bg-black/20 px-2.5 py-2"
-              style={{ boxShadow: "0 6px 18px rgba(0,0,0,0.14)" }}
+              style={{ boxShadow: "0 6px 18px color-mix(in srgb, var(--color-carbon) 14%, transparent)" }}
             >
               <GraduationCap
                 className="mt-0.5 h-3 w-3 shrink-0"
-                style={{ color: "rgba(180,145,60,0.75)" }}
+                style={{ color: "color-mix(in srgb, var(--color-gold-600) 75%, transparent)" }}
               />
               <p
                 className="text-[11px] leading-snug text-white/70 line-clamp-2"
@@ -86,7 +86,7 @@ export default function DocenteCard({ docente }: { docente: Docente }) {
 
           <div
             className="mt-2 flex w-full items-center justify-end gap-1.5"
-            style={{ color: "rgba(180,145,60,0.8)" }}
+            style={{ color: "color-mix(in srgb, var(--color-gold-600) 80%, transparent)" }}
           >
             <span className="text-[9px] font-black uppercase tracking-[0.18em]">Ver perfil</span>
             <ArrowRight className="h-3 w-3" />

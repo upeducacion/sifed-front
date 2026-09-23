@@ -49,12 +49,12 @@ export default function EcosistemaSection() {
           >
             {/* Borde degradado al hover */}
             <div className="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none -z-10"
-              style={{ background: "linear-gradient(135deg, #3b82f6, #6366f1, #b4913c)", padding: "2px", borderRadius: "2rem" }} />
+              style={{ background: "linear-gradient(135deg, var(--color-brand-400), var(--color-brand-600), var(--color-gold-600))", padding: "2px", borderRadius: "2rem" }} />
             <div className="absolute inset-[2px] rounded-[calc(2rem-2px)] bg-background pointer-events-none -z-10" />
 
             {/* Brillo en hover — barre la card */}
             <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none rounded-lg"
-              style={{ background: "linear-gradient(135deg, rgba(59,130,246,0.07) 0%, rgba(99,102,241,0.04) 50%, rgba(180,145,60,0.06) 100%)" }} />
+              style={{ background: "linear-gradient(135deg, color-mix(in srgb, var(--color-brand-400) 7%, transparent) 0%, color-mix(in srgb, var(--color-brand-600) 4%, transparent) 50%, color-mix(in srgb, var(--color-gold-600) 6%, transparent) 100%)" }} />
 
             {/* Logo watermark */}
             <div className="absolute top-0 right-0 p-8 opacity-[0.04] group-hover:opacity-[0.1] transition-opacity duration-300 pointer-events-none origin-top-right">
@@ -104,7 +104,7 @@ export default function EcosistemaSection() {
             viewport={{ once: true, margin: "-60px" }}
             whileHover={{ y: -4, transition: { duration: 0.24, ease: EASE } }}
             className="group relative flex cursor-pointer flex-col overflow-hidden rounded-lg p-5 text-white transition-shadow duration-300 hover:shadow-float sm:p-8"
-            style={{ background: "linear-gradient(135deg, #1e3152 0%, #0d1623 60%, #050810 100%)" }}
+            style={{ background: "linear-gradient(135deg, var(--color-brand-800) 0%, var(--color-brand-950) 60%, var(--color-brand-950) 100%)" }}
           >
             {/* Glow base */}
             <div className="absolute -bottom-20 -right-20 w-80 h-80 bg-brand-600 rounded-full blur-[100px] opacity-20 group-hover:opacity-50 transition-opacity duration-600 pointer-events-none" />
@@ -119,7 +119,7 @@ export default function EcosistemaSection() {
 
             {/* Línea dorada top — aparece en hover */}
             <div className="absolute top-0 left-0 right-0 h-[2px] opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
-              style={{ background: "linear-gradient(90deg, transparent, #b4913c, #d4a853, #b4913c, transparent)" }} />
+              style={{ background: "linear-gradient(90deg, transparent, var(--color-gold-600), var(--color-gold-300), var(--color-gold-600), transparent)" }} />
 
             <div className="relative z-10 flex-1 flex flex-col justify-between">
               <div>

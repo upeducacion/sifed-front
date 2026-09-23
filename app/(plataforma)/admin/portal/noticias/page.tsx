@@ -178,7 +178,7 @@ export default function AdminNoticiasPage() {
                                 <span className={cn(
                                     "px-3 py-1 rounded-lg text-[9px] font-black uppercase tracking-wider border",
                                     noticia.categoria?.estilo_visual === 'gold' ? "bg-uncp-gold/5 text-uncp-gold border-uncp-gold/20" :
-                                    noticia.categoria?.estilo_visual === 'blue' ? "bg-blue-50 text-blue-600 border-blue-100" :
+                                    noticia.categoria?.estilo_visual === 'blue' ? "bg-brand-50 text-brand-600 border-brand-100" :
                                     noticia.categoria?.estilo_visual === 'green' ? "bg-emerald-50 text-emerald-600 border-emerald-100" :
                                     noticia.categoria?.estilo_visual === 'brand' ? "bg-brand-50 text-brand-600 border-brand-100" :
                                     "bg-neutral-50 text-neutral-600 border-neutral-100"
@@ -194,7 +194,7 @@ export default function AdminNoticiasPage() {
                                     "inline-flex items-center px-2.5 py-1 rounded-full text-[9px] font-black uppercase tracking-widest",
                                     noticia.estado === 'publicado' 
                                         ? 'bg-green-50 text-green-600 border border-green-100' 
-                                        : 'bg-amber-50 text-amber-600 border border-amber-100'
+                                        : 'bg-gold-50 text-gold-600 border border-gold-100'
                                 )}>
                                     {noticia.estado}
                                 </span>
@@ -290,7 +290,7 @@ export default function AdminNoticiasPage() {
                                         "h-3 w-3 rounded-full border border-black/10",
                                         cat.estilo_visual === 'gold' ? 'bg-uncp-gold' :
                                         cat.estilo_visual === 'green' ? 'bg-uncp-green' :
-                                        cat.estilo_visual === 'blue' ? 'bg-blue-600' : 'bg-brand-800'
+                                        cat.estilo_visual === 'blue' ? 'bg-brand-600' : 'bg-brand-800'
                                     )} />
                                     <span className="text-[10px] font-black uppercase tracking-widest text-brand-950/40">
                                         {cat.estilo_visual}
@@ -313,7 +313,7 @@ export default function AdminNoticiasPage() {
                                         className={cn(
                                             "p-2 rounded-lg transition-colors",
                                             (cat.noticias_count || 0) > 0 
-                                                ? "text-gray-300 cursor-not-allowed" 
+                                                ? "text-text-tertiary cursor-not-allowed" 
                                                 : "text-red-500 hover:bg-red-50"
                                         )}
                                         disabled={(cat.noticias_count || 0) > 0}

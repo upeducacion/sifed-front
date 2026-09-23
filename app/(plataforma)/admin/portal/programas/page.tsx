@@ -252,9 +252,9 @@ export default function ProgramasAdminPage() {
                     <td className="px-6 py-4">
                       <span className={cn(
                         "px-2.5 py-1 rounded-lg text-[10px] font-black uppercase tracking-widest",
-                        programa.tipo === "maestria" ? "bg-blue-50 text-blue-700 border border-blue-100" :
-                        programa.tipo === "doctorado" ? "bg-purple-50 text-purple-700 border border-purple-100" :
-                        "bg-slate-50 text-slate-700 border border-slate-100"
+                        programa.tipo === "maestria" ? "bg-brand-50 text-brand-700 border border-brand-100" :
+                        programa.tipo === "doctorado" ? "bg-brand-50 text-brand-700 border border-brand-100" :
+                        "bg-surface-subtle text-foreground border border-border-subtle"
                       )}>
                         {programa.tipo}
                       </span>
@@ -281,8 +281,8 @@ export default function ProgramasAdminPage() {
                       <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-white border border-border">
                         <div className={cn(
                           "w-2 h-2 rounded-full",
-                          programa.estado === "activo" ? "bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.5)]" : 
-                          programa.estado === "borrador" ? "bg-amber-500" : "bg-red-500"
+                          programa.estado === "activo" ? "bg-emerald-500 shadow-glow-success" : 
+                          programa.estado === "borrador" ? "bg-gold-500" : "bg-red-500"
                         )} />
                         <span className="text-[10px] font-bold uppercase tracking-wider">{programa.estado}</span>
                       </div>
@@ -291,7 +291,7 @@ export default function ProgramasAdminPage() {
                       <div className="flex items-center justify-end gap-2">
                         <Link 
                           href={`/admin/portal/programas/${programa.id}/edit`}
-                          className="p-2 text-muted-foreground hover:text-blue-600 hover:bg-blue-50 rounded-xl transition-all"
+                          className="p-2 text-muted-foreground hover:text-brand-600 hover:bg-brand-50 rounded-xl transition-all"
                         >
                           <Edit2 className="w-4 h-4" />
                         </Link>

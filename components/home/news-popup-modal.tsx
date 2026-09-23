@@ -102,7 +102,7 @@ export default function NewsPopupModal({ noticias }: NewsPopupModalProps) {
     <AnimatePresence>
       <motion.div
         className="fixed inset-0 z-[9999] flex items-center justify-center px-4 py-6"
-        style={{ backgroundColor: "rgba(5, 8, 18, 0.82)" }}
+        style={{ backgroundColor: "color-mix(in srgb, var(--color-brand-950) 82%, transparent)" }}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
@@ -112,8 +112,8 @@ export default function NewsPopupModal({ noticias }: NewsPopupModalProps) {
         <motion.div
           className="relative w-full max-w-[620px] rounded-lg shadow-float"
           style={{
-            background: "linear-gradient(160deg, #0d1623 0%, #0a1018 100%)",
-            border: "1px solid rgba(180,145,60,0.25)",
+            background: "linear-gradient(160deg, var(--color-brand-950) 0%, var(--color-brand-950) 100%)",
+            border: "1px solid color-mix(in srgb, var(--color-gold-600) 25%, transparent)",
             boxShadow: "var(--shadow-float)",
           }}
           initial={{ opacity: 0, y: 52, scale: 0.92 }}
@@ -127,17 +127,17 @@ export default function NewsPopupModal({ noticias }: NewsPopupModalProps) {
           {/* Línea de acento dorado superior */}
           <div
             className="absolute top-0 left-0 right-0 h-[2px] z-30"
-            style={{ background: "linear-gradient(90deg, transparent, #b4913c, #d4a853, #b4913c, transparent)" }}
+            style={{ background: "linear-gradient(90deg, transparent, var(--color-gold-600), var(--color-gold-300), var(--color-gold-600), transparent)" }}
           />
 
           {/* Barra de progreso — inferior, solo la actual */}
           {popupNoticias.length > 1 && (
             <div className="absolute bottom-0 left-0 right-0 z-20 h-[3px]"
-              style={{ backgroundColor: "rgba(180,145,60,0.15)" }}
+              style={{ backgroundColor: "color-mix(in srgb, var(--color-gold-600) 15%, transparent)" }}
             >
               <motion.div
                 className="h-full"
-                style={{ background: "linear-gradient(90deg, #b4913c, #d4a853)" }}
+                style={{ background: "linear-gradient(90deg, var(--color-gold-600), var(--color-gold-300))" }}
                 animate={{ width: `${progress}%` }}
                 transition={{ duration: 0.08, ease: "linear" }}
               />
@@ -152,7 +152,7 @@ export default function NewsPopupModal({ noticias }: NewsPopupModalProps) {
                 onClick={handlePrevious}
                 disabled={!hasPrevious}
                 className="absolute -left-12 top-1/2 -translate-y-1/2 z-30 flex h-10 w-10 items-center justify-center rounded-full transition-all duration-200 disabled:opacity-0 disabled:pointer-events-none hover:scale-110"
-                style={{ backgroundColor: "rgba(180,145,60,0.18)", border: "1px solid rgba(180,145,60,0.35)", color: "#d4a853", backdropFilter: "blur(8px)" }}
+                style={{ backgroundColor: "color-mix(in srgb, var(--color-gold-600) 18%, transparent)", border: "1px solid color-mix(in srgb, var(--color-gold-600) 35%, transparent)", color: "var(--color-gold-300)", backdropFilter: "blur(8px)" }}
                 aria-label="Anterior"
               >
                 <ChevronLeft className="h-5 w-5" />
@@ -162,7 +162,7 @@ export default function NewsPopupModal({ noticias }: NewsPopupModalProps) {
                 onClick={handleNext}
                 disabled={!hasNext}
                 className="absolute -right-12 top-1/2 -translate-y-1/2 z-30 flex h-10 w-10 items-center justify-center rounded-full transition-all duration-200 disabled:opacity-0 disabled:pointer-events-none hover:scale-110"
-                style={{ backgroundColor: "rgba(180,145,60,0.18)", border: "1px solid rgba(180,145,60,0.35)", color: "#d4a853", backdropFilter: "blur(8px)" }}
+                style={{ backgroundColor: "color-mix(in srgb, var(--color-gold-600) 18%, transparent)", border: "1px solid color-mix(in srgb, var(--color-gold-600) 35%, transparent)", color: "var(--color-gold-300)", backdropFilter: "blur(8px)" }}
                 aria-label="Siguiente"
               >
                 <ChevronRight className="h-5 w-5" />
@@ -175,7 +175,7 @@ export default function NewsPopupModal({ noticias }: NewsPopupModalProps) {
             type="button"
             onClick={handleClose}
             className="absolute right-4 top-3 z-30 flex h-8 w-8 items-center justify-center rounded-full transition-all duration-200 hover:scale-110"
-            style={{ backgroundColor: "rgba(255,255,255,0.06)", color: "rgba(255,255,255,0.45)" }}
+            style={{ backgroundColor: "color-mix(in srgb, var(--color-white) 6%, transparent)", color: "color-mix(in srgb, var(--color-white) 45%, transparent)" }}
             aria-label="Cerrar aviso"
           >
             <X className="h-3.5 w-3.5" />
@@ -206,14 +206,14 @@ export default function NewsPopupModal({ noticias }: NewsPopupModalProps) {
                 ) : (
                   <div
                     className="w-full h-full transition-opacity duration-500 group-hover:opacity-15"
-                    style={{ background: "linear-gradient(135deg, #0d1623 0%, #1a2a4a 100%)" }}
+                    style={{ background: "linear-gradient(135deg, var(--color-brand-950) 0%, var(--color-brand-800) 100%)" }}
                   />
                 )}
 
                 {/* Capa B: overlay oscuro — aparece al hover */}
                 <div
                   className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                  style={{ background: "rgba(10,16,24,0.88)" }}
+                  style={{ background: "color-mix(in srgb, var(--color-brand-950) 88%, transparent)" }}
                 />
 
                 {/* Capa C: texto — sube y aparece al hover */}
@@ -221,10 +221,10 @@ export default function NewsPopupModal({ noticias }: NewsPopupModalProps) {
 
                   {/* Label dorado */}
                   <div className="flex items-center gap-2.5 mb-3">
-                    <div className="h-[1px] w-5 flex-shrink-0" style={{ backgroundColor: "#b4913c" }} />
+                    <div className="h-[1px] w-5 flex-shrink-0" style={{ backgroundColor: "var(--color-gold-600)" }} />
                     <span
                       className="text-[9px] font-black uppercase tracking-[0.35em]"
-                      style={{ color: "#d4a853" }}
+                      style={{ color: "var(--color-gold-300)" }}
                     >
                       Comunicado Institucional
                     </span>
@@ -233,7 +233,7 @@ export default function NewsPopupModal({ noticias }: NewsPopupModalProps) {
                   {/* Título */}
                   <h2
                     className="font-serif font-black leading-snug text-white mb-3 line-clamp-3"
-                    style={{ fontSize: "clamp(1rem, 3.5vw, 1.25rem)", textShadow: "0 2px 12px rgba(0,0,0,0.4)" }}
+                    style={{ fontSize: "clamp(1rem, 3.5vw, 1.25rem)", textShadow: "0 2px 12px color-mix(in srgb, var(--color-carbon) 40%, transparent)" }}
                   >
                     {currentNoticia.titulo}
                   </h2>
@@ -242,7 +242,7 @@ export default function NewsPopupModal({ noticias }: NewsPopupModalProps) {
                   {currentNoticia.fecha_humana && (
                     <p
                       className="text-[11px] font-semibold uppercase tracking-[0.2em] mb-2"
-                      style={{ color: "rgba(180,145,60,0.75)" }}
+                      style={{ color: "color-mix(in srgb, var(--color-gold-600) 75%, transparent)" }}
                     >
                       {currentNoticia.fecha_humana} · UPG UNCP
                     </p>
@@ -252,7 +252,7 @@ export default function NewsPopupModal({ noticias }: NewsPopupModalProps) {
                   {currentNoticia.resumen && (
                     <p
                       className="text-sm leading-relaxed line-clamp-3"
-                      style={{ color: "rgba(255,255,255,0.6)" }}
+                      style={{ color: "color-mix(in srgb, var(--color-white) 60%, transparent)" }}
                     >
                       {currentNoticia.resumen}
                     </p>
@@ -266,7 +266,7 @@ export default function NewsPopupModal({ noticias }: NewsPopupModalProps) {
           {/* Separador dorado */}
           <div
             className="mx-6 mt-0 h-[1px]"
-            style={{ background: "linear-gradient(90deg, rgba(180,145,60,0.4), rgba(180,145,60,0.08))" }}
+            style={{ background: "linear-gradient(90deg, color-mix(in srgb, var(--color-gold-600) 40%, transparent), color-mix(in srgb, var(--color-gold-600) 8%, transparent))" }}
           />
 
           {/* Footer: dots + CTA */}
@@ -282,7 +282,7 @@ export default function NewsPopupModal({ noticias }: NewsPopupModalProps) {
                     style={{
                       width: i === currentIndex ? "20px" : "6px",
                       height: "4px",
-                      backgroundColor: i === currentIndex ? "#b4913c" : "rgba(255,255,255,0.15)",
+                      backgroundColor: i === currentIndex ? "var(--color-gold-600)" : "color-mix(in srgb, var(--color-white) 15%, transparent)",
                     }}
                   />
                 ))}
@@ -290,7 +290,7 @@ export default function NewsPopupModal({ noticias }: NewsPopupModalProps) {
             ) : (
               <span
                 className="text-[10px] uppercase tracking-[0.2em]"
-                style={{ color: "rgba(255,255,255,0.25)" }}
+                style={{ color: "color-mix(in srgb, var(--color-white) 25%, transparent)" }}
               >
                 UPG · UNCP
               </span>
@@ -299,7 +299,7 @@ export default function NewsPopupModal({ noticias }: NewsPopupModalProps) {
             <Link
               href={`/noticias/${currentNoticia.slug}`}
               className="group/btn inline-flex items-center gap-2 rounded-lg px-4 py-2 text-[10px] font-black uppercase tracking-[0.2em] transition-all duration-300 hover:brightness-110"
-              style={{ background: "linear-gradient(135deg, #b4913c, #d4a853)", color: "#0a1018" }}
+              style={{ background: "linear-gradient(135deg, var(--color-gold-600), var(--color-gold-300))", color: "var(--color-brand-950)" }}
             >
               Leer más
               <ArrowRight className="h-3 w-3 transition-transform duration-300 group-hover/btn:translate-x-0.5" />

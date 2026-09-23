@@ -48,7 +48,7 @@ export default function SettingsPage() {
           {activeTab === "profile" && (
             <div className="bg-white p-8 rounded-lg border border-border shadow-sm animate-in fade-in slide-in-from-right-4 duration-300">
               <h3 className="text-xl font-bold text-brand-950 mb-6 flex items-center gap-2">
-                <div className="h-8 w-8 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center">
+                <div className="h-8 w-8 rounded-lg bg-brand-50 text-brand-600 flex items-center justify-center">
                    <User className="h-4 w-4" />
                 </div>
                 Información Personal
@@ -116,7 +116,7 @@ export default function SettingsPage() {
           {activeTab === "security" && (
             <div className="bg-white p-8 rounded-lg border border-border shadow-sm animate-in fade-in slide-in-from-right-4 duration-300">
               <h3 className="text-xl font-bold text-brand-950 mb-6 flex items-center gap-2">
-                <div className="h-8 w-8 rounded-lg bg-orange-50 text-orange-600 flex items-center justify-center">
+                <div className="h-8 w-8 rounded-lg bg-gold-50 text-gold-700 flex items-center justify-center">
                    <Lock className="h-4 w-4" />
                 </div>
                 Cambiar Contraseña

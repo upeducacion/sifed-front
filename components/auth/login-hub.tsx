@@ -35,9 +35,9 @@ export default function LoginHub() {
       
       // Animación de énfasis más elegante que un simple ring
       loginRef.current.animate([
-        { boxShadow: '0 0 0 0 rgba(0, 27, 72, 0)' },
-        { boxShadow: '0 0 0 10px rgba(0, 27, 72, 0.1)' },
-        { boxShadow: '0 0 0 0 rgba(0, 27, 72, 0)' }
+        { boxShadow: '0 0 0 0 color-mix(in srgb, var(--color-brand-950) 0%, transparent)' },
+        { boxShadow: '0 0 0 10px color-mix(in srgb, var(--color-brand-950) 10%, transparent)' },
+        { boxShadow: '0 0 0 0 color-mix(in srgb, var(--color-brand-950) 0%, transparent)' }
       ], { duration: 600, easing: 'ease-out' });
 
       const emailInput = loginRef.current.querySelector("input[type='email']") as HTMLInputElement;

@@ -38,7 +38,7 @@ export default async function NosotrosPage() {
   const directorio = unidad?.directorio_json || [];
 
   return (
-    <main className="flex-1 w-full bg-slate-50/50 pb-24">
+    <main className="flex-1 w-full bg-surface-subtle/50 pb-24">
       <PageHero
         title="UNIDAD DE POSGRADO"
         subtitle="SOBRE LA"

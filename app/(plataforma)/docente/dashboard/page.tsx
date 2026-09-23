@@ -8,8 +8,8 @@ export default function DocenteDashboardPage() {
 
   const stats = [
     { label: "Cursos Asignados", value: "4", icon: BookOpen, color: "text-brand-600 bg-brand-50" },
-    { label: "Total Estudiantes", value: "128", icon: Users, color: "text-blue-600 bg-blue-50" },
-    { label: "Tareas por Revisar", value: "15", icon: ClipboardCheck, color: "text-orange-600 bg-orange-50" }, 
+    { label: "Total Estudiantes", value: "128", icon: Users, color: "text-brand-600 bg-brand-50" },
+    { label: "Tareas por Revisar", value: "15", icon: ClipboardCheck, color: "text-gold-700 bg-gold-50" }, 
     { label: "Foros Activos", value: "8", icon: MessageSquare, color: "text-green-600 bg-green-50" },
   ];
 

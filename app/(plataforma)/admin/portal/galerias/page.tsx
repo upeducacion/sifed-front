@@ -212,9 +212,9 @@ export default function GaleriasAdminPage() {
                       <span className={cn(
                         "px-2.5 py-1 rounded-lg text-[10px] font-black uppercase tracking-widest",
                         galeria.categoria === "sustentaciones" ? "bg-emerald-50 text-emerald-700 border border-emerald-100" :
-                        galeria.categoria === "investigacion" ? "bg-blue-50 text-blue-700 border border-blue-100" :
+                        galeria.categoria === "investigacion" ? "bg-brand-50 text-brand-700 border border-brand-100" :
                         galeria.categoria === "eventos" ? "bg-uncp-gold/10 text-brand-700 border border-uncp-gold/20" :
-                        "bg-slate-50 text-slate-700 border border-slate-100"
+                        "bg-surface-subtle text-foreground border border-border-subtle"
                       )}>
                         {galeria.categoria}
                       </span>
@@ -229,7 +229,7 @@ export default function GaleriasAdminPage() {
                       <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-white border border-border">
                         <div className={cn(
                           "w-2 h-2 rounded-full",
-                          galeria.estado === "activo" ? "bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.5)]" : "bg-amber-500"
+                          galeria.estado === "activo" ? "bg-emerald-500 shadow-glow-success" : "bg-gold-500"
                         )} />
                         <span className="text-[10px] font-bold uppercase tracking-wider">{galeria.estado}</span>
                       </div>
@@ -238,7 +238,7 @@ export default function GaleriasAdminPage() {
                       <div className="flex items-center justify-end gap-2">
                         <Link 
                           href={`/admin/portal/galerias/${galeria.id}/edit`}
-                          className="p-2 text-muted-foreground hover:text-blue-600 hover:bg-blue-50 rounded-xl transition-all"
+                          className="p-2 text-muted-foreground hover:text-brand-600 hover:bg-brand-50 rounded-xl transition-all"
                         >
                           <Edit2 className="w-4 h-4" />
                         </Link>

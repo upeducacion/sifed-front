@@ -270,9 +270,9 @@ export default function DocentesAdminPage() {
                     <td className="px-6 py-4">
                       <span className={cn(
                         "px-2.5 py-1 rounded-lg text-[10px] font-black uppercase tracking-widest",
-                        docente.categoria === "principal" ? "bg-blue-50 text-blue-700 border border-blue-100" :
-                        docente.categoria === "asociado" ? "bg-indigo-50 text-indigo-700 border border-indigo-100" :
-                        "bg-slate-50 text-slate-700 border border-slate-100"
+                        docente.categoria === "principal" ? "bg-brand-50 text-brand-700 border border-brand-100" :
+                        docente.categoria === "asociado" ? "bg-brand-50 text-brand-700 border border-brand-100" :
+                        "bg-surface-subtle text-foreground border border-border-subtle"
                       )}>
                         {docente.categoria}
                       </span>
@@ -294,7 +294,7 @@ export default function DocentesAdminPage() {
                           title="Biografía"
                           className={cn(
                             "p-1.5 rounded-lg transition-all",
-                            docente.config_visibilidad?.mostrar_bio ? "bg-purple-50 text-purple-600 hover:bg-purple-100" : "bg-muted text-muted-foreground hover:bg-muted-foreground/10"
+                            docente.config_visibilidad?.mostrar_bio ? "bg-brand-50 text-brand-600 hover:bg-brand-100" : "bg-muted text-muted-foreground hover:bg-muted-foreground/10"
                           )}
                         >
                           <Edit2 className="w-4 h-4" />
@@ -305,7 +305,7 @@ export default function DocentesAdminPage() {
                       <div className="flex items-center gap-2">
                         <div className={cn(
                           "w-2 h-2 rounded-full",
-                          docente.estado === "activo" ? "bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.5)]" : "bg-red-500"
+                          docente.estado === "activo" ? "bg-emerald-500 shadow-glow-success" : "bg-red-500"
                         )} />
                         <span className="text-xs font-bold capitalize">{docente.estado}</span>
                       </div>
@@ -321,7 +321,7 @@ export default function DocentesAdminPage() {
                         </Link>
                         <Link 
                           href={`/admin/portal/docentes/${docente.id}/edit`}
-                          className="p-2 text-muted-foreground hover:text-blue-600 hover:bg-blue-50 rounded-xl transition-all"
+                          className="p-2 text-muted-foreground hover:text-brand-600 hover:bg-brand-50 rounded-xl transition-all"
                         >
                           <Edit2 className="w-4 h-4" />
                         </Link>

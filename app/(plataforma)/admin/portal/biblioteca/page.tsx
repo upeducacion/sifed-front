@@ -179,15 +179,15 @@ export default function BibliotecaAdminPage() {
                     <td className="px-6 py-4">
                       <div className={cn(
                         "inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md text-[9px] font-black uppercase tracking-widest border",
-                        item.estado === "activo" ? "bg-emerald-50 text-emerald-700 border-emerald-100" : "bg-amber-50 text-amber-700 border-amber-100"
+                        item.estado === "activo" ? "bg-emerald-50 text-emerald-700 border-emerald-100" : "bg-gold-50 text-gold-700 border-gold-100"
                       )}>
-                        <div className={cn("w-1.5 h-1.5 rounded-full", item.estado === "activo" ? "bg-emerald-500" : "bg-amber-500")} />
+                        <div className={cn("w-1.5 h-1.5 rounded-full", item.estado === "activo" ? "bg-emerald-500" : "bg-gold-500")} />
                         {item.estado}
                       </div>
                     </td>
                     <td className="px-6 py-4 text-right">
                       <div className="flex items-center justify-end gap-2">
-                        <Link href={`/admin/portal/biblioteca/${item.id}/edit`} className="p-2 text-muted-foreground hover:text-blue-600 hover:bg-blue-50 rounded-xl transition-all">
+                        <Link href={`/admin/portal/biblioteca/${item.id}/edit`} className="p-2 text-muted-foreground hover:text-brand-600 hover:bg-brand-50 rounded-xl transition-all">
                           <Edit2 className="w-4 h-4" />
                         </Link>
                         <button onClick={() => handleDelete(item.id, item.titulo)} className="p-2 text-muted-foreground hover:text-red-600 hover:bg-red-50 rounded-xl transition-all">

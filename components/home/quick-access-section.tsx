@@ -19,41 +19,44 @@ import { cn } from "@/lib/utils";
 
 import { EXTERNAL_LINKS } from "@/lib/constants";
 
+const internalChip = "bg-brand-50 text-brand-700 group-hover:bg-brand-950 group-hover:text-gold-500";
+const externalChip = "bg-brand-950 text-gold-500 group-hover:bg-gold-500 group-hover:text-brand-950";
+
 const accessLinks = [
   {
     title: "Admisión",
     desc: "Guía completa y requisitos vigentes.",
     icon: <ClipboardCheck aria-hidden="true" className="w-5 h-5" />,
     href: "/posgrado/admision",
-    color: "bg-blue-50 text-blue-700"
+    color: internalChip
   },
   {
     title: "Plana Docente",
     desc: "Investigadores y catedráticos calificados.",
     icon: <Users aria-hidden="true" className="w-5 h-5" />,
     href: "/posgrado/plana-docente",
-    color: "bg-brand-50 text-brand-700"
+    color: internalChip
   },
   {
     title: "Planes de Estudio",
     desc: "Estructura curricular actualizada.",
     icon: <GraduationCap aria-hidden="true" className="w-5 h-5" />,
     href: "/posgrado/programas",
-    color: "bg-amber-50 text-amber-700"
+    color: internalChip
   },
   {
     title: "Documentos",
     desc: "Reglamentos y formatos oficiales.",
     icon: <FileText aria-hidden="true" className="w-5 h-5" />,
     href: "/documentos-normativos",
-    color: "bg-purple-50 text-purple-700"
+    color: internalChip
   },
   {
     title: "Mesa de Partes",
     desc: "Envío oficial de documentos.",
     icon: <Landmark aria-hidden="true" className="w-5 h-5" />,
     href: "https://erpcampus.uncp.edu.pe/",
-    color: "bg-emerald-50 text-emerald-700",
+    color: externalChip,
     external: true
   },
   {
@@ -61,7 +64,7 @@ const accessLinks = [
     desc: "Plataforma de aprendizaje UP Educación.",
     icon: <MonitorPlay aria-hidden="true" className="w-5 h-5" />,
     href: EXTERNAL_LINKS.AULA_VIRTUAL,
-    color: "bg-brand-950 text-amber-500",
+    color: externalChip,
     external: true
   }
 ];
@@ -81,12 +84,12 @@ export default function QuickAccessSection() {
   const scrollNext = useCallback(() => emblaApi && emblaApi.scrollNext(), [emblaApi]);
 
   return (
-    <section className="py-16 bg-slate-50/50 border-b border-border overflow-hidden" aria-label="Enlaces de acceso rápido">
+    <section className="py-16 bg-surface-subtle/50 border-b border-border overflow-hidden" aria-label="Enlaces de acceso rápido">
       <div className="container-query-name page-shell-wide">
         
         <div className="mb-8 flex flex-col gap-5 sm:mb-10 md:flex-row md:items-center md:justify-between">
           <div>
-            <span className="text-[10px] font-black uppercase tracking-[0.3em] text-amber-700 mb-2 block">Gestión Académica</span>
+            <span className="text-[10px] font-black uppercase tracking-[0.3em] text-gold-700 mb-2 block">Gestión Académica</span>
             <h2 className="font-serif text-3xl font-black leading-tight text-brand-950 md:text-4xl">
               Accesos Directos
             </h2>
@@ -119,11 +122,11 @@ export default function QuickAccessSection() {
                   target={item.external ? "_blank" : undefined}
                   rel={item.external ? "noopener noreferrer" : undefined}
                   aria-label={`Acceder a ${item.title}`}
-                  className="group relative p-6 rounded-lg border-2 border-slate-200 bg-white hover:border-brand-600 hover:ring-4 hover:ring-brand-600/5 hover:shadow-float hover:-translate-y-1 transition-all duration-200 flex flex-col justify-between h-full min-h-[220px]"
+                  className="group relative p-6 rounded-lg border-2 border-border bg-white hover:border-brand-600 hover:ring-4 hover:ring-brand-600/5 hover:shadow-float hover:-translate-y-1 transition-all duration-200 flex flex-col justify-between h-full min-h-[220px]"
                 >
                   <div className="relative z-10">
                     <div className={cn(
-                      "w-12 h-12 rounded-xl flex items-center justify-center mb-5 transition-transform duration-200 group-hover:scale-[1.03] shadow-sm",
+                      "w-12 h-12 rounded-xl flex items-center justify-center mb-5 transition-[transform,background-color,color] duration-200 group-hover:scale-[1.03] shadow-sm",
                       item.color
                     )}>
                       {item.icon}
@@ -131,7 +134,7 @@ export default function QuickAccessSection() {
                     <h3 className="text-lg font-bold text-brand-950 mb-2 group-hover:text-brand-700 transition-colors leading-tight">
                       {item.title}
                     </h3>
-                    <p className="text-xs text-slate-600 leading-relaxed">
+                    <p className="text-xs text-text-secondary leading-relaxed">
                       {item.desc}
                     </p>
                   </div>

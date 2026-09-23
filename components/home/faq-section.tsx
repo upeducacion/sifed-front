@@ -66,7 +66,7 @@ export default function FAQSection() {
                 alt="Estudiantes de Posgrado UNCP" 
                 width={600} 
                 height={800} 
-                className="w-full h-auto drop-shadow-[-20px_0_50px_rgba(0,0,0,0.1)] translate-y-[1px]" 
+                className="w-full h-auto drop-shadow-panel translate-y-[1px]" 
                 priority
               />
             </motion.div>

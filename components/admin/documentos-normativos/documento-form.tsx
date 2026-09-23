@@ -348,7 +348,7 @@ export function DocumentoForm({ initialData }: DocumentoFormProps) {
               name="is_public"
               id="is_public"
               defaultChecked={initialData ? initialData.is_public : true}
-              className="h-5 w-5 text-brand-600 rounded border-gray-300 focus:ring-brand-500"
+              className="h-5 w-5 text-brand-600 rounded border-border-strong focus:ring-brand-500"
           />
           <label htmlFor="is_public" className="text-sm font-medium text-brand-950 cursor-pointer">
               Hacer público este documento en el portal

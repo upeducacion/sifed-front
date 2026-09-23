@@ -38,7 +38,7 @@ export default function Footer() {
                  target="_blank"
                  rel="noopener noreferrer"
                  aria-label="Visitar nuestra página de Facebook"
-                 className="h-12 w-12 rounded-lg bg-white border border-border flex items-center justify-center text-slate-600 hover:bg-brand-600 hover:text-white transition-all shadow-sm focus-visible:outline-brand-600 focus-visible:outline-2"
+                 className="h-12 w-12 rounded-lg bg-white border border-border flex items-center justify-center text-text-secondary hover:bg-brand-600 hover:text-white transition-all shadow-sm focus-visible:outline-brand-600 focus-visible:outline-2"
                >
                   <Facebook aria-hidden="true" className="h-5 w-5" />
                </Link>
@@ -47,7 +47,7 @@ export default function Footer() {
                  target="_blank"
                  rel="noopener noreferrer"
                  aria-label="Visitar nuestro canal de YouTube"
-                 className="h-12 w-12 rounded-lg bg-white border border-border flex items-center justify-center text-slate-600 hover:bg-red-600 hover:text-white transition-all shadow-sm focus-visible:outline-red-600 focus-visible:outline-2"
+                 className="h-12 w-12 rounded-lg bg-white border border-border flex items-center justify-center text-text-secondary hover:bg-red-600 hover:text-white transition-all shadow-sm focus-visible:outline-red-600 focus-visible:outline-2"
                >
                   <Youtube aria-hidden="true" className="h-5 w-5" />
                </Link>
@@ -56,7 +56,7 @@ export default function Footer() {
                  target="_blank"
                  rel="noopener noreferrer"
                  aria-label="Visitar nuestro perfil de LinkedIn"
-                 className="h-12 w-12 rounded-lg bg-white border border-border flex items-center justify-center text-slate-600 hover:bg-blue-700 hover:text-white transition-all shadow-sm focus-visible:outline-blue-700 focus-visible:outline-2"
+                 className="h-12 w-12 rounded-lg bg-white border border-border flex items-center justify-center text-text-secondary hover:bg-brand-700 hover:text-white transition-all shadow-sm focus-visible:outline-brand-700 focus-visible:outline-2"
                >
                   <Linkedin aria-hidden="true" className="h-5 w-5" />
                </Link>
@@ -66,7 +66,7 @@ export default function Footer() {
           {/* Columna Programas */}
           <div>
             <h4 className="mb-8 text-xs font-black text-brand-950 uppercase tracking-[0.2em]">Programas</h4>
-            <ul className="space-y-4 text-sm font-bold text-slate-600">
+            <ul className="space-y-4 text-sm font-bold text-text-secondary">
               <li><Link href="/posgrado/maestrias" className="hover:text-brand-600 transition-colors focus-visible:outline-brand-600">Maestrías</Link></li>
               <li><Link href="/posgrado/doctorados" className="hover:text-brand-600 transition-colors focus-visible:outline-brand-600">Doctorados</Link></li>
               <li><Link href="/posgrado/formacion-continua" className="hover:text-brand-600 transition-colors focus-visible:outline-brand-600">Formación Continua</Link></li>
@@ -77,7 +77,7 @@ export default function Footer() {
           {/* Columna Investigación */}
           <div>
             <h4 className="mb-8 text-xs font-black text-brand-950 uppercase tracking-[0.2em]">Investigación</h4>
-            <ul className="space-y-4 text-sm font-bold text-slate-600">
+            <ul className="space-y-4 text-sm font-bold text-text-secondary">
               <li><Link href="/biblioteca-virtual" className="hover:text-brand-600 transition-colors focus-visible:outline-brand-600">Biblioteca Virtual</Link></li>
               <li><Link href="/documentos-normativos" className="hover:text-brand-600 transition-colors focus-visible:outline-brand-600">Normativa de Grados</Link></li>
               <li><Link href="/galeria-fotos" className="hover:text-brand-600 transition-colors focus-visible:outline-brand-600">Memoria Visual (Galería)</Link></li>
@@ -89,7 +89,7 @@ export default function Footer() {
           {/* Columna Servicios Digitales */}
           <div>
             <h4 className="mb-8 text-xs font-black text-brand-950 uppercase tracking-[0.2em]">Ecosistema</h4>
-            <ul className="space-y-4 text-sm font-bold text-slate-600">
+            <ul className="space-y-4 text-sm font-bold text-text-secondary">
               <li><a href={EXTERNAL_LINKS.AULA_VIRTUAL} target="_blank" rel="noopener noreferrer" className="hover:text-brand-600 transition-colors flex items-center gap-2 focus-visible:outline-brand-600"><MonitorPlay aria-hidden="true" className="h-4 w-4" /> Aula Virtual</a></li>
               <li><Link href="/posgrado/admision" className="hover:text-brand-600 transition-colors flex items-center gap-2 focus-visible:outline-brand-600"><BookOpen aria-hidden="true" className="h-4 w-4" /> Guía de Inscripción</Link></li>
               <li><Link href="/documentos-normativos" className="hover:text-brand-600 transition-colors flex items-center gap-2 focus-visible:outline-brand-600"><HelpCircle aria-hidden="true" className="h-4 w-4" /> Soporte Académico</Link></li>
@@ -98,7 +98,7 @@ export default function Footer() {
           </div>
         </div>
         
-        <div className="border-t border-border pt-10 flex flex-col md:flex-row justify-between items-center gap-6 text-[11px] font-black text-slate-500 uppercase tracking-widest">
+        <div className="border-t border-border pt-10 flex flex-col md:flex-row justify-between items-center gap-6 text-[11px] font-black text-text-secondary uppercase tracking-widest">
           <p>© 2026 Universidad Nacional del Centro del Perú.</p>
           <div className="flex gap-8">
             <Link 
