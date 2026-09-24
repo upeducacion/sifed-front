@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { notFound } from "next/navigation";
-import { bibliotecaApi } from "@/lib/api/biblioteca";
+import { notFound, permanentRedirect } from "next/navigation";
+import { bibliotecaApi, esRedirectDeDuplicado } from "@/lib/api/biblioteca";
 import { COLECCION_LABELS, tipoMeta } from "@/lib/repositorio/tipos";
 import { buildCitationMeta, buildJsonLd } from "@/lib/repositorio/metadata";
 import { getStorageUrl, cn } from "@/lib/utils";
@@ -17,17 +17,25 @@ interface DetallePageProps {
 
 export async function generateMetadata({ params }: DetallePageProps): Promise<Metadata> {
   const { slug } = await params;
+
+  let data;
   try {
-    const { recurso } = await bibliotecaApi.getPublicBySlug(slug);
-    return {
-      title: `${recurso.titulo} | Repositorio UP Educación UNCP`,
-      description:
-        recurso.descripcion?.slice(0, 180) || `${tipoMeta(recurso.tipo).label} — ${recurso.autores.join(", ")}`,
-      other: buildCitationMeta(recurso),
-    };
+    data = await bibliotecaApi.getPublicBySlug(slug);
   } catch {
     return { title: "Recurso no encontrado | Repositorio Institucional" };
   }
+
+  if (esRedirectDeDuplicado(data)) {
+    permanentRedirect(`/repositorio/${data.redirect}`);
+  }
+
+  const { recurso } = data;
+  return {
+    title: `${recurso.titulo} | Repositorio UP Educación UNCP`,
+    description:
+      recurso.descripcion?.slice(0, 180) || `${tipoMeta(recurso.tipo).label} — ${recurso.autores.join(", ")}`,
+    other: buildCitationMeta(recurso),
+  };
 }
 
 export default async function RepositorioDetallePage({ params }: Readonly<DetallePageProps>) {
@@ -38,6 +46,10 @@ export default async function RepositorioDetallePage({ params }: Readonly<Detall
     data = await bibliotecaApi.getPublicBySlug(slug);
   } catch {
     notFound();
+  }
+
+  if (esRedirectDeDuplicado(data)) {
+    permanentRedirect(`/repositorio/${data.redirect}`);
   }
 
   const { recurso, relacionados } = data;

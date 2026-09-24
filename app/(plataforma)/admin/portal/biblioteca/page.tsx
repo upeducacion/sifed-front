@@ -172,6 +172,11 @@ export default function BibliotecaAdminPage() {
                           <a href={getStorageUrl(item.archivo_url)} target="_blank" rel="noopener noreferrer" className="text-[10px] text-brand-600 font-black uppercase tracking-widest flex items-center gap-1 hover:underline">
                             <FileText className="w-3 h-3" /> Ver PDF
                           </a>
+                          {item.duplicado_de_id && (
+                            <span className="mt-1 inline-flex w-fit items-center gap-1 rounded-md border border-border bg-muted/50 px-1.5 py-0.5 text-[9px] font-bold uppercase tracking-wide text-muted-foreground">
+                              Duplicado de #{item.duplicado_de_id}
+                            </span>
+                          )}
                         </div>
                       </div>
                     </td>

@@ -2,6 +2,7 @@
 
 import { useState, useRef } from "react";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 import { UnoptImage } from "@/components/ui/unopt-image";
 import useSWR from "swr";
 import {
@@ -165,7 +166,26 @@ export default function BibliotecaForm({ initialData, isEditing = false }: Reado
   const programas = opciones?.programas ?? [];
 
   return (
-    <form onSubmit={handleSubmit} className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+    <>
+      {initialData?.duplicado_de_id && (
+        <div className="mb-6 flex items-start gap-3 rounded-xl border border-gold-200 bg-gold-50 p-4">
+          <BadgeInfo className="mt-0.5 h-5 w-5 flex-shrink-0 text-gold-600" />
+          <div className="text-sm">
+            <p className="font-bold text-gold-900">Este recurso está oculto como duplicado</p>
+            <p className="mt-1 text-gold-800">
+              Se conserva como copia del recurso canónico{" "}
+              <Link
+                href={`/admin/portal/biblioteca/${initialData.duplicado_de_id}/edit`}
+                className="font-bold underline hover:text-gold-950"
+              >
+                #{initialData.duplicado_de_id}
+              </Link>
+              . El público es redirigido automáticamente a ese registro; este formulario no puede reactivarlo por sí mismo.
+            </p>
+          </div>
+        </div>
+      )}
+      <form onSubmit={handleSubmit} className="grid grid-cols-1 lg:grid-cols-3 gap-8">
       <div className="lg:col-span-2 space-y-6">
         {/* Clasificación */}
         <div className="bg-white p-6 rounded-lg border border-border shadow-sm space-y-4">
@@ -440,6 +460,7 @@ export default function BibliotecaForm({ initialData, isEditing = false }: Reado
           </div>
         </div>
       </div>
-    </form>
+      </form>
+    </>
   );
 }

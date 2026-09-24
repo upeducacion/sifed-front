@@ -49,7 +49,7 @@ export interface Recurso {
   tipo: TipoRecurso;
   autores: string[];
   asesor?: string | null;
-  anio: number;
+  anio: number | null;
   palabras_clave: string[];
   idioma?: string | null;
   editorial?: string | null;
@@ -63,6 +63,7 @@ export interface Recurso {
   estado: "activo" | "borrador";
   orden: number;
   docente_id?: number | null;
+  duplicado_de_id?: number | null;
   categoria?: BibliotecaCategoria;
   docente?: RecursoDocente | null;
   recomendador_externo?: string | null;
@@ -120,8 +121,8 @@ export interface RepositorioStats {
   total_obras: number;
   total_autores: number;
   total_descargas: number;
-  anio_min: number;
-  anio_max: number;
+  anio_min: number | null;
+  anio_max: number | null;
 }
 
 export interface RepositorioPublicResponse {
@@ -146,6 +147,19 @@ function normalizarRecurso(recurso: Recurso): Recurso {
 export interface RepositorioDetailResponse {
   recurso: Recurso;
   relacionados: Recurso[];
+}
+
+/** El slug pedido es una copia duplicada: el frontend debe redirigir (308) al canónico. */
+export interface RepositorioRedirectResponse {
+  redirect: string;
+}
+
+export type RepositorioDetailResult = RepositorioDetailResponse | RepositorioRedirectResponse;
+
+export function esRedirectDeDuplicado(
+  resultado: RepositorioDetailResult
+): resultado is RepositorioRedirectResponse {
+  return "redirect" in resultado;
 }
 
 export interface RepositorioOpciones {
@@ -250,12 +264,19 @@ export const bibliotecaApi = {
   },
 
   /**
-   * Obtener el detalle público de un recurso por su slug.
+   * Obtener el detalle público de un recurso por su slug. Puede devolver
+   * `{ redirect: slug }` cuando el slug pedido es una copia duplicada de
+   * un recurso canónico activo — ver {@link esRedirectDeDuplicado}.
    */
-  getPublicBySlug: async (slug: string) => {
-    const response = await fetchPublic<RepositorioDetailResponse>(`portal/biblioteca/${slug}`, {
+  getPublicBySlug: async (slug: string): Promise<RepositorioDetailResult> => {
+    const response = await fetchPublic<RepositorioDetailResult>(`portal/biblioteca/${slug}`, {
       next: { tags: ["biblioteca", `biblioteca:${slug}`] },
     });
+
+    if (esRedirectDeDuplicado(response)) {
+      return response;
+    }
+
     return {
       recurso: normalizarRecurso(response.recurso),
       relacionados: response.relacionados.map(normalizarRecurso),
