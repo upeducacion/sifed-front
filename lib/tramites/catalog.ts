@@ -210,6 +210,7 @@ export function getAdjacentSteps(slug: ProcedureSlug) {
 export const documentSections = [
   { id: "requisitos", title: "Requisitos", description: "Lo que debes reunir antes de presentar tu solicitud.", match: "requisitos" },
   { id: "modelo", title: "Modelo de solicitud", description: "Formato que debes completar y presentar.", match: "modelo de solicitud" },
+  { id: "video", title: "Video tutorial", description: "Mira el paso a paso antes de iniciar tu trámite.", match: "video tutorial" },
   { id: "otros", title: "Otros documentos", description: "Guías y documentos de referencia.", match: null },
 ] as const;
 
@@ -220,7 +221,7 @@ export function sectionOf(subCategoria: string | null | undefined): DocumentSect
   return documentSections.find((section) => section.match !== null && section.match === normalized)?.id ?? "otros";
 }
 
-export const subCategoriaOptions = ["Requisitos", "Modelo de solicitud"] as const;
+export const subCategoriaOptions = ["Requisitos", "Modelo de solicitud", "Video tutorial"] as const;
 
 export type NavTransition = "nav-forward" | "nav-back";
 

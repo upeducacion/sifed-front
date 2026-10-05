@@ -329,7 +329,7 @@ export function DocumentoForm({ initialData }: DocumentoFormProps) {
           <input 
               name="archivo"
               type="file" 
-              accept=".pdf,.doc,.docx,.xls,.xlsx"
+              accept=".pdf,.doc,.docx,.xls,.xlsx,.mp4"
               required={!isEditing}
               className="absolute inset-0 opacity-0 cursor-pointer"
               onChange={handleFileChange}

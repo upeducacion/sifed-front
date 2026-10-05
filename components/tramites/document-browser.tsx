@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useTransition, ViewTransition, type CSSProperties } from "react";
-import { ChevronLeft, ChevronRight, Download, Eye, FileSpreadsheet, FileText, ListChecks, PenLine, Search, X } from "lucide-react";
+import { ChevronLeft, ChevronRight, Download, Eye, FileSpreadsheet, FileText, ListChecks, PenLine, PlayCircle, Search, X } from "lucide-react";
 import type { DocumentoNormativo } from "@/types/documento-normativo";
 import { getStorageUrl, cn } from "@/lib/utils";
 import { documentSections, sectionOf, type DocumentSectionId, type ProcedureSlug } from "@/lib/tramites/catalog";
@@ -12,6 +12,7 @@ const PREVIEW_PANE_QUERY = "(min-width: 80rem)";
 const sectionIcons: Record<DocumentSectionId, typeof FileText> = {
   requisitos: ListChecks,
   modelo: PenLine,
+  video: PlayCircle,
   otros: FileText,
 };
 
@@ -35,6 +36,8 @@ function PdfFrame({ src, title }: Readonly<{ src: string; title: string }>) {
   );
 }
 
+const isVideo = (doc: DocumentoNormativo) => doc.extension_archivo.toLowerCase() === "mp4";
+
 function DocumentPreview({ doc, onClose }: Readonly<{ doc: DocumentoNormativo | null; onClose: () => void }>) {
   if (!doc) {
     return (
@@ -53,8 +56,10 @@ function DocumentPreview({ doc, onClose }: Readonly<{ doc: DocumentoNormativo | 
         <h3 className="truncate text-sm font-bold">{doc.titulo}</h3>
         <button type="button" onClick={onClose} className="rounded-lg p-1.5 text-muted-foreground transition-colors hover:bg-white hover:text-brand-950" aria-label="Cerrar previsualización"><X className="h-4 w-4" /></button>
       </div>
-      <div className="h-[28rem] bg-neutral-100">
-        {doc.extension_archivo.toLowerCase() === "pdf"
+      <div className={cn("bg-neutral-100", isVideo(doc) ? "flex aspect-video items-center bg-black" : "h-[28rem]")}>
+        {isVideo(doc)
+          ? <video key={fileUrl} src={fileUrl} controls preload="metadata" className="h-full w-full" aria-label={doc.titulo} />
+          : doc.extension_archivo.toLowerCase() === "pdf"
           ? <PdfFrame src={fileUrl} title={`Vista previa de ${doc.titulo}`} />
           : (
             <div className="flex h-full flex-col items-center justify-center p-8 text-center">
@@ -65,7 +70,7 @@ function DocumentPreview({ doc, onClose }: Readonly<{ doc: DocumentoNormativo | 
           )}
       </div>
       <a href={fileUrl} target="_blank" rel="noopener noreferrer" className="m-4 inline-flex items-center justify-center gap-2 rounded-xl bg-brand-950 px-4 py-3 text-sm font-bold text-white transition hover:-translate-y-0.5 hover:bg-brand-800 active:translate-y-0">
-        <Download className="h-4 w-4" aria-hidden="true" /> Descargar documento
+        <Download className="h-4 w-4" aria-hidden="true" /> {isVideo(doc) ? "Descargar video" : "Descargar documento"}
       </a>
     </>
   );
