@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useTransition, ViewTransition, type CSSProperties } from "react";
+import { useEffect, useRef, useState, useTransition, ViewTransition, type CSSProperties } from "react";
 import { ChevronLeft, ChevronRight, Download, Eye, FileSpreadsheet, FileText, ListChecks, PenLine, PlayCircle, Search, X } from "lucide-react";
 import type { DocumentoNormativo } from "@/types/documento-normativo";
 import { getStorageUrl, cn } from "@/lib/utils";
@@ -36,11 +36,46 @@ function PdfFrame({ src, title }: Readonly<{ src: string; title: string }>) {
   );
 }
 
-const OFFICE_EXTENSIONS = ["doc", "docx", "xls", "xlsx"];
+function DocxViewer({ path, title }: Readonly<{ path: string; title: string }>) {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [status, setStatus] = useState<"loading" | "ready" | "error">("loading");
 
-function officeViewerUrl(fileUrl: string) {
-  if (!/^https:\/\/(?!localhost|127\.)/.test(fileUrl)) return null;
-  return `https://view.officeapps.live.com/op/embed.aspx?src=${encodeURIComponent(fileUrl)}`;
+  useEffect(() => {
+    let cancelled = false;
+    setStatus("loading");
+    (async () => {
+      try {
+        const response = await fetch(`/api/documentos/archivo?path=${encodeURIComponent(path)}`);
+        if (!response.ok) throw new Error(String(response.status));
+        const { renderAsync } = await import("docx-preview");
+        if (cancelled || !containerRef.current) return;
+        containerRef.current.replaceChildren();
+        await renderAsync(await response.blob(), containerRef.current, undefined, { inWrapper: false, ignoreWidth: true, ignoreHeight: true });
+        if (!cancelled) setStatus("ready");
+      } catch {
+        if (!cancelled) setStatus("error");
+      }
+    })();
+    return () => { cancelled = true; };
+  }, [path]);
+
+  if (status === "error") return <DownloadOnlyNotice label="Documento editable (DOCX)" />;
+  return (
+    <div className="relative h-full overflow-auto bg-white" aria-label={`Vista previa de ${title}`}>
+      {status === "loading" && <div className="absolute inset-0 animate-pulse bg-neutral-100" aria-hidden="true" />}
+      <div ref={containerRef} className="docx-preview-host p-4 text-sm" />
+    </div>
+  );
+}
+
+function DownloadOnlyNotice({ label }: Readonly<{ label: string }>) {
+  return (
+    <div className="flex h-full flex-col items-center justify-center p-8 text-center">
+      <FileSpreadsheet className="h-12 w-12 text-uncp-gold" aria-hidden="true" />
+      <p className="mt-4 font-bold">{label}</p>
+      <p className="mt-2 max-w-xs text-sm text-muted-foreground">Descárgalo, complétalo con tus datos y preséntalo en Mesa de Partes.</p>
+    </div>
+  );
 }
 
 const isVideo = (doc: DocumentoNormativo) => doc.extension_archivo.toLowerCase() === "mp4";
@@ -57,7 +92,6 @@ function DocumentPreview({ doc, onClose }: Readonly<{ doc: DocumentoNormativo | 
   }
 
   const fileUrl = getStorageUrl(doc.archivo_path);
-  const officeUrl = OFFICE_EXTENSIONS.includes(doc.extension_archivo.toLowerCase()) ? officeViewerUrl(fileUrl) : null;
   return (
     <>
       <div className="flex items-center justify-between gap-3 border-b border-border bg-brand-50/60 p-4">
@@ -69,8 +103,8 @@ function DocumentPreview({ doc, onClose }: Readonly<{ doc: DocumentoNormativo | 
           ? <video key={fileUrl} src={fileUrl} controls preload="metadata" className="h-full w-full" aria-label={doc.titulo} />
           : doc.extension_archivo.toLowerCase() === "pdf"
           ? <PdfFrame src={fileUrl} title={`Vista previa de ${doc.titulo}`} />
-          : officeUrl
-          ? <PdfFrame src={officeUrl} title={`Vista previa de ${doc.titulo}`} />
+          : doc.extension_archivo.toLowerCase() === "docx" && doc.archivo_path.startsWith("/storage/")
+          ? <DocxViewer path={doc.archivo_path} title={doc.titulo} />
           : (
             <div className="flex h-full flex-col items-center justify-center p-8 text-center">
               <FileSpreadsheet className="h-12 w-12 text-uncp-gold" aria-hidden="true" />
