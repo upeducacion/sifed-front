@@ -36,6 +36,13 @@ function PdfFrame({ src, title }: Readonly<{ src: string; title: string }>) {
   );
 }
 
+const OFFICE_EXTENSIONS = ["doc", "docx", "xls", "xlsx"];
+
+function officeViewerUrl(fileUrl: string) {
+  if (!/^https:\/\/(?!localhost|127\.)/.test(fileUrl)) return null;
+  return `https://view.officeapps.live.com/op/embed.aspx?src=${encodeURIComponent(fileUrl)}`;
+}
+
 const isVideo = (doc: DocumentoNormativo) => doc.extension_archivo.toLowerCase() === "mp4";
 
 function DocumentPreview({ doc, onClose }: Readonly<{ doc: DocumentoNormativo | null; onClose: () => void }>) {
@@ -50,6 +57,7 @@ function DocumentPreview({ doc, onClose }: Readonly<{ doc: DocumentoNormativo | 
   }
 
   const fileUrl = getStorageUrl(doc.archivo_path);
+  const officeUrl = OFFICE_EXTENSIONS.includes(doc.extension_archivo.toLowerCase()) ? officeViewerUrl(fileUrl) : null;
   return (
     <>
       <div className="flex items-center justify-between gap-3 border-b border-border bg-brand-50/60 p-4">
@@ -61,6 +69,8 @@ function DocumentPreview({ doc, onClose }: Readonly<{ doc: DocumentoNormativo | 
           ? <video key={fileUrl} src={fileUrl} controls preload="metadata" className="h-full w-full" aria-label={doc.titulo} />
           : doc.extension_archivo.toLowerCase() === "pdf"
           ? <PdfFrame src={fileUrl} title={`Vista previa de ${doc.titulo}`} />
+          : officeUrl
+          ? <PdfFrame src={officeUrl} title={`Vista previa de ${doc.titulo}`} />
           : (
             <div className="flex h-full flex-col items-center justify-center p-8 text-center">
               <FileSpreadsheet className="h-12 w-12 text-uncp-gold" aria-hidden="true" />
