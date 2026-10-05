@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState, useTransition, ViewTransition, type CSSProperties } from "react";
+import { useCallback, useEffect, useRef, useState, useTransition, ViewTransition, type CSSProperties } from "react";
 import { ChevronLeft, ChevronRight, Download, Eye, FileSpreadsheet, FileText, ListChecks, PenLine, PlayCircle, Search, X } from "lucide-react";
 import type { DocumentoNormativo } from "@/types/documento-normativo";
 import { getStorageUrl, cn } from "@/lib/utils";
@@ -37,8 +37,18 @@ function PdfFrame({ src, title }: Readonly<{ src: string; title: string }>) {
 }
 
 function DocxViewer({ path, title }: Readonly<{ path: string; title: string }>) {
+  const frameRef = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const [status, setStatus] = useState<"loading" | "ready" | "error">("loading");
+
+  const fitToWidth = useCallback(() => {
+    const frame = frameRef.current;
+    const wrapper = containerRef.current?.querySelector<HTMLElement>(".docx-wrapper");
+    if (!frame || !wrapper) return;
+    wrapper.style.zoom = "1";
+    const pageWidth = wrapper.scrollWidth;
+    if (pageWidth > 0) wrapper.style.zoom = String(Math.min(1, frame.clientWidth / pageWidth));
+  }, []);
 
   useEffect(() => {
     let cancelled = false;
@@ -50,20 +60,30 @@ function DocxViewer({ path, title }: Readonly<{ path: string; title: string }>) 
         const { renderAsync } = await import("docx-preview");
         if (cancelled || !containerRef.current) return;
         containerRef.current.replaceChildren();
-        await renderAsync(await response.blob(), containerRef.current, undefined, { inWrapper: false, ignoreWidth: true, ignoreHeight: true });
-        if (!cancelled) setStatus("ready");
+        await renderAsync(await response.blob(), containerRef.current, undefined, { inWrapper: true, breakPages: true, ignoreLastRenderedPageBreak: true });
+        if (cancelled) return;
+        fitToWidth();
+        setStatus("ready");
       } catch {
         if (!cancelled) setStatus("error");
       }
     })();
     return () => { cancelled = true; };
-  }, [path]);
+  }, [path, fitToWidth]);
+
+  useEffect(() => {
+    const frame = frameRef.current;
+    if (!frame) return;
+    const observer = new ResizeObserver(fitToWidth);
+    observer.observe(frame);
+    return () => observer.disconnect();
+  }, [fitToWidth]);
 
   if (status === "error") return <DownloadOnlyNotice label="Documento editable (DOCX)" />;
   return (
-    <div className="relative h-full overflow-auto bg-white" aria-label={`Vista previa de ${title}`}>
+    <div ref={frameRef} className="relative h-full overflow-auto bg-neutral-200" aria-label={`Vista previa de ${title}`}>
       {status === "loading" && <div className="absolute inset-0 animate-pulse bg-neutral-100" aria-hidden="true" />}
-      <div ref={containerRef} className="docx-preview-host p-4 text-sm" />
+      <div ref={containerRef} className="docx-preview-host" />
     </div>
   );
 }
