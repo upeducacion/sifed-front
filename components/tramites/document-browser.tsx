@@ -45,9 +45,14 @@ function DocxViewer({ path, title }: Readonly<{ path: string; title: string }>) 
     const frame = frameRef.current;
     const wrapper = containerRef.current?.querySelector<HTMLElement>(".docx-wrapper");
     if (!frame || !wrapper) return;
+    const page = wrapper.querySelector<HTMLElement>("section.docx");
+    if (!page) return;
     wrapper.style.zoom = "1";
-    const pageWidth = wrapper.scrollWidth;
-    if (pageWidth > 0) wrapper.style.zoom = String(Math.min(1, frame.clientWidth / pageWidth));
+    wrapper.style.boxSizing = "border-box";
+    wrapper.style.width = "";
+    const fullWidth = page.offsetWidth + DOCX_WRAPPER_PADDING;
+    wrapper.style.width = `${fullWidth}px`;
+    wrapper.style.zoom = String(Math.min(1, frame.clientWidth / fullWidth));
   }, []);
 
   useEffect(() => {
@@ -97,6 +102,8 @@ function DownloadOnlyNotice({ label }: Readonly<{ label: string }>) {
     </div>
   );
 }
+
+const DOCX_WRAPPER_PADDING = 60;
 
 const isVideo = (doc: DocumentoNormativo) => doc.extension_archivo.toLowerCase() === "mp4";
 
