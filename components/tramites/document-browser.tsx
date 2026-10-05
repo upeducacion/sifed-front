@@ -90,7 +90,7 @@ export default function DocumentBrowser({ slug, documentos, searchQuery }: Reado
   const visibleDocuments = sortedDocuments.slice(pageStart, pageStart + PAGE_SIZE);
 
   const selectDocument = (doc: DocumentoNormativo) => {
-    if (window.matchMedia(PREVIEW_PANE_QUERY).matches) {
+    if (isVideo(doc) || window.matchMedia(PREVIEW_PANE_QUERY).matches) {
       startTransition(() => setSelectedDocId(doc.id));
       return;
     }
@@ -118,6 +118,9 @@ export default function DocumentBrowser({ slug, documentos, searchQuery }: Reado
   return (
     <div className="grid gap-5 xl:grid-cols-[minmax(0,1fr)_minmax(20rem,0.9fr)] xl:gap-6">
       <section aria-label="Lista de documentos">
+        {selectedDoc && isVideo(selectedDoc) && (
+          <video key={selectedDoc.id} src={getStorageUrl(selectedDoc.archivo_path)} controls preload="metadata" aria-label={selectedDoc.titulo} className="mb-5 aspect-video w-full rounded-lg bg-black xl:hidden" />
+        )}
         <ViewTransition key={safeCurrentPage} enter="doc-page" exit="doc-page" default="none">
           <div className="space-y-3">
             {visibleDocuments.map((doc, index) => {
