@@ -1,6 +1,6 @@
 "use client";
 
-import { UnoptImage } from "@/components/ui/unopt-image";
+import { FitImage } from "@/components/ui/fit-image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { Noticia } from "@/types/noticia";
@@ -47,11 +47,10 @@ export default function EditorialCard({ noticia }: EditorialCardProps) {
         {/* IMAGEN DOMINANTE (80% DE LA VISTA) */}
         <div className="relative w-full h-[80vh] overflow-hidden bg-brand-50">
           {imageUrl ? (
-            <UnoptImage
+            <FitImage
               src={imageUrl}
               alt={noticia.titulo}
-              fill
-              className="object-cover transition-transform duration-1000 group-hover:scale-105"
+              className="transition-transform duration-1000 group-hover:scale-105"
             />
           ) : (
             <div className="w-full h-full flex items-center justify-center text-brand-200">

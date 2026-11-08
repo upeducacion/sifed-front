@@ -9,6 +9,7 @@ import FAQSection from "@/components/home/faq-section";
 import QuickAccessSection from "@/components/home/quick-access-section";
 import SocialHubSection from "@/components/home/social-hub-section";
 import NewsPopupModal from "@/components/home/news-popup-modal";
+import StatementBand from "@/components/home/statement-band";
 import { NoticiaService } from "@/lib/services/noticia-service";
 import { Noticia } from "@/types/noticia";
 
@@ -49,6 +50,8 @@ export default async function Home() {
       <EcosistemaSection />
       <ProgramSelectorSection />
       <QuickAccessSection />
+
+      <StatementBand />
 
       <InfoSection />
     </>

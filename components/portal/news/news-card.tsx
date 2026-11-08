@@ -2,7 +2,7 @@
 
 import { Noticia } from '@/types/noticia';
 import { Calendar, ImageIcon } from 'lucide-react';
-import { UnoptImage } from "@/components/ui/unopt-image";
+import { FitImage } from "@/components/ui/fit-image";
 import Link from 'next/link';
 import { cn, getStorageUrl } from '@/lib/utils';
 
@@ -30,11 +30,10 @@ export function NewsCard({ noticia, className, featured = false }: NewsCardProps
         {/* Layer 1: Image */}
         <div className="absolute inset-0 z-0">
           {hasImage ? (
-            <UnoptImage
+            <FitImage
               src={getStorageUrl(noticia.imagen_url!)}
               alt={noticia.titulo}
-              fill
-              className="object-cover object-center transition-all duration-300 ease-out brightness-[0.85] group-hover:scale-[1.03] group-hover:brightness-100"
+              className="transition-all duration-300 ease-out brightness-[0.85] group-hover:scale-[1.03] group-hover:brightness-100"
               sizes={featured ? "(max-width: 768px) 100vw, 50vw" : "(max-width: 768px) 100vw, 25vw"}
             />          ) : (
             <div className="h-full w-full bg-neutral-800 flex items-center justify-center relative overflow-hidden">

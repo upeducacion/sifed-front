@@ -1,5 +1,5 @@
 import { NoticiaService } from '@/lib/services/noticia-service';
-import { UnoptImage } from "@/components/ui/unopt-image";
+import { FitImage } from "@/components/ui/fit-image";
 import { Calendar, Clock, ChevronLeft, ChevronRight } from 'lucide-react';
 import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
@@ -130,11 +130,9 @@ export default async function NoticiaDetallePage({ params }: PageProps) {
       <div className="page-shell-wide mb-16">
         <div className="relative aspect-video w-full overflow-hidden rounded-lg rounded-lg bg-neutral-900 shadow-2xl ring-1 ring-black/5">
           {noticia.imagen_url ? (
-            <UnoptImage
+            <FitImage
               src={noticia.imagen_url}
               alt={noticia.titulo}
-              fill
-              className="object-contain md:object-cover"
               priority
             />
           ) : (

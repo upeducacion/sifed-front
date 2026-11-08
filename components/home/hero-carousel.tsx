@@ -102,24 +102,40 @@ export default function HeroCarousel({ slides }: HeroCarouselProps) {
         <div className="flex h-full w-full touch-pan-y">
           {slides.map((s, idx) => (
             <div className="flex-[0_0_100%] min-w-0 relative h-full" key={s.id}>
+              {/* Fondo: la misma imagen muy desenfocada. Las portadas suelen ser afiches con
+                  texto, así que nunca se muestran recortadas detrás del título. */}
               <UnoptImage
-                src={s.src} alt={s.alt} fill
-                quality={85}
-                sizes="100vw"
+                src={s.src} alt="" aria-hidden fill
+                quality={50}
+                sizes="50vw"
                 className={cn(
-                  "object-cover object-center transition-transform duration-[9000ms] ease-linear",
-                  idx === selectedIndex ? "scale-[1.08]" : "scale-100"
+                  "object-cover object-center blur-2xl opacity-60 transition-transform duration-[9000ms] ease-linear",
+                  idx === selectedIndex ? "scale-[1.18]" : "scale-110"
                 )}
                 priority={idx === 0}
               />
+              {/* Afiche completo a la derecha (desktop) */}
+              <div className="absolute inset-y-[9%] right-[5%] hidden w-[42%] lg:block">
+                <UnoptImage
+                  src={s.src} alt={s.alt} fill
+                  quality={85}
+                  sizes="45vw"
+                  className={cn(
+                    "object-contain object-center drop-shadow-2xl transition-transform duration-[9000ms] ease-linear",
+                    idx === selectedIndex ? "scale-[1.03]" : "scale-100"
+                  )}
+                  priority={idx === 0}
+                />
+              </div>
             </div>
           ))}
         </div>
       </div>
 
       {/* Overlays */}
-      <div aria-hidden="true" className="absolute inset-0 z-[1] bg-gradient-to-r from-brand-950/98 via-brand-950/80 to-brand-950/40 pointer-events-none" />
-      <div aria-hidden="true" className="absolute inset-x-0 bottom-0 z-[1] h-48 bg-gradient-to-t from-brand-950/90 to-transparent pointer-events-none" />
+      {/* Móvil: velo uniforme. Desktop: solo oscurece la mitad del texto y deja el afiche nítido */}
+      <div aria-hidden="true" className="absolute inset-0 z-[1] bg-brand-950/75 lg:bg-transparent lg:bg-gradient-to-r lg:from-brand-950/95 lg:via-brand-950/70 lg:via-40% lg:to-transparent lg:to-55% pointer-events-none" />
+      <div aria-hidden="true" className="absolute inset-x-0 bottom-0 z-[1] h-32 bg-gradient-to-t from-brand-950/90 to-transparent pointer-events-none" />
 
       {/* Orbes decorativos animados */}
       <div aria-hidden="true" className="absolute top-1/4 right-[20%] z-[1] w-[28rem] h-[28rem] rounded-full bg-brand-600/10 blur-[100px] animate-pulse pointer-events-none" />
@@ -135,7 +151,7 @@ export default function HeroCarousel({ slides }: HeroCarouselProps) {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -20 }}
           transition={{ duration: 0.7, ease: "easeOut" }}
-          className="absolute right-6 bottom-16 z-[2] font-serif font-black select-none pointer-events-none text-white/[0.06] leading-none"
+          className="absolute right-6 bottom-16 z-[2] font-serif font-black select-none pointer-events-none text-white/[0.06] leading-none lg:hidden"
           style={{ fontSize: "clamp(8rem, 20vw, 18rem)" }}
         >
           {String(selectedIndex + 1).padStart(2, "0")}
@@ -150,7 +166,7 @@ export default function HeroCarousel({ slides }: HeroCarouselProps) {
           <AnimatePresence mode="wait">
             <motion.div
               key={`text-${selectedIndex}`}
-              className="flex-1 max-w-4xl pointer-events-auto"
+              className="flex-1 max-w-4xl lg:max-w-[48%] pointer-events-auto"
               initial="hidden"
               animate="visible"
               exit="exit"
@@ -165,7 +181,7 @@ export default function HeroCarousel({ slides }: HeroCarouselProps) {
               )}
 
               {/* Título */}
-              <h1 className="font-serif text-5xl md:text-6xl xl:text-7xl 2xl:text-[5.5rem] font-black leading-[1.05] text-white tracking-tighter mb-5 drop-shadow-xl">
+              <h1 className="font-serif text-4xl md:text-5xl xl:text-6xl [@media(max-height:820px)]:xl:text-5xl 2xl:text-7xl font-black leading-[1.05] text-white tracking-tighter mb-5 drop-shadow-xl">
                 {slide.title.split(" ").map((word, i) => (
                   <motion.span
                     key={`${selectedIndex}-w${i}`}
@@ -232,24 +248,17 @@ export default function HeroCarousel({ slides }: HeroCarouselProps) {
                   <ArrowRight aria-hidden="true" className="h-4 w-4 shrink-0 transition-transform group-hover/btn:translate-x-1" strokeWidth={2.5} />
                 </Link>
               </motion.div>
-            </motion.div>
-          </AnimatePresence>
 
-          {/* —— Stats (derecha, desktop) —— */}
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={`stats-${selectedIndex}`}
-              className="hidden xl:flex flex-col gap-4 shrink-0 w-64 pointer-events-auto"
-              initial="hidden" animate="visible" exit="exit"
-            >
+              {/* —— Stats (fila bajo los botones; la derecha la ocupa el afiche) —— */}
+              <div className="mt-8 hidden flex-wrap gap-3 md:flex [@media(max-height:820px)]:mt-5">
               {slide.stats.map((stat, i) => {
                 const IconComponent = ICON_MAP[stat.iconName] || BookOpen;
                 return (
                   <motion.div
                     key={stat.label}
                     variants={statsCard}
-                    custom={0.35 + i * 0.12}
-                    className="flex items-center gap-3 bg-white/10 backdrop-blur-md border border-white/20 rounded-lg px-4 py-3.5 hover:bg-white/15 hover:border-white/30 transition-all"
+                    custom={0.75 + i * 0.12}
+                    className="flex items-center gap-3 bg-white/10 backdrop-blur-md border border-white/20 rounded-lg px-4 py-3 hover:bg-white/15 hover:border-white/30 transition-all"
                   >
                     <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-brand-600/40 border border-brand-500/40">
                       <IconComponent aria-hidden="true" className="h-4 w-4 text-white" strokeWidth={2} />
@@ -261,6 +270,7 @@ export default function HeroCarousel({ slides }: HeroCarouselProps) {
                   </motion.div>
                 );
               })}
+              </div>
             </motion.div>
           </AnimatePresence>
 

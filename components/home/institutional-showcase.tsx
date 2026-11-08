@@ -1,5 +1,5 @@
 import { galeriasApi, Galeria } from "@/lib/api/galerias";
-import MarqueeRow from "./marquee-row";
+import OrbitGallery from "./orbit-gallery";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
@@ -39,10 +39,10 @@ export default async function InstitutionalShowcase() {
   
   if (allAvailable.length === 0) return null;
 
-  // Distribuimos las fotos (máx 40) en las 3 filas
-  const row1 = allAvailable.filter((_, i) => i % 3 === 0);
-  const row2 = allAvailable.filter((_, i) => i % 3 === 1);
-  const row3 = allAvailable.filter((_, i) => i % 3 === 2);
+  // Alternamos categorías para que la rueda no agrupe fotos del mismo álbum
+  const groups = [sust, inv, eve, inst];
+  const interleaved = Array.from({ length: Math.max(...groups.map((g) => g.length)) })
+    .flatMap((_, i) => groups.map((g) => g[i]).filter(Boolean));
 
   return (
     <section className="w-full bg-black py-20 overflow-hidden border-y border-white/5">
@@ -58,11 +58,7 @@ export default async function InstitutionalShowcase() {
         </Link>
       </div>
 
-      <div className="page-shell-wide flex flex-col gap-3 md:gap-4">
-        {row1.length > 0 && <MarqueeRow images={row1} direction="left" speed={60} label="Academia" />}
-        {row2.length > 0 && <MarqueeRow images={row2} direction="right" speed={80} label="Investigación" />}
-        {row3.length > 0 && <MarqueeRow images={row3} direction="left" speed={70} label="Vida Universitaria" />}
-      </div>
+      <OrbitGallery photos={interleaved.map(({ url, title }) => ({ url, title }))} />
     </section>
   );
 }

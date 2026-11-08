@@ -16,6 +16,10 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: 'https',
+        hostname: 'i.ytimg.com', // Miniaturas de YouTube
+      },
+      {
+        protocol: 'https',
         hostname: 'api.upeducacion-uncp.edu.pe', // Backend producción
       },
       {

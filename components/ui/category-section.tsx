@@ -17,14 +17,16 @@ interface CategorySectionProps {
     border: string;
   };
   isReversed?: boolean;
+  etiqueta?: string;
 }
 
-export default function CategorySection({ 
-  titulo, 
-  descripcion, 
-  noticias, 
+export default function CategorySection({
+  titulo,
+  descripcion,
+  noticias,
   colorScheme,
-  isReversed = false 
+  isReversed = false,
+  etiqueta = "Sección Editorial"
 }: CategorySectionProps) {
   if (noticias.length === 0) return null;
 
@@ -48,7 +50,7 @@ export default function CategorySection({
         >
           <div className="space-y-4">
             <span className={cn("text-[10px] font-black uppercase tracking-[0.4em]", colorScheme.accent)}>
-              Sección Editorial
+              {etiqueta}
             </span>
             <h2 className="font-serif text-4xl font-black leading-none tracking-tighter text-brand-950 sm:text-5xl xl:text-7xl">
               {titulo}
