@@ -2,6 +2,9 @@ import { NoticiaService } from '@/lib/services/noticia-service';
 import { NewsCard } from './news-card';
 import { ArrowRight, Calendar, ChevronRight } from 'lucide-react';
 import { getStorageUrl } from '@/lib/utils';
+import { separarComunicados } from '@/lib/noticias';
+import { ComunicadosPanel } from './comunicados-panel';
+import ScrubReveal from '@/components/ui/scrub-reveal';
 import { UnoptImage } from "@/components/ui/unopt-image";
 import Link from 'next/link';
 
@@ -19,14 +22,21 @@ export async function NewsCollage() {
 
   if (!news || news.length === 0) return null;
 
+  // Los comunicados van fijos arriba; el collage solo muestra las eventuales
+  const { permanentes, temporales, eventuales } = separarComunicados(news);
+
   // Separar: 1 Principal (Hero) y 3 Secundarias (Lista)
-  const heroNews = news[0];
-  const listNews = news.slice(1, 4);
+  const heroNews = eventuales[0];
+  const listNews = eventuales.slice(1, 4);
 
   return (
     <section className="container-query-name w-full bg-white px-4 py-14 sm:py-20 md:px-8">
       <div className="page-shell-wide">
-        
+
+        {/* COMUNICADOS: PERMANENTES + TEMPORALES */}
+        <ComunicadosPanel permanentes={permanentes} temporales={temporales} />
+
+        {heroNews && (<>
         {/* Header de Sección */}
         <div className="mb-8 flex items-end justify-between border-b border-border pb-5 sm:mb-10 sm:pb-6">
           <div>
@@ -49,13 +59,13 @@ export async function NewsCollage() {
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-12 lg:gap-12">
           
           {/* 1. HERO PRINCIPAL (Columna Izquierda - 7/12) */}
-          <div className="h-[min(112vw,32rem)] min-h-[24rem] lg:col-span-7 lg:h-[600px]">
-            <NewsCard 
-              noticia={heroNews} 
-              featured={true} 
+          <ScrubReveal className="h-[min(112vw,32rem)] min-h-[24rem] lg:col-span-7 lg:h-[600px]">
+            <NewsCard
+              noticia={heroNews}
+              featured={true}
               className="h-full shadow-xl hover:shadow-2xl transition-shadow duration-500 rounded-lg"
             />
-          </div>
+          </ScrubReveal>
 
           {/* 2. LISTA LATERAL (Columna Derecha - 5/12) */}
           <div className="lg:col-span-5 flex flex-col justify-between h-full">
@@ -110,8 +120,9 @@ export async function NewsCollage() {
               </Link>
             </div>
           </div>
-          
+
         </div>
+        </>)}
       </div>
     </section>
   );

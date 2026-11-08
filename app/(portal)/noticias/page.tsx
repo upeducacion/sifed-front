@@ -3,6 +3,12 @@ import CategorySection from "@/components/ui/category-section";
 import PageHero from "@/components/ui/page-hero";
 import { Metadata } from "next";
 import { NoticiaCategoria } from "@/types/noticia-categoria";
+import { tipoComunicadoDeCategoria } from "@/lib/noticias";
+
+const ETIQUETAS_COMUNICADO: Record<string, string | undefined> = {
+  permanente: "Información Importante",
+  temporal: "Avisos Vigentes",
+};
 
 export const metadata: Metadata = {
   title: "Noticias | Facultad de Educación UNCP",
@@ -42,6 +48,12 @@ export default async function NoticiasPage() {
   
   try {
     categorias = await NoticiaService.getCategoriesWithNews();
+    // Los comunicados encabezan la página: primero permanentes, luego temporales
+    const prioridad = (cat: NoticiaCategoria) => {
+      const tipo = tipoComunicadoDeCategoria(cat);
+      return tipo === "permanente" ? 0 : tipo === "temporal" ? 1 : 2;
+    };
+    categorias = [...categorias].sort((a, b) => prioridad(a) - prioridad(b));
   } catch (error) {
     console.error("Error fetching categorias with news:", error);
   }
@@ -66,6 +78,7 @@ export default async function NoticiasPage() {
               titulo={cat.nombre}
               noticias={cat.noticias || []}
               descripcion={cat.descripcion || ""}
+              etiqueta={ETIQUETAS_COMUNICADO[tipoComunicadoDeCategoria(cat) ?? ""]}
               isReversed={index % 2 !== 0}
               colorScheme={VISUAL_STYLES[cat.estilo_visual] || VISUAL_STYLES.green}
             />

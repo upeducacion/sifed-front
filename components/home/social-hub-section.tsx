@@ -1,9 +1,11 @@
-"use client";
-
 import { Facebook, Youtube, MonitorPlay, ArrowUpRight, MessageSquare } from "lucide-react";
 import { EXTERNAL_LINKS } from "@/lib/constants";
+import { getUltimosVideos } from "@/lib/youtube";
+import YoutubeThumbs from "./youtube-thumbs";
 
-export default function SocialHubSection() {
+export default async function SocialHubSection() {
+  const videos = await getUltimosVideos(EXTERNAL_LINKS.YOUTUBE_CHANNEL_ID, 6);
+
   return (
     <section className="w-full overflow-hidden border-b border-border bg-white py-16">
       <div className="page-shell-wide">
@@ -76,50 +78,36 @@ export default function SocialHubSection() {
             </div>
           </div>
 
-          {/* COLUMNA DERECHA: VISUALIZACIÓN DUAL (8 COLUMNAS) */}
-          <div className="lg:col-span-8 h-full w-full">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 h-full w-full">
-              
-              {/* FACEBOOK FEED VERTICAL */}
-              <div className="flex flex-col gap-3 w-full">
-                <div className="flex items-center gap-2 px-1 text-text-tertiary">
-                  <Facebook className="h-3 w-3" />
-                  <span className="text-[9px] font-black uppercase tracking-[0.2em]">Facebook Feed</span>
-                </div>
-                <div className="relative w-full h-[600px] rounded-lg border-4 border-border-subtle shadow-2xl bg-white">
-                  <iframe 
-                    src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FUPG.UNCP.Educacion&tabs=timeline&width=500&height=600&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=false&appId"
-                    width="100%"
-                    height="100%"
-                    style={{ border: 'none', overflow: 'hidden' }}
-                    scrolling="no"
-                    frameBorder="0"
-                    allowFullScreen={true}
-                    allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
-                    className="rounded-lg"
-                  ></iframe>
-                </div>
+          {/* COLUMNA DERECHA: ÚLTIMOS VIDEOS DE YOUTUBE (8 COLUMNAS) */}
+          <div className="lg:col-span-8 w-full">
+            <div className="mb-4 flex items-center justify-between gap-4 px-1">
+              <div className="flex items-center gap-2 text-text-tertiary">
+                <Youtube className="h-3 w-3" />
+                <span className="text-[9px] font-black uppercase tracking-[0.2em]">YouTube Reciente</span>
               </div>
-
-              {/* YOUTUBE: ÚLTIMO CONTENIDO */}
-              <div className="flex flex-col gap-3 w-full">
-                <div className="flex items-center gap-2 px-1 text-text-tertiary">
-                  <Youtube className="h-3 w-3" />
-                  <span className="text-[9px] font-black uppercase tracking-[0.2em]">YouTube Reciente</span>
-                </div>
-                <div className="relative w-full h-[600px] rounded-lg overflow-hidden border-4 border-border-subtle shadow-2xl bg-brand-950">
-                  <iframe 
-                    src="https://www.youtube.com/embed/videoseries?list=UUFhOPsvkFgLYA1sOGl9kmyQ"
-                    title="YouTube Video"
-                    frameBorder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                    className="absolute inset-0 w-full h-full"
-                  ></iframe>
-                </div>
-              </div>
-
+              <a
+                href={EXTERNAL_LINKS.YOUTUBE}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-center gap-1 text-xs font-bold text-brand-600 hover:text-brand-800 transition-colors"
+              >
+                Ver canal <ArrowUpRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              </a>
             </div>
+
+            {videos.length > 0 ? (
+              <YoutubeThumbs videos={videos} />
+            ) : (
+              <div className="relative aspect-video w-full overflow-hidden rounded-lg border border-border-subtle bg-brand-950">
+                <iframe
+                  src="https://www.youtube.com/embed/videoseries?list=UUFhOPsvkFgLYA1sOGl9kmyQ"
+                  title="Videos recientes de YouTube"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  className="absolute inset-0 h-full w-full"
+                />
+              </div>
+            )}
           </div>
 
         </div>
