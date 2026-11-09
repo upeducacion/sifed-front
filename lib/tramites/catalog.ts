@@ -1,6 +1,7 @@
 import type { ComponentType } from "react";
 import {
   BadgeCheck,
+  CalendarCheck,
   CalendarClock,
   CalendarPlus,
   ClipboardList,
@@ -64,6 +65,13 @@ export interface Procedure {
 }
 
 export const procedures = [
+  {
+    slug: "matricula-semestre",
+    title: "Matrícula de ingresantes y regulares",
+    description: "Pagos, pasos y cronograma de matrícula y pensión para ingresantes y alumnos regulares.",
+    group: "matricula",
+    icon: CalendarCheck,
+  },
   {
     slug: "reserva-matricula",
     title: "Reserva de matrícula",
